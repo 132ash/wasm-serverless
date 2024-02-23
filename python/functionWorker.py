@@ -1,7 +1,10 @@
 import os
 import signal
 import sys
+import logging
 from variables import *
+from gevent import event
+from gevent.lock import BoundedSemaphore
 
 
 workerPath = "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/worker"
@@ -15,6 +18,7 @@ class FunctionWorker:
         self.wasmCodePath = wasmCodePath
         self.in_fd = 0
         self.out_fd = 1
+        
     def startWorker(self):
         print("loaded data at {}.".format(self.wasmCodePath))
         p1 = os.pipe()
