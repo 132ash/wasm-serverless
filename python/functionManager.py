@@ -4,23 +4,21 @@ import time
 from functionWorker import FunctionWorker
 from function import Function, FunctionInfo, RequestInfo
 
-dispatch_interval = 0.5
+dispatch_interval = 0.005
+repack_clean_interval = 5.000
 
 class FunctionManager:
     def __init__(self):
         self.functions = {}
+        gevent.spawn_later(repack_clean_interval, self._clean_loop)
         gevent.spawn_later(dispatch_interval, self._dispatch_loop)
 
-    def createFunction(self, funcName, wasmCodePath, maxWorkers=10):
-        info = FunctionInfo(funcName, wasmCodePath, maxWorkers)
+    def createFunction(self, funcName, wasmCodePath, maxWorkers=10, expireTime=600):
+        info = FunctionInfo(funcName, wasmCodePath, maxWorkers, expireTime)
         function = Function(info)
-        # worker = FunctionWorker(funcName, wasmCodePath)
-        # worker.startWorker()
         self.functions[funcName] = function
 
     def runFunction(self, funcName, data:list):
-        # worker = self.functions[functionName]
-        # res = worker.run(argc, argv)
         if funcName not in self.functions:
             raise Exception("No such function!")
         res = self.functions[funcName].sendRequest(data)
@@ -30,29 +28,15 @@ class FunctionManager:
         self.functions.pop(funcName)
 
     def _dispatch_loop(self):
-        print("[manager] new dispatch loop.")
+        # print("[manager] new dispatch loop.")
         gevent.spawn_later(dispatch_interval, self._dispatch_loop)
         for name, function in self.functions.items():
-            print("[manager] dispatch function {}'s request.".format(name))
+            # print("[manager] dispatch function {}'s request.".format(name))
             gevent.spawn(function.dispatchRequest)
 
-
-def sendReq(funcName, manager:FunctionManager, data):
-    print("new request. data:{}".format(data))
-    res = manager.runFunction(funcName, data)
-    print("[client] get function res:{}, type:{}".format(res, type(res)))
-    print("send over.\n")
-
-
-if __name__ == "__main__":
-    funcName = "funcTest"
-    wasmCodePath = "/test.wasm"
-    maxWorkers = 10
-    manager = FunctionManager()
-    data = [1,2]
-
-    manager.createFunction(funcName, wasmCodePath, maxWorkers)
-
-    while(True):
-        sendReq(funcName, manager, data)
-        time.sleep(1)
+    def _clean_loop(self):
+        # print("[manager] new clean loop.")
+        gevent.spawn_later(repack_clean_interval, self._clean_loop)
+        for name, function in self.functions.items():
+            # print("[manager] cleaning function {}'s workers.".format(name))
+            gevent.spawn(function.cleanWorker)

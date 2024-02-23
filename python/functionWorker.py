@@ -2,6 +2,7 @@ import os
 import signal
 import sys
 import logging
+import time
 from variables import *
 from gevent import event
 from gevent.lock import BoundedSemaphore
@@ -18,9 +19,11 @@ class FunctionWorker:
         self.wasmCodePath = wasmCodePath
         self.in_fd = 0
         self.out_fd = 1
+        self.lastTriggeredTime = 0
         
     def startWorker(self):
         print("loaded data at {}.".format(self.wasmCodePath))
+        self.lastTriggeredTime = time.time()
         p1 = os.pipe()
         p2 = os.pipe()
         self.workerPid = os.fork()
@@ -40,11 +43,11 @@ class FunctionWorker:
             os.execvp(workerPath, [workerPath])
             print("error occured.")
             exit()
-    def run(self, argc, argv):
+    def run(self,param):
         res = 0
-        print("run function {}. argc: {}, argv:{}".format(self.funcName, argc, argv))
-        parameters = str(argc) + " " + ' '.join(map(str, argv)) + '\n'
-        os.write(self.in_fd, parameters.encode()) 
+        self.lastTriggeredTime = time.time()
+        # print("run function {}. param:{}".format(self.funcName, param))
+        os.write(self.in_fd, param.encode()) 
         res = os.read(self.out_fd, sys.getsizeof(res))
         return res
     def __del__(self):

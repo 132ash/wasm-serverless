@@ -1,0 +1,48 @@
+"filename", "language", "C++", "WebAssembly Text Format", "CMake", "Python", "Markdown", "JSON", "TypeScript", "YAML", "Makefile", "C", "CMake Cache", "comment", "blank", "total"
+"/home/ash/wasm/wasm-serverless/README.md", "Markdown", 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 3
+"/home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp", "C++", 138, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 92, 53, 283
+"/home/ash/wasm/wasm-serverless/cpp_example/include/base64.h", "C++", 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 36
+"/home/ash/wasm/wasm-serverless/cpp_example/include/functionConfig.hpp", "C++", 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 56
+"/home/ash/wasm/wasm-serverless/cpp_example/include/httplib.h", "C++", 6856, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 252, 1324, 8432
+"/home/ash/wasm/wasm-serverless/cpp_example/include/json.hpp", "C++", 17322, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4309, 2966, 24597
+"/home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp", "C++", 82, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 14, 131
+"/home/ash/wasm/wasm-serverless/cpp_example/include/utils.hpp", "C++", 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 15, 62
+"/home/ash/wasm/wasm-serverless/cpp_example/testWorker.cpp", "C++", 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 37
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeCache.txt", "CMake Cache", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 365, 0, 81, 446
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/3.29.0-rc1/CMakeASMCompiler.cmake", "CMake", 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 29
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/3.29.0-rc1/CMakeCCompiler.cmake", "CMake", 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 81
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/3.29.0-rc1/CMakeCXXCompiler.cmake", "CMake", 0, 0, 72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 92
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/3.29.0-rc1/CMakeSystem.cmake", "CMake", 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 16
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/3.29.0-rc1/CompilerIdC/CMakeCCompilerId.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 682, 0, 61, 153, 896
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/3.29.0-rc1/CompilerIdCXX/CMakeCXXCompilerId.cpp", "C++", 667, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62, 150, 879
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeConfigureLog.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 625, 0, 0, 0, 4, 33, 662
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeDirectoryInformation.cmake", "CMake", 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 17
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/Makefile.cmake", "CMake", 0, 0, 147, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 153
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/vmlib.dir/DependInfo.cmake", "CMake", 0, 0, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 111
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/vmlib.dir/cmake_clean.cmake", "CMake", 0, 0, 93, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 95
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/vmlib.dir/cmake_clean_target.cmake", "CMake", 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/vmlib.dir/compiler_depend.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 3
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/worker.dir/DependInfo.cmake", "CMake", 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 26
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/worker.dir/cmake_clean.cmake", "CMake", 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 16
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/worker.dir/compiler_depend.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 3
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/Makefile", "Makefile", 0, 0, 0, 0, 0, 0, 0, 0, 892, 0, 0, 185, 316, 1393
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/cmake_install.cmake", "CMake", 0, 0, 46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 55
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 1, 9
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/main.cpp", "C++", 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 7, 35
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/native.hpp", "C++", 70, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 9, 82
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/wasmFunctions/sum.wasm", "WebAssembly Text Format", 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/cpp_example/worker/worker.hpp", "C++", 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 14, 81
+"/home/ash/wasm/wasm-serverless/python/.VSCodeCounter/2024-02-23_00-10-33/details.md", "Markdown", 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 6, 23
+"/home/ash/wasm/wasm-serverless/python/.VSCodeCounter/2024-02-23_00-10-33/diff-details.md", "Markdown", 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 6, 15
+"/home/ash/wasm/wasm-serverless/python/.VSCodeCounter/2024-02-23_00-10-33/diff.md", "Markdown", 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 7, 19
+"/home/ash/wasm/wasm-serverless/python/.VSCodeCounter/2024-02-23_00-10-33/results.json", "JSON", 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/.VSCodeCounter/2024-02-23_00-10-33/results.md", "Markdown", 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 7, 25
+"/home/ash/wasm/wasm-serverless/python/function.py", "Python", 0, 0, 0, 106, 0, 0, 0, 0, 0, 0, 0, 32, 29, 167
+"/home/ash/wasm/wasm-serverless/python/functionManager.py", "Python", 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 4, 9, 43
+"/home/ash/wasm/wasm-serverless/python/functionWorker.py", "Python", 0, 0, 0, 53, 0, 0, 0, 0, 0, 0, 0, 1, 7, 61
+"/home/ash/wasm/wasm-serverless/python/proxy.py", "Python", 0, 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 2, 9, 68
+"/home/ash/wasm/wasm-serverless/python/test/httpTest.py", "Python", 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 9, 38
+"/home/ash/wasm/wasm-serverless/python/test/test.py", "Python", 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 7, 28
+"/home/ash/wasm/wasm-serverless/python/variables.py", "Python", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/sum.wasm", "WebAssembly Text Format", 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"Total", "-", 25354, 4, 603, 297, 58, 1, 4, 625, 892, 690, 365, 5069, 5352, 39314

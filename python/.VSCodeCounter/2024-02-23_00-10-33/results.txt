@@ -1,0 +1,36 @@
+Date : 2024-02-23 00:10:33
+Directory : /home/ash/wasm/wasm-serverless/python
+Total : 8 files,  299 codes, 39 comments, 70 blanks, all 408 lines
+
+Languages
++-------------------------+------------+------------+------------+------------+------------+
+| language                | files      | code       | comment    | blank      | total      |
++-------------------------+------------+------------+------------+------------+------------+
+| Python                  |          7 |        297 |         39 |         70 |        406 |
+| WebAssembly Text Format |          1 |          2 |          0 |          0 |          2 |
++-------------------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                         | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                            |          8 |        299 |         39 |         70 |        408 |
+| . (Files)                                                    |          5 |        247 |         39 |         54 |        340 |
+| test                                                         |          2 |         50 |          0 |         16 |         66 |
+| wasmFunctions                                                |          1 |          2 |          0 |          0 |          2 |
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------+-------------------------+------------+------------+------------+------------+
+| filename                                                     | language                | code       | comment    | blank      | total      |
++--------------------------------------------------------------+-------------------------+------------+------------+------------+------------+
+| /home/ash/wasm/wasm-serverless/python/function.py            | Python                  |        106 |         32 |         29 |        167 |
+| /home/ash/wasm/wasm-serverless/python/functionManager.py     | Python                  |         30 |          4 |          9 |         43 |
+| /home/ash/wasm/wasm-serverless/python/functionWorker.py      | Python                  |         53 |          1 |          7 |         61 |
+| /home/ash/wasm/wasm-serverless/python/proxy.py               | Python                  |         57 |          2 |          9 |         68 |
+| /home/ash/wasm/wasm-serverless/python/test/httpTest.py       | Python                  |         29 |          0 |          9 |         38 |
+| /home/ash/wasm/wasm-serverless/python/test/test.py           | Python                  |         21 |          0 |          7 |         28 |
+| /home/ash/wasm/wasm-serverless/python/variables.py           | Python                  |          1 |          0 |          0 |          1 |
+| /home/ash/wasm/wasm-serverless/python/wasmFunctions/sum.wasm | WebAssembly Text Format |          2 |          0 |          0 |          2 |
+| Total                                                        |                         |        299 |         39 |         70 |        408 |
++--------------------------------------------------------------+-------------------------+------------+------------+------------+------------+

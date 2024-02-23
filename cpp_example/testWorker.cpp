@@ -27,7 +27,7 @@ int main() {
             sum += argv[i];
         }
         argv[0] = sum;
-        // std::cout << sum << std::endl;
+        std::cout << "inside c++: " << sum << std::endl;
         sum = 0;
         int bytes = snprintf(buffer, sizeof(buffer), "%d\n", argv[0]);
         write(PIPE_WRITE_FD, buffer, bytes);
