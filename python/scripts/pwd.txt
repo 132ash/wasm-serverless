@@ -1,0 +1,2 @@
+Erlang magic cookie value: ash020620
+admin pwd: ash020620

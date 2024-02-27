@@ -7,8 +7,13 @@ from variables import *
 from gevent import event
 from gevent.lock import BoundedSemaphore
 
+sys.path.append('./config')
+import config
 
-workerPath = "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/worker"
+
+
+workerPath = config.WORKERPATH
+PIPE_WRITE_FD = config.PIPE_WRITE_FD
 
 class FunctionWorker:
     def __init__(self, funcName, wasmCodePath):

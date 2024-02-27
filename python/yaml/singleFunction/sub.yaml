@@ -1,0 +1,14 @@
+name: sub
+input:
+  - name: sub1
+    type: int
+  - name: sub2
+    type: int
+output:
+  - name: subres
+    type: int
+  - name: negflag
+    type: bool
+wasmCodePath: wasmCodePath
+maxWorkers: maxWorkers
+expireTime: expireTime

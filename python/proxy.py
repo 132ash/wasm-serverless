@@ -1,13 +1,18 @@
 from gevent import monkey
 monkey.patch_all()
 
+import sys
+sys.path.append('./workflow')
 import json
 from functionManager import FunctionManager
+from parser import Parser
+from workflowManager import WorkflowManager
 from flask import Flask, request
 app = Flask(__name__)
-import sys
 
-manager = FunctionManager()
+functionManager = FunctionManager()
+workflowManager = WorkflowManager(functionManager)
+
 
 @app.route('/request', methods = ['POST'])
 def req():
@@ -16,7 +21,7 @@ def req():
     parameters = data["parameters"]
     status = 'ok'
     try:
-        res = manager.runFunction(funcName, parameters)
+        res = functionManager.runFunction(funcName, parameters)
         print("function result:{}".format(str(res)[0]))
         return json.dumps({'status': status, 'res':res})
     except BaseException as e:
@@ -29,7 +34,7 @@ def delete():
     funcName = data["funcName"]
     status = 'ok'
     try:
-        manager.deleteFunction(funcName)
+        functionManager.deleteFunction(funcName)
     except BaseException as e:
         status = str(e)
     return json.dumps({'status': status})
@@ -45,7 +50,7 @@ def create():
     expireTime = data['expireTime']
     status = 'ok'
     try:
-        manager.createFunction(funcName, wasmCodePath, maxWorkers, expireTime)
+        functionManager.createFunction(funcName, wasmCodePath, maxWorkers, expireTime)
     except BaseException as e:
         status = str(e)
     return json.dumps({'status': status})
@@ -53,8 +58,48 @@ def create():
 
 @app.route('/info', methods = ['GET'])
 def info():
-    funcNames = list(manager.functions.keys())
+    funcNames = list(functionManager.functions.keys())
     return json.dumps(funcNames)
+
+
+@app.route('/workflow/create', methods = ['POST'])
+def workflowCreate():
+    data = request.get_json(force=True, silent=True)
+    workflowName = data["workflowName"]
+    parser = Parser(workflowName)
+    status = 'ok'
+    try:
+        parser.parse()
+        parser.saveWorkflowData()
+    except BaseException as e:
+        status = str(e)
+    return json.dumps({'status': status})
+
+@app.route('/workflow/run', methods = ['POST'])
+def workflowRun():
+    data = request.get_json(force=True, silent=True)
+    workflowName = data["workflowName"]
+    parameters = data["parameters"]
+    status = 'ok'
+    try:
+        res = workflowManager.runWorkflow(workflowName, parameters)
+        print("workflow result:{}".format(str(res)[0]))
+        return json.dumps({'status': status, 'res':res})
+    except BaseException as e:
+        status = str(e)
+    return json.dumps({'status': status})
+
+@app.route('/workflow/delete', methods = ['POST'])
+def workflowDelete():
+    data = request.get_json(force=True, silent=True)
+    workflowName = data["workflowName"]
+    status = 'ok'
+    try:
+        workflowManager.deleteWorkflow(workflowName)
+    except BaseException as e:
+        status = str(e)
+    return json.dumps({'status': status})
+    
 
 
 from gevent.pywsgi import WSGIServer

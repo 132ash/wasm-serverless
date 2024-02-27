@@ -1,0 +1,40 @@
+functions:
+- name: sub
+  type: START
+  next: 
+    type: pass
+    nodes: 
+      - switch1
+- name: switch1
+  type: SWITCH
+  input:
+    - name: subres
+      type: int
+    - name: negflag
+      type: bool
+  output:
+    - name: subres
+      type: int
+  next: 
+    type: switch
+    nodes: 
+      - reverse
+      - times2
+- name: reverse
+  type: normal
+  next: 
+    type: pass
+    nodes: 
+      - times2
+- name: times2
+  type: normal
+  next: 
+    type: pass
+    nodes: 
+      - END
+- name: END
+  type: END
+  output:
+    - name: result
+      type: int
+
