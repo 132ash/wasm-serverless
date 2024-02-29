@@ -1,8 +1,8 @@
 import yaml
 import sys
 
-sys.path.append('../config')
-sys.path.append('../storage')
+sys.path.append('./config')
+sys.path.append('./storage')
 import config
 from repository import Repository
 
@@ -14,36 +14,32 @@ class Parser:
         self.yamlData = yaml.load(open(yamlPath+'/'+workflowName+'.yaml'), Loader=yaml.FullLoader)
 
     def parse(self):
-        workflowData = {'switchFunction':{}, 'next':{}}
+        workflowData = {'switchFunction':{}, 'next':{}, 'type':{}}
         for function in self.yamlData["functions"]:
-            if function['type'] == 'START':
+            if 'start' in function:
                 if 'startFunction' in workflowData:
                     raise Exception("Mutiple start function.")
-                workflowData['startFunction'] = function['name']
+                workflowData['startFunction'] = {'name':function['name']}
             if function['type'] == 'END':
                 if 'endFunction' in workflowData:
                     raise Exception("Mutiple end function.")
-                workflowData['endFunction'] = function['output']
+                endFunction = {}
+                endFunction['output'] = function['output']
+                workflowData['endFunction'] = endFunction
             if function['type'] == 'SWITCH':
                 switchFunction = {}
-                switchFunction['input'] = function['input']
                 switchFunction['output'] = function['output']
+                switchFunction['condition'] = function['condition']
                 workflowData['switchFunction'][function['name']] = switchFunction
             if 'next' in function:
-                nextFunction = {}
-                nextFunction['type'] = function['next']['type']
-                nextFunction['nodes'] = function['next']['nodes']
-                workflowData['next'][function['name']] = nextFunction
+                workflowData['next'][function['name']] = function['next']
+            workflowData['type'][function['name']] = function['type']
         self.workflowData = workflowData
         return workflowData
 
     def saveWorkflowData(self):
         repo = Repository()
         repo.saveWorkflowInfo(self.workflowName, self.workflowData)
-    
-    def getWorkflowData(self):
-        repo = Repository()
-        return repo.getWorkflowInfo(self.workflowName)
 
 if __name__ == "__main__":
     parser = Parser("workflow")

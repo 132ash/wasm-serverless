@@ -1,6 +1,6 @@
 import couchdb
 import sys
-sys.path.append('../config')
+sys.path.append('./config')
 import config
 
 couchdb_url = config.COUCH_DB_URL
@@ -14,8 +14,14 @@ class Repository:
         if dbName in self.couch:
             self.couch.delete(dbName)
         self.couch.create(dbName)
+        print("save workflow:{}".format(dbName))
         db = self.couch[dbName]
         db.save({workflowName: workflowInfo})
+
+    def deleteWorkflowInfo(self, workflowName):
+        dbName = workflowName + '_workflowinfo'
+        if dbName in self.couch:
+            self.couch.delete(dbName)
 
     def getWorkflowInfo(self, workflowName):
         return self.retrieveItem(workflowName + '_workflowinfo', workflowName)
@@ -30,6 +36,17 @@ class Repository:
         self.couch.create(dbName)
         db = self.couch[dbName]
         db.save({dbName: functionInfo})
+
+    def deleteFunctionInfo(self, functionName):
+        dbName = 'functioninfo'
+        if dbName in self.couch:
+            functionInfo = self.retrieveItem(dbName, dbName)
+            self.couch.delete(dbName)
+        functionInfo.pop(functionName)
+        self.couch.create(dbName)
+        db = self.couch[dbName]
+        db.save({dbName: functionInfo})
+
 
     def getFunctionInfo(self, functionName):
         dbName = 'functioninfo'

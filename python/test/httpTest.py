@@ -7,13 +7,17 @@ requestAddr = ip + "request"
 deleteAddr = ip + 'delete'
 createAddr = ip + 'create'
 infoAddr = ip + 'info'
+workflowrequestAddr = ip + "workflow/run"
+workflowdeleteAddr = ip + 'workflow/delete'
+workflowcreateAddr = ip + 'workflow/create'
 
-createReq = {"funcName":"sum", "wasmCodePath":".//wasmFunctions//sum.wasm", 'maxWorkers':10, 'expireTime':2}
-triggerReq = {"funcName":"sum", "parameters":[1,2]}
+createReq = {"funcName":"sub"}
+triggerReq = {"funcName":"sub", "parameters":{"sub1":1, "sub2":2}}
 deleteReq = {"funcName": "sum"}
 
-def testCreate():
-    res = requests.post(createAddr, json=createReq)
+def testCreate(funcName):
+    req = {"funcName":funcName}
+    res = requests.post(createAddr, json=req)
     print(res.text)
 
 def testInfo():
@@ -28,11 +32,21 @@ def testDelete():
     res = requests.post(deleteAddr, json=deleteReq)
     print(res.json())
 
+def testWorkflowCreate():
+    req = {"workflowName":"workflow"}
+    testCreate("sub")
+    testCreate("reverse")
+    testCreate("times2")
+    res = requests.post(workflowcreateAddr, json=req)
+    print(res.text)
 
-testCreate()
-testInfo()
-testTrigger()
-testInfo()
-testDelete()
-testInfo()
-testTrigger()
+def testWorkflowTrigger():
+    req = {"workflowName":"workflow", "parameters": {"sub1":3, "sub2":1}}
+    res = requests.post(workflowrequestAddr, json=req)
+    print(res.text)
+
+
+
+
+testWorkflowCreate()
+testWorkflowTrigger()

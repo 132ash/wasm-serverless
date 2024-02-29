@@ -13,6 +13,8 @@ apt-get install -y docker-ce docker-ce-cli containerd.io
 apt-get install wondershaper
 # install and initialize couchdb
 docker pull couchdb
-docker run -itd -p 5984:5984 -e COUCHDB_USER=132ash -e COUCHDB_PASSWORD=ash020620 --name couchdb couchdb
+sudo docker run -itd -p 5984:5984 -e COUCHDB_USER=132ash -e COUCHDB_PASSWORD=ash020620 --name couchdb couchdb
 pip3 install -r requirements.txt
 python3 couchdb_starter.py
+
+sudo docker remove 57ac3a662cfa71ed1f4a9ea9e0246334994515758e396d62059752c512ea2559

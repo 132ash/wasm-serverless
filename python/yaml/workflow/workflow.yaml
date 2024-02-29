@@ -1,40 +1,27 @@
 functions:
 - name: sub
-  type: START
-  next: 
-    type: pass
-    nodes: 
-      - switch1
+  start: true
+  type: NORMAL
+  next:
+    - switch1
 - name: switch1
   type: SWITCH
-  input:
-    - name: subres
-      type: int
-    - name: negflag
-      type: bool
+  condition: input["subres"] < 0
   output:
-    - name: subres
-      type: int
+    - subres
   next: 
-    type: switch
-    nodes: 
-      - reverse
-      - times2
+    - reverse
+    - times2
 - name: reverse
-  type: normal
+  type: NORMAL
   next: 
-    type: pass
-    nodes: 
-      - times2
+    - times2
 - name: times2
-  type: normal
+  type: NORMAL
   next: 
-    type: pass
-    nodes: 
-      - END
-- name: END
+    - end
+- name: end
   type: END
   output:
-    - name: result
-      type: int
+    - result
 

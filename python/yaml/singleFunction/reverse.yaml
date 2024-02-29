@@ -1,11 +1,10 @@
 name: reverse
-type: normal
 input:
   - name: subres
     type: int
 output:
-  - name: result
-    type: int
+  name: result
+  type: int
 wasmCodePath: wasmCodePath
 maxWorkers: maxWorkers
 expireTime: expireTime

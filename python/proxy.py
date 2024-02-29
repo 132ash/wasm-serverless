@@ -3,15 +3,15 @@ monkey.patch_all()
 
 import sys
 sys.path.append('./workflow')
+sys.path.append('./test')
 import json
-from functionManager import FunctionManager
-from parser import Parser
+from workflowParser import Parser
+from testFuncManager import FunctionManager
 from workflowManager import WorkflowManager
 from flask import Flask, request
 app = Flask(__name__)
 
 functionManager = FunctionManager()
-workflowManager = WorkflowManager(functionManager)
 
 
 @app.route('/request', methods = ['POST'])
@@ -22,7 +22,7 @@ def req():
     status = 'ok'
     try:
         res = functionManager.runFunction(funcName, parameters)
-        print("function result:{}".format(str(res)[0]))
+        print("function result:{}".format(res))
         return json.dumps({'status': status, 'res':res})
     except BaseException as e:
         status = str(e)
@@ -45,12 +45,9 @@ def create():
     data = request.get_json(force=True, silent=True)
     print(data)
     funcName = data["funcName"]
-    wasmCodePath = data["wasmCodePath"]
-    maxWorkers = data['maxWorkers']
-    expireTime = data['expireTime']
     status = 'ok'
     try:
-        functionManager.createFunction(funcName, wasmCodePath, maxWorkers, expireTime)
+        functionManager.createFunction(funcName)
     except BaseException as e:
         status = str(e)
     return json.dumps({'status': status})
@@ -68,11 +65,10 @@ def workflowCreate():
     workflowName = data["workflowName"]
     parser = Parser(workflowName)
     status = 'ok'
-    try:
-        parser.parse()
-        parser.saveWorkflowData()
-    except BaseException as e:
-        status = str(e)
+    parser.parse()
+    parser.saveWorkflowData()
+    # except BaseException as e:
+    #     status = str(e)
     return json.dumps({'status': status})
 
 @app.route('/workflow/run', methods = ['POST'])
@@ -81,21 +77,19 @@ def workflowRun():
     workflowName = data["workflowName"]
     parameters = data["parameters"]
     status = 'ok'
-    try:
-        res = workflowManager.runWorkflow(workflowName, parameters)
-        print("workflow result:{}".format(str(res)[0]))
-        return json.dumps({'status': status, 'res':res})
-    except BaseException as e:
-        status = str(e)
-    return json.dumps({'status': status})
+    manager = WorkflowManager(workflowName, functionManager)
+    res = manager.runWorkflow(parameters)
+    print("workflow result:{}".format(res))
+    return json.dumps({'status': status, 'res':res})
 
 @app.route('/workflow/delete', methods = ['POST'])
 def workflowDelete():
     data = request.get_json(force=True, silent=True)
     workflowName = data["workflowName"]
     status = 'ok'
+    manager = WorkflowManager(workflowName, functionManager)
     try:
-        workflowManager.deleteWorkflow(workflowName)
+        manager.deleteWorkflow(workflowName)
     except BaseException as e:
         status = str(e)
     return json.dumps({'status': status})

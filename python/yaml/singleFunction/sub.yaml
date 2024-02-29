@@ -5,10 +5,8 @@ input:
   - name: sub2
     type: int
 output:
-  - name: subres
-    type: int
-  - name: negflag
-    type: bool
+  name: subres
+  type: int
 wasmCodePath: wasmCodePath
 maxWorkers: maxWorkers
 expireTime: expireTime
