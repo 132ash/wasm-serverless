@@ -6,7 +6,7 @@ sys.path.append('./workflow')
 sys.path.append('./test')
 import json
 from workflowParser import Parser
-from testFuncManager import FunctionManager
+from functionManager import FunctionManager
 from workflowManager import WorkflowManager
 from flask import Flask, request
 app = Flask(__name__)
@@ -20,13 +20,8 @@ def req():
     funcName = data["funcName"]
     parameters = data["parameters"]
     status = 'ok'
-    try:
-        res = functionManager.runFunction(funcName, parameters)
-        print("function result:{}".format(res))
-        return json.dumps({'status': status, 'res':res})
-    except BaseException as e:
-        status = str(e)
-        return json.dumps({'status': status})
+    res = functionManager.runFunction(funcName, parameters)
+    return json.dumps({'status': status, 'res':res})
 
 @app.route('/delete', methods = ['POST'])
 def delete():
@@ -41,15 +36,10 @@ def delete():
 
 @app.route('/create', methods = ['POST'])
 def create():
-    print("create a function.")
     data = request.get_json(force=True, silent=True)
-    print(data)
     funcName = data["funcName"]
     status = 'ok'
-    try:
-        functionManager.createFunction(funcName)
-    except BaseException as e:
-        status = str(e)
+    functionManager.createFunction(funcName)
     return json.dumps({'status': status})
    
 

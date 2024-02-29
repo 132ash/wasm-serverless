@@ -5,6 +5,6 @@ input:
 output:
   name: result
   type: int
-wasmCodePath: wasmCodePath
-maxWorkers: maxWorkers
-expireTime: expireTime
+wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/times2.wasm
+maxWorkers: 10
+expireTime: 10

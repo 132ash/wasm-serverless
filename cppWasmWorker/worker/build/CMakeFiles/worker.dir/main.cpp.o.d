@@ -277,4 +277,51 @@ CMakeFiles/worker.dir/main.cpp.o: \
  /usr/include/c++/9/bits/sstream.tcc /usr/include/c++/9/iostream \
  /usr/include/c++/9/ctime \
  /home/ash/wasm/wasm-serverless/cpp_example/worker/../include/base64.h \
- /home/ash/wasm/wasm-serverless/cpp_example/worker/../include/functionConfig.hpp
+ /home/ash/wasm/wasm-serverless/cpp_example/worker/../include/functionConfig.hpp \
+ /home/ash/wasm/wasm-serverless/cpp_example/worker/../include/json.hpp \
+ /usr/include/c++/9/algorithm /usr/include/c++/9/utility \
+ /usr/include/c++/9/bits/stl_relops.h /usr/include/c++/9/bits/stl_algo.h \
+ /usr/include/c++/9/bits/algorithmfwd.h \
+ /usr/include/c++/9/bits/stl_heap.h /usr/include/c++/9/bits/stl_tempbuf.h \
+ /usr/include/c++/9/bits/uniform_int_dist.h /usr/include/c++/9/limits \
+ /usr/include/c++/9/cstddef /usr/include/c++/9/functional \
+ /usr/include/c++/9/tuple /usr/include/c++/9/array \
+ /usr/include/c++/9/bits/uses_allocator.h \
+ /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/refwrap.h \
+ /usr/include/c++/9/bits/std_function.h /usr/include/c++/9/iterator \
+ /usr/include/c++/9/bits/stream_iterator.h /usr/include/c++/9/memory \
+ /usr/include/c++/9/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/9/ext/concurrence.h \
+ /usr/include/c++/9/bits/unique_ptr.h \
+ /usr/include/c++/9/bits/shared_ptr.h \
+ /usr/include/c++/9/bits/shared_ptr_base.h \
+ /usr/include/c++/9/bits/allocated_ptr.h \
+ /usr/include/c++/9/ext/aligned_buffer.h \
+ /usr/include/c++/9/bits/shared_ptr_atomic.h \
+ /usr/include/c++/9/bits/atomic_base.h \
+ /usr/include/c++/9/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/9/backward/auto_ptr.h /usr/include/c++/9/forward_list \
+ /usr/include/c++/9/bits/forward_list.h \
+ /usr/include/c++/9/bits/forward_list.tcc /usr/include/c++/9/map \
+ /usr/include/c++/9/bits/stl_tree.h /usr/include/c++/9/bits/stl_map.h \
+ /usr/include/c++/9/bits/stl_multimap.h \
+ /usr/include/c++/9/bits/erase_if.h /usr/include/c++/9/unordered_map \
+ /usr/include/c++/9/bits/hashtable.h \
+ /usr/include/c++/9/bits/hashtable_policy.h \
+ /usr/include/c++/9/bits/unordered_map.h /usr/include/c++/9/valarray \
+ /usr/include/c++/9/bits/valarray_array.h \
+ /usr/include/c++/9/bits/valarray_array.tcc \
+ /usr/include/c++/9/bits/valarray_before.h \
+ /usr/include/c++/9/bits/slice_array.h \
+ /usr/include/c++/9/bits/valarray_after.h \
+ /usr/include/c++/9/bits/gslice.h /usr/include/c++/9/bits/gslice_array.h \
+ /usr/include/c++/9/bits/mask_array.h \
+ /usr/include/c++/9/bits/indirect_array.h /usr/include/c++/9/version \
+ /usr/include/c++/9/cassert /usr/include/c++/9/numeric \
+ /usr/include/c++/9/bits/stl_numeric.h /usr/include/c++/9/iomanip \
+ /usr/include/c++/9/locale /usr/include/c++/9/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/9/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/9/bits/locale_conv.h \
+ /usr/include/c++/9/bits/quoted_string.h

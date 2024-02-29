@@ -7,6 +7,6 @@ input:
 output:
   name: subres
   type: int
-wasmCodePath: wasmCodePath
-maxWorkers: maxWorkers
-expireTime: expireTime
+wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/sub.wasm
+maxWorkers: 10
+expireTime: 10

@@ -1,8 +1,15 @@
 import logging
 import time
+import yaml
+import sys
+sys.path.append('./config')
+sys.path.append('./storage')
+import config
 from gevent import event
 from gevent.lock import BoundedSemaphore
 from functionWorker import FunctionWorker
+
+SINGLEFUNCYAMLPATH = config.SINGLEFUNCYAMLPATH
 
 # data structure for request info
 class RequestInfo:
@@ -10,18 +17,20 @@ class RequestInfo:
         self.data = data
         self.result = event.AsyncResult()
 
-    def constructParam(self):
-        argc = len(self.data)
-        param = str(argc) + " " + ' '.join(map(str, self.data)) + '\n'
-        return param
-    
-
 class FunctionInfo:
-    def __init__(self, funcName, wasmCodePath, maxWorkers = 10, expireTime=600):
-        self.funcName = funcName
-        self.wasmCodePath = wasmCodePath
-        self.maxWorkers = maxWorkers
-        self.expireTime = expireTime
+    def __init__(self, funcName):
+        funcYamlData = yaml.load(open(SINGLEFUNCYAMLPATH+'/'+funcName+'.yaml'), Loader=yaml.FullLoader)
+        self.name = funcYamlData['name']
+        self.wasmCodePath = funcYamlData['wasmCodePath']
+        self.maxWorkers = funcYamlData['maxWorkers']
+        self.expireTime = funcYamlData['expireTime']
+        self.input = {}
+        self.output = {}
+        for param in funcYamlData['input']:
+            self.input[param['name']] = param['type']
+        self.output['name'] = funcYamlData['output']['name']
+        self.output['type'] = funcYamlData['output']['type']
+
 
 
 class Function:
@@ -45,7 +54,7 @@ class Function:
             # print("no req to be processed.")
             return 
         self.numOfProcessingReq += 1
-        print("processing request num:{}".format(self.numOfProcessingReq))
+        # print("processing request num:{}".format(self.numOfProcessingReq))
         worker = self.acquireWorker()
         while worker is None:
             worker = self.createWorker()
@@ -55,16 +64,15 @@ class Function:
         req = self.requestQueue.pop(0)
         self.numOfProcessingReq -= 1
         # 2. send request to the container
-        param = req.constructParam()
-        res = worker.run(param)
-        res = int(str(res, encoding='utf-8')[:-1])
-        print("[function] set result in Request.res:{}".format(res))
+        # print("request data:{}".format(req.data))
+        res = worker.run(req.data)
+        # print("[function] set result in Request.res:{}".format(res))
         req.result.set(res)
         # 3. put the worker back into pool
         self.returnWorker(worker)
 
     def cleanWorker(self):
-        print("[before cleaning]: num of workers:{}".format(len(self.workerPool)))
+        # print("[before cleaning]: num of workers:{}".format(len(self.workerPool)))
         expiredWorkers = []
         self.workerLock.acquire()
         self.workerPool = cleanPool(self.workerPool, self.info.expireTime, expiredWorkers)
@@ -72,13 +80,13 @@ class Function:
 
         for worker in expiredWorkers:
             self.removeWorker(worker)
-        print("[after cleaning]: num of workers:{}".format(len(self.workerPool)))
+        # print("[after cleaning]: num of workers:{}".format(len(self.workerPool)))
 
     def acquireWorker(self):
         res = None
         self.workerLock.acquire()
         if len(self.workerPool) != 0:
-            logging.info('get worker from pool of function %s. pool size %d.', self.info.funcName, len(self.workerPool))
+            logging.info('get worker from pool of function %s. pool size %d.', self.info.name, len(self.workerPool))
             res = self.workerPool.pop(-1)
             self.numOfWorkingWorkers += 1 
         self.workerLock.release()
@@ -96,14 +104,14 @@ class Function:
     def createWorker(self):
         self.workerLock.acquire()
         if self.numOfWorkingWorkers + len(self.workerPool) > self.info.maxWorkers:
-            logging.info('hit worker limit, function: %s', self.info.funcName)
+            logging.info('hit worker limit, function: %s', self.info.name)
             return None
         self.numOfWorkingWorkers += 1
         self.workerLock.release()
 
-        logging.info('create worker of function: %s', self.info.funcName)
+        logging.info('create worker of function: %s', self.info.name)
         try:
-            worker = FunctionWorker(self.info.funcName, self.info.wasmCodePath)
+            worker = FunctionWorker(self.info.name, self.info.wasmCodePath)
             # worker = tmpWorker(self.info.funcName, self.info.wasmCodePath)
         except Exception as e:
             print(e)

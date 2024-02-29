@@ -11,8 +11,8 @@ workflowrequestAddr = ip + "workflow/run"
 workflowdeleteAddr = ip + 'workflow/delete'
 workflowcreateAddr = ip + 'workflow/create'
 
-createReq = {"funcName":"sub"}
-triggerReq = {"funcName":"sub", "parameters":{"sub1":1, "sub2":2}}
+createReq = {"funcName":"sum"}
+triggerReq = {"funcName":"sum", "parameters":{"sub1":1, "sub2":2}}
 deleteReq = {"funcName": "sum"}
 
 def testCreate(funcName):
@@ -41,11 +41,27 @@ def testWorkflowCreate():
     print(res.text)
 
 def testWorkflowTrigger():
-    req = {"workflowName":"workflow", "parameters": {"sub1":3, "sub2":1}}
+    req = {"workflowName":"workflow", "parameters": {"sub1":1, "sub2":2}}
     res = requests.post(workflowrequestAddr, json=req)
     print(res.text)
 
-
+def testWasmFunc():
+    funcName = "times2"
+    createReq = {"funcName":funcName}
+    param1 = {"arg1":1}
+    param2 = {"arg1":5}
+    param3 = {"arg1":2}
+    runReq1 = {"funcName":funcName, "parameters":param1}
+    runReq2 = {"funcName":funcName, "parameters":param2}
+    runReq3 = {"funcName":funcName, "parameters":param3}
+    res = requests.post(createAddr, json=createReq) 
+    print("create {} res:{}".format(funcName, res.text))
+    res = requests.post(requestAddr, json=runReq1) 
+    print("run {} res:{}".format(funcName, res.text))
+    res = requests.post(requestAddr, json=runReq2) 
+    print("run {} res:{}".format(funcName, res.text))
+    res = requests.post(requestAddr, json=runReq3) 
+    print("run {} res:{}".format(funcName, res.text))
 
 
 testWorkflowCreate()

@@ -74,7 +74,7 @@ class wasrModule{
       // Call the wasm code and the argument get from native function
       if (wasm_runtime_call_wasm(exec_env, func, argc, argv) ) {
         /* the return value is stored in argv[0] */
-        printf("function return: %d\n", argv[0]);
+        // printf("function return: %d\n", argv[0]);
       }else printf("%s\n", wasm_runtime_get_exception(module_inst));
     }
 

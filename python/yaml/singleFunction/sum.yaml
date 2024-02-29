@@ -1,0 +1,12 @@
+name: sum
+input:
+  - name: arg1
+    type: int
+  - name: arg2
+    type: int
+output:
+  name: sumres
+  type: int
+wasmCodePath:  /home/ash/wasm/wasm-serverless/python/wasmFunctions/sum.wasm
+maxWorkers: 10
+expireTime: 10
