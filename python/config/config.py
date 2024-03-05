@@ -4,3 +4,7 @@ WORKERPATH = "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/worker"
 WORKFLOWYAMLPATH = "/home/ash/wasm/wasm-serverless/python/yaml/workflow"
 SINGLEFUNCYAMLPATH = "/home/ash/wasm/wasm-serverless/python/yaml/singleFunction"
 WASMFUNCTIONPATH = "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/wasmFunctions"
+WORKERNODEPATH = "/home/ash/wasm/wasm-serverless/python/config/workerNodeInfo.yaml"
+NETWORK_BANDWIDTH = 25 * 1024 * 1024 / 4
+NET_MEM_BANDWIDTH_RATIO = 15 # mem_time = net_time / 15
+GROUP_LIMIT = 3

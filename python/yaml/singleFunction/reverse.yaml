@@ -3,8 +3,8 @@ input:
   - name: subres
     type: int
 output:
-  name: result
-  type: int
+  - name: subres
+    type: int
 wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/reverse.wasm
 maxWorkers: 10
 expireTime: 10

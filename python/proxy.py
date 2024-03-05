@@ -6,7 +6,7 @@ sys.path.append('./workflow')
 sys.path.append('./test')
 import json
 from workflowParser import Parser
-from functionManager import FunctionManager
+from python.function.functionManager import FunctionManager
 from workflowManager import WorkflowManager
 from flask import Flask, request
 app = Flask(__name__)

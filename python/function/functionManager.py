@@ -3,8 +3,8 @@ import time
 import json
 import struct
 
-from functionWorker import FunctionWorker
-from function import Function, FunctionInfo, RequestInfo
+from python.function.functionWorker import FunctionWorker
+from python.function.function import Function, FunctionInfo, RequestInfo
 
 dispatch_interval = 0.005
 repack_clean_interval = 5.000

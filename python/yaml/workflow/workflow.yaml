@@ -1,27 +1,77 @@
 functions:
-- name: sub
-  start: true
-  type: NORMAL
+- name: cal
+  source: cal
+  scale: 3
+  runtime: 0.02
   next:
-    - switch1
-- name: switch1
-  type: SWITCH
-  condition: input["subres"] < 0
-  output:
-    - subres
-  next: 
-    - reverse
-    - times2
-- name: reverse
-  type: NORMAL
-  next: 
-    - times2
+    type: PASS
+    size: 8999999
+    funcs:
+      - switch1
+      - times2
+- name: divide2
+  scale: 3
+  source: divide2
+  runtime: 0.01
+  next:
+    type: PASS
+    size: 4999999
+    funcs:
+      - sum
 - name: times2
-  type: NORMAL
+  source: times2
+  scale: 3
+  runtime: 0.01
+  next:
+    type: PASS
+    size: 4999999
+    funcs:
+      - sum
+- name: switch1
+  source: VIRTUAL
+  scale: 3
+  runtime: 0.01
   next: 
-    - end
+    type: SWITCH
+    size: 4999999
+    conditions: 
+      - input["subres"] < 0
+      - default
+    funcs:
+      - reverse
+      - sum
+- name: reverse
+  source: reverse
+  scale: 3
+  runtime: 0.01
+  next: 
+    type: PASS
+    size: 4
+    funcs:
+      - sum
+- name: sum
+  source: sum
+  scale: 3
+  runtime: 0.01
+  next: 
+    type: PASS
+    size: 4999999
+    funcs:
+      - end
 - name: end
-  type: END
+  source: END
+  scale: 3
+  runtime: 0.01
   output:
     - result
 
+#  divide2---------------
+#                       +
+#  ------times2------->sum---> end
+#  |             |      ^
+# cal-->switch1---      |
+#                |      |
+#                ---> reverse
+#
+
+ 

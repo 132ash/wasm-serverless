@@ -1,12 +1,14 @@
 name: sum
 input:
-  - name: arg1
+  - name: divres
+    type: float
+  - name: time2res
     type: int
-  - name: arg2
+  - name: subres
     type: int
 output:
   name: sumres
-  type: int
+  type: float
 wasmCodePath:  /home/ash/wasm/wasm-serverless/python/wasmFunctions/sum.wasm
 maxWorkers: 10
 expireTime: 10

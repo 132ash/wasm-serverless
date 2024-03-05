@@ -1,0 +1,10 @@
+name: divide2
+input:
+  - name: div
+    type: int
+output:
+  - name: divres
+    type: float
+wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/divide2.wasm
+maxWorkers: 10
+expireTime: 10

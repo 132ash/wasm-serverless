@@ -7,7 +7,7 @@ sys.path.append('./storage')
 import config
 from gevent import event
 from gevent.lock import BoundedSemaphore
-from functionWorker import FunctionWorker
+from python.function.functionWorker import FunctionWorker
 
 SINGLEFUNCYAMLPATH = config.SINGLEFUNCYAMLPATH
 
