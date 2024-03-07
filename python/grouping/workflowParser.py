@@ -4,7 +4,7 @@ import sys
 sys.path.append('./config')
 sys.path.append('./storage')
 import config
-import component
+import python.grouping.component as component
 
 yamlPath = config.WORKFLOWYAMLPATH
 NETWORK_BANDWIDTH = config.NETWORK_BANDWIDTH
@@ -20,7 +20,8 @@ class Parser:
         parent_cnt = dict()
         total = 0
         functions = self.yamlData['functions']
-        endFunction = {}
+        endFunction = []
+        output = []
         parent_cnt[functions[0]['name']] = 0
         for function in functions:
             name = function['name']
@@ -33,7 +34,8 @@ class Parser:
             if source == 'END':
                 if len(endFunction) != 0:
                     raise Exception("Mutiple end function.")
-                endFunction['output'] = function['output']
+                endFunction.append(name)
+                output = function['output']
             if 'next' in function:
                 send_time = function['next']['size'] / NETWORK_BANDWIDTH
                 if function['next']['type'] == 'SWITCH':
@@ -46,7 +48,7 @@ class Parser:
                     else:
                         parent_cnt[next_func] = parent_cnt[next_func] + 1
             current_function = component.Function(name, [], next, nextDis, source, 
-                                                  runtime,conditions)
+                                                  runtime,conditions, output)
             if 'scale' in function:
                 current_function.set_scale(function['scale'])
             total = total + 1
@@ -57,7 +59,7 @@ class Parser:
                 start_functions.append(name)
             for next_node in nodes[name].next:
                 nodes[next_node].prev.append(name)
-        return component.Workflow(self.workflowName, start_functions, nodes, total, parent_cnt)
+        return component.Workflow(self.workflowName, start_functions, nodes, total, parent_cnt, endFunction)
 
 
 if __name__ == "__main__":

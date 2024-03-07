@@ -1,8 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.o"
-  "CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.o.d"
-  "CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.o"
-  "CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.o.d"
   "CMakeFiles/worker.dir/main.cpp.o"
   "CMakeFiles/worker.dir/main.cpp.o.d"
   "worker"

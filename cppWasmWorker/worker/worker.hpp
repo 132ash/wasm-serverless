@@ -1,5 +1,7 @@
 #include "native.hpp"
-#include "../include/functionConfig.hpp"
+#include <string>
+#include <stdexcept>
+#include <iostream>
 
 // std::string wasmTestFilePath = "/home/ash/wasm/wasm-serverless/worker/wasmFunctions/sum.wasm";
 
@@ -43,14 +45,16 @@ class wasrModule{
 
   public:
 
-    wasrModule(std::string wasmTestFilePath, std::string funcName){
-      readFileToBytes(wasmTestFilePath, codeBytes);
+    wasrModule(std::string wasmFilePath, std::string funcName, int return_size){
+      resultBuffer = new uint8_t[return_size];
+      memset(resultBuffer, 1, return_size);
+      readFileToBytes(wasmFilePath, codeBytes);
       this->constructRuntime(funcName);
     }
 
     ~wasrModule(){
       this->deconstructRuntime();
-
+      delete [] resultBuffer;
     }
 
     void constructRuntime(std::string funcName){
@@ -72,10 +76,9 @@ class wasrModule{
 
     void runWasmCode(int argc, uint32 argv[]){
       // Call the wasm code and the argument get from native function
-      if (wasm_runtime_call_wasm(exec_env, func, argc, argv) ) {
-        /* the return value is stored in argv[0] */
-        // printf("function return: %d\n", argv[0]);
-      }else printf("%s\n", wasm_runtime_get_exception(module_inst));
+      if (!wasm_runtime_call_wasm(exec_env, func, argc, argv) ) {
+        printf("error: %s\n", wasm_runtime_get_exception(module_inst));
+      }
     }
 
 };

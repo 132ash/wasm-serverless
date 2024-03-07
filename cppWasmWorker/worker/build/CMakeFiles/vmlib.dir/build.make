@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ash/wasm/wasm-serverless/cpp_example/worker
+CMAKE_SOURCE_DIR = /home/ash/wasm/wasm-serverless/cppWasmWorker/worker
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ash/wasm/wasm-serverless/cpp_example/worker/build
+CMAKE_BINARY_DIR = /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/vmlib.dir/depend.make
@@ -72,7 +72,7 @@ include CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/platform_init.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/platform_init.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/platform_init.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/platform_init.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/platform_init.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/platform_init.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/platform_init.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/platform_init.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/platform_init.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/platform_init.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/platform_init.c.i: cmake_force
@@ -86,7 +86,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_blocking_op.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_blocking_op.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_blocking_op.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_blocking_op.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_blocking_op.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_blocking_op.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_blocking_op.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_blocking_op.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_blocking_op.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_blocking_op.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_blocking_op.c.i: cmake_force
@@ -100,7 +100,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/commo
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_clock.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_clock.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_clock.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_clock.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_clock.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_clock.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_clock.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_clock.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_clock.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_clock.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_clock.c.i: cmake_force
@@ -114,7 +114,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/commo
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_file.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_file.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_file.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_file.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_file.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_file.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_file.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_file.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_file.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_file.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_file.c.i: cmake_force
@@ -128,7 +128,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/commo
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_malloc.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_malloc.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_malloc.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_malloc.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_malloc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_malloc.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_malloc.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_malloc.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_malloc.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_malloc.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_malloc.c.i: cmake_force
@@ -142,7 +142,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/commo
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_memmap.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_memmap.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_memmap.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_memmap.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_memmap.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_memmap.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_memmap.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_memmap.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_memmap.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_memmap.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_memmap.c.i: cmake_force
@@ -156,7 +156,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/commo
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_sleep.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_sleep.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_sleep.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_sleep.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_sleep.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_sleep.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_sleep.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_sleep.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_sleep.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_sleep.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_sleep.c.i: cmake_force
@@ -170,7 +170,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/commo
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_socket.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_socket.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_socket.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_socket.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_socket.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_socket.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_socket.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_socket.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_socket.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_socket.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_socket.c.i: cmake_force
@@ -184,7 +184,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/commo
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_thread.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_thread.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_thread.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_thread.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_thread.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_thread.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_thread.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_thread.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_thread.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_thread.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_thread.c.i: cmake_force
@@ -198,7 +198,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/commo
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_time.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_time.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_time.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_time.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_time.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_time.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_time.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_time.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_time.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_time.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/posix/posix_time.c.i: cmake_force
@@ -212,7 +212,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/commo
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/libc-util/libc_errno.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/libc-util/libc_errno.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/libc-util/libc_errno.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/libc-util/libc_errno.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/libc-util/libc_errno.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/libc-util/libc_errno.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/libc-util/libc_errno.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/libc-util/libc_errno.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/libc-util/libc_errno.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/libc-util/libc_errno.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/libc-util/libc_errno.c.i: cmake_force
@@ -226,7 +226,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/platform/commo
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_alloc.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_alloc.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_alloc.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_alloc.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_alloc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_alloc.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_alloc.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_alloc.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_alloc.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_alloc.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_alloc.c.i: cmake_force
@@ -240,7 +240,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_gc.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_gc.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_gc.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_gc.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_gc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_gc.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_gc.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_gc.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_gc.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_gc.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_gc.c.i: cmake_force
@@ -254,7 +254,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_hmu.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_hmu.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_hmu.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_hmu.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_hmu.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_hmu.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_hmu.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_hmu.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_hmu.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_hmu.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_hmu.c.i: cmake_force
@@ -268,7 +268,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_kfc.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_kfc.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_kfc.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_kfc.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_kfc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_kfc.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_kfc.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_kfc.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_kfc.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_kfc.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/ems_kfc.c.i: cmake_force
@@ -282,7 +282,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/ems/
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/mem_alloc.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/mem_alloc.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/mem_alloc.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/mem_alloc.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/mem_alloc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/mem_alloc.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/mem_alloc.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/mem_alloc.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/mem_alloc.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/mem_alloc.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/mem_alloc.c.i: cmake_force
@@ -296,7 +296,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc/mem_
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_assert.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_assert.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_assert.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_assert.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_assert.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_assert.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_assert.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_assert.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_assert.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_assert.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_assert.c.i: cmake_force
@@ -310,7 +310,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_asser
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_bitmap.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_bitmap.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_bitmap.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_bitmap.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_bitmap.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_bitmap.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_bitmap.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_bitmap.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_bitmap.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_bitmap.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_bitmap.c.i: cmake_force
@@ -324,7 +324,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_bitma
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_common.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_common.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_common.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_common.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_common.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_common.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_common.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_common.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_common.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_common.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_common.c.i: cmake_force
@@ -338,7 +338,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_commo
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashmap.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashmap.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashmap.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashmap.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashmap.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashmap.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashmap.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashmap.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashmap.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashmap.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashmap.c.i: cmake_force
@@ -352,7 +352,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashm
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_list.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_list.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_list.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_list.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_list.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_list.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_list.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_list.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_list.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_list.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_list.c.i: cmake_force
@@ -366,7 +366,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_list.
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.c.i: cmake_force
@@ -380,7 +380,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_queue.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_queue.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_queue.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_queue.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_queue.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_queue.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_queue.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_queue.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_queue.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_queue.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_queue.c.i: cmake_force
@@ -394,7 +394,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_queue
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vector.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vector.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vector.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vector.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vector.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vector.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vector.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vector.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vector.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vector.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vector.c.i: cmake_force
@@ -408,7 +408,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vecto
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c.o: /home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c.o -c /home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c.i: cmake_force
@@ -422,7 +422,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-builtin/libc_builtin_wrapper.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-builtin/libc_builtin_wrapper.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-builtin/libc_builtin_wrapper.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-builtin/libc_builtin_wrapper.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-builtin/libc_builtin_wrapper.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-builtin/libc_builtin_wrapper.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-builtin/libc_builtin_wrapper.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-builtin/libc_builtin_wrapper.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-builtin/libc_builtin_wrapper.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-builtin/libc_builtin_wrapper.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-builtin/libc_builtin_wrapper.c.i: cmake_force
@@ -436,7 +436,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/libc_wasi_wrapper.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/libc_wasi_wrapper.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/libc_wasi_wrapper.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/libc_wasi_wrapper.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/libc_wasi_wrapper.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/libc_wasi_wrapper.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/libc_wasi_wrapper.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/libc_wasi_wrapper.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/libc_wasi_wrapper.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/libc_wasi_wrapper.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/libc_wasi_wrapper.c.i: cmake_force
@@ -450,7 +450,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/blocking_op.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/blocking_op.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/blocking_op.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/blocking_op.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/blocking_op.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/blocking_op.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/blocking_op.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/blocking_op.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/blocking_op.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/blocking_op.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/blocking_op.c.i: cmake_force
@@ -464,7 +464,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/posix.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/posix.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/posix.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/posix.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/posix.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/posix.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/posix.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/posix.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/posix.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/posix.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/posix.c.i: cmake_force
@@ -478,7 +478,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/random.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/random.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/random.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/random.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/random.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/random.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/random.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/random.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/random.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/random.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/random.c.i: cmake_force
@@ -492,7 +492,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/str.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/str.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/str.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/str.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/str.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/str.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/str.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/str.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/str.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/str.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src/str.c.i: cmake_force
@@ -506,7 +506,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_application.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_application.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_application.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_application.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_application.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_application.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_application.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_application.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_application.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_application.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_application.c.i: cmake_force
@@ -520,7 +520,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_app
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_blocking_op.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_blocking_op.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_blocking_op.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_blocking_op.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_blocking_op.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_blocking_op.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_blocking_op.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_blocking_op.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_blocking_op.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_blocking_op.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_blocking_op.c.i: cmake_force
@@ -534,7 +534,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_blo
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_c_api.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_c_api.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_c_api.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_c_api.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_c_api.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_c_api.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_c_api.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_c_api.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_c_api.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_c_api.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_c_api.c.i: cmake_force
@@ -548,7 +548,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_c_a
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_exec_env.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_exec_env.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_exec_env.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_exec_env.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_exec_env.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_exec_env.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_exec_env.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_exec_env.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_exec_env.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_exec_env.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_exec_env.c.i: cmake_force
@@ -562,7 +562,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_exe
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_memory.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_memory.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_memory.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_memory.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_memory.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_memory.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_memory.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_memory.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_memory.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_memory.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_memory.c.i: cmake_force
@@ -576,7 +576,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_mem
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_native.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_native.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_native.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_native.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_native.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_native.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_native.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_native.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_native.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_native.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_native.c.i: cmake_force
@@ -590,7 +590,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_nat
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_runtime_common.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_runtime_common.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_runtime_common.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_runtime_common.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_runtime_common.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_runtime_common.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_runtime_common.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_runtime_common.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_runtime_common.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_runtime_common.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_runtime_common.c.i: cmake_force
@@ -604,7 +604,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_run
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_shared_memory.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_shared_memory.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_shared_memory.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_shared_memory.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_shared_memory.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_shared_memory.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_shared_memory.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_shared_memory.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_shared_memory.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_shared_memory.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_shared_memory.c.i: cmake_force
@@ -617,7 +617,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_sha
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building ASM object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building ASM object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s.o"
 	/usr/bin/cc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s.i: cmake_force
@@ -631,7 +631,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/arch/inv
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_interp_fast.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_interp_fast.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_interp_fast.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_interp_fast.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_interp_fast.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_interp_fast.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_interp_fast.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_interp_fast.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_interp_fast.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_interp_fast.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_interp_fast.c.i: cmake_force
@@ -645,7 +645,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/was
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_loader.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_loader.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_loader.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_loader.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_loader.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_loader.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_loader.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_loader.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_loader.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_loader.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_loader.c.i: cmake_force
@@ -659,7 +659,7 @@ CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/was
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_runtime.c.o: CMakeFiles/vmlib.dir/flags.make
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_runtime.c.o: /home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_runtime.c
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_runtime.c.o: CMakeFiles/vmlib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_runtime.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_runtime.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_runtime.c.o -MF CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_runtime.c.o.d -o CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_runtime.c.o -c /home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_runtime.c
 
 CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_runtime.c.i: cmake_force
@@ -764,7 +764,7 @@ libvmlib.a: CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/int
 libvmlib.a: CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter/wasm_runtime.c.o
 libvmlib.a: CMakeFiles/vmlib.dir/build.make
 libvmlib.a: CMakeFiles/vmlib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Linking C static library libvmlib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Linking C static library libvmlib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/vmlib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vmlib.dir/link.txt --verbose=$(VERBOSE)
 
@@ -777,6 +777,6 @@ CMakeFiles/vmlib.dir/clean:
 .PHONY : CMakeFiles/vmlib.dir/clean
 
 CMakeFiles/vmlib.dir/depend:
-	cd /home/ash/wasm/wasm-serverless/cpp_example/worker/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ash/wasm/wasm-serverless/cpp_example/worker /home/ash/wasm/wasm-serverless/cpp_example/worker /home/ash/wasm/wasm-serverless/cpp_example/worker/build /home/ash/wasm/wasm-serverless/cpp_example/worker/build /home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/vmlib.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ash/wasm/wasm-serverless/cppWasmWorker/worker /home/ash/wasm/wasm-serverless/cppWasmWorker/worker /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/vmlib.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/vmlib.dir/depend
 

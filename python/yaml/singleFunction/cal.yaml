@@ -5,10 +5,12 @@ input:
   - name: arg2
     type: int
 output:
-  - name: subres
-    type: int
   - name: addres
     type: int
+  - name: subres
+    type: int
+  - name: divres
+    type: float
 wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/cal.wasm
 maxWorkers: 10
 expireTime: 10

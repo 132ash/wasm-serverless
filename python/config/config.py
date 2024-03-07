@@ -8,3 +8,4 @@ WORKERNODEPATH = "/home/ash/wasm/wasm-serverless/python/config/workerNodeInfo.ya
 NETWORK_BANDWIDTH = 25 * 1024 * 1024 / 4
 NET_MEM_BANDWIDTH_RATIO = 15 # mem_time = net_time / 15
 GROUP_LIMIT = 3
+GATEWAY_ADDR =  '10.2.64.8:7000'

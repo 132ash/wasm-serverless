@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_ASM
-  "/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s" "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s.o"
+  "/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s" "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s.o"
   )
 set(CMAKE_ASM_COMPILER_ID "GNU")
 

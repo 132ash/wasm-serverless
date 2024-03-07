@@ -7,7 +7,7 @@ sys.path.append('./storage')
 import config
 from gevent import event
 from gevent.lock import BoundedSemaphore
-from python.function.functionWorker import FunctionWorker
+from functionWorker import FunctionWorker
 
 SINGLEFUNCYAMLPATH = config.SINGLEFUNCYAMLPATH
 
@@ -26,10 +26,12 @@ class FunctionInfo:
         self.expireTime = funcYamlData['expireTime']
         self.input = {}
         self.output = {}
+        self.outputSize = 0
         for param in funcYamlData['input']:
             self.input[param['name']] = param['type']
-        self.output['name'] = funcYamlData['output']['name']
-        self.output['type'] = funcYamlData['output']['type']
+        for param in funcYamlData['output']:
+            self.outputSize += 4
+            self.output[param['name']] = param['type']
 
 
 
@@ -111,7 +113,7 @@ class Function:
 
         logging.info('create worker of function: %s', self.info.name)
         try:
-            worker = FunctionWorker(self.info.name, self.info.wasmCodePath)
+            worker = FunctionWorker(self.info.name, self.info.wasmCodePath, self.info.outputSize)
             # worker = tmpWorker(self.info.funcName, self.info.wasmCodePath)
         except Exception as e:
             print(e)

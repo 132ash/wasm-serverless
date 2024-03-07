@@ -1,1 +1,1 @@
-/usr/bin/c++  -fPIC CMakeFiles/worker.dir/main.cpp.o "CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.o" "CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.o" -o worker  libvmlib.a -lpthread
+/usr/bin/c++  -fPIC CMakeFiles/worker.dir/main.cpp.o -o worker  libvmlib.a -lpthread

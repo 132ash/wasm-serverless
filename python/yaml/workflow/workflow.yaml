@@ -35,7 +35,7 @@ functions:
     type: SWITCH
     size: 4999999
     conditions: 
-      - input["subres"] < 0
+      - subres < 0
       - default
     funcs:
       - reverse

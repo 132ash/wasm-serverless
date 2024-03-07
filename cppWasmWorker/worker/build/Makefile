@@ -57,10 +57,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ash/wasm/wasm-serverless/cpp_example/worker
+CMAKE_SOURCE_DIR = /home/ash/wasm/wasm-serverless/cppWasmWorker/worker
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ash/wasm/wasm-serverless/cpp_example/worker/build
+CMAKE_BINARY_DIR = /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles /home/ash/wasm/wasm-serverless/cpp_example/worker/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -1158,54 +1158,6 @@ home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vmlib.dir/build.make CMakeFiles/vmlib.dir/home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c.s
 .PHONY : home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.c.s
 
-home/ash/wasm/wasm-serverless/cpp_example/include/base64.o: home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.o
-.PHONY : home/ash/wasm/wasm-serverless/cpp_example/include/base64.o
-
-# target to build an object file
-home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/worker.dir/build.make CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.o
-.PHONY : home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.o
-
-home/ash/wasm/wasm-serverless/cpp_example/include/base64.i: home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.i
-.PHONY : home/ash/wasm/wasm-serverless/cpp_example/include/base64.i
-
-# target to preprocess a source file
-home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/worker.dir/build.make CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.i
-.PHONY : home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.i
-
-home/ash/wasm/wasm-serverless/cpp_example/include/base64.s: home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.s
-.PHONY : home/ash/wasm/wasm-serverless/cpp_example/include/base64.s
-
-# target to generate assembly for a file
-home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/worker.dir/build.make CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.s
-.PHONY : home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.s
-
-home/ash/wasm/wasm-serverless/cpp_example/include/utils.o: home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.o
-.PHONY : home/ash/wasm/wasm-serverless/cpp_example/include/utils.o
-
-# target to build an object file
-home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/worker.dir/build.make CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.o
-.PHONY : home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.o
-
-home/ash/wasm/wasm-serverless/cpp_example/include/utils.i: home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.i
-.PHONY : home/ash/wasm/wasm-serverless/cpp_example/include/utils.i
-
-# target to preprocess a source file
-home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/worker.dir/build.make CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.i
-.PHONY : home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.i
-
-home/ash/wasm/wasm-serverless/cpp_example/include/utils.s: home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.s
-.PHONY : home/ash/wasm/wasm-serverless/cpp_example/include/utils.s
-
-# target to generate assembly for a file
-home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/worker.dir/build.make CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.s
-.PHONY : home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.s
-
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -1367,12 +1319,6 @@ help:
 	@echo "... home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.o"
 	@echo "... home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.i"
 	@echo "... home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.s"
-	@echo "... home/ash/wasm/wasm-serverless/cpp_example/include/base64.o"
-	@echo "... home/ash/wasm/wasm-serverless/cpp_example/include/base64.i"
-	@echo "... home/ash/wasm/wasm-serverless/cpp_example/include/base64.s"
-	@echo "... home/ash/wasm/wasm-serverless/cpp_example/include/utils.o"
-	@echo "... home/ash/wasm/wasm-serverless/cpp_example/include/utils.i"
-	@echo "... home/ash/wasm/wasm-serverless/cpp_example/include/utils.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

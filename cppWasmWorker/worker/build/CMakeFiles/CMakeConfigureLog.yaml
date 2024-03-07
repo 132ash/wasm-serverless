@@ -7,7 +7,7 @@ events:
       - "/usr/local/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake:205 (message)"
       - "CMakeLists.txt:2 (project)"
     message: |
-      The system is: Linux - 5.15.0-94-generic - x86_64
+      The system is: Linux - 5.15.0-97-generic - x86_64
   -
     kind: "message-v1"
     backtrace:
@@ -28,7 +28,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
       
       The C compiler identification is GNU, found in:
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/3.29.0-rc1/CompilerIdC/a.out
+        /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/3.29.0-rc1/CompilerIdC/a.out
       
   -
     kind: "message-v1"
@@ -50,7 +50,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
       
       The CXX compiler identification is GNU, found in:
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/3.29.0-rc1/CompilerIdCXX/a.out
+        /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/3.29.0-rc1/CompilerIdCXX/a.out
       
   -
     kind: "try_compile-v1"
@@ -61,8 +61,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-mfmGLb"
-      binary: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-mfmGLb"
+      source: "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-ZOgD7k"
+      binary: "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-ZOgD7k"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -71,13 +71,13 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-mfmGLb'
+        Change Dir: '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-ZOgD7k'
         
-        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_94873/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_94873.dir/build.make CMakeFiles/cmTC_94873.dir/build
-        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-mfmGLb'
-        Building C object CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o
-        /usr/bin/cc   -v -o CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-3.29/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_f499f/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_f499f.dir/build.make CMakeFiles/cmTC_f499f.dir/build
+        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-ZOgD7k'
+        Building C object CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-3.29/Modules/CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=/usr/bin/cc
         OFFLOAD_TARGET_NAMES=nvptx-none:hsa
@@ -86,8 +86,8 @@ events:
         Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-9QDOt0/gcc-9-9.4.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
         Thread model: posix
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.29/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cc88ndXS.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.29/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccwDGzt3.s
         GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.2) version 9.4.0 (x86_64-linux-gnu)
         	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
         
@@ -107,15 +107,15 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: 01da938ff5dc2163489aa33cb3b747a7
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-         as -v --64 -o CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o /tmp/cc88ndXS.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o /tmp/ccwDGzt3.s
         GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-        Linking C executable cmTC_94873
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_94873.dir/link.txt --verbose=1
-        /usr/bin/cc  -v -Wl,-v CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o -o cmTC_94873
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+        Linking C executable cmTC_f499f
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f499f.dir/link.txt --verbose=1
+        /usr/bin/cc  -v -Wl,-v CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o -o cmTC_f499f
         Using built-in specs.
         COLLECT_GCC=/usr/bin/cc
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
@@ -127,13 +127,13 @@ events:
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_94873' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccG4EwIk.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_94873 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f499f' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccFowZrv.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_f499f /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
         collect2 version 9.4.0
-        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccG4EwIk.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_94873 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccFowZrv.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_f499f /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
         GNU ld (GNU Binutils for Ubuntu) 2.34
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_94873' '-mtune=generic' '-march=x86-64'
-        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-mfmGLb'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f499f' '-mtune=generic' '-march=x86-64'
+        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-ZOgD7k'
         
       exitCode: 0
   -
@@ -168,13 +168,13 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
-        ignore line: [Change Dir: '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-mfmGLb']
+        ignore line: [Change Dir: '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-ZOgD7k']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_94873/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_94873.dir/build.make CMakeFiles/cmTC_94873.dir/build]
-        ignore line: [make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-mfmGLb']
-        ignore line: [Building C object CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-3.29/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_f499f/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_f499f.dir/build.make CMakeFiles/cmTC_f499f.dir/build]
+        ignore line: [make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-ZOgD7k']
+        ignore line: [Building C object CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-3.29/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/cc]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:hsa]
@@ -183,8 +183,8 @@ events:
         ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-9QDOt0/gcc-9-9.4.0/debian/tmp-nvptx/usr hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
         ignore line: [Thread model: posix]
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.29/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cc88ndXS.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.29/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccwDGzt3.s]
         ignore line: [GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.2) version 9.4.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
         ignore line: []
@@ -204,15 +204,15 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: 01da938ff5dc2163489aa33cb3b747a7]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o /tmp/cc88ndXS.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o /tmp/ccwDGzt3.s]
         ignore line: [GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-        ignore line: [Linking C executable cmTC_94873]
-        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_94873.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/cc  -v -Wl -v CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o -o cmTC_94873]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking C executable cmTC_f499f]
+        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f499f.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/cc  -v -Wl -v CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o -o cmTC_f499f]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/cc]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper]
@@ -224,13 +224,13 @@ events:
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_94873' '-mtune=generic' '-march=x86-64']
-        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccG4EwIk.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_94873 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f499f' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccFowZrv.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_f499f /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccG4EwIk.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccFowZrv.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -248,7 +248,7 @@ events:
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_94873] ==> ignore
+          arg [cmTC_f499f] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
@@ -261,7 +261,7 @@ events:
           arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..]
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-lgcc] ==> lib [gcc]
           arg [--push-state] ==> ignore
           arg [--as-needed] ==> ignore
@@ -276,7 +276,7 @@ events:
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
         ignore line: [collect2 version 9.4.0]
-        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccG4EwIk.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_94873 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_94873.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccFowZrv.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_f499f /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_f499f.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
         linker tool for 'C': /usr/bin/ld
         collapse obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
         collapse obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
@@ -314,8 +314,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-jaHC9a"
-      binary: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-jaHC9a"
+      source: "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-3xJAQk"
+      binary: "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-3xJAQk"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -324,13 +324,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-jaHC9a'
+        Change Dir: '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-3xJAQk'
         
-        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a6031/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_a6031.dir/build.make CMakeFiles/cmTC_a6031.dir/build
-        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-jaHC9a'
-        Building CXX object CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -v -o CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_30779/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_30779.dir/build.make CMakeFiles/cmTC_30779.dir/build
+        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-3xJAQk'
+        Building CXX object CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         OFFLOAD_TARGET_NAMES=nvptx-none:hsa
@@ -339,8 +339,8 @@ events:
         Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-9QDOt0/gcc-9-9.4.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
         Thread model: posix
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/local/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccSZDq85.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/local/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cczRFuuf.s
         GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.2) version 9.4.0 (x86_64-linux-gnu)
         	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
         
@@ -364,15 +364,15 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: 3d1eba838554fa2348dba760e4770469
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-         as -v --64 -o CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccSZDq85.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o /tmp/cczRFuuf.s
         GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-        Linking CXX executable cmTC_a6031
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a6031.dir/link.txt --verbose=1
-        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_a6031
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        Linking CXX executable cmTC_30779
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30779.dir/link.txt --verbose=1
+        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_30779
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
@@ -384,13 +384,13 @@ events:
         gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6031' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccGz46iy.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_a6031 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_30779' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMPENDH.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_30779 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
         collect2 version 9.4.0
-        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccGz46iy.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_a6031 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMPENDH.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_30779 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
         GNU ld (GNU Binutils for Ubuntu) 2.34
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6031' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-jaHC9a'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_30779' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-3xJAQk'
         
       exitCode: 0
   -
@@ -431,13 +431,13 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
-        ignore line: [Change Dir: '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-jaHC9a']
+        ignore line: [Change Dir: '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-3xJAQk']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a6031/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_a6031.dir/build.make CMakeFiles/cmTC_a6031.dir/build]
-        ignore line: [make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-jaHC9a']
-        ignore line: [Building CXX object CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_30779/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_30779.dir/build.make CMakeFiles/cmTC_30779.dir/build]
+        ignore line: [make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-3xJAQk']
+        ignore line: [Building CXX object CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:hsa]
@@ -446,8 +446,8 @@ events:
         ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-9QDOt0/gcc-9-9.4.0/debian/tmp-nvptx/usr hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
         ignore line: [Thread model: posix]
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/local/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccSZDq85.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/local/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cczRFuuf.s]
         ignore line: [GNU C++14 (Ubuntu 9.4.0-1ubuntu1~20.04.2) version 9.4.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
         ignore line: []
@@ -471,15 +471,15 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: 3d1eba838554fa2348dba760e4770469]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccSZDq85.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o /tmp/cczRFuuf.s]
         ignore line: [GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        ignore line: [Linking CXX executable cmTC_a6031]
-        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a6031.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/c++  -v -Wl -v CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_a6031]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking CXX executable cmTC_30779]
+        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30779.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/c++  -v -Wl -v CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_30779]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper]
@@ -491,13 +491,13 @@ events:
         ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6031' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccGz46iy.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_a6031 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_30779' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMPENDH.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_30779 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccGz46iy.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccMPENDH.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -515,7 +515,7 @@ events:
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_a6031] ==> ignore
+          arg [cmTC_30779] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
@@ -528,7 +528,7 @@ events:
           arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..]
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -539,7 +539,7 @@ events:
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
         ignore line: [collect2 version 9.4.0]
-        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccGz46iy.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_a6031 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_a6031.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMPENDH.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_30779 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -v CMakeFiles/cmTC_30779.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
         linker tool for 'CXX': /usr/bin/ld
         collapse obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
         collapse obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
@@ -575,8 +575,8 @@ events:
       - "/home/ash/wasm/wasm-micro-runtime/build-scripts/runtime_lib.cmake:156 (include)"
       - "CMakeLists.txt:19 (include)"
     directories:
-      source: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-      binary: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
+      source: "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
+      binary: "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
     cmakeVariables:
       CMAKE_C_FLAGS: " -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC"
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -585,21 +585,21 @@ events:
       variable: "TEST_WRGSBASE_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
+        Change Dir: '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
         
-        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_c21de/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_c21de.dir/build.make CMakeFiles/cmTC_c21de.dir/build
-        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        Building C object CMakeFiles/cmTC_c21de.dir/test_wrgsbase.c.o
-        /usr/bin/cc   -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  -o CMakeFiles/cmTC_c21de.dir/test_wrgsbase.c.o -c /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c: In function ‘main’:
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c:6:9: warning: ‘value’ is used uninitialized in this function [-Wuninitialized]
+        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_832be/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_832be.dir/build.make CMakeFiles/cmTC_832be.dir/build
+        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_832be.dir/test_wrgsbase.c.o
+        /usr/bin/cc   -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  -o CMakeFiles/cmTC_832be.dir/test_wrgsbase.c.o -c /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase.c
+        /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase.c: In function ‘main’:
+        /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase.c:6:9: warning: ‘value’ is used uninitialized in this function [-Wuninitialized]
             6 |         asm volatile ("wrgsbase %0" : : "r"(value));
               |         ^~~
-        Linking C executable cmTC_c21de
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c21de.dir/link.txt --verbose=1
-        /usr/bin/cc  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  CMakeFiles/cmTC_c21de.dir/test_wrgsbase.c.o -o cmTC_c21de
-        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
+        Linking C executable cmTC_832be
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_832be.dir/link.txt --verbose=1
+        /usr/bin/cc  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  CMakeFiles/cmTC_832be.dir/test_wrgsbase.c.o -o cmTC_832be
+        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
         
       exitCode: 0
     runResult:
@@ -635,8 +635,8 @@ events:
     checks:
       - "Looking for mremap"
     directories:
-      source: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-aYxEqe"
-      binary: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-aYxEqe"
+      source: "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-fA2gYk"
+      binary: "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-fA2gYk"
     cmakeVariables:
       CMAKE_C_FLAGS: " -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC"
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -645,332 +645,17 @@ events:
       variable: "MREMAP_EXISTS"
       cached: true
       stdout: |
-        Change Dir: '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-aYxEqe'
+        Change Dir: '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-fA2gYk'
         
-        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_f146e/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_f146e.dir/build.make CMakeFiles/cmTC_f146e.dir/build
-        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-aYxEqe'
-        Building C object CMakeFiles/cmTC_f146e.dir/CheckSymbolExists.c.o
-        /usr/bin/cc -D_GNU_SOURCE  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  -o CMakeFiles/cmTC_f146e.dir/CheckSymbolExists.c.o -c /home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-aYxEqe/CheckSymbolExists.c
-        Linking C executable cmTC_f146e
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f146e.dir/link.txt --verbose=1
-        /usr/bin/cc  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  CMakeFiles/cmTC_f146e.dir/CheckSymbolExists.c.o -o cmTC_f146e
-        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/CMakeFiles/CMakeScratch/TryCompile-aYxEqe'
+        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_f65a4/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_f65a4.dir/build.make CMakeFiles/cmTC_f65a4.dir/build
+        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-fA2gYk'
+        Building C object CMakeFiles/cmTC_f65a4.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  -o CMakeFiles/cmTC_f65a4.dir/CheckSymbolExists.c.o -c /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-fA2gYk/CheckSymbolExists.c
+        Linking C executable cmTC_f65a4
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f65a4.dir/link.txt --verbose=1
+        /usr/bin/cc  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  CMakeFiles/cmTC_f65a4.dir/CheckSymbolExists.c.o -o cmTC_f65a4
+        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/CMakeScratch/TryCompile-fA2gYk'
         
-      exitCode: 0
-...
-
----
-events:
-  -
-    kind: "try_run-v1"
-    backtrace:
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/config_common.cmake:483 (try_run)"
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/runtime_lib.cmake:156 (include)"
-      - "CMakeLists.txt:19 (include)"
-    directories:
-      source: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-      binary: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-    cmakeVariables:
-      CMAKE_C_FLAGS: " -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC"
-      CMAKE_C_FLAGS_DEBUG: "-g"
-      CMAKE_EXE_LINKER_FLAGS: ""
-    buildResult:
-      variable: "TEST_WRGSBASE_COMPILED"
-      cached: true
-      stdout: |
-        Change Dir: '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_cd004/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_cd004.dir/build.make CMakeFiles/cmTC_cd004.dir/build
-        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        Building C object CMakeFiles/cmTC_cd004.dir/test_wrgsbase.c.o
-        /usr/bin/cc   -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  -o CMakeFiles/cmTC_cd004.dir/test_wrgsbase.c.o -c /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c: In function ‘main’:
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c:6:9: warning: ‘value’ is used uninitialized in this function [-Wuninitialized]
-            6 |         asm volatile ("wrgsbase %0" : : "r"(value));
-              |         ^~~
-        Linking C executable cmTC_cd004
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd004.dir/link.txt --verbose=1
-        /usr/bin/cc  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  CMakeFiles/cmTC_cd004.dir/test_wrgsbase.c.o -o cmTC_cd004
-        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-      exitCode: 0
-    runResult:
-      variable: "TEST_WRGSBASE_RESULT"
-      cached: true
-      stdout: |
-        WRGSBASE instruction is available.
-      stderr: |
-      exitCode: 0
-...
-
----
-events:
-  -
-    kind: "try_run-v1"
-    backtrace:
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/config_common.cmake:483 (try_run)"
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/runtime_lib.cmake:156 (include)"
-      - "CMakeLists.txt:19 (include)"
-    directories:
-      source: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-      binary: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-    cmakeVariables:
-      CMAKE_C_FLAGS: " -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC"
-      CMAKE_C_FLAGS_DEBUG: "-g"
-      CMAKE_EXE_LINKER_FLAGS: ""
-    buildResult:
-      variable: "TEST_WRGSBASE_COMPILED"
-      cached: true
-      stdout: |
-        Change Dir: '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_73704/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_73704.dir/build.make CMakeFiles/cmTC_73704.dir/build
-        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        Building C object CMakeFiles/cmTC_73704.dir/test_wrgsbase.c.o
-        /usr/bin/cc   -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  -o CMakeFiles/cmTC_73704.dir/test_wrgsbase.c.o -c /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c: In function ‘main’:
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c:6:9: warning: ‘value’ is used uninitialized in this function [-Wuninitialized]
-            6 |         asm volatile ("wrgsbase %0" : : "r"(value));
-              |         ^~~
-        Linking C executable cmTC_73704
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_73704.dir/link.txt --verbose=1
-        /usr/bin/cc  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  CMakeFiles/cmTC_73704.dir/test_wrgsbase.c.o -o cmTC_73704
-        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-      exitCode: 0
-    runResult:
-      variable: "TEST_WRGSBASE_RESULT"
-      cached: true
-      stdout: |
-        WRGSBASE instruction is available.
-      stderr: |
-      exitCode: 0
-...
-
----
-events:
-  -
-    kind: "try_run-v1"
-    backtrace:
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/config_common.cmake:483 (try_run)"
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/runtime_lib.cmake:156 (include)"
-      - "CMakeLists.txt:19 (include)"
-    directories:
-      source: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-      binary: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-    cmakeVariables:
-      CMAKE_C_FLAGS: " -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC"
-      CMAKE_C_FLAGS_DEBUG: "-g"
-      CMAKE_EXE_LINKER_FLAGS: ""
-    buildResult:
-      variable: "TEST_WRGSBASE_COMPILED"
-      cached: true
-      stdout: |
-        Change Dir: '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_927a0/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_927a0.dir/build.make CMakeFiles/cmTC_927a0.dir/build
-        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        Building C object CMakeFiles/cmTC_927a0.dir/test_wrgsbase.c.o
-        /usr/bin/cc   -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  -o CMakeFiles/cmTC_927a0.dir/test_wrgsbase.c.o -c /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c: In function ‘main’:
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c:6:9: warning: ‘value’ is used uninitialized in this function [-Wuninitialized]
-            6 |         asm volatile ("wrgsbase %0" : : "r"(value));
-              |         ^~~
-        Linking C executable cmTC_927a0
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_927a0.dir/link.txt --verbose=1
-        /usr/bin/cc  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  CMakeFiles/cmTC_927a0.dir/test_wrgsbase.c.o -o cmTC_927a0
-        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-      exitCode: 0
-    runResult:
-      variable: "TEST_WRGSBASE_RESULT"
-      cached: true
-      stdout: |
-        WRGSBASE instruction is available.
-      stderr: |
-      exitCode: 0
-...
-
----
-events:
-  -
-    kind: "try_run-v1"
-    backtrace:
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/config_common.cmake:483 (try_run)"
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/runtime_lib.cmake:156 (include)"
-      - "CMakeLists.txt:19 (include)"
-    directories:
-      source: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-      binary: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-    cmakeVariables:
-      CMAKE_C_FLAGS: " -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC"
-      CMAKE_C_FLAGS_DEBUG: "-g"
-      CMAKE_EXE_LINKER_FLAGS: ""
-    buildResult:
-      variable: "TEST_WRGSBASE_COMPILED"
-      cached: true
-      stdout: |
-        Change Dir: '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_e5f01/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_e5f01.dir/build.make CMakeFiles/cmTC_e5f01.dir/build
-        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        Building C object CMakeFiles/cmTC_e5f01.dir/test_wrgsbase.c.o
-        /usr/bin/cc   -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  -o CMakeFiles/cmTC_e5f01.dir/test_wrgsbase.c.o -c /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c: In function ‘main’:
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c:6:9: warning: ‘value’ is used uninitialized in this function [-Wuninitialized]
-            6 |         asm volatile ("wrgsbase %0" : : "r"(value));
-              |         ^~~
-        Linking C executable cmTC_e5f01
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e5f01.dir/link.txt --verbose=1
-        /usr/bin/cc  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  CMakeFiles/cmTC_e5f01.dir/test_wrgsbase.c.o -o cmTC_e5f01
-        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-      exitCode: 0
-    runResult:
-      variable: "TEST_WRGSBASE_RESULT"
-      cached: true
-      stdout: |
-        WRGSBASE instruction is available.
-      stderr: |
-      exitCode: 0
-...
-
----
-events:
-  -
-    kind: "try_run-v1"
-    backtrace:
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/config_common.cmake:483 (try_run)"
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/runtime_lib.cmake:156 (include)"
-      - "CMakeLists.txt:19 (include)"
-    directories:
-      source: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-      binary: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-    cmakeVariables:
-      CMAKE_C_FLAGS: " -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC"
-      CMAKE_C_FLAGS_DEBUG: "-g"
-      CMAKE_EXE_LINKER_FLAGS: ""
-    buildResult:
-      variable: "TEST_WRGSBASE_COMPILED"
-      cached: true
-      stdout: |
-        Change Dir: '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_3d51c/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_3d51c.dir/build.make CMakeFiles/cmTC_3d51c.dir/build
-        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        Building C object CMakeFiles/cmTC_3d51c.dir/test_wrgsbase.c.o
-        /usr/bin/cc   -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  -o CMakeFiles/cmTC_3d51c.dir/test_wrgsbase.c.o -c /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c: In function ‘main’:
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c:6:9: warning: ‘value’ is used uninitialized in this function [-Wuninitialized]
-            6 |         asm volatile ("wrgsbase %0" : : "r"(value));
-              |         ^~~
-        Linking C executable cmTC_3d51c
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d51c.dir/link.txt --verbose=1
-        /usr/bin/cc  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  CMakeFiles/cmTC_3d51c.dir/test_wrgsbase.c.o -o cmTC_3d51c
-        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-      exitCode: 0
-    runResult:
-      variable: "TEST_WRGSBASE_RESULT"
-      cached: true
-      stdout: |
-        WRGSBASE instruction is available.
-      stderr: |
-      exitCode: 0
-...
-
----
-events:
-  -
-    kind: "try_run-v1"
-    backtrace:
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/config_common.cmake:483 (try_run)"
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/runtime_lib.cmake:156 (include)"
-      - "CMakeLists.txt:19 (include)"
-    directories:
-      source: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-      binary: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-    cmakeVariables:
-      CMAKE_C_FLAGS: " -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC"
-      CMAKE_C_FLAGS_DEBUG: "-g"
-      CMAKE_EXE_LINKER_FLAGS: ""
-    buildResult:
-      variable: "TEST_WRGSBASE_COMPILED"
-      cached: true
-      stdout: |
-        Change Dir: '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d243f/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_d243f.dir/build.make CMakeFiles/cmTC_d243f.dir/build
-        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        Building C object CMakeFiles/cmTC_d243f.dir/test_wrgsbase.c.o
-        /usr/bin/cc   -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  -o CMakeFiles/cmTC_d243f.dir/test_wrgsbase.c.o -c /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c: In function ‘main’:
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c:6:9: warning: ‘value’ is used uninitialized in this function [-Wuninitialized]
-            6 |         asm volatile ("wrgsbase %0" : : "r"(value));
-              |         ^~~
-        Linking C executable cmTC_d243f
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d243f.dir/link.txt --verbose=1
-        /usr/bin/cc  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  CMakeFiles/cmTC_d243f.dir/test_wrgsbase.c.o -o cmTC_d243f
-        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-      exitCode: 0
-    runResult:
-      variable: "TEST_WRGSBASE_RESULT"
-      cached: true
-      stdout: |
-        WRGSBASE instruction is available.
-      stderr: |
-      exitCode: 0
-...
-
----
-events:
-  -
-    kind: "try_run-v1"
-    backtrace:
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/config_common.cmake:483 (try_run)"
-      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/runtime_lib.cmake:156 (include)"
-      - "CMakeLists.txt:19 (include)"
-    directories:
-      source: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-      binary: "/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
-    cmakeVariables:
-      CMAKE_C_FLAGS: " -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC"
-      CMAKE_C_FLAGS_DEBUG: "-g"
-      CMAKE_EXE_LINKER_FLAGS: ""
-    buildResult:
-      variable: "TEST_WRGSBASE_COMPILED"
-      cached: true
-      stdout: |
-        Change Dir: '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_e7c25/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_e7c25.dir/build.make CMakeFiles/cmTC_e7c25.dir/build
-        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        Building C object CMakeFiles/cmTC_e7c25.dir/test_wrgsbase.c.o
-        /usr/bin/cc   -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  -o CMakeFiles/cmTC_e7c25.dir/test_wrgsbase.c.o -c /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c: In function ‘main’:
-        /home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase.c:6:9: warning: ‘value’ is used uninitialized in this function [-Wuninitialized]
-            6 |         asm volatile ("wrgsbase %0" : : "r"(value));
-              |         ^~~
-        Linking C executable cmTC_e7c25
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e7c25.dir/link.txt --verbose=1
-        /usr/bin/cc  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  CMakeFiles/cmTC_e7c25.dir/test_wrgsbase.c.o -o cmTC_e7c25
-        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cpp_example/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
-        
-      exitCode: 0
-    runResult:
-      variable: "TEST_WRGSBASE_RESULT"
-      cached: true
-      stdout: |
-        WRGSBASE instruction is available.
-      stderr: |
       exitCode: 0
 ...

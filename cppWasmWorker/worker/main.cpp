@@ -8,16 +8,20 @@ using json = nlohmann::json;
 
 int main() {
     int argc, param;
+    // first two positions are for resurnSize and argc.
     uint32 argv[256];
     char buffer[50];
+    auto returnBuffer = resultBuffer;
+    int returnSize;
 
     std::string wasmCodePath, funcName, jsonParamStr;
 	wasmCodePath.resize(100); 
     funcName.resize(100);
 	scanf("%s", &wasmCodePath[0]);
     scanf("%s", &funcName[0]);
+    scanf("%d", &returnSize);
 
-    wasrModule wasmRuntime(wasmCodePath, funcName);
+    wasrModule wasmRuntime(wasmCodePath, funcName, returnSize);
     
     while(true) {
         // std::string jsonParamStr;
@@ -27,14 +31,14 @@ int main() {
         }
         // scanf("%s", &jsonParamStr[0]);
         auto jsonObject = json::parse(jsonParamStr);
-        int argc = 0;
+        int argc = 0; // num of input params.
         for (auto& element : jsonObject.items()) {
-            argv[argc] = element.value();
+            argv[argc + 1] = element.value();
             argc += 1;
         }
-        // std::cout << sum << std::endl;
-        wasmRuntime.runWasmCode(argc, argv);
-        write(PIPE_WRITE_FD, &argv[0], sizeof(argv[0]));
+        argv[0] = returnSize;
+        wasmRuntime.runWasmCode(argc+2, argv);
+        write(PIPE_WRITE_FD, resultBuffer, returnSize);
     }
     return 0;
 }

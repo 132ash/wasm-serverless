@@ -11,12 +11,12 @@ workflowrequestAddr = ip + "workflow/run"
 workflowdeleteAddr = ip + 'workflow/delete'
 workflowcreateAddr = ip + 'workflow/create'
 
-createReq = {"funcName":"sum"}
-triggerReq = {"funcName":"sum", "parameters":{"sub1":1, "sub2":2}}
+createReq = {"funcName":["sub"]}
+triggerReq = {"funcName":"cal", "parameters":{"arg1":1, "arg2":2}}
 deleteReq = {"funcName": "sum"}
 
 def testCreate(funcName):
-    req = {"funcName":funcName}
+    req = {"funcNames":[funcName]}
     res = requests.post(createAddr, json=req)
     print(res.text)
 
@@ -64,5 +64,5 @@ def testWasmFunc():
     print("run {} res:{}".format(funcName, res.text))
 
 
-testWorkflowCreate()
-testWorkflowTrigger()
+testCreate("cal")
+testTrigger()

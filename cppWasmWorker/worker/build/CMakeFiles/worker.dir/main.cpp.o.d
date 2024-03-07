@@ -1,8 +1,8 @@
 CMakeFiles/worker.dir/main.cpp.o: \
- /home/ash/wasm/wasm-serverless/cpp_example/worker/main.cpp \
+ /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/main.cpp \
  /usr/include/stdc-predef.h \
- /home/ash/wasm/wasm-serverless/cpp_example/worker/worker.hpp \
- /home/ash/wasm/wasm-serverless/cpp_example/worker/native.hpp \
+ /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/worker.hpp \
+ /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/native.hpp \
  /usr/include/c++/9/cstdint \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
@@ -232,35 +232,34 @@ CMakeFiles/worker.dir/main.cpp.o: \
  /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashmap.h \
  /home/ash/wasm/wasm-micro-runtime/core/iwasm/include/wasm_export.h \
  /home/ash/wasm/wasm-micro-runtime/core/iwasm/include/lib_export.h \
- /home/ash/wasm/wasm-serverless/cpp_example/worker/../include/utils.hpp \
- /usr/include/c++/9/cstring /usr/include/c++/9/fstream \
- /usr/include/c++/9/istream /usr/include/c++/9/ios \
- /usr/include/c++/9/iosfwd /usr/include/c++/9/bits/stringfwd.h \
- /usr/include/c++/9/bits/postypes.h /usr/include/c++/9/cwchar \
- /usr/include/wchar.h /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
+ /usr/include/c++/9/string /usr/include/c++/9/bits/stringfwd.h \
+ /usr/include/c++/9/bits/char_traits.h /usr/include/c++/9/bits/postypes.h \
+ /usr/include/c++/9/cwchar /usr/include/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
- /usr/include/c++/9/bits/char_traits.h \
  /usr/include/c++/9/bits/localefwd.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++locale.h \
  /usr/include/c++/9/clocale /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/9/cctype \
- /usr/include/c++/9/bits/ios_base.h /usr/include/c++/9/ext/atomicity.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/gthr.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/gthr-default.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/atomic_word.h \
- /usr/include/c++/9/bits/locale_classes.h /usr/include/c++/9/string \
- /usr/include/c++/9/bits/ostream_insert.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/9/iosfwd \
+ /usr/include/c++/9/cctype /usr/include/c++/9/bits/ostream_insert.h \
  /usr/include/c++/9/bits/cxxabi_forced.h \
  /usr/include/c++/9/bits/stl_function.h \
  /usr/include/c++/9/backward/binders.h \
  /usr/include/c++/9/bits/basic_string.h \
+ /usr/include/c++/9/ext/atomicity.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/gthr.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/gthr-default.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/atomic_word.h \
  /usr/include/c++/9/ext/string_conversions.h /usr/include/c++/9/cstdio \
  /usr/include/c++/9/cerrno /usr/include/c++/9/bits/basic_string.tcc \
+ /usr/include/c++/9/stdexcept /usr/include/c++/9/iostream \
+ /usr/include/c++/9/ostream /usr/include/c++/9/ios \
+ /usr/include/c++/9/bits/ios_base.h \
+ /usr/include/c++/9/bits/locale_classes.h \
  /usr/include/c++/9/bits/locale_classes.tcc \
  /usr/include/c++/9/system_error \
  /usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h \
- /usr/include/c++/9/stdexcept /usr/include/c++/9/streambuf \
- /usr/include/c++/9/bits/streambuf.tcc \
+ /usr/include/c++/9/streambuf /usr/include/c++/9/bits/streambuf.tcc \
  /usr/include/c++/9/bits/basic_ios.h \
  /usr/include/c++/9/bits/locale_facets.h /usr/include/c++/9/cwctype \
  /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
@@ -268,17 +267,10 @@ CMakeFiles/worker.dir/main.cpp.o: \
  /usr/include/c++/9/bits/streambuf_iterator.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_inline.h \
  /usr/include/c++/9/bits/locale_facets.tcc \
- /usr/include/c++/9/bits/basic_ios.tcc /usr/include/c++/9/ostream \
- /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/bits/istream.tcc \
- /usr/include/c++/9/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
- /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/sstream \
- /usr/include/c++/9/bits/sstream.tcc /usr/include/c++/9/iostream \
- /usr/include/c++/9/ctime \
- /home/ash/wasm/wasm-serverless/cpp_example/worker/../include/base64.h \
- /home/ash/wasm/wasm-serverless/cpp_example/worker/../include/functionConfig.hpp \
- /home/ash/wasm/wasm-serverless/cpp_example/worker/../include/json.hpp \
+ /usr/include/c++/9/bits/basic_ios.tcc \
+ /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
+ /usr/include/c++/9/bits/istream.tcc \
+ /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/../include/json.hpp \
  /usr/include/c++/9/algorithm /usr/include/c++/9/utility \
  /usr/include/c++/9/bits/stl_relops.h /usr/include/c++/9/bits/stl_algo.h \
  /usr/include/c++/9/bits/algorithmfwd.h \
@@ -317,11 +309,14 @@ CMakeFiles/worker.dir/main.cpp.o: \
  /usr/include/c++/9/bits/gslice.h /usr/include/c++/9/bits/gslice_array.h \
  /usr/include/c++/9/bits/mask_array.h \
  /usr/include/c++/9/bits/indirect_array.h /usr/include/c++/9/version \
- /usr/include/c++/9/cassert /usr/include/c++/9/numeric \
- /usr/include/c++/9/bits/stl_numeric.h /usr/include/c++/9/iomanip \
- /usr/include/c++/9/locale /usr/include/c++/9/bits/locale_facets_nonio.h \
+ /usr/include/c++/9/cassert /usr/include/c++/9/cstring \
+ /usr/include/c++/9/numeric /usr/include/c++/9/bits/stl_numeric.h \
+ /usr/include/c++/9/iomanip /usr/include/c++/9/locale \
+ /usr/include/c++/9/bits/locale_facets_nonio.h /usr/include/c++/9/ctime \
  /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/9/bits/locale_facets_nonio.tcc \
+ /usr/include/libintl.h /usr/include/c++/9/bits/codecvt.h \
+ /usr/include/c++/9/bits/locale_facets_nonio.tcc \
  /usr/include/c++/9/bits/locale_conv.h \
- /usr/include/c++/9/bits/quoted_string.h
+ /usr/include/c++/9/bits/quoted_string.h /usr/include/c++/9/sstream \
+ /usr/include/c++/9/bits/sstream.tcc

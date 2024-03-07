@@ -8,9 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp" "CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.o" "gcc" "CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/base64.cpp.o.d"
-  "/home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp" "CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.o" "gcc" "CMakeFiles/worker.dir/home/ash/wasm/wasm-serverless/cpp_example/include/utils.cpp.o.d"
-  "/home/ash/wasm/wasm-serverless/cpp_example/worker/main.cpp" "CMakeFiles/worker.dir/main.cpp.o" "gcc" "CMakeFiles/worker.dir/main.cpp.o.d"
+  "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/main.cpp" "CMakeFiles/worker.dir/main.cpp.o" "gcc" "CMakeFiles/worker.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

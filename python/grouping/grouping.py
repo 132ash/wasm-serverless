@@ -1,7 +1,7 @@
 import component
 from workflowParser import Parser
 import sys
-from workflowRepo import Repository
+from repository import Repository
 import yaml
 import queue
 sys.path.append('./config')
@@ -77,7 +77,7 @@ def topo_search(workflow:component.Workflow, in_degree_vec:dict, group_set:list)
                 q.put(next_node)
     return dist_vec, prev_vec
 
-def mergeable(node1, node2, group_set, node_info):
+def mergeable(node1, node2, group_set:list, node_info:dict):
     global group_ip, group_scale
     node_set1 = find_set(node1, group_set)
 
@@ -123,14 +123,14 @@ def mergeable(node1, node2, group_set, node_info):
     group_scale.pop(node_set2)
     return True
 
-def merge_path(crit_vec, group_set,  node_info):
+def merge_path(crit_vec, group_set,  node_info:dict):
     for edge in crit_vec:
         if mergeable(edge[1][0], edge[0], group_set, node_info):
             return True
     return False
 
 
-def get_longest_dis(workflow, dist_vec):
+def get_longest_dis(workflow:component.Workflow, dist_vec):
     dist = 0
     node_name = ''
     for name in workflow.nodes:
@@ -140,7 +140,7 @@ def get_longest_dis(workflow, dist_vec):
     return dist, node_name
 
 
-def grouping(workflow: component.Workflow, nodeInfo):
+def grouping(workflow: component.Workflow, nodeInfo:dict):
     # initialization: get in-degree of each node
     group_set = list()
     in_degree_vec = init_graph(workflow, group_set, nodeInfo)
@@ -180,19 +180,20 @@ def getGroupingResult(workflow: component.Workflow, nodeInfo:dict):
     for node_name in workflow.nodes:
         node = workflow.nodes[node_name]
         ip = group_ip[find_set(node_name, group_detail)]
-        function_info = {'functionName': node.name, 'runtime': node.runtime, 'ip': ip,
-                         'parentCnt': workflow.parent_cnt[node.name], 'conditions': node.conditions}
+        function_info = {'function_name': node.name, 'runtime': node.runtime, 'ip': ip, 'source':node.source,
+                         'parent_cnt': workflow.parent_cnt[node.name], 'conditions': node.conditions}
         function_info['next'] = node.next
+        function_info['output'] = node.output
         function_info_dict[node_name] = function_info
-    return nodeInfo, function_info_dict
+    endFuntion = workflow.endFuntion
+    return nodeInfo, function_info_dict, endFuntion
 
 
-def saveGroupingResult(workflow:component.Workflow, nodeInfo, functionInfo):
+def saveGroupingResult(workflow:component.Workflow, nodeInfo, functionInfo, endFuntion):
     repo = Repository(workflow.workflowName)
-    repo.save_function_info(functionInfo, workflow.workflow_name + '_function_info')
-    repo.save_start_functions(workflow.start_functions, workflow.workflow_name + '_workflow_metadata')
-    repo.save_all_addrs(list(nodeInfo.keys()), workflow.workflow_name + '_workflow_metadata')
-    
+    repo.save_function_info(functionInfo, workflow.workflowName + '_function_info')
+    repo.save_start_functions(workflow.startFunctions, workflow.workflowName + '_workflow_metadata')
+    repo.save_all_addrs(list(nodeInfo.keys()), workflow.workflowName + '_workflow_metadata')
 
 def groupAndSave(workflowName:str):
     parser = Parser(workflowName)
@@ -201,8 +202,8 @@ def groupAndSave(workflowName:str):
     workerNodeInfo = {}
     for node_info in nodeInfoList['nodes']:
         workerNodeInfo[node_info['worker_address']] = node_info['scale_limit'] * 0.8
-    # nodeInfo, functionInfo = getGroupingResult(workflowData, workerNodeInfo)
-    # saveGroupingResult(workflowData, nodeInfo, functionInfo)
+    # nodeInfo, functionInfo, endFuntion = getGroupingResult(workflowData, workerNodeInfo)
+    # saveGroupingResult(workflowData, nodeInfo, functionInfo, endFuntion)
     return getGroupingResult(workflowData, workerNodeInfo)
 
 

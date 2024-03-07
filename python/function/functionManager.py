@@ -3,15 +3,16 @@ import time
 import json
 import struct
 
-from python.function.functionWorker import FunctionWorker
-from python.function.function import Function, FunctionInfo, RequestInfo
+from functionWorker import FunctionWorker
+from function import Function, FunctionInfo, RequestInfo
+from typing import Any, Dict, List
 
 dispatch_interval = 0.005
 repack_clean_interval = 5.000
 
 class FunctionManager:
     def __init__(self):
-        self.functions = {}
+        self.functions: Dict[str, Function] = {} 
         gevent.spawn_later(repack_clean_interval, self._clean_loop)
         gevent.spawn_later(dispatch_interval, self._dispatch_loop)
 
@@ -20,7 +21,7 @@ class FunctionManager:
         function = Function(info)
         self.functions[funcName] = function
 
-    def runFunction(self, funcName, data:list):
+    def runFunction(self, funcName:str, data:list):
         if funcName not in self.functions:
             raise Exception("No such function!")
         func = self.functions[funcName]
@@ -49,14 +50,15 @@ class FunctionManager:
         return json.dumps(param) + '\n'
         
     def constructOutput(self, uintBits, info):
-        resType = info.output['type']
-        resName = info.output['name']
         res = {}
-        if resType == 'int':
-            res[resName] = struct.unpack('<i', uintBits)[0]
-        else:
-            if resType == 'float':
-                res[resName] = struct.unpack('<f', uintBits)[0]
+        bitsIdx = 0
+        for name, type in info.output.items():
+            chunk = uintBits[bitsIdx:bitsIdx+4]
+            if type == 'int':
+                res[name] = struct.unpack('<i', chunk)[0]
+            elif type == 'float':
+                res[name] = struct.unpack('<f', chunk)[0]
             else:
                 raise Exception("Invalid parameter type.")
+            bitsIdx += 4 
         return res

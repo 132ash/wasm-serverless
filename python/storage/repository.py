@@ -8,6 +8,33 @@ couchdb_url = config.COUCH_DB_URL
 class Repository:
     def __init__(self):
         self.couch = couchdb.Server(couchdb_url)
+
+
+    def getAllWorkerAddrs(self, workflowName):
+        dbName = workflowName + '_workflow_metadata'
+        db = self.couch[dbName]
+        for item in db:
+            doc = db[item]
+            if 'addrs' in doc:
+                return doc['addrs']
+            
+
+    def getWorkflowFunctions(self, workflowName):
+        dbName = workflowName + '_function_info'
+        db = self.couch[dbName]
+        functions = []
+        for item in db:
+            functions.append(db[item]['function_name'])
+        return functions
+
+    def getStartFunctions(self, workflowName):
+        dbName = workflowName + '_workflow_metadata'
+        db = self.couch[dbName]
+        for item in db:
+            doc = db[item]
+            if 'start_functions' in doc:
+                return doc['start_functions']
+
             
     def saveWorkflowInfo(self, workflowName, workflowInfo):
         dbName = workflowName + '_workflowinfo'
