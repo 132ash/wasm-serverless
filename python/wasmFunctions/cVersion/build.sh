@@ -1,8 +1,16 @@
-FUNC_NAME=$1
+if [ "$#" -eq 0 ]; then
+    echo "Usage: $0 func1 func2 ..."
+    exit 1
+fi
 
-/opt/wasi-sdk/bin/clang     \
-        -Wl,--export=${FUNC_NAME}\
+
+for func_name in "$@"; do
+    /opt/wasi-sdk/bin/clang     \
+        -Wl,--export=${func_name}\
         -Wl,--allow-undefined \
-        -o ${FUNC_NAME}.wasm ${FUNC_NAME}.c wasmUtils.c
+        -o ${func_name}.wasm ${func_name}.c wasmUtils.c
+    mv ${func_name}.wasm ../${func_name}.wasm
+    echo "Compiled ${func_name}.wasm."
+done
 
-mv ${FUNC_NAME}.wasm ../${FUNC_NAME}.wasm
+echo "All files compiled successfully."

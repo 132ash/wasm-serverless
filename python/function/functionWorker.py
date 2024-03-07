@@ -50,6 +50,8 @@ class FunctionWorker:
             exit()
     def run(self,param):
         res = 0
+        if self.funcName == 'sum':
+            print(f"sum func param:{param}")
         self.lastTriggeredTime = time.time()
         # print("run function {}. param:{}".format(self.funcName, param))
         os.write(self.in_fd, param.encode()) 

@@ -24,16 +24,21 @@ int main() {
     wasrModule wasmRuntime(wasmCodePath, funcName, returnSize);
     
     while(true) {
-        // std::string jsonParamStr;
         std::getline(std::cin, jsonParamStr);
         if(jsonParamStr.empty()) {
             std::getline(std::cin, jsonParamStr);
         }
-        // scanf("%s", &jsonParamStr[0]);
         auto jsonObject = json::parse(jsonParamStr);
         int argc = 0; // num of input params.
-        for (auto& element : jsonObject.items()) {
-            argv[argc + 1] = element.value();
+        for (const auto& element : jsonObject) {
+            uint32_t param;
+            if (element.is_number_integer()) {
+                param = element.get<uint32_t>();
+            } else if (element.is_number_float()) {   
+                float f = element.get<float>();
+                std::memcpy(&param, &f, sizeof(f));
+            }
+            argv[argc + 1] = param;
             argc += 1;
         }
         argv[0] = returnSize;

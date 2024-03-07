@@ -3,8 +3,8 @@ input:
   - name: subres
     type: int
 output:
-  name: time2res
-  type: int
+  - name: time2res
+    type: int
 wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/times2.wasm
 maxWorkers: 10
 expireTime: 10

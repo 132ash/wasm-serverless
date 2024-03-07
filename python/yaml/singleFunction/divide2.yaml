@@ -1,7 +1,7 @@
 name: divide2
 input:
   - name: div
-    type: int
+    type: float
 output:
   - name: divres
     type: float
