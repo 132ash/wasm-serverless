@@ -49,13 +49,10 @@ class FunctionWorker:
             print("error occured.")
             exit()
     def run(self,param):
-        res = 0
-        if self.funcName == 'sum':
-            print(f"sum func param:{param}")
         self.lastTriggeredTime = time.time()
         # print("run function {}. param:{}".format(self.funcName, param))
         os.write(self.in_fd, param.encode()) 
-        res = os.read(self.out_fd, sys.getsizeof(res))
+        res = os.read(self.out_fd, self.outputSize)
         return res
     def __del__(self):
         os.close(self.in_fd)

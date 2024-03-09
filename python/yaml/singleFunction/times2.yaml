@@ -1,6 +1,6 @@
 name: times2
 input:
-  - name: subres
+  - name: addres
     type: int
 output:
   - name: time2res

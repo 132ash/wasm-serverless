@@ -111,7 +111,7 @@ class Function:
         self.numOfWorkingWorkers += 1
         self.workerLock.release()
 
-        logging.info('create worker of function: %s', self.info.name)
+        # logging.info('create worker of function: %s', self.info.name)
         try:
             worker = FunctionWorker(self.info.name, self.info.wasmCodePath, self.info.outputSize)
             # worker = tmpWorker(self.info.funcName, self.info.wasmCodePath)

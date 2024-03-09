@@ -1,7 +1,7 @@
 import component
 from workflowParser import Parser
 import sys
-from repository import Repository
+from saveRepository import Repository
 import yaml
 import queue
 sys.path.append('./config')
@@ -185,15 +185,14 @@ def getGroupingResult(workflow: component.Workflow, nodeInfo:dict):
         function_info['next'] = node.next
         function_info['output'] = node.output
         function_info_dict[node_name] = function_info
-    endFuntion = workflow.endFuntion
-    return nodeInfo, function_info_dict, endFuntion
+    return nodeInfo, function_info_dict
 
 
-def saveGroupingResult(workflow:component.Workflow, nodeInfo, functionInfo, endFuntion):
-    repo = Repository(workflow.workflowName)
-    repo.save_function_info(functionInfo, workflow.workflowName + '_function_info')
-    repo.save_start_functions(workflow.startFunctions, workflow.workflowName + '_workflow_metadata')
-    repo.save_all_addrs(list(nodeInfo.keys()), workflow.workflowName + '_workflow_metadata')
+def saveGroupingResult(workflow:component.Workflow, nodeInfo, functionInfo):
+    saveRepo = Repository(workflow.workflowName)
+    saveRepo.save_function_info(functionInfo, workflow.workflowName + '_function_info')
+    saveRepo.save_start_functions(workflow.startFunctions, workflow.workflowName + '_workflow_metadata')
+    saveRepo.save_all_addrs(list(nodeInfo.keys()), workflow.workflowName + '_workflow_metadata')
 
 def groupAndSave(workflowName:str):
     parser = Parser(workflowName)
@@ -202,9 +201,9 @@ def groupAndSave(workflowName:str):
     workerNodeInfo = {}
     for node_info in nodeInfoList['nodes']:
         workerNodeInfo[node_info['worker_address']] = node_info['scale_limit'] * 0.8
-    # nodeInfo, functionInfo, endFuntion = getGroupingResult(workflowData, workerNodeInfo)
-    # saveGroupingResult(workflowData, nodeInfo, functionInfo, endFuntion)
-    return getGroupingResult(workflowData, workerNodeInfo)
+    nodeInfo, functionInfo = getGroupingResult(workflowData, workerNodeInfo)
+    saveGroupingResult(workflowData, nodeInfo, functionInfo)
+    # return getGroupingResult(workflowData, workerNodeInfo)
 
 
 if __name__ == "__main__":

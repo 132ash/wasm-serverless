@@ -17,37 +17,66 @@ def condExec(cond: str, param: dict) -> Any:
     return eval(cond, param)    
 
 class WorkflowState:
-    def __init__(self, requestId: str, all_func: List[str]):
+    def __init__(self, requestId: str, functions: List[str]):
         self.request_id = requestId
         self.lock = gevent.lock.BoundedSemaphore() # guard the whole state
         self.funcRes = {}
 
         self.executed: Dict[str, bool] = {}
         self.parentExecuted: Dict[str, int] = {}
-        for f in all_func:
+        for f in functions:
             self.funcRes[f] = {}
             self.executed[f] = False
             self.parentExecuted[f] = 0
 
+class FunctionParameters:
+    def __init__(self, requestId: str, functions: List[str]):
+        self.request_id = requestId
+        self.lock = gevent.lock.BoundedSemaphore() # guard the whole state
+        self.funcParameters: Dict[str, dict]= {}
+        for f in functions:
+            self.funcParameters[f] = {}
+
+    def setParam(self, funcName, param):
+        self.lock.acquire()
+        self.funcParameters[funcName].update(param)
+        self.lock.release()
+
+    def getParam(self, funcName):
+        self.lock.acquire()
+        param = self.funcParameters[funcName]
+        self.lock.release()
+        return param
 
 class WorkflowManager:
     def __init__(self, hostAddr, workflowName, functionManager):
         self.hostAddr = hostAddr
-        self.lock = gevent.lock.BoundedSemaphore() # guard self.states
+        self.stateLock = gevent.lock.BoundedSemaphore() # guard self.states
+        self.paramLock = gevent.lock.BoundedSemaphore() # guard self.funcParameters
         self.workflowName = workflowName
         self.functionManager = functionManager
         self.infoDB = workflowName + '_function_info'
         self.functionInfo: Dict[str, dict] = {}
-        self.states: Dict[str, WorkflowState] = {}
-        self.funcNames = repo.getWorkflowFunctions(workflowName)
-        
+        self.states: Dict[str, WorkflowState] = {} #{id: state}
+        self.funcParameters: Dict[str, FunctionParameters] = {} #{id: param}
+        self.funcNames = repo.getWorkflowFunctions(workflowName)[0]
+
+    def setFunctionParam(self, request_id: str, funcName:str, param:dict):
+        self.paramLock.acquire()
+        if request_id not in self.funcParameters:
+            self.funcParameters[request_id] =FunctionParameters(request_id, self.funcNames)
+        self.paramLock.release()
+        self.funcParameters[request_id].setParam(funcName, param)
+
+    def getFunctionParam(self, request_id: str, funcName:str):
+        return self.funcParameters[request_id].getParam(funcName)
 
     def getState(self, request_id: str) -> WorkflowState:
-        self.lock.acquire()
+        self.stateLock.acquire()
         if request_id not in self.states:
-            self.states[request_id] = WorkflowState(request_id, self.func)
+            self.states[request_id] = WorkflowState(request_id, self.funcNames)
         state = self.states[request_id]
-        self.lock.release()
+        self.stateLock.release()
         return state
     
     def getFunctionInfo(self, functionName: str) -> Any:
@@ -79,11 +108,12 @@ class WorkflowManager:
         if not noParentExecution:
             state.parentExecuted[function_name] += 1
         runnable = self.checkRunnable(state, function_name)
+        self.setFunctionParam(state.request_id, function_name, parameters)
         # remember to release state.lock
         if runnable:
             state.executed[function_name] = True
             state.lock.release()
-            self.runFunction(state, function_name, parameters)
+            self.runFunction(state, function_name, self.getFunctionParam(state.request_id, function_name))
         else:
             state.lock.release()
 
@@ -105,7 +135,7 @@ class WorkflowManager:
         return state.parentExecuted[function_name] == info['parent_cnt'] and not state.executed[function_name]
 
 
-    def runFunction(self, state:WorkflowState, funcName, parameters):
+    def runFunction(self, state:WorkflowState, funcName, parameters:dict):
         info = self.getFunctionInfo(funcName)
         source = info['source']
         if source == 'VIRTUAL':
@@ -114,32 +144,42 @@ class WorkflowManager:
         if source == 'END':
             self.runEndFunction(info, state, parameters) 
             return 
-        self.runNormalFunction(state, funcName, parameters)
+        res = self.runNormalFunction(funcName, parameters)
         jobs = [
-            gevent.spawn(self.triggerFunction, state, func, state.funcRes[funcName])
+            gevent.spawn(self.triggerFunction, state, func, res)
             for func in info['next']
         ]
         gevent.joinall(jobs)
     
-    def runNormalFunction(self, state:WorkflowState, funcName, parameters):
-        res = self.functionManager.runFunction(funcName, parameters)
-        state.funcRes[funcName] = res
-    
+    def runNormalFunction(self, funcName, parameters):
+        return self.functionManager.runFunction(funcName, parameters)
+       
     def runSwitchFunction(self, info, state:WorkflowState, parameters):
+        output = info['output']
+        selectedParam ={}
+        for name in output:
+            selectedParam[name] = parameters[name]
         for i, next_func in enumerate(info['next']):
             cond = info['conditions'][i]
-            if condExec(cond, parameters):
-                self.triggerFunction(state, next_func, parameters)
+            ctx = parameters.copy()
+            if condExec(cond, ctx):
+                self.triggerFunction(state, next_func, selectedParam)
                 break
     
-    def runEndFunction(self, info, state:WorkflowState, parameters):
-        output = info[output]
+    # choose multiple(or single) params in parameters and construct output dict.
+    def runEndFunction(self, info, state:WorkflowState, parameters:dict):
+        output = info['output']
         reqID = state.request_id
         res = {}
-        for param in output:
-            res[param] = parameters[param]
-        repo.saveWorkflowRes(reqID, res)
+        if len(output) == 1:
+            for name, value in parameters.items():
+                res[name] = value
+                break
+        else:
+            for item in output:
+                res[item['input']] = parameters[item['input']]
         print("end function result: {}".format(res))
+        repo.saveWorkflowRes(reqID, res)
 
        
 

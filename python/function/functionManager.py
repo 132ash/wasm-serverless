@@ -21,11 +21,12 @@ class FunctionManager:
         function = Function(info)
         self.functions[funcName] = function
 
-    def runFunction(self, funcName:str, data:list):
+    def runFunction(self, funcName:str, data:dict):
         if funcName not in self.functions:
             raise Exception("No such function!")
         func = self.functions[funcName]
-        param = self.constructInput(data)
+        print(f"[funcManager] run function {funcName} with param {data}.")
+        param = self.constructInput(data, func.info)
         res = func.sendRequest(param)
         return self.constructOutput(res, func.info)
     
@@ -42,11 +43,14 @@ class FunctionManager:
     def _clean_loop(self):
         # print("[manager] new clean loop.")
         gevent.spawn_later(repack_clean_interval, self._clean_loop)
-        for name, function in self.functions.items():
+        for _, function in self.functions.items():
             # print("[manager] cleaning function {}'s workers.".format(name))
             gevent.spawn(function.cleanWorker)
 
-    def constructInput(self, param):
+    def constructInput(self, data, info):
+        param = {}
+        for name, _ in info.input.items():
+            param[name] = data[name]
         return json.dumps(param) + '\n'
         
     def constructOutput(self, uintBits, info):

@@ -31,6 +31,8 @@ functions:
   source: VIRTUAL
   scale: 3
   runtime: 0.01
+  output:
+      - subres
   next: 
     type: SWITCH
     size: 4999999
@@ -39,7 +41,7 @@ functions:
       - default
     funcs:
       - reverse
-      - sum
+      - sink
 - name: reverse
   source: reverse
   scale: 3
@@ -47,6 +49,19 @@ functions:
   next: 
     type: PASS
     size: 4
+    funcs:
+      - sink
+- name: sink
+  source: VIRTUAL
+  scale: 3
+  runtime: 0.01
+  output:
+      - subres
+  next: 
+    type: SINK
+    size: 4999999
+    conditions: 
+      - default
     funcs:
       - sum
 - name: sum
@@ -63,15 +78,17 @@ functions:
   scale: 3
   runtime: 0.01
   output:
-    - result
+    - input: DEFAULT
 
 #  divide2---------------
 #                       +
 #  ------times2------->sum---> end
-#  |             |      ^
-# cal-->switch1---      |
-#                |      |
-#                ---> reverse
+#  |                    +
+#  |                    |                 
+#  |             |--->sink<---
+# cal-->switch1---           |
+#                |           |
+#                -------> reverse
 #
 
  

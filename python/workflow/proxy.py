@@ -5,6 +5,7 @@ import sys
 sys.path.append('./function')
 sys.path.append('./test')
 import json
+from typing import Dict
 from functionManager import FunctionManager
 from workflowManager import WorkflowManager
 from flask import Flask, request
@@ -12,7 +13,7 @@ app = Flask(__name__)
 
 class Dispatcher:
     def __init__(self) -> None:
-        self.managers = {}
+        self.managers:Dict[str, WorkflowManager] = {}
        
     def createManager(self, workflowName, functionManager):
         self.managers[workflowName] = WorkflowManager(sys.argv[1] + ':' + sys.argv[2], workflowName, functionManager)
@@ -20,8 +21,8 @@ class Dispatcher:
     def getState(self, workflowName: str, requestId: str):
         return self.managers[workflowName].getState(requestId)
 
-    def triggerFunction(self, workflowName, state, functionName, noParentExecution):
-        self.managers[workflowName].triggerFunction(state, functionName, noParentExecution)
+    def triggerFunction(self, workflowName:str, state, functionName, parameters,  noParentExecution):
+        self.managers[workflowName].triggerFunction(state, functionName, parameters, noParentExecution)
 
     def delState(self, workflowName, requestId, master):
         self.managers[workflowName].delState(requestId, master)
@@ -70,7 +71,7 @@ def create():
     data = request.get_json(force=True, silent=True)
     funcNames = data["funcNames"]
     if 'workflowName' in data:
-        dispatcher.createManager(data['workflowName'])
+        dispatcher.createManager(data['workflowName'], functionManager)
     for funcName in funcNames:
         functionManager.createFunction(funcName)
     return json.dumps({'status': 'ok'})
@@ -87,8 +88,8 @@ from gevent.pywsgi import WSGIServer
 import logging
 if __name__ == '__main__':
     logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%H:%M:%S', level='INFO')
-    # server = WSGIServer((sys.argv[1], int(sys.argv[2])), app)
-    server = WSGIServer(('0.0.0.0', 5000), app)
-    print("server started.")
+    server = WSGIServer((sys.argv[1], int(sys.argv[2])), app)
+    # server = WSGIServer(('0.0.0.0', 7000), app)
+    print(f"proxy started on {sys.argv[1]+ ':'+ sys.argv[2]}.")
     server.serve_forever()
     # gevent.spawn_later(GET_NODE_INFO_INTERVAL)

@@ -29,9 +29,13 @@ class Repository:
         dbName = workflowName + '_function_info'
         db = self.couch[dbName]
         functions = []
+        sources = {}
         for item in db:
+            name = db[item]['function_name']
+            source = db[item]['source']
             functions.append(db[item]['function_name'])
-        return functions
+            sources[name] = source
+        return (functions, sources)
 
     def getStartFunctions(self, workflowName):
         dbName = workflowName + '_workflow_metadata'
@@ -40,16 +44,15 @@ class Repository:
             doc = db[item]
             if 'start_functions' in doc:
                 return doc['start_functions']
-        
-    def createRequestDoc(self, requestId: str) -> None:
+
+    def saveWorkflowRes(self, requestId, res):
         if requestId in self.couch['results']:
             doc = self.couch['results'][requestId]
             self.couch['results'].delete(doc)
-        self.couch['results'][requestId] = {}
-
-    def saveWorkflowRes(self, requestId, res):
-        self.couch['results'][requestId] = res
+        self.couch['results'][requestId] = {'result':res}
 
     def getWorkflowRes(self, requestId: str):
-        return self.couch['results'][requestId]
-    
+        doc = self.couch['results'][requestId]
+        if 'result' in doc:
+            return doc['result']
+        # return doc

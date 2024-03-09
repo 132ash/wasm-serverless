@@ -4,7 +4,7 @@ import sys
 sys.path.append('./config')
 sys.path.append('./storage')
 import config
-import python.grouping.component as component
+import component
 
 yamlPath = config.WORKFLOWYAMLPATH
 NETWORK_BANDWIDTH = config.NETWORK_BANDWIDTH
@@ -14,14 +14,14 @@ class Parser:
         self.workflowName = workflowName
         self.yamlData = yaml.load(open(yamlPath+'/'+workflowName+'.yaml'), Loader=yaml.FullLoader)
 
-    def parse(self):
+    def parse(self) -> component.Workflow:
         start_functions = []
         nodes = dict()
         parent_cnt = dict()
         total = 0
         functions = self.yamlData['functions']
-        endFunction = []
-        output = []
+        haveEndFunction = False
+        sinkFuncs = []
         parent_cnt[functions[0]['name']] = 0
         for function in functions:
             name = function['name']
@@ -31,15 +31,19 @@ class Parser:
             nextDis = list()
             send_time = 0
             conditions = list()
+            output = list()
             if source == 'END':
-                if len(endFunction) != 0:
+                if haveEndFunction:
                     raise Exception("Mutiple end function.")
-                endFunction.append(name)
-                output = function['output']
+                output = function['output']  
+                haveEndFunction = True
             if 'next' in function:
                 send_time = function['next']['size'] / NETWORK_BANDWIDTH
-                if function['next']['type'] == 'SWITCH':
+                if function['next']['type'] == 'SWITCH' or function['next']['type'] == 'SINK':
                     conditions = function['next']['conditions']  
+                    output = function['output']  
+                if function['next']['type'] == 'SINK':
+                    sinkFuncs.append(name)
                 for next_func in function['next']['funcs']:
                     next.append(next_func)
                     nextDis.append(send_time)
@@ -59,7 +63,9 @@ class Parser:
                 start_functions.append(name)
             for next_node in nodes[name].next:
                 nodes[next_node].prev.append(name)
-        return component.Workflow(self.workflowName, start_functions, nodes, total, parent_cnt, endFunction)
+        for sink in sinkFuncs:
+            parent_cnt[sink] = 1
+        return component.Workflow(self.workflowName, start_functions, nodes, total, parent_cnt)
 
 
 if __name__ == "__main__":
