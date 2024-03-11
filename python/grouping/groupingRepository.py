@@ -34,3 +34,10 @@ class Repository:
         db = self.couch[db_name]
         db.save({'start_functions': start_functions})
     
+    def delete_function_info(self, db_name):
+        if db_name in self.couch:
+            self.couch.delete(db_name)
+
+    def delete_workflow_metadata(self, db_name):
+        if db_name in self.couch:
+            self.couch.delete(db_name)

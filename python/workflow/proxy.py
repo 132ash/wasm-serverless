@@ -18,16 +18,20 @@ class Dispatcher:
     def createManager(self, workflowName, functionManager):
         self.managers[workflowName] = WorkflowManager(sys.argv[1] + ':' + sys.argv[2], workflowName, functionManager)
 
+    def deleteManager(self, workflowName):
+        self.managers.pop(workflowName)
+      
     def getState(self, workflowName: str, requestId: str):
         return self.managers[workflowName].getState(requestId)
 
     def triggerFunction(self, workflowName:str, state, functionName, parameters,  noParentExecution):
         self.managers[workflowName].triggerFunction(state, functionName, parameters, noParentExecution)
 
-    def delState(self, workflowName, requestId, master):
-        self.managers[workflowName].delState(requestId, master)
+    def clearDB(self, workflowName:str, reqID):
+        self.managers[workflowName].clearDB(reqID)
 
-
+    def delStateAndParam(self, workflowName, requestId, master):
+        self.managers[workflowName].delStateAndParam(requestId, master)
 
 functionManager = FunctionManager()
 dispatcher = Dispatcher()
@@ -58,13 +62,12 @@ def req():
 @app.route('/delete', methods = ['POST'])
 def delete():
     data = request.get_json(force=True, silent=True)
-    funcName = data["funcName"]
-    status = 'ok'
-    try:
+    funcNames = data["funcNames"]
+    if 'workflowName' in data:
+        dispatcher.deleteManager(data['workflowName'], functionManager)
+    for funcName in funcNames:
         functionManager.deleteFunction(funcName)
-    except BaseException as e:
-        status = str(e)
-    return json.dumps({'status': status})
+    return json.dumps({'status': 'ok'})
 
 @app.route('/create', methods = ['POST'])
 def create():
@@ -76,8 +79,18 @@ def create():
         functionManager.createFunction(funcName)
     return json.dumps({'status': 'ok'})
 
+@app.route('/clear', methods = ['GET'])
+def clear():
+    data = request.get_json(force=True, silent=True)
+    workflow_name = data['workflowName']
+    request_id = data['requestID']
+    master = False
+    if 'master' in data:
+        master = True
+        dispatcher.clearDB(workflow_name, request_id) # optional: clear results in center db
+    dispatcher.delStateAndParam(workflow_name, request_id, master) # and remove state for every node
+    return json.dumps({'status': 'ok'})
 
-   
 
 @app.route('/info', methods = ['GET'])
 def info():

@@ -1,5 +1,5 @@
 import sys
-
+import logging
 sys.path.append('./config')
 sys.path.append('./storage')
 import config
@@ -83,15 +83,29 @@ class WorkflowManager:
         if functionName not in self.functionInfo:
             self.functionInfo[functionName] = repo.getFunctionInfo(functionName, self.workflowName)
         return self.functionInfo[functionName]
+    
+    def delStateAndParamRemote(self, requestID: str, remoteAddr: str):
+        url = 'http://{}/clear'.format(remoteAddr)
+        requests.post(url, json={'requestID': requestID, 'workflowName': self.workflowName})
 
-    # def runWorkflow(self, parameters):
-    #     startFunction = self.workflowInfo['startFunction']['name']
-    #     res = self.runFunction(startFunction, parameters)
-    #     return res
-        
-    # def deleteWorkflow(self, workflowName):
-    #     repo = Repository()
-    #     repo.deleteWorkflowInfo(workflowName)
+    # delete state
+    def delStateAndParam(self, requestID: str, master: bool):
+        logging.info('delete state and param of: %s', requestID)
+        self.stateLock.acquire()
+        if requestID in self.states:
+            del self.states[requestID]
+        self.stateLock.release()
+        self.paramLock.acquire()
+        if requestID in self.funcParameters:
+            del self.funcParameters[requestID]
+        self.paramLock.release()
+        if master:
+            jobs = []
+            addrs = repo.getAllWorkerAddrs(self.workflowName)
+            for addr in addrs:
+                if addr != self.hostAddr:
+                    jobs.append(gevent.spawn(self.delStateAndParamRemote, requestID, addr))
+            gevent.joinall(jobs)
 
     def triggerFunction(self, state: WorkflowState, functionName: str, parameters:dict, noParentExecution = False) -> None:
         funcInfo = self.getFunctionInfo(functionName)
@@ -180,6 +194,9 @@ class WorkflowManager:
                 res[item['input']] = parameters[item['input']]
         print("end function result: {}".format(res))
         repo.saveWorkflowRes(reqID, res)
+
+    def clearDB(self, requestID):
+        repo.clearDB(requestID)
 
        
 

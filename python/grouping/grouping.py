@@ -1,7 +1,7 @@
 import component
 from workflowParser import Parser
 import sys
-from saveRepository import Repository
+from groupingRepository import Repository
 import yaml
 import queue
 sys.path.append('./config')
@@ -205,7 +205,11 @@ def groupAndSave(workflowName:str):
     saveGroupingResult(workflowData, nodeInfo, functionInfo)
     # return getGroupingResult(workflowData, workerNodeInfo)
 
-
+def deleteWorkflowDB(workflowName:str):
+    deleteRepo = Repository(workflowName)
+    deleteRepo.delete_function_info(functionInfo, workflowName + '_function_info')
+    deleteRepo.delete_workflow_metadata(workflowName + '_workflow_metadata')
+    
 if __name__ == "__main__":
     nodeInfo, functionInfo = groupAndSave('workflow')
     print(nodeInfo)

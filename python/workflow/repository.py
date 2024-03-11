@@ -45,14 +45,18 @@ class Repository:
             if 'start_functions' in doc:
                 return doc['start_functions']
 
-    def saveWorkflowRes(self, requestId, res):
-        if requestId in self.couch['results']:
-            doc = self.couch['results'][requestId]
+    def saveWorkflowRes(self, requestID, res):
+        if requestID in self.couch['results']:
+            doc = self.couch['results'][requestID]
             self.couch['results'].delete(doc)
-        self.couch['results'][requestId] = {'result':res}
+        self.couch['results'][requestID] = {'result':res}
 
-    def getWorkflowRes(self, requestId: str):
-        doc = self.couch['results'][requestId]
+    def getWorkflowRes(self, requestID: str):
+        doc = self.couch['results'][requestID]
         if 'result' in doc:
             return doc['result']
         # return doc
+
+    def clearDB(self, requestID):
+        db = self.couch['results']
+        db.delete(db[requestID])

@@ -12,25 +12,38 @@ sys.path.append('./config')
 sys.path.append('./grouping')
 import config
 
-from grouping import groupAndSave
+from grouping import groupAndSave, deleteWorkflowDB
 from repository import Repository
 from flask import Flask, request
 app = Flask(__name__)
 
 repo = Repository()
 
-
-def createOnWorker(workflowName):
-    workerAddrs = repo.getAllWorkerAddrs(workflowName)
+def getWorkflowRealFunctions(workflowName):
     allFunctions, sources = repo.getWorkflowFunctions(workflowName)
     trueFunctions = []
     for func in  allFunctions:
         if sources[func] != 'VIRTUAL' and sources[func] != 'END':
             trueFunctions.append(func)
+    return trueFunctions
+
+
+def createOnWorker(workflowName):
+    trueFunctions = getWorkflowRealFunctions(workflowName)
+    workerAddrs = repo.getAllWorkerAddrs(workflowName)
     for workerIP in workerAddrs:
         createUrl = 'http://{}/create'.format(workerIP)
         data = {"funcNames" : trueFunctions, 'workflowName':workflowName}
         requests.post(createUrl, json=data)
+    return json.dumps({'status': 'ok'})
+
+def deleteOnWorker(workflowName):
+    trueFunctions = getWorkflowRealFunctions(workflowName)
+    workerAddrs = repo.getAllWorkerAddrs(workflowName)
+    for workerIP in workerAddrs:
+        deleteUrl = 'http://{}/delete'.format(workerIP)
+        data = {"funcNames" : trueFunctions, 'workflowName':workflowName}
+        requests.post(deleteUrl, json=data)
     return json.dumps({'status': 'ok'})
 
 def triggerFunction(workflowName, request_id, function_name, param):
@@ -57,6 +70,13 @@ def runWorkflow(workflowName, requestId, parameters):
     end = time.time()
     print("[GATEWAY] workflow finished.")
     res = repo.getWorkflowRes(requestId)
+
+    # clear memory and other stuff
+    if config.CLEAR_DB_AND_MEM:
+        masterAddr = repo.getAllWorkerAddrs(workflowName + '_workflow_metadata')[0]
+        clear_url = 'http://{}/clear'.format(masterAddr)
+        requests.post(clear_url, json={'requestID': requestId, 
+                                       'master': True, 'workflowName': workflowName})
     return {'latency':end - start, 'workflowResult': res}
 
 @app.route('/workflow/create', methods = ['POST'])
@@ -77,17 +97,13 @@ def workflowRun():
     print("workflow result:{}".format(res))
     return json.dumps({'status': 'ok', 'result':res})
 
-# @app.route('/workflow/delete', methods = ['POST'])
-# def workflowDelete():
-#     data = request.get_json(force=True, silent=True)
-#     workflowName = data["workflowName"]
-#     status = 'ok'
-#     manager = WorkflowManager(workflowName, functionManager)
-#     try:
-#         manager.deleteWorkflow(workflowName)
-#     except BaseException as e:
-#         status = str(e)
-#     return json.dumps({'status': status})
+@app.route('/workflow/delete', methods = ['POST'])
+def workflowDeeate():
+    data = request.get_json(force=True, silent=True)
+    workflowName = data["workflowName"]
+    deleteWorkflowDB(workflowName)
+    deleteOnWorker(workflowName)
+    return json.dumps({'status': 'ok'})
 
 from gevent.pywsgi import WSGIServer
 import logging
