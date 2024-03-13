@@ -207,7 +207,7 @@ def groupAndSave(workflowName:str):
 
 def deleteWorkflowDB(workflowName:str):
     deleteRepo = Repository(workflowName)
-    deleteRepo.delete_function_info(functionInfo, workflowName + '_function_info')
+    deleteRepo.delete_function_info(workflowName + '_function_info')
     deleteRepo.delete_workflow_metadata(workflowName + '_workflow_metadata')
     
 if __name__ == "__main__":

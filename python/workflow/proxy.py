@@ -64,7 +64,7 @@ def delete():
     data = request.get_json(force=True, silent=True)
     funcNames = data["funcNames"]
     if 'workflowName' in data:
-        dispatcher.deleteManager(data['workflowName'], functionManager)
+        dispatcher.deleteManager(data['workflowName'])
     for funcName in funcNames:
         functionManager.deleteFunction(funcName)
     return json.dumps({'status': 'ok'})

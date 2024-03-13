@@ -7,6 +7,8 @@ import requests
 import uuid
 import time
 
+from datetime import datetime
+
 sys.path.append('./storage')
 sys.path.append('./config')
 sys.path.append('./grouping')
@@ -57,7 +59,8 @@ def triggerFunction(workflowName, request_id, function_name, param):
         'noParentExecution': True,
         'parameters': param
     }
-    requests.post(url, json=data)
+    response = requests.post(url, json=data)
+    response.close()
 
 def runWorkflow(workflowName, requestId, parameters):
     # allocate works
@@ -73,7 +76,7 @@ def runWorkflow(workflowName, requestId, parameters):
 
     # clear memory and other stuff
     if config.CLEAR_DB_AND_MEM:
-        masterAddr = repo.getAllWorkerAddrs(workflowName + '_workflow_metadata')[0]
+        masterAddr = repo.getAllWorkerAddrs(workflowName)[0]
         clear_url = 'http://{}/clear'.format(masterAddr)
         requests.post(clear_url, json={'requestID': requestId, 
                                        'master': True, 'workflowName': workflowName})
@@ -101,8 +104,8 @@ def workflowRun():
 def workflowDeeate():
     data = request.get_json(force=True, silent=True)
     workflowName = data["workflowName"]
-    deleteWorkflowDB(workflowName)
     deleteOnWorker(workflowName)
+    deleteWorkflowDB(workflowName)
     return json.dumps({'status': 'ok'})
 
 from gevent.pywsgi import WSGIServer

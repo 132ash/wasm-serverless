@@ -4,6 +4,7 @@ sys.path.append('./config')
 sys.path.append('./storage')
 import config
 import requests
+from datetime import datetime
 import gevent
 import gevent.lock
 from typing import Any, Dict, List
@@ -118,6 +119,7 @@ class WorkflowManager:
 
 
     def triggerFunctionLocal(self, state: WorkflowState, function_name: str, parameters:dict, noParentExecution = False) -> None:
+        print(f"[Workflow Manager] run func {function_name} with param {parameters}.]")
         state.lock.acquire()
         if not noParentExecution:
             state.parentExecuted[function_name] += 1
@@ -137,7 +139,7 @@ class WorkflowManager:
         data = {
             'requestId': state.request_id,
             'workflowName': self.workflowName,
-            'funcName': function_name,
+            'functionName': function_name,
             'noParentExecution': no_parent_execution,
             'parameters': parameters
         }

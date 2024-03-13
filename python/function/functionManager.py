@@ -25,7 +25,6 @@ class FunctionManager:
         if funcName not in self.functions:
             raise Exception("No such function!")
         func = self.functions[funcName]
-        print(f"[funcManager] run function {funcName} with param {data}.")
         param = self.constructInput(data, func.info)
         res = func.sendRequest(param)
         return self.constructOutput(res, func.info)

@@ -24,8 +24,8 @@ int main() {
     wasrModule wasmRuntime(wasmCodePath, funcName, returnSize);
     
     while(true) {
-        std::getline(std::cin, jsonParamStr);
-        if(jsonParamStr.empty()) {
+        jsonParamStr.clear();
+        while (jsonParamStr.empty()) {
             std::getline(std::cin, jsonParamStr);
         }
         auto jsonObject = json::parse(jsonParamStr);

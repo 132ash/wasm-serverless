@@ -11,4 +11,4 @@ output:
     type: float
 wasmCodePath:  /home/ash/wasm/wasm-serverless/python/wasmFunctions/sum.wasm
 maxWorkers: 10
-expireTime: 10
+expireTime: 1000

@@ -63,7 +63,7 @@ class wasrModule{
         throw "[Runtime] Fail to register the native fucntion.";
       module = wasm_runtime_load(codeBytes.data(), codeBytes.size(), error_buf, sizeof(error_buf));
       module_inst = wasm_runtime_instantiate(module, 4096,4096, error_buf, sizeof(error_buf));
-      func = wasm_runtime_lookup_function(module_inst, funcName.c_str(), nullptr);
+      func = wasm_runtime_lookup_function(module_inst, funcName.c_str());
       exec_env = wasm_runtime_create_exec_env(module_inst, 4096);
     }
 

@@ -7,4 +7,4 @@ output:
     type: float
 wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/divide2.wasm
 maxWorkers: 10
-expireTime: 10
+expireTime: 1000
