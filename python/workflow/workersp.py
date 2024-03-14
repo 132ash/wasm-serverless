@@ -49,7 +49,7 @@ class FunctionParameters:
         self.lock.release()
         return param
 
-class WorkflowManager:
+class WorkerSPManager:
     def __init__(self, hostAddr, workflowName, functionManager):
         self.hostAddr = hostAddr
         self.stateLock = gevent.lock.BoundedSemaphore() # guard self.states
@@ -116,6 +116,7 @@ class WorkflowManager:
         else:
             # function runs on remote machine
             self.triggerFunctionRemote(state, functionName, funcInfo['ip'], parameters, noParentExecution)
+        return {}
 
 
     def triggerFunctionLocal(self, state: WorkflowState, function_name: str, parameters:dict, noParentExecution = False) -> None:

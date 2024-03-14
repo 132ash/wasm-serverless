@@ -1,7 +1,5 @@
 nodes:
-- worker_address: 192.168.35.132:7000
-  scale_limit: 5
 - worker_address: 192.168.35.133:7000
-  scale_limit: 30
+  scale_limit: 20
 - worker_address: 192.168.35.134:7000
-  scale_limit: 30
+  scale_limit: 20

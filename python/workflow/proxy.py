@@ -7,16 +7,20 @@ sys.path.append('./test')
 import json
 from typing import Dict
 from functionManager import FunctionManager
-from workflowManager import WorkflowManager
+from workersp import WorkerSPManager
+from mastersp import MasterSPManager
 from flask import Flask, request
 app = Flask(__name__)
 
 class Dispatcher:
     def __init__(self) -> None:
-        self.managers:Dict[str, WorkflowManager] = {}
+        self.managers = {}
        
-    def createManager(self, workflowName, functionManager):
-        self.managers[workflowName] = WorkflowManager(sys.argv[1] + ':' + sys.argv[2], workflowName, functionManager)
+    def createManager(self, control_mode, workflowName, functionManager):
+        if control_mode == 'WorkerSP':
+            self.managers[workflowName] = WorkerSPManager(sys.argv[1] + ':' + sys.argv[2], workflowName, functionManager)
+        elif control_mode == 'MasterSP':
+            self.managers[workflowName] = MasterSPManager(sys.argv[1] + ':' + sys.argv[2], workflowName, functionManager)
 
     def deleteManager(self, workflowName):
         self.managers.pop(workflowName)
@@ -25,7 +29,7 @@ class Dispatcher:
         return self.managers[workflowName].getState(requestId)
 
     def triggerFunction(self, workflowName:str, state, functionName, parameters,  noParentExecution):
-        self.managers[workflowName].triggerFunction(state, functionName, parameters, noParentExecution)
+        return self.managers[workflowName].triggerFunction(state, functionName, parameters, noParentExecution)
 
     def clearDB(self, workflowName:str, reqID):
         self.managers[workflowName].clearDB(reqID)
@@ -47,8 +51,8 @@ def workflowReq():
     parameters = data['parameters']
     # get the corresponding workflow state and trigger the function
     state = dispatcher.getState(workflowName, requestId)
-    dispatcher.triggerFunction(workflowName, state, functionName, parameters, noParentExecution)
-    return json.dumps({'status': 'ok'})
+    res = dispatcher.triggerFunction(workflowName, state, functionName, parameters, noParentExecution)
+    return json.dumps({'status': 'ok', 'res':res})
 
 @app.route('/request', methods = ['POST'])
 def req():

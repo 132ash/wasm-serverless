@@ -50,7 +50,11 @@ def deleteOnWorker(workflowName):
 
 def triggerFunction(workflowName, request_id, function_name, param):
     info = repo.getFunctionInfo(function_name, workflowName)
-    ip = info['ip']
+    ip = ''
+    if config.CONTROL_MODE == 'WorkerSP':
+        ip = info['ip']
+    elif config.CONTROL_MODE == 'MasterSP':
+        ip = config.MASTER_HOST
     url = 'http://{}/workflow/request'.format(ip)
     data = {
         'requestId': request_id,
@@ -76,7 +80,11 @@ def runWorkflow(workflowName, requestId, parameters):
 
     # clear memory and other stuff
     if config.CLEAR_DB_AND_MEM:
-        masterAddr = repo.getAllWorkerAddrs(workflowName)[0]
+        masterAddr  = ''
+        if config.CONTROL_MODE == 'WorkerSP':
+            masterAddr = repo.getAllWorkerAddrs(workflowName)[0]
+        elif config.CONTROL_MODE == 'MasterSP':
+            masterAddr = config.MASTER_HOST
         clear_url = 'http://{}/clear'.format(masterAddr)
         requests.post(clear_url, json={'requestID': requestId, 
                                        'master': True, 'workflowName': workflowName})
@@ -101,7 +109,7 @@ def workflowRun():
     return json.dumps({'status': 'ok', 'result':res})
 
 @app.route('/workflow/delete', methods = ['POST'])
-def workflowDeeate():
+def workflowDelete():
     data = request.get_json(force=True, silent=True)
     workflowName = data["workflowName"]
     deleteOnWorker(workflowName)
