@@ -37,6 +37,10 @@ def createOnWorker(workflowName):
         createUrl = 'http://{}/create'.format(workerIP)
         data = {"funcNames" : trueFunctions, 'workflowName':workflowName}
         requests.post(createUrl, json=data)
+    if config.CONTROL_MODE == 'MasterSP': #Create workflowManager on master.
+        createUrl = 'http://{}/create'.format(config.MASTER_HOST)
+        data = {'workflowName':workflowName, 'master':True}
+        requests.post(createUrl, json=data)
     return json.dumps({'status': 'ok'})
 
 def deleteOnWorker(workflowName):

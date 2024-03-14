@@ -4,6 +4,7 @@ monkey.patch_all()
 import sys
 sys.path.append('./function')
 sys.path.append('./test')
+sys.path.append('./config')
 import json
 from typing import Dict
 from functionManager import FunctionManager
@@ -11,6 +12,9 @@ from workersp import WorkerSPManager
 from mastersp import MasterSPManager
 from flask import Flask, request
 app = Flask(__name__)
+
+import config
+CONTROL_MODE = config.CONTROL_MODE
 
 class Dispatcher:
     def __init__(self) -> None:
@@ -76,11 +80,13 @@ def delete():
 @app.route('/create', methods = ['POST'])
 def create():
     data = request.get_json(force=True, silent=True)
-    funcNames = data["funcNames"]
+    master = data.get('master', False)
     if 'workflowName' in data:
-        dispatcher.createManager(data['workflowName'], functionManager)
-    for funcName in funcNames:
-        functionManager.createFunction(funcName)
+        dispatcher.createManager(CONTROL_MODE, data['workflowName'], functionManager)
+    if not master:
+        funcNames = data["funcNames"]
+        for funcName in funcNames:
+            functionManager.createFunction(funcName)
     return json.dumps({'status': 'ok'})
 
 @app.route('/clear', methods = ['GET'])

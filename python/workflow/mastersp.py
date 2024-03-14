@@ -115,7 +115,7 @@ class MasterSPManager:
 
     # simulate dynamic node selecting
     def node_select(self):
-        addrs = repo.get_all_addrs(self.meta_db)
+        addrs = repo.getAllWorkerAddrs(self.workflowName)
         jobs = []
         status = {}
         for addr in addrs:
@@ -128,16 +128,16 @@ class MasterSPManager:
         funcInfo = self.getFunctionInfo(functionName)
         if funcInfo['ip'] == self.hostAddr:
             # function runs on local
-            return self.triggerFunctionLocal(state, functionName, parameters, noParentExecution)
+            return self.triggerFunctionLocal(functionName, parameters)
         else:
             # function runs on remote machine
             self.triggerFunctionRemote(state, functionName, funcInfo['ip'], parameters, noParentExecution)
             return {}
 
 
-    def triggerFunctionLocal(self, state: WorkflowState, function_name: str, parameters:dict) -> None:
+    def triggerFunctionLocal(self, function_name: str, parameters:dict) -> None:
         print(f"[Workflow Manager] run local func {function_name} with param {parameters}.]")
-        return self.runFunction(function_name, self.getFunctionParam(state.request_id, function_name))
+        return self.runFunction(function_name, parameters)
 
     # trigger a function that runs on remote machine
     def triggerFunctionRemote(self, state: WorkflowState, function_name: str, remote_addr: str, parameters:dict, noParentExecution = False) -> None:
