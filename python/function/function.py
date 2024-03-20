@@ -27,11 +27,17 @@ class FunctionInfo:
         self.input = {}
         self.output = {}
         self.outputSize = 0
+        self.maxOutputStrSize = funcYamlData.get("maxStringSize", 0)
+        outputStrNum = 0
         for param in funcYamlData['input']:
             self.input[param['name']] = param['type']
         for param in funcYamlData['output']:
-            self.outputSize += 4
+            if param['type'] == 'string':
+                outputStrNum += 1
+            else:
+                self.outputSize += 4
             self.output[param['name']] = param['type']
+        self.outputSize += self.maxOutputStrSize * outputStrNum
 
 
 

@@ -1,0 +1,15 @@
+name: stringupperandcount
+input:
+  - name: lowerstr
+    type: string
+  - name: counttimes
+    type: int
+output:
+  - name: upperstr
+    type: string
+  - name: count
+    type: int
+wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/stringupperandcount.wasm
+maxWorkers: 10
+expireTime: 1000
+maxStringSize: 100

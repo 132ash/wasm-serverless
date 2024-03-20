@@ -1,5 +1,6 @@
 #include "native.hpp"
 #include <string>
+#include <cstring>
 #include <stdexcept>
 #include <iostream>
 
@@ -42,6 +43,7 @@ class wasrModule{
     wasm_function_inst_t func;
     wasm_exec_env_t exec_env;
     std::vector<uint8_t> codeBytes;
+    std::vector<uint64_t> buffers;
 
   public:
 
@@ -68,6 +70,7 @@ class wasrModule{
     }
 
     void deconstructRuntime(){
+      this->freeAllBuffer();
       wasm_runtime_destroy_exec_env(exec_env);
       wasm_runtime_deinstantiate(module_inst);
       wasm_runtime_unload(module);
@@ -76,9 +79,25 @@ class wasrModule{
 
     void runWasmCode(int argc, uint32 argv[]){
       // Call the wasm code and the argument get from native function
+      
       if (!wasm_runtime_call_wasm(exec_env, func, argc, argv) ) {
         printf("error: %s\n", wasm_runtime_get_exception(module_inst));
       }
     }
 
+    uint64_t mallocWasmBuffer(const char *src, uint64_t size){
+      uint64_t wasm_buffer_addr = wasm_runtime_module_dup_data(module_inst, src, size);
+      buffers.push_back(wasm_buffer_addr);
+      return wasm_buffer_addr;
+    }
+
+    void freeWasmBuffer(uint64_t wasm_buffer_addr){
+      wasm_runtime_module_free(module_inst, wasm_buffer_addr);
+    }
+
+    void freeAllBuffer(){
+      for (auto addr:buffers) {
+        this->freeWasmBuffer(addr);
+      }
+    }
 };

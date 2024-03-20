@@ -48,20 +48,27 @@ class FunctionManager:
 
     def constructInput(self, data, info):
         param = {}
+        prefix = 1
         for name, _ in info.input.items():
-            param[name] = data[name]
+            param[str(prefix)+name] = data[name]
+            prefix += 1
         return json.dumps(param) + '\n'
         
     def constructOutput(self, uintBits, info):
         res = {}
         bitsIdx = 0
         for name, type in info.output.items():
-            chunk = uintBits[bitsIdx:bitsIdx+4]
-            if type == 'int':
-                res[name] = struct.unpack('<i', chunk)[0]
-            elif type == 'float':
-                res[name] = struct.unpack('<f', chunk)[0]
+            if type == 'string':
+                start = bitsIdx 
+                while uintBits[bitsIdx] != 0:
+                    bitsIdx += 1
+                res[name] = uintBits[start:bitsIdx].decode('ascii')
+                bitsIdx += 1
             else:
-                raise Exception("Invalid parameter type.")
-            bitsIdx += 4 
+                chunk = uintBits[bitsIdx:bitsIdx+4]
+                if type == 'int':
+                    res[name] = struct.unpack('<i', chunk)[0]
+                elif type == 'float':
+                    res[name] = struct.unpack('<f', chunk)[0]
+                bitsIdx += 4 
         return res

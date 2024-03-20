@@ -1,0 +1,10 @@
+name: resize
+input:
+  - name: addres
+    type: int
+output:
+  - name: time2res
+    type: int
+wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/resize.wasm
+maxWorkers: 10
+expireTime: 1000
