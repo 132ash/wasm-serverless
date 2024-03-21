@@ -35,14 +35,14 @@ class FunctionManager:
     def _dispatch_loop(self):
         # print("[manager] new dispatch loop.")
         gevent.spawn_later(dispatch_interval, self._dispatch_loop)
-        for name, function in self.functions.items():
+        for function in self.functions.values():
             # print("[manager] dispatch function {}'s request.".format(name))
             gevent.spawn(function.dispatchRequest)
 
     def _clean_loop(self):
         # print("[manager] new clean loop.")
         gevent.spawn_later(repack_clean_interval, self._clean_loop)
-        for _, function in self.functions.items():
+        for function in self.functions.values():
             # print("[manager] cleaning function {}'s workers.".format(name))
             gevent.spawn(function.cleanWorker)
 
