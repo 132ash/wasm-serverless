@@ -1,0 +1,1 @@
+docker build --no-cache -t simple_func_cpp /home/ash/wasm/wasm-serverless/experiment/wasm/docker/functions_cpp/functions/simple_func

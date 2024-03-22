@@ -34,6 +34,8 @@ class FunctionInfo:
         for param in funcYamlData['output']:
             if param['type'] == 'string':
                 outputStrNum += 1
+            elif param['type'] == 'double':
+                self.outputSize += 8
             else:
                 self.outputSize += 4
             self.output[param['name']] = param['type']
@@ -63,6 +65,7 @@ class Function:
             return 
         self.numOfProcessingReq += 1
         # print("processing request num:{}".format(self.numOfProcessingReq))
+        reqTime = time.time()
         worker = self.acquireWorker()
         while worker is None:
             worker = self.createWorker()
@@ -75,7 +78,7 @@ class Function:
         # print("request data:{}".format(req.data))
         res = worker.run(req.data)
         # print("[function] set result in Request.res:{}".format(res))
-        req.result.set(res)
+        req.result.set({'res':res, 'reqTime':reqTime})
         # 3. put the worker back into pool
         self.returnWorker(worker)
 
@@ -125,6 +128,7 @@ class Function:
             print(e)
             self.numOfWorkingWorkers -= 1
             return None
+        print(f"create a worker of func {self.info.name}.")
         worker.startWorker()
         return worker
 

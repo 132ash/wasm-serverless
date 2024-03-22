@@ -1,5 +1,0 @@
-functions:
-- {image: random_compute, name: compute}
-- {image: data_transfer, name: fetch}
-max_workers: 30
-expireTime: 1000

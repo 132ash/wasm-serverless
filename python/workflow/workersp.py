@@ -169,7 +169,7 @@ class WorkerSPManager:
         gevent.joinall(jobs)
     
     def runNormalFunction(self, funcName, parameters):
-        return self.functionManager.runFunction(funcName, parameters)
+        return self.functionManager.runFunction(funcName, parameters)[0]
        
     def runSwitchFunction(self, info, state:WorkflowState, parameters):
         output = info['output']

@@ -64,8 +64,8 @@ def req():
     funcName = data["funcName"]
     parameters = data["parameters"]
     status = 'ok'
-    res = functionManager.runFunction(funcName, parameters)
-    return json.dumps({'status': status, 'res':res})
+    res, reqTime = functionManager.runFunction(funcName, parameters)
+    return json.dumps({'status': status, 'res':res, "reqTime":reqTime})
 
 @app.route('/delete', methods = ['POST'])
 def delete():

@@ -30,7 +30,8 @@ class FunctionManager:
         return self.constructOutput(res, func.info)
     
     def deleteFunction(self, funcName):
-        self.functions.pop(funcName)
+        if funcName in self.functions:
+            self.functions.pop(funcName)
 
     def _dispatch_loop(self):
         # print("[manager] new dispatch loop.")
@@ -54,9 +55,11 @@ class FunctionManager:
             prefix += 1
         return json.dumps(param) + '\n'
         
-    def constructOutput(self, uintBits, info):
+    def constructOutput(self, funcRes, info):
         res = {}
+        reqTime = funcRes['reqTime']
         bitsIdx = 0
+        uintBits = funcRes['res']
         for name, type in info.output.items():
             if type == 'string':
                 start = bitsIdx 
@@ -64,6 +67,10 @@ class FunctionManager:
                     bitsIdx += 1
                 res[name] = uintBits[start:bitsIdx].decode('ascii')
                 bitsIdx += 1
+            elif type == 'double':
+                chunk = uintBits[bitsIdx:bitsIdx+8]
+                res[name] = int.from_bytes(chunk, 'little')
+                bitsIdx += 8
             else:
                 chunk = uintBits[bitsIdx:bitsIdx+4]
                 if type == 'int':
@@ -71,4 +78,4 @@ class FunctionManager:
                 elif type == 'float':
                     res[name] = struct.unpack('<f', chunk)[0]
                 bitsIdx += 4 
-        return res
+        return res, reqTime

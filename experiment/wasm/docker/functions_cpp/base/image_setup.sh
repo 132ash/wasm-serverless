@@ -1,0 +1,1 @@
+docker build --no-cache -t docker_base_cpp /home/ash/wasm/wasm-serverless/experiment/wasm/docker/functions_cpp/base

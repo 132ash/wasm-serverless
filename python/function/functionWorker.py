@@ -59,6 +59,6 @@ class FunctionWorker:
         os.close(self.out_fd)
         if self.workerPid > 0:
             os.kill(self.workerPid, signal.SIGKILL)
-        print("worker deleted.")
+        print(f"{self.funcName}'s worker deleted.")
 
 

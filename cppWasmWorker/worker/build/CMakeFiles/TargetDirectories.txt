@@ -1,0 +1,4 @@
+/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/vmlib.dir
+/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/worker.dir
+/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/edit_cache.dir
+/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/CMakeFiles/rebuild_cache.dir
