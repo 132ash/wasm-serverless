@@ -50,4 +50,5 @@ class FunctionManager:
         # print('run', function_name, request_id, runtime, input, output, to, keys)
         if function_name not in self.functions:
             raise Exception("No such function!")
-        return self.functions[function_name].sendRequest(parameter)
+        res = self.functions[function_name].sendRequest(parameter)
+        return res['res'], res['timeStamps']

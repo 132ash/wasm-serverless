@@ -1,1 +1,0 @@
-docker build --no-cache -t data_transfer /home/ash/wasm/wasm-serverless/experiment/wasm/docker/functions/functions/data_transfer

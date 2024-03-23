@@ -41,16 +41,17 @@ class Function:
         req = RequestInfo(data)
         self.requestQueue.append(req)
         res = req.result.get()
-        return res['res'], res['reqTime']
+        return res
 
     def dispatchRequest(self):
+        timeStamps = []
         # no req to be processed.
         if len(self.requestQueue) - self.numOfProcessingReq == 0:
             # print("no req to be processed.")
             return 
         self.numOfProcessingReq += 1
-        # print("processing request num:{}".format(self.numOfProcessingReq))
-        reqTime = time.time()
+        # reqtime before container is ready.
+        timeStamps.append(time.time())
         worker = self.acquireWorker()
         while worker is None:
             worker = self.createWorker()
@@ -59,11 +60,12 @@ class Function:
             return
         req = self.requestQueue.pop(0)
         self.numOfProcessingReq -= 1
-        # 2. send request to the container
-        # print("request data:{}".format(req.data))
+     
+        # reqtime after container is ready.
+        timeStamps.append(time.time())
         res = worker.send_request(req.data)
         # print("[function] set result in Request.res:{}".format(res))
-        req.result.set({'res':res, 'reqTime':reqTime})
+        req.result.set({'res':res, 'timeStamps':timeStamps})
         # 3. put the worker back into pool
         self.returnWorker(worker)
 
@@ -122,8 +124,8 @@ class Function:
             print(e)
             self.numOfWorkingWorkers -= 1
             return None
-        # print(f"create a worker of func {self.info.function_name}.")
         self.init_worker(worker)
+        print(f"create a container of funcion {self.info.function_name}.")
         return worker
 
     def removeWorker(self, worker):

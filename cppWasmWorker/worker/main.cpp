@@ -22,6 +22,9 @@ int main() {
     scanf("%d", &returnSize);
 
     wasrModule wasmRuntime(wasmCodePath, funcName, returnSize);
+
+    const char* message = "ready\n"; 
+    write(PIPE_WRITE_FD, message, strlen(message));
     
     while(true) {
         jsonParamStr.clear();

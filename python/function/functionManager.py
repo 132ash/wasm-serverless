@@ -1,6 +1,6 @@
 import gevent
-import time
 import json
+import couchdb
 import struct
 
 from functionWorker import FunctionWorker
@@ -25,8 +25,7 @@ class FunctionManager:
         if funcName not in self.functions:
             raise Exception("No such function!")
         func = self.functions[funcName]
-        param = self.constructInput(data, func.info)
-        res = func.sendRequest(param)
+        res = func.sendRequest(data)
         return self.constructOutput(res, func.info)
     
     def deleteFunction(self, funcName):
@@ -46,18 +45,10 @@ class FunctionManager:
         for function in self.functions.values():
             # print("[manager] cleaning function {}'s workers.".format(name))
             gevent.spawn(function.cleanWorker)
-
-    def constructInput(self, data, info):
-        param = {}
-        prefix = 1
-        for name, _ in info.input.items():
-            param[str(prefix)+name] = data[name]
-            prefix += 1
-        return json.dumps(param) + '\n'
         
     def constructOutput(self, funcRes, info):
         res = {}
-        reqTime = funcRes['reqTime']
+        timeStamps = funcRes['timeStamps']
         bitsIdx = 0
         uintBits = funcRes['res']
         for name, type in info.output.items():
@@ -78,4 +69,4 @@ class FunctionManager:
                 elif type == 'float':
                     res[name] = struct.unpack('<f', chunk)[0]
                 bitsIdx += 4 
-        return res, reqTime
+        return res, timeStamps

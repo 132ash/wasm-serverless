@@ -1,0 +1,12 @@
+name: string_fetch
+input:
+  - name: size_DB
+    type: string
+output:
+  - name: startTime
+    type: double
+  - name: strLen
+    type: int
+wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/string_fetch.wasm
+maxWorkers: 10
+expireTime: 1000

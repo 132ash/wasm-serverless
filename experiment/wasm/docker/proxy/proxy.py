@@ -17,8 +17,8 @@ def req():
     funcName = data["funcName"]
     parameters = data["parameters"]
     status = 'ok'
-    res, reqTime = functionManager.run(funcName, parameters)
-    return json.dumps({'status': status, 'res':res, 'reqTime':reqTime})
+    res, timeStamps = functionManager.run(funcName, parameters)
+    return json.dumps({'status': status, 'res':res, 'reqTime':timeStamps[0], 'readyTime':timeStamps[1]})
 
 # delete a fucntion's containers.
 @app.route('/delete', methods = ['POST'])

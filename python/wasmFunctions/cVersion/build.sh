@@ -13,4 +13,4 @@ for func_name in "$@"; do
     echo "Compiled ${func_name}.wasm."
 done
 
-echo "All files compiled successfully."
+echo "All files compiled successfully." 

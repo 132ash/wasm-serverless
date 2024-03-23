@@ -1,6 +1,8 @@
 import logging
 import time
 import yaml
+import json
+import couchdb
 import sys
 sys.path.append('./config')
 sys.path.append('./storage')
@@ -10,12 +12,26 @@ from gevent.lock import BoundedSemaphore
 from functionWorker import FunctionWorker
 
 SINGLEFUNCYAMLPATH = config.SINGLEFUNCYAMLPATH
+COUCH_URL = config.COUCH_DB_URL
+DATA_TRANSFER_DB = config.DATA_TRANSFER_DB
 
 # data structure for request info
 class RequestInfo:
     def __init__(self, data):
         self.data = data
         self.result = event.AsyncResult()
+
+class stringRepo:
+    def __init__(self):
+        self.couch = couchdb.Server(COUCH_URL)
+
+    def fetchString(self, size):
+        sizes =  ['1KB', '10KB', '1MB']
+        if size not in sizes:
+            raise ValueError("size must be one of {sizes}.")
+        doc = self.couch[DATA_TRANSFER_DB][size]
+        if 'content' in doc:
+            return doc['content']
 
 class FunctionInfo:
     def __init__(self, funcName):
@@ -52,6 +68,20 @@ class Function:
         self.workerPool = []
         self.numOfWorkingWorkers = 0
 
+    def constructInput(self, data):
+        param = {}
+        prefix = 1
+        for name, _ in self.info.input.items():
+            if name.endswith('_DB'):
+                repo = stringRepo()
+                value = repo.fetchString(data[name])
+                print(len(value))
+            else:
+                value = data[name]
+            param[str(prefix)+name] = value
+            prefix += 1
+        return json.dumps(param) + '\n'
+
     def sendRequest(self, data):
         req = RequestInfo(data)
         self.requestQueue.append(req)
@@ -59,13 +89,14 @@ class Function:
         return res
 
     def dispatchRequest(self):
+        timeStamps = []
         # no req to be processed.
         if len(self.requestQueue) - self.numOfProcessingReq == 0:
             # print("no req to be processed.")
             return 
         self.numOfProcessingReq += 1
-        # print("processing request num:{}".format(self.numOfProcessingReq))
-        reqTime = time.time()
+        # reqtime before container is ready.
+        timeStamps.append(time.time())
         worker = self.acquireWorker()
         while worker is None:
             worker = self.createWorker()
@@ -74,11 +105,12 @@ class Function:
             return
         req = self.requestQueue.pop(0)
         self.numOfProcessingReq -= 1
-        # 2. send request to the container
-        # print("request data:{}".format(req.data))
-        res = worker.run(req.data)
+        
+        # reqtime after container is ready.
+        timeStamps.append(time.time())
+        res = worker.run(self.constructInput(req.data))
         # print("[function] set result in Request.res:{}".format(res))
-        req.result.set({'res':res, 'reqTime':reqTime})
+        req.result.set({'res':res, 'timeStamps':timeStamps})
         # 3. put the worker back into pool
         self.returnWorker(worker)
 

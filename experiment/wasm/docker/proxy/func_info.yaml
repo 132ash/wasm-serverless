@@ -1,6 +1,6 @@
 functions:
 - {image: matmul, name: matmul}
-- {image: data_transfer, name: data_transfer}
+- {image: string_fetch, name: string_fetch}
 - {image: simple_func, name: simple_func}
 max_workers: 30
 expireTime: 1000

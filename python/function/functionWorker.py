@@ -25,6 +25,7 @@ class FunctionWorker:
         self.in_fd = 0
         self.out_fd = 1
         self.lastTriggeredTime = 0
+        self.message = "ready\n"
         
     def startWorker(self):
         self.lastTriggeredTime = time.time()
@@ -39,6 +40,8 @@ class FunctionWorker:
             os.write(self.in_fd, (self.wasmCodePath+'\n').encode()) 
             os.write(self.in_fd, (self.funcName+'\n').encode()) 
             os.write(self.in_fd, (str(self.outputSize)+'\n').encode()) 
+            message = os.read(self.out_fd, len(self.message))
+            print(message)
             return True
         else:
             os.dup2(p1[0], 0)

@@ -15,9 +15,7 @@ class Container:
                                           ports={'5000/tcp': str(port)},
                                           labels=['dockerContainer'])
         res = cls(container, port, attr)
-        print("waiting.")
         res.wait_start()
-        print("container started.")
         return res
 
     def __init__(self, container, port, attr):

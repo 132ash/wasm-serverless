@@ -6,6 +6,8 @@
 
 // std::string wasmTestFilePath = "/home/ash/wasm/wasm-serverless/worker/wasmFunctions/sum.wasm";
 
+int stackSize = 1024 * 1024 * 10; //10MB
+int heapSize = 1024 * 1024 * 10; //10MB
 
 void readBytes(int fd, unsigned char* buffer, int bufferLength){
     int cpos = 0;
@@ -64,9 +66,9 @@ class wasrModule{
       if(!wasm_runtime_register_natives("env", ns, sizeof(ns) / sizeof(NativeSymbol))) 
         throw "[Runtime] Fail to register the native fucntion.";
       module = wasm_runtime_load(codeBytes.data(), codeBytes.size(), error_buf, sizeof(error_buf));
-      module_inst = wasm_runtime_instantiate(module, 4096,4096, error_buf, sizeof(error_buf));
+      module_inst = wasm_runtime_instantiate(module, stackSize, heapSize, error_buf, sizeof(error_buf));
       func = wasm_runtime_lookup_function(module_inst, funcName.c_str());
-      exec_env = wasm_runtime_create_exec_env(module_inst, 4096);
+      exec_env = wasm_runtime_create_exec_env(module_inst, stackSize);
     }
 
     void deconstructRuntime(){

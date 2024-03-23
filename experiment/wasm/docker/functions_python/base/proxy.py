@@ -74,13 +74,9 @@ def run():
 
     inp = request.get_json(force=True, silent=True)
     # record the execution time
-    start = time.time()
     out = runner.run(inp)
-    end = time.time()
 
     res = {
-        "startTime": start,
-        "endTime": end,
         "out": out
     }
 
