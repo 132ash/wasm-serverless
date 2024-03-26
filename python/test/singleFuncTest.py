@@ -1,14 +1,13 @@
 import requests
 
-ip = "http://localhost:5000/"
+ip = 'http://127.0.0.1:7000/'
 
 requestAddr = ip + "request"
 createAddr = ip + 'create'
-triggerData = [{"funcName":"cal", "parameters":{"arg1":1, "arg2":2}},
- {"funcName":"divide2", "parameters":{"div":2.5}},
-{"funcName":"reverse", "parameters":{"subres":-6}},
- {"funcName":"times2", "parameters":{"subres":-5}},
- {"funcName":"sum", "parameters":{"divres":0.75, "time2res":6, "subres":-4}}]
+infoAddr = ip + 'info'
+# triggerData = [{"funcName":"cal", "parameters":{"arg1":1, "arg2":2}}]
+
+triggerData = [{"funcName":"wasm_sleep", "parameters":{"sleepTime":1}}]
 
 
 def testCreateAllFunc(funcNames):
@@ -22,6 +21,9 @@ def testRunAllFunc(funcNames):
         res = requests.post(requestAddr, json=req)
         print(f"func {func} run result:{res.json()}")
 
-funcNames = ["cal", "divide2", "reverse", "times2", "sum"]
-testCreateAllFunc(funcNames)
-testRunAllFunc(funcNames)
+def getInfo(funcName):
+    req = {"funcName":funcName}
+    res = requests.post(infoAddr, json=req)
+    print(res.json())
+
+getInfo("wasm_sleep")

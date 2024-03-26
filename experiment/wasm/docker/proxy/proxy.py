@@ -9,7 +9,7 @@ app = Flask(__name__)
 from function_manager import FunctionManager
 
 # create all fucntions when initialized.
-functionManager = FunctionManager()
+functionManager = FunctionManager(watch_container_num=True)
 
 @app.route('/request', methods = ['POST'])
 def req():
@@ -29,10 +29,12 @@ def clear():
     return json.dumps({'status': 'ok'})
 
 
-@app.route('/info', methods = ['GET'])
+@app.route('/info', methods = ['POST'])
 def info():
-    funcNames = list(functionManager.functions.keys())
-    return json.dumps(funcNames)
+    data = request.get_json(force=True, silent=True)
+    funcName = data['funcName']
+    container_num = functionManager.functions[funcName].numOfContainer
+    return json.dumps({"containerNum":container_num})
 
 from gevent.pywsgi import WSGIServer
 import logging

@@ -30,6 +30,7 @@ class Function:
     def __init__(self, client, functionInfo:FunctionInfo, port_controller):
         self.client = client
         self.requestQueue = []
+        self.numOfContainer = []
         self.info = functionInfo
         self.numOfProcessingReq = 0
         self.workerLock = BoundedSemaphore()
@@ -42,6 +43,12 @@ class Function:
         self.requestQueue.append(req)
         res = req.result.get()
         return res
+
+    def watchContainer(self):
+        if self.numOfWorkingWorkers == 0:
+            return
+        self.numOfContainer.append((time.time(), self.numOfWorkingWorkers))
+
 
     def dispatchRequest(self):
         timeStamps = []
@@ -113,7 +120,6 @@ class Function:
         if self.numOfWorkingWorkers + len(self.workerPool) > self.info.max_workers:
             logging.info('hit worker limit, function: %s', self.info.function_name)
             return None
-        self.numOfWorkingWorkers += 1
         self.workerLock.release()
 
         # logging.info('create worker of function: %s', self.info.name)
@@ -122,10 +128,10 @@ class Function:
             # worker = tmpWorker(self.info.funcName, self.info.wasmCodePath)
         except Exception as e:
             print(e)
-            self.numOfWorkingWorkers -= 1
             return None
         self.init_worker(worker)
         print(f"create a container of funcion {self.info.function_name}.")
+        self.numOfWorkingWorkers += 1
         return worker
 
     def removeWorker(self, worker):

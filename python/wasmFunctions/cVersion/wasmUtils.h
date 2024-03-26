@@ -4,6 +4,7 @@
 #include <malloc.h> 
 #include <stdio.h>
 #include <ctype.h>
+#include <unistd.h>
 #include <sys/time.h>
 
 void _Z10set_outputPhi(uint8_t* inBuffer, int32_t inLength);

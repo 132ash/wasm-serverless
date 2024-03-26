@@ -1,0 +1,1 @@
+docker build --no-cache -t sleep /home/ash/wasm/wasm-serverless/experiment/wasm/docker/functions_python/functions/sleep

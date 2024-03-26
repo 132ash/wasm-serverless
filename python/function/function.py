@@ -60,13 +60,15 @@ class FunctionInfo:
 
 
 class Function:
-    def __init__(self, functionInfo:FunctionInfo):
+    def __init__(self, functionInfo:FunctionInfo, port_controller):
         self.requestQueue = []
+        self.numOfContainer = []
         self.info = functionInfo
         self.numOfProcessingReq = 0
         self.workerLock = BoundedSemaphore()
         self.workerPool = []
         self.numOfWorkingWorkers = 0
+        self.port_controller = port_controller
 
     def constructInput(self, data):
         param = {}
@@ -87,6 +89,11 @@ class Function:
         self.requestQueue.append(req)
         res = req.result.get()
         return res
+    
+    def watchContainer(self):
+        if self.numOfWorkingWorkers == 0:
+            return
+        self.numOfContainer.append((time.time(), self.numOfWorkingWorkers))
 
     def dispatchRequest(self):
         timeStamps = []
@@ -103,6 +110,7 @@ class Function:
         if worker is None:
             self.numOfProcessingReq -= 1
             return
+        print(f'get worker. working worker: {self.numOfWorkingWorkers}.')
         req = self.requestQueue.pop(0)
         self.numOfProcessingReq -= 1
         
@@ -129,7 +137,6 @@ class Function:
         res = None
         self.workerLock.acquire()
         if len(self.workerPool) != 0:
-            logging.info('get worker from pool of function %s. pool size %d.', self.info.name, len(self.workerPool))
             res = self.workerPool.pop(-1)
             self.numOfWorkingWorkers += 1 
         self.workerLock.release()
@@ -149,19 +156,17 @@ class Function:
         if self.numOfWorkingWorkers + len(self.workerPool) > self.info.maxWorkers:
             logging.info('hit worker limit, function: %s', self.info.name)
             return None
-        self.numOfWorkingWorkers += 1
         self.workerLock.release()
 
         # logging.info('create worker of function: %s', self.info.name)
         try:
-            worker = FunctionWorker(self.info.name, self.info.wasmCodePath, self.info.outputSize)
+            worker = FunctionWorker(self.info.name, self.info.wasmCodePath, self.info.outputSize, self.port_controller.get())
             # worker = tmpWorker(self.info.funcName, self.info.wasmCodePath)
         except Exception as e:
             print(e)
-            self.numOfWorkingWorkers -= 1
             return None
-        print(f"create a worker of func {self.info.name}.")
         worker.startWorker()
+        self.numOfWorkingWorkers += 1
         return worker
 
     def removeWorker(self, worker):

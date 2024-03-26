@@ -57,7 +57,7 @@ def testColdStart(testTime):
         readyTime = rawResult['readyTime']
         dockerStartLatencies.append((readyTime - invokeTime)*1000)
     df = pd.DataFrame({'wasm': wasmStartLatencies, 'docker': dockerStartLatencies})
-    df.to_csv('/'.join([resdir,'coldstart(ms).csv']))
+    df.to_csv('/'.join([resdir,'coldstart(ms).csv']),  index=False)
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

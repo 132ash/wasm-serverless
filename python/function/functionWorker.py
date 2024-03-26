@@ -1,67 +1,58 @@
 import os
 import signal
 import sys
-import logging
 import time
-from gevent import event
-from gevent.lock import BoundedSemaphore
+import gevent
+import requests
+import base64
+
 
 sys.path.append('./config')
 import config
+import subprocess
 
+base_url = 'http://127.0.0.1:{}/{}'
+proxyPath = config.WASMPROXYPATH
 
-
-workerPath = config.WORKERPATH
-PIPE_WRITE_FD = config.PIPE_WRITE_FD
 
 class FunctionWorker:
-    def __init__(self, funcName, wasmCodePath, outputSize):
-        self.workerPid = 1
+    def __init__(self, funcName, wasmCodePath, outputSize, port):
+        self.workerProcess = None
         self.funcName = funcName
-        self.inputPipe = []
-        self.outputPipe = []
         self.wasmCodePath = wasmCodePath
         self.outputSize = outputSize
-        self.in_fd = 0
-        self.out_fd = 1
         self.lastTriggeredTime = 0
         self.message = "ready\n"
+        self.port = port
         
     def startWorker(self):
         self.lastTriggeredTime = time.time()
-        p1 = os.pipe()
-        p2 = os.pipe()
-        self.workerPid = os.fork()
-        if self.workerPid > 0:
-            self.in_fd = p1[1]
-            self.out_fd = p2[0]
-            os.close(p1[0]) 
-            os.close(p2[1]) 
-            os.write(self.in_fd, (self.wasmCodePath+'\n').encode()) 
-            os.write(self.in_fd, (self.funcName+'\n').encode()) 
-            os.write(self.in_fd, (str(self.outputSize)+'\n').encode()) 
-            message = os.read(self.out_fd, len(self.message))
-            print(message)
-            return True
-        else:
-            os.dup2(p1[0], 0)
-            os.dup2(p2[1], PIPE_WRITE_FD)
-            os.close(p1[1]) 
-            os.close(p2[0]) 
-            os.execvp(workerPath, [workerPath])
-            print("error occured.")
-            exit()
+        self.workerProcess = subprocess.Popen(["python", proxyPath, str(self.port)],stdout=subprocess.DEVNULL,
+                           stderr=subprocess.DEVNULL)
+        self.waitStart()
+        initParam = {"wasmCodePath":self.wasmCodePath,'funcName':self.funcName,'outputSize':self.outputSize}
+        r = requests.post(base_url.format(self.port, 'init'), json=initParam)
+        # print(r.json())
+        # return 
+
+    def waitStart(self):
+        while True:
+            try:
+                r = requests.get(base_url.format(self.port, 'status'))
+                if r.status_code == 200:
+                    break
+            except Exception:
+                pass
+            gevent.sleep(0.005)
+        
     def run(self,param):
+        r = requests.post(base_url.format(self.port, 'run'), json={"parameters":param})
         self.lastTriggeredTime = time.time()
+        return base64.b64decode(r.json()["out"])
         # print("run function {}. param:{}".format(self.funcName, param))
-        os.write(self.in_fd, param.encode()) 
-        res = os.read(self.out_fd, self.outputSize)
-        return res
+    
     def __del__(self):
-        os.close(self.in_fd)
-        os.close(self.out_fd)
-        if self.workerPid > 0:
-            os.kill(self.workerPid, signal.SIGKILL)
+        self.workerProcess.send_signal(signal.SIGINT)
         print(f"{self.funcName}'s worker deleted.")
 
 

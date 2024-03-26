@@ -13,3 +13,4 @@ MASTER_HOST = '192.168.35.132:7000'
 CLEAR_DB_AND_MEM = True
 CONTROL_MODE = 'WorkerSP' #WorkerSP
 DATA_TRANSFER_DB = "strings_for_data_transfer"
+WASMPROXYPATH = "/home/ash/wasm/wasm-serverless/python/function/workerProxy.py"

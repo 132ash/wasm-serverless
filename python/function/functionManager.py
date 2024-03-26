@@ -1,6 +1,5 @@
 import gevent
-import json
-import couchdb
+from portController import PortController
 import struct
 
 from functionWorker import FunctionWorker
@@ -8,17 +7,22 @@ from function import Function, FunctionInfo, RequestInfo
 from typing import Any, Dict, List
 
 dispatch_interval = 0.005
+watch_interval = 0.004
 repack_clean_interval = 5.000
+min_port = 30000
 
 class FunctionManager:
-    def __init__(self):
+    def __init__(self, watch_container_num=False):
         self.functions: Dict[str, Function] = {} 
+        self.portController = PortController(min_port, min_port+4999)
         gevent.spawn_later(repack_clean_interval, self._clean_loop)
         gevent.spawn_later(dispatch_interval, self._dispatch_loop)
+        if watch_container_num:
+            gevent.spawn_later(watch_interval, self._watch_loop)
 
     def createFunction(self,funcName):
         info = FunctionInfo(funcName)
-        function = Function(info)
+        function = Function(info, self.portController)
         self.functions[funcName] = function
 
     def runFunction(self, funcName:str, data:dict):
@@ -31,6 +35,12 @@ class FunctionManager:
     def deleteFunction(self, funcName):
         if funcName in self.functions:
             self.functions.pop(funcName)
+
+    def _watch_loop(self):
+        gevent.spawn_later(watch_interval, self._watch_loop)
+        for function in self.functions.values():
+            # print("[manager] cleaning function {}'s workers.".format(name))
+            gevent.spawn(function.watchContainer)
 
     def _dispatch_loop(self):
         # print("[manager] new dispatch loop.")

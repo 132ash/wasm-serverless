@@ -77,7 +77,7 @@ def testDataTransfer(testTime):
     df1["Source"] = "wasm"
     df2["Source"] = "docker"
     df_combined = pd.concat([df1, df2], ignore_index=True)
-    df_combined.to_csv('/'.join([resdir,'data_transfer(ms).csv']))
+    df_combined.to_csv('/'.join([resdir,'data_transfer(ms).csv']),  index=False)
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

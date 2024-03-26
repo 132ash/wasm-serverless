@@ -2,5 +2,6 @@ functions:
 - {image: matmul, name: matmul}
 - {image: string_fetch, name: string_fetch}
 - {image: simple_func, name: simple_func}
-max_workers: 30
+- {image: sleep, name: wasm_sleep}
+max_workers: 1000
 expireTime: 1000

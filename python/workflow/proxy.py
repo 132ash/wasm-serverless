@@ -41,7 +41,7 @@ class Dispatcher:
     def delStateAndParam(self, workflowName, requestId, master):
         self.managers[workflowName].delStateAndParam(requestId, master)
 
-functionManager = FunctionManager()
+functionManager = FunctionManager(watch_container_num=True)
 dispatcher = Dispatcher()
 
 
@@ -102,10 +102,12 @@ def clear():
     return json.dumps({'status': 'ok'})
 
 
-@app.route('/info', methods = ['GET'])
+@app.route('/info', methods = ['POST'])
 def info():
-    funcNames = list(functionManager.functions.keys())
-    return json.dumps(funcNames)
+    data = request.get_json(force=True, silent=True)
+    funcName = data['funcName']
+    container_num = functionManager.functions[funcName].numOfContainer
+    return json.dumps({"containerNum":container_num})
 
 from gevent.pywsgi import WSGIServer
 import logging
