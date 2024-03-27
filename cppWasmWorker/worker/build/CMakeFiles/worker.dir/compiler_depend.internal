@@ -26,6 +26,7 @@ CMakeFiles/worker.dir/main.cpp.o
  /home/ash/wasm/wasm-micro-runtime/core/shared/utils/gnuc.h
  /home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.h
  /home/ash/wasm/wasm-serverless/cppWasmWorker/include/json.hpp
+ /home/ash/wasm/wasm-serverless/cppWasmWorker/include/utils.hpp
  /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/native.hpp
  /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/worker.hpp
  /usr/include/alloca.h
@@ -372,6 +373,12 @@ CMakeFiles/worker.dir/main.cpp.o
  /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h
  /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h
+ /usr/include/x86_64-linux-gnu/curl/curl.h
+ /usr/include/x86_64-linux-gnu/curl/curlver.h
+ /usr/include/x86_64-linux-gnu/curl/easy.h
+ /usr/include/x86_64-linux-gnu/curl/multi.h
+ /usr/include/x86_64-linux-gnu/curl/system.h
+ /usr/include/x86_64-linux-gnu/curl/urlapi.h
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h
  /usr/include/x86_64-linux-gnu/gnu/stubs.h
  /usr/include/x86_64-linux-gnu/sys/cdefs.h

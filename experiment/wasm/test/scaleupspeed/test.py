@@ -61,23 +61,6 @@ def testScaleUpSpeed(testTime):
     df = pd.concat([df_wasm, df_docker], ignore_index=True)
     df.to_csv('/'.join([resdir,'scaleupspeed.csv']), index=False)
 
-    plt.figure(figsize=(10, 6))
-
-    # 分平台绘制折线图
-    for platform, group_df in df.groupby('Platform'):
-        plt.plot(group_df['Time'], group_df['Containers'], label=platform)
-
-    # 添加图例
-    plt.legend()
-
-    # 添加标题和坐标轴标签
-    plt.title('Container Count Over Start Time by Platform')
-    plt.xlabel('Time')
-    plt.ylabel('Container Count')
-
-    # 显示图表
-    plt.show()
-
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

@@ -1,6 +1,4 @@
 #include "worker.hpp"
-#include "../include/json.hpp"
-#include <time.h>
 
 using json = nlohmann::json;
 
@@ -25,6 +23,8 @@ int main() {
 
     const char* message = "ready\n"; 
     write(PIPE_WRITE_FD, message, strlen(message));
+    long long getStringTime=0;
+
     
     while(true) {
         jsonParamStr.clear();
@@ -34,7 +34,9 @@ int main() {
         auto jsonObject = json::parse(jsonParamStr);
         std::memcpy(&argv[0], &returnSize, sizeof(returnSize));
         int argc = 1; // num of params. default: returnSize.
-        for (const auto& element : jsonObject) {
+        for (auto it = jsonObject.begin(); it != jsonObject.end(); ++it) {
+            std::string key = it.key();
+            const auto& element = it.value();
             uint32_t param;
             if (element.is_number_integer()) {
                 // If the element is an unsigned number, directly save it
@@ -48,14 +50,20 @@ int main() {
                 uint32 binaryRepresentation;
                 std::memcpy(&binaryRepresentation, &number, sizeof(float));
                 argv[argc] = binaryRepresentation;
-                argc += 1;
+                argc += 1;   
             } else if (element.is_string()) {
-                // read the string from json, create a buffer to save it, and create che corresponding buffer in wasm world.
-                auto str = element.get<std::string>();
-                int strSize = str.size() + 1;
+              // read the string from json, create a buffer to save it, and create che corresponding buffer in wasm world.
+                std::string strValue;
+                if (EndsWith(key, "_DB")){
+                    std::string strKey = element.get<std::string>();
+                    strValue = GetDocumentContent(strKey, &getStringTime);
+                } else {
+                    strValue = element.get<std::string>();
+                }
+                int strSize = strValue.size() + 1;
                 char * buffer = NULL;
                 uint64_t buffer_for_wasm;
-                buffer_for_wasm = wasmRuntime.mallocWasmBuffer(str.c_str(), strSize);
+                buffer_for_wasm = wasmRuntime.mallocWasmBuffer(strValue.c_str(), strSize);
                 if (buffer_for_wasm != 0) { 
                     // // copy str content, save wasm buffer address and str size in argv.
                     argv[argc] = buffer_for_wasm;
@@ -63,11 +71,11 @@ int main() {
                 } else {
                     printf("error: wasm buffer allocation failed.\n");
                 }
-            }
-            
+            }   
         }
         wasmRuntime.runWasmCode(argc, argv);
-        write(PIPE_WRITE_FD, resultBuffer, returnSize);
+        memcpy(resultBuffer+returnSize, &getStringTime, sizeof(long long));
+        write(PIPE_WRITE_FD, resultBuffer, returnSize+sizeof(long long));
         wasmRuntime.freeAllBuffer();
     }
     return 0;

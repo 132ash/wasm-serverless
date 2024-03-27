@@ -49,7 +49,7 @@ class Runner:
 
     def run(self,param):
         os.write(self.in_fd, param.encode()) 
-        res = os.read(self.out_fd, self.outputSize)
+        res = os.read(self.out_fd, self.outputSize+8)
         return base64.b64encode(res).decode('ascii')
 
 

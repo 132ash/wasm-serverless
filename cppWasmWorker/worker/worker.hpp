@@ -1,41 +1,9 @@
 #include "native.hpp"
-#include <string>
-#include <cstring>
-#include <stdexcept>
-#include <iostream>
 
 // std::string wasmTestFilePath = "/home/ash/wasm/wasm-serverless/worker/wasmFunctions/sum.wasm";
 
 int stackSize = 1024 * 1024 * 10; //10MB
-int heapSize = 1024 * 1024 * 10; //10MB
-
-void readBytes(int fd, unsigned char* buffer, int bufferLength){
-    int cpos = 0;
-    while (cpos < bufferLength) {
-        int rc = read(fd, buffer + cpos, bufferLength - cpos);
-        if (rc < 0) {
-            perror("[Host Worker Read] Couldn't Read from worker.");
-            throw "[Host Worker Read] Couldn't Read from worker.";
-        } else {
-            cpos += rc;
-        }
-    }
-}
-
-
-void readFileToBytes(const std::string& path, std::vector<uint8_t>& codeBytes){
-    int fd = open(path.c_str(), O_RDONLY);
-    if (fd < 0) throw std::runtime_error("Couldn't open file " + path);
-    struct stat statbuf;
-    int staterr = fstat(fd, &statbuf);
-    if (staterr < 0) throw std::runtime_error("Couldn't stat file " + path);
-    size_t fsize = statbuf.st_size;
-    posix_fadvise(fd, 0, 0, POSIX_FADV_SEQUENTIAL);
-    codeBytes.resize(fsize);
-    readBytes(fd, codeBytes.data(), fsize);
-    close(fd);
-    return;
-}
+int heapSize = 1024 * 1024 * 50; //50MB
 
 class wasrModule{
   private:
@@ -50,7 +18,7 @@ class wasrModule{
   public:
 
     wasrModule(std::string wasmFilePath, std::string funcName, int return_size){
-      resultBuffer = new uint8_t[return_size];
+      resultBuffer = new uint8_t[return_size + sizeof(long long)];
       memset(resultBuffer, 1, return_size);
       readFileToBytes(wasmFilePath, codeBytes);
       this->constructRuntime(funcName);

@@ -25,6 +25,7 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /home/ash/wasm/wasm-micro-runtime/core/shared/utils/gnuc.h \
   /home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.h \
   /home/ash/wasm/wasm-serverless/cppWasmWorker/include/json.hpp \
+  /home/ash/wasm/wasm-serverless/cppWasmWorker/include/utils.hpp \
   /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/native.hpp \
   /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/worker.hpp \
   /usr/include/alloca.h \
@@ -371,6 +372,12 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
+  /usr/include/x86_64-linux-gnu/curl/curl.h \
+  /usr/include/x86_64-linux-gnu/curl/curlver.h \
+  /usr/include/x86_64-linux-gnu/curl/easy.h \
+  /usr/include/x86_64-linux-gnu/curl/multi.h \
+  /usr/include/x86_64-linux-gnu/curl/system.h \
+  /usr/include/x86_64-linux-gnu/curl/urlapi.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -422,6 +429,12 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/x86_64-linux-gnu/curl/multi.h:
+
+/usr/include/x86_64-linux-gnu/curl/easy.h:
+
+/usr/include/x86_64-linux-gnu/curl/curlver.h:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h:
 
@@ -571,6 +584,8 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
 
+/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
 /usr/include/c++/9/bits/streambuf.tcc:
 
 /usr/include/c++/9/bits/stl_uninitialized.h:
@@ -580,14 +595,6 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/c++/9/bits/stl_numeric.h:
 
 /usr/include/c++/9/bits/mask_array.h:
-
-/usr/include/c++/9/bits/unique_ptr.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_rusage.h:
-
-/usr/include/x86_64-linux-gnu/bits/sigthread.h:
-
-/usr/include/c++/9/bits/valarray_array.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/stat.h:
 
@@ -657,6 +664,12 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
 
+/usr/include/c++/9/bits/erase_if.h:
+
+/usr/include/c++/9/bits/vector.tcc:
+
+/usr/include/c++/9/cmath:
+
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
 /home/ash/wasm/wasm-micro-runtime/core/shared/platform/include/platform_api_extension.h:
@@ -677,6 +690,10 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/native.hpp:
 
+/home/ash/wasm/wasm-serverless/cppWasmWorker/include/utils.hpp:
+
+/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.h:
+
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /home/ash/wasm/wasm-serverless/cppWasmWorker/include/json.hpp:
@@ -693,33 +710,9 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/asm-generic/sockios.h:
 
-/usr/include/c++/9/bits/erase_if.h:
-
-/usr/include/c++/9/bits/vector.tcc:
-
-/usr/include/c++/9/cmath:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h:
-
-/usr/include/c++/9/bits/quoted_string.h:
-
-/usr/include/asm-generic/errno-base.h:
-
-/usr/include/x86_64-linux-gnu/bits/signum-generic.h:
-
-/usr/include/c++/9/bits/std_abs.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
-
-/usr/include/asm-generic/types.h:
-
-/usr/include/asm-generic/bitsperlong.h:
-
 /usr/include/x86_64-linux-gnu/sys/time.h:
 
 /usr/include/c++/9/ext/aligned_buffer.h:
-
-/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_log.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
@@ -817,6 +810,22 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/ctime:
 
+/usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h:
+
+/usr/include/c++/9/bits/quoted_string.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/x86_64-linux-gnu/bits/signum-generic.h:
+
+/usr/include/c++/9/bits/std_abs.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/include/asm-generic/types.h:
+
 /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vector.h:
 
 /usr/include/c++/9/bits/stl_algo.h:
@@ -883,6 +892,8 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/bits/basic_string.tcc:
 
+/usr/include/x86_64-linux-gnu/curl/urlapi.h:
+
 /usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
 
 /usr/include/c++/9/utility:
@@ -906,6 +917,14 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/c++/9/cstdio:
 
 /usr/include/c++/9/iterator:
+
+/usr/include/c++/9/bits/unique_ptr.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_rusage.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigthread.h:
+
+/usr/include/c++/9/bits/valarray_array.tcc:
 
 /usr/include/c++/9/bits/unordered_map.h:
 
@@ -949,6 +968,8 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/string:
 
+/usr/include/x86_64-linux-gnu/curl/curl.h:
+
 /usr/include/c++/9/debug/debug.h:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
@@ -978,6 +999,8 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/c++/9/bits/functional_hash.h:
 
 /usr/include/c++/9/iomanip:
+
+/usr/include/x86_64-linux-gnu/curl/system.h:
 
 /usr/include/c++/9/iosfwd:
 
@@ -1176,5 +1199,3 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/x86_64-linux-gnu/bits/ioctl-types.h:
 
 /usr/include/x86_64-linux-gnu/bits/iscanonical.h:
-
-/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:

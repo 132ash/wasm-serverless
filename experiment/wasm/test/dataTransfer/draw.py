@@ -6,7 +6,6 @@ import pandas as pd
 # 这里是从CSV文件中读取数据的代码示例
 file_path = '/home/ash/wasm/wasm-serverless/experiment/result/data_transfer(ms).csv'
 data = pd.read_csv(file_path)
-data = data.drop(columns=['Unnamed: 0'])
 
 # 计算每个平台和每种数据大小的平均传输时延和标准差
 mean_delay = data.groupby('Source').mean()
@@ -18,8 +17,11 @@ data_sizes = mean_delay.columns
 # 位置索引和宽度
 ind = np.arange(len(data_sizes))  # x轴上的位置索引
 width = 0.35  # 柱状图的宽度
+plt.rcParams.update({'font.size': 40, 'errorbar.capsize': 200})
 
-fig, ax = plt.subplots()
+# 重新绘制柱状图，这次带有更大的字体和更粗的误差线
+fig, ax = plt.subplots(figsize=(10, 6)) 
+
 # 绘制wasm平台的柱状图
 wasm_bars = ax.bar(ind - width/2, mean_delay.loc['wasm'], width, yerr=std_delay.loc['wasm'],
                    label='WASM', capsize=5)
@@ -53,3 +55,4 @@ autolabel(docker_bars)
 fig.tight_layout()
 
 plt.show()
+

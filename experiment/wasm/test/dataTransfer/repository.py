@@ -19,8 +19,8 @@ class Repository:
     #generate all strings. 
     @classmethod
     def makeAndStoreStrings(cls):
-        sizes = [1024, 10240, 1048576]  # 以字节为单位
-        keys = ['1KB', '10KB', '1MB']
+        sizes = [1024, 10240, 102400, 512000, 1048576]  # 以字节为单位
+        keys =['1KB', '10KB', '100KB', '500KB', '1MB']
         # 生成随机字符串并存储到字典中
         repo = cls()
         for key, size in zip(keys,sizes):
@@ -36,6 +36,7 @@ class Repository:
             self.couch.create(DB_NAME)
         db = self.couch[DB_NAME]
         for name, string in self.strings.items():
+            print(f"store string of size {name}.")
             if name in db:
                 doc = db[name]
                 db.delete(doc)
@@ -43,7 +44,7 @@ class Repository:
     
 
     def fetchString(self, size):
-        sizes =  ['1KB', '10KB', '1MB']
+        sizes =  ['1KB', '10KB', '100KB', '500KB', '1MB']
         if size not in sizes:
             raise ValueError("size must be one of {sizes}.")
         doc = self.couch[DB_NAME][size]

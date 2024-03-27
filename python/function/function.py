@@ -74,13 +74,12 @@ class Function:
         param = {}
         prefix = 1
         for name, _ in self.info.input.items():
-            if name.endswith('_DB'):
-                repo = stringRepo()
-                value = repo.fetchString(data[name])
-                print(len(value))
-            else:
-                value = data[name]
-            param[str(prefix)+name] = value
+            # if name.endswith('_DB'):
+            #     repo = stringRepo()
+            #     value = repo.fetchString(data[name])
+            #     print(len(value))
+            # else:
+            param[str(prefix)+name] = data[name]
             prefix += 1
         return json.dumps(param) + '\n'
 
@@ -116,7 +115,9 @@ class Function:
         
         # reqtime after container is ready.
         timeStamps.append(time.time())
-        res = worker.run(self.constructInput(req.data))
+        param = self.constructInput(req.data)
+        timeStamps.append(time.time())
+        res = worker.run(param)
         # print("[function] set result in Request.res:{}".format(res))
         req.result.set({'res':res, 'timeStamps':timeStamps})
         # 3. put the worker back into pool

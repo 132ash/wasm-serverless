@@ -9,7 +9,7 @@ class Repository:
         self.couch = couchdb.Server(couchdb_url)
 
     def fetchString(self, size):
-        sizes =  ['1KB', '10KB', '1MB']
+        sizes = ['1KB', '10KB', '100KB', '500KB', '1MB']
         if size not in sizes:
             raise ValueError("size must be one of {sizes}.")
         doc = self.couch[DB_NAME][size]

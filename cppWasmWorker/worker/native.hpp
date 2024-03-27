@@ -1,11 +1,7 @@
 /*
     This file used to define the native function hooked by host_interface.h .
 */
-
-#include <cstdint>
-#include <vector>
-#include <wasm_exec_env.h>
-#include <wasm_export.h>
+#include "../include/utils.hpp"
 
 uint8_t* resultBuffer;
 

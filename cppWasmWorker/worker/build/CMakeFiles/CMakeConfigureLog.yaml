@@ -659,3 +659,95 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/config_common.cmake:483 (try_run)"
+      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/runtime_lib.cmake:156 (include)"
+      - "CMakeLists.txt:19 (include)"
+    directories:
+      source: "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
+      binary: "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "TEST_WRGSBASE_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_90ab8/fast
+        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
+        /usr/bin/make  -f CMakeFiles/cmTC_90ab8.dir/build.make CMakeFiles/cmTC_90ab8.dir/build
+        make[2]: Entering directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_90ab8.dir/test_wrgsbase.c.o
+        /usr/bin/cc   -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  -o CMakeFiles/cmTC_90ab8.dir/test_wrgsbase.c.o -c /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase.c
+        /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase.c: In function ‘main’:
+        /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase.c:6:9: warning: ‘value’ is used uninitialized in this function [-Wuninitialized]
+            6 |         asm volatile ("wrgsbase %0" : : "r"(value));
+              |         ^~~
+        Linking C executable cmTC_90ab8
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_90ab8.dir/link.txt --verbose=1
+        /usr/bin/cc  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  CMakeFiles/cmTC_90ab8.dir/test_wrgsbase.c.o -o cmTC_90ab8
+        make[2]: Leaving directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
+        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+    runResult:
+      variable: "TEST_WRGSBASE_RESULT"
+      cached: true
+      stdout: |
+        WRGSBASE instruction is available.
+      stderr: |
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/config_common.cmake:483 (try_run)"
+      - "/home/ash/wasm/wasm-micro-runtime/build-scripts/runtime_lib.cmake:156 (include)"
+      - "CMakeLists.txt:19 (include)"
+    directories:
+      source: "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
+      binary: "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "TEST_WRGSBASE_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_97d69/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_97d69.dir/build.make CMakeFiles/cmTC_97d69.dir/build
+        make[1]: Entering directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_97d69.dir/test_wrgsbase.c.o
+        /usr/bin/cc   -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  -o CMakeFiles/cmTC_97d69.dir/test_wrgsbase.c.o -c /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase.c
+        /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase.c: In function ‘main’:
+        /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase.c:6:9: warning: ‘value’ is used uninitialized in this function [-Wuninitialized]
+            6 |         asm volatile ("wrgsbase %0" : : "r"(value));
+              |         ^~~
+        Linking C executable cmTC_97d69
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_97d69.dir/link.txt --verbose=1
+        /usr/bin/cc  -std=gnu99 -ffunction-sections -fdata-sections                                          -Wall -Wno-unused-parameter -Wno-pedantic -fPIC  CMakeFiles/cmTC_97d69.dir/test_wrgsbase.c.o -o cmTC_97d69
+        make[1]: Leaving directory '/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/test_wrgsbase/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+    runResult:
+      variable: "TEST_WRGSBASE_RESULT"
+      cached: true
+      stdout: |
+        WRGSBASE instruction is available.
+      stderr: |
+      exitCode: 0
+...

@@ -79,4 +79,7 @@ class FunctionManager:
                 elif type == 'float':
                     res[name] = struct.unpack('<f', chunk)[0]
                 bitsIdx += 4 
+        chunk = uintBits[bitsIdx:bitsIdx+8]
+        timeStamps.append(int.from_bytes(chunk, 'little'))
+        bitsIdx += 8
         return res, timeStamps
