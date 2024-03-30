@@ -43,8 +43,9 @@ def testColdStart(testTime):
             print(f"Test Step:{(i+1)}/{testTime}")
         flushFunction(FUNC_NAME, mode)
         rawResult = invokeFunction(FUNC_NAME, PARAM, mode)
-        invokeTime = rawResult['reqTime']   
-        readyTime = rawResult['readyTime']
+        timeStamps = rawResult['timeStamps']
+        invokeTime = timeStamps[0]   
+        readyTime = timeStamps[1]
         wasmStartLatencies.append((readyTime - invokeTime)*1000)
     print("TESTING DOCKER CONTAINER.")
     mode = 'docker'

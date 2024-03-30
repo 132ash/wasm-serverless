@@ -5,6 +5,9 @@ import string
 sys.path.append("/home/ash/wasm/wasm-serverless/experiment")
 import config
 
+sizes = [1024, 10240, 102400, 512000, 1048576, 10485760, 104857600]  # 以字节为单位
+keys = ['1KB', '10KB', '100KB', '500KB', '1MB', '10MB', '100MB']
+
 couchdb_url = config.COUCH_DB_URL
 DB_NAME = config.TRANSFER_DB
 
@@ -19,8 +22,6 @@ class Repository:
     #generate all strings. 
     @classmethod
     def makeAndStoreStrings(cls):
-        sizes = [1024, 10240, 102400, 512000, 1048576]  # 以字节为单位
-        keys =['1KB', '10KB', '100KB', '500KB', '1MB']
         # 生成随机字符串并存储到字典中
         repo = cls()
         for key, size in zip(keys,sizes):
@@ -44,8 +45,7 @@ class Repository:
     
 
     def fetchString(self, size):
-        sizes =  ['1KB', '10KB', '100KB', '500KB', '1MB']
-        if size not in sizes:
+        if size not in keys:
             raise ValueError("size must be one of {sizes}.")
         doc = self.couch[DB_NAME][size]
         if 'content' in doc:
@@ -56,7 +56,7 @@ class Repository:
 
 if __name__ == "__main__":
     repo = Repository.makeAndStoreStrings()
-    for size in ['1KB', '10KB', '1MB']:
+    for size in keys:
         data = repo.fetchString(size)
         print(len(data))
         print(data[1:50])

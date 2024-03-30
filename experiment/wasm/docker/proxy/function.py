@@ -27,7 +27,7 @@ class RequestInfo:
         self.result = event.AsyncResult()
 
 class Function:
-    def __init__(self, client, functionInfo:FunctionInfo, port_controller):
+    def __init__(self, client, functionInfo:FunctionInfo, port_controller, memorySize=1024 * 1024 * 10):
         self.client = client
         self.requestQueue = []
         self.numOfContainer = []
@@ -37,6 +37,7 @@ class Function:
         self.workerPool = []
         self.numOfWorkingWorkers = 0
         self.port_controller = port_controller
+        self.memorySize = memorySize
 
     def sendRequest(self, data):
         req = RequestInfo(data)
@@ -67,6 +68,7 @@ class Function:
             return
         req = self.requestQueue.pop(0)
         self.numOfProcessingReq -= 1
+        print(f"acquire worker. working workers: {self.numOfWorkingWorkers}")
      
         # reqtime after container is ready.
         timeStamps.append(time.time())
@@ -124,18 +126,16 @@ class Function:
 
         # logging.info('create worker of function: %s', self.info.name)
         try:
-             worker = Container.create(self.client, self.info.img_name, self.port_controller.get(), 'exec')
+             worker = Container.create(self.client, self.info.img_name, self.port_controller.get(), 'exec', self.memorySize)
             # worker = tmpWorker(self.info.funcName, self.info.wasmCodePath)
         except Exception as e:
             print(e)
             return None
         self.init_worker(worker)
-        print(f"create a container of funcion {self.info.function_name}.")
         self.numOfWorkingWorkers += 1
         return worker
 
     def removeWorker(self, worker):
-        logging.info('remove worker: %s, pool size: %d', self.info.function_name, len(self.workerPool))
         worker.destroy()
         self.port_controller.put(worker.port)
 

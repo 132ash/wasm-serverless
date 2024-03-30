@@ -9,12 +9,11 @@ class Repository:
         self.couch = couchdb.Server(couchdb_url)
 
     def fetchString(self, size):
-        sizes = ['1KB', '10KB', '100KB', '500KB', '1MB']
+        sizes = ['1KB', '10KB', '100KB', '500KB', '1MB', '10MB', '100MB']
         if size not in sizes:
             raise ValueError("size must be one of {sizes}.")
         doc = self.couch[DB_NAME][size]
-        if 'content' in doc:
-            return doc['content']
+        return doc['content']
 
 
 
@@ -22,4 +21,5 @@ def main():
     repo = Repository()
     res = repo.fetchString(size_DB)
     start = time.time()
-    return {"startTime": start, "strLen":len(res)}
+    length = len(res)
+    return {"startTime": start, "strLen":length}

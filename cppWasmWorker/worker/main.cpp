@@ -10,7 +10,8 @@ int main() {
 
     char buffer[50];
     auto returnBuffer = resultBuffer;
-    int returnSize;
+    int returnSize, heapSize;
+    struct timeval tv;
 
     std::string wasmCodePath, funcName, jsonParamStr;
 	wasmCodePath.resize(100); 
@@ -18,12 +19,14 @@ int main() {
 	scanf("%s", &wasmCodePath[0]);
     scanf("%s", &funcName[0]);
     scanf("%d", &returnSize);
+    scanf("%d", &heapSize);
 
-    wasrModule wasmRuntime(wasmCodePath, funcName, returnSize);
+    wasrModule wasmRuntime(wasmCodePath, funcName, returnSize, heapSize);
 
     const char* message = "ready\n"; 
     write(PIPE_WRITE_FD, message, strlen(message));
     long long getStringTime=0;
+    long long stringreadyTime=0;
 
     
     while(true) {
@@ -52,17 +55,21 @@ int main() {
                 argv[argc] = binaryRepresentation;
                 argc += 1;   
             } else if (element.is_string()) {
-              // read the string from json, create a buffer to save it, and create che corresponding buffer in wasm world.
+                uint64_t buffer_for_wasm;
+                int strSize;
                 std::string strValue;
+              // read the string from json, create a buffer to save it, and create che corresponding buffer in wasm world.
                 if (EndsWith(key, "_DB")){
                     std::string strKey = element.get<std::string>();
+                    // strValue = "testString";
                     strValue = GetDocumentContent(strKey, &getStringTime);
                 } else {
                     strValue = element.get<std::string>();
                 }
-                int strSize = strValue.size() + 1;
-                char * buffer = NULL;
-                uint64_t buffer_for_wasm;
+                gettimeofday(&tv, NULL);
+                stringreadyTime = (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec;
+                
+                strSize = strValue.size() + 1;
                 buffer_for_wasm = wasmRuntime.mallocWasmBuffer(strValue.c_str(), strSize);
                 if (buffer_for_wasm != 0) { 
                     // // copy str content, save wasm buffer address and str size in argv.
@@ -75,7 +82,8 @@ int main() {
         }
         wasmRuntime.runWasmCode(argc, argv);
         memcpy(resultBuffer+returnSize, &getStringTime, sizeof(long long));
-        write(PIPE_WRITE_FD, resultBuffer, returnSize+sizeof(long long));
+        memcpy(resultBuffer+returnSize+sizeof(long long), &stringreadyTime, sizeof(long long));
+        write(PIPE_WRITE_FD, resultBuffer, returnSize+2*sizeof(long long));
         wasmRuntime.freeAllBuffer();
     }
     return 0;

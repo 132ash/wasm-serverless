@@ -3,7 +3,7 @@ input:
   - name: sleepTime
     type: int
 output:
-  - name: res
+  - name: latency
     type: int
 wasmCodePath:  /home/ash/wasm/wasm-serverless/python/wasmFunctions/wasm_sleep.wasm
 maxWorkers: 1000

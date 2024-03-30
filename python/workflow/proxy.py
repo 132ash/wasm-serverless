@@ -85,8 +85,10 @@ def create():
         dispatcher.createManager(CONTROL_MODE, data['workflowName'], functionManager)
     if not master:
         funcNames = data["funcNames"]
+        heapSize = data.get("heapSize", 1024 * 1024 * 10)
         for funcName in funcNames:
-            functionManager.createFunction(funcName)
+            functionManager.createFunction(funcName, heapSize)
+            print(f"create func {funcName} with heap size {heapSize}.")
     return json.dumps({'status': 'ok'})
 
 @app.route('/clear', methods = ['GET'])
@@ -115,6 +117,8 @@ if __name__ == '__main__':
     logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%H:%M:%S', level='INFO')
     server = WSGIServer((sys.argv[1], int(sys.argv[2])), app)
     # server = WSGIServer(('0.0.0.0', 7000), app)
+
+    # run on 7000.
     print(f"proxy started on {sys.argv[1]+ ':'+ sys.argv[2]}.")
     server.serve_forever()
     # gevent.spawn_later(GET_NODE_INFO_INTERVAL)

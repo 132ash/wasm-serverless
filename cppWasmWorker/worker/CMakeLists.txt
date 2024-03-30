@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(workertest VERSION 0.1)  
 
+set(CMAKE_CXX_STANDARD 14)
 
 set (WAMR_BUILD_PLATFORM "linux")
 set (WAMR_BUILD_TARGET "X86_64")
@@ -20,4 +21,4 @@ include (${WAMR_ROOT_DIR}/build-scripts/runtime_lib.cmake)
 add_library(vmlib ${WAMR_RUNTIME_LIB_SOURCE})
 add_executable(worker main.cpp)  
 
-target_link_libraries (worker PUBLIC vmlib -lpthread -lcurl)
+target_link_libraries (worker PUBLIC vmlib -lpthread -lcpr)

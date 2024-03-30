@@ -39,9 +39,12 @@ def info():
 from gevent.pywsgi import WSGIServer
 import logging
 if __name__ == '__main__':
+    # patch_http_https_connection_pool(maxsize=16)
     logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%H:%M:%S', level='INFO')
     server = WSGIServer((sys.argv[1], int(sys.argv[2])), app)
-    # server = WSGIServer(('0.0.0.0', 8000), app)
+    # server = WSGIServer(('0.0.0.0', 6000), app)
+
+    # run on 6000.
     print(f"Docker proxy started on {sys.argv[1]+ ':'+ sys.argv[2]}.")
     server.serve_forever()
     # gevent.spawn_later(GET_NODE_INFO_INTERVAL)

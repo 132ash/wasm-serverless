@@ -15,7 +15,7 @@ async def invokeFunction(session, url, data):
         pass
 
 
-async def sendRequests(funcName, param, containerType, times=50, interval=0.002):
+async def sendRequests(funcName, param, containerType, times=50, interval=0.01):
     req = {"funcName": funcName, "parameters":param}
     tasks = []
     if containerType == 'wasm':
@@ -28,7 +28,7 @@ async def sendRequests(funcName, param, containerType, times=50, interval=0.002)
             task = asyncio.create_task(invokeFunction(session, reqAddr, req))
             tasks.append(task)
             
-            # 等待2毫秒再启动下一个请求
+            # 等待interval秒再启动下一个请求
             await asyncio.sleep(interval)
 
         # 等待所有任务完成

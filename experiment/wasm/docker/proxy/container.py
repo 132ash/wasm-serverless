@@ -1,19 +1,20 @@
 import requests
-import docker
 import time
 import gevent
 
 base_url = 'http://127.0.0.1:{}/{}'
 
+
 class Container:
     # create a new container and return the wrapper
     @classmethod
-    def create(cls, client, image_name, port, attr):
-        print(f"[CONTAINER] image name:{image_name}, port:{port}")
+    def create(cls, client, image_name, port, attr, memorySize):
         container = client.containers.run(image_name,
                                           detach=True,
                                           ports={'5000/tcp': str(port)},
-                                          labels=['dockerContainer'])
+                                          labels=['dockerContainer'],
+                                        #   mem_limit = memorySize
+                                          )
         res = cls(container, port, attr)
         res.wait_start()
         return res

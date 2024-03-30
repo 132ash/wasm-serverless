@@ -20,20 +20,22 @@ class FunctionManager:
         if watch_container_num:
             gevent.spawn_later(watch_interval, self._watch_loop)
 
-    def createFunction(self,funcName):
+    def createFunction(self,funcName,heapSize=1024 * 1024 * 10):
         info = FunctionInfo(funcName)
-        function = Function(info, self.portController)
+        function = Function(info, self.portController, heapSize)
         self.functions[funcName] = function
 
     def runFunction(self, funcName:str, data:dict):
         if funcName not in self.functions:
-            raise Exception("No such function!")
+            raise Exception(f"No such function: {funcName}, function list:{list(self.functions.keys())}!")
         func = self.functions[funcName]
         res = func.sendRequest(data)
         return self.constructOutput(res, func.info)
     
     def deleteFunction(self, funcName):
         if funcName in self.functions:
+            function = self.functions[funcName]
+            function.cleanWorker(force=True)
             self.functions.pop(funcName)
 
     def _watch_loop(self):
@@ -79,7 +81,8 @@ class FunctionManager:
                 elif type == 'float':
                     res[name] = struct.unpack('<f', chunk)[0]
                 bitsIdx += 4 
-        chunk = uintBits[bitsIdx:bitsIdx+8]
-        timeStamps.append(int.from_bytes(chunk, 'little'))
-        bitsIdx += 8
+        for _ in range(2):
+            chunk = uintBits[bitsIdx:bitsIdx+8]
+            timeStamps.append(int.from_bytes(chunk, 'little'))
+            bitsIdx += 8
         return res, timeStamps

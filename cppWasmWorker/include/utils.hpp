@@ -8,7 +8,7 @@
 #include <fcntl.h>
 #include <sstream>
 #include <time.h>
-#include <curl/curl.h>
+#include <cpr/cpr.h>
 #include <wasm_exec_env.h>
 #include <wasm_export.h>
 #include "../include/json.hpp"
@@ -66,63 +66,58 @@ void readFileToBytes(const std::string& path, std::vector<uint8_t>& codeBytes){
     return;
 }
 
-// 回调函数，用于从libcurl接收数据
-size_t WriteCallback(void *contents, size_t size, size_t nmemb, std::string *s) {
-    size_t newLength = size * nmemb;
-    try {
-        s->append((char*)contents, newLength);
-        return newLength;
-    } catch (std::bad_alloc &e) {
-        // 如果内存不足，返回0告诉curl停止传输
-        return 0;
-    }
-}
+// // 回调函数，用于从libcurl接收数据
+// size_t WriteCallback(void *contents, size_t size, size_t nmemb, std::string *s) {
+//     size_t newLength = size * nmemb;
+//     try {
+//         s->append((char*)contents, newLength);
+//         return newLength;
+//     } catch (std::bad_alloc &e) {
+//         // 如果内存不足，返回0告诉curl停止传输
+//         return 0;
+//     }
+// }
 
-std::string ExtractContentFromRawJson(std::string rawJson) {
-    std::string contentKey = "\"content\":\"";
-    size_t startPos = rawJson.find(contentKey);
-    if (startPos == std::string::npos) {
-        return ""; // "content" key not found
-    }
-    startPos += contentKey.length(); // Move start position to the beginning of the value
-    size_t endPos = rawJson.find("\"", startPos);
-    if (endPos == std::string::npos) {
-        return ""; // Malformed JSON or unexpected end of content
-    }
-    return rawJson.substr(startPos, endPos - startPos);
-}
+// std::string ExtractContentFromRawJson(std::string rawJson) {
+//     std::string contentKey = "\"content\":\"";
+//     size_t startPos = rawJson.find(contentKey);
+//     if (startPos == std::string::npos) {
+//         return ""; // "content" key not found
+//     }
+//     startPos += contentKey.length(); // Move start position to the beginning of the value
+//     size_t endPos = rawJson.find("\"", startPos);
+//     if (endPos == std::string::npos) {
+//         return ""; // Malformed JSON or unexpected end of content
+//     }
+//     return rawJson.substr(startPos, endPos - startPos);
+// }
 
 std::string GetDocumentContent(const std::string& strKey, long long *getStringTime) {
-    CURL *curl;
-    CURLcode res;
-    std::string readBuffer;
-    long long beforeParam , afterParam;
+    std::string url = COUCH_URL + "/" + DATA_TRANSFER_DB + "/" + strKey;
+    *getStringTime = 0;
     struct timeval tv;
 
-    curl = curl_easy_init();
-    if(curl) {
-        std::string url = COUCH_URL + "/" + DATA_TRANSFER_DB + "/" + strKey;
-        curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
-        res = curl_easy_perform(curl);
-        curl_easy_cleanup(curl);
-        if(res != CURLE_OK) {
-            std::cerr << "CURL error: " << curl_easy_strerror(res) << std::endl;
-        } else {
-            // 解析JSON响应
-            try {
-                gettimeofday(&tv, NULL);
-                beforeParam = (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec;
-                std::string res = ExtractContentFromRawJson(readBuffer);
-                gettimeofday(&tv, NULL);
-                afterParam = (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec;
-                *getStringTime = afterParam - beforeParam;
-                return res;
-            } catch (json::parse_error& e) {
-                std::cerr << "JSON parse error: " << e.what() << std::endl;
+    gettimeofday(&tv, NULL);
+    *getStringTime = (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec;
+    auto response = cpr::Get(cpr::Url{url});
+    gettimeofday(&tv, NULL);
+    *getStringTime = (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec - *getStringTime;
+
+    if (response.status_code == 200) { // HTTP OK
+        // 直接查找content值，避免解析整个JSON
+        std::string contentKey = "\"content\":\"";
+        size_t startPos = response.text.find(contentKey);
+        if (startPos != std::string::npos) {
+            startPos += contentKey.length();
+            size_t endPos = response.text.find("\"", startPos);
+            if (endPos != std::string::npos) {
+                return response.text.substr(startPos, endPos - startPos);
             }
         }
     }
-    return "";
+    // } else {
+    //     std::cerr << "Failed to get document. Status code: " << response.status_code << std::endl;
+    // }
+
+    return "nullstring"; // 返回空字符串表示未找到或出错
 }

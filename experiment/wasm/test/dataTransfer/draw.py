@@ -17,7 +17,7 @@ data_sizes = mean_delay.columns
 # 位置索引和宽度
 ind = np.arange(len(data_sizes))  # x轴上的位置索引
 width = 0.35  # 柱状图的宽度
-plt.rcParams.update({'font.size': 40, 'errorbar.capsize': 200})
+plt.rcParams.update({'font.size': 25, 'errorbar.capsize': 200})
 
 # 重新绘制柱状图，这次带有更大的字体和更粗的误差线
 fig, ax = plt.subplots(figsize=(10, 6)) 
@@ -29,7 +29,8 @@ wasm_bars = ax.bar(ind - width/2, mean_delay.loc['wasm'], width, yerr=std_delay.
 # 绘制docker平台的柱状图
 docker_bars = ax.bar(ind + width/2, mean_delay.loc['docker'], width, yerr=std_delay.loc['docker'],
                      label='Docker', capsize=5)
-
+ax.set_yscale('log')
+ax.set_yticks([1, 10, 100, 1000])
 # 添加一些文本用于标签、标题和自定义x轴刻度等
 ax.set_xlabel('Data Size')
 ax.set_ylabel('Transfer Delay (ms)')

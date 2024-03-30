@@ -13,7 +13,7 @@ dockerProxyAddr = ':'.join([config.HOST_IP, config.DOCKER_PROXY_PORT])
 wasmProxyAddr = ':'.join([config.HOST_IP, config.WASM_PROXY_PORT])
 FUNC_NAME = "wasm_sleep"
 param = {"sleepTime": 10}
-time_duration_ms = 100
+request_num = 10
 
 # ab -n 100 -c 100 -T application/json -p /home/ash/wasm/wasm-serverless/python/test/postData.json http://127.0.0.1:7000/request
 
@@ -38,21 +38,24 @@ def testScaleUpSpeed(testTime):
     mode = 'wasm'
     flushFunction(FUNC_NAME, mode)
     startTime = time.time()
-    asyncio.run(sendRequests(FUNC_NAME, {"sleepTime":5}, mode))
+    asyncio.run(sendRequests(FUNC_NAME, param, mode, request_num))
     timeAndContianerNum = getContainerNum(FUNC_NAME, mode)
     for pair in timeAndContianerNum:
         wasmTimes.append(pair[0] - startTime)
         wasmContainerNum.append(pair[1])
+    flushFunction(FUNC_NAME, mode)
+
 
     print("TESTING DOCKER CONTAINER.")
     mode = 'docker'
     flushFunction(FUNC_NAME, mode)
     startTime = time.time()
-    asyncio.run(sendRequests(FUNC_NAME, {"sleepTime":5}, mode))
+    asyncio.run(sendRequests(FUNC_NAME, param, mode, request_num))
     timeAndContianerNum = getContainerNum(FUNC_NAME, mode)
     for pair in timeAndContianerNum:
         dockerTimes.append(pair[0] - startTime)
         dockerContainerNum.append(pair[1])
+    flushFunction(FUNC_NAME, mode)
 
     df_wasm = pd.DataFrame({'Time': wasmTimes, 'Containers': wasmContainerNum, 'Platform': 'WASM'})
     df_docker = pd.DataFrame({'Time': dockerTimes, 'Containers': dockerContainerNum, 'Platform': 'Docker'})

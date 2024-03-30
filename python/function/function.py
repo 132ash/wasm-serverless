@@ -60,13 +60,14 @@ class FunctionInfo:
 
 
 class Function:
-    def __init__(self, functionInfo:FunctionInfo, port_controller):
+    def __init__(self, functionInfo:FunctionInfo, port_controller, heapSize=1024 * 1024 * 10):
         self.requestQueue = []
         self.numOfContainer = []
         self.info = functionInfo
         self.numOfProcessingReq = 0
         self.workerLock = BoundedSemaphore()
         self.workerPool = []
+        self.heapSize = heapSize
         self.numOfWorkingWorkers = 0
         self.port_controller = port_controller
 
@@ -116,14 +117,20 @@ class Function:
         # reqtime after container is ready.
         timeStamps.append(time.time())
         param = self.constructInput(req.data)
-        timeStamps.append(time.time())
         res = worker.run(param)
         # print("[function] set result in Request.res:{}".format(res))
         req.result.set({'res':res, 'timeStamps':timeStamps})
         # 3. put the worker back into pool
         self.returnWorker(worker)
 
-    def cleanWorker(self):
+    def cleanWorker(self, force=False):
+        if force:
+            self.workerLock.acquire()
+            for worker in self.workerPool:
+                self.removeWorker(worker)
+            self.workerPool = []
+            self.workerLock.release()
+            return
         # print("[before cleaning]: num of workers:{}".format(len(self.workerPool)))
         expiredWorkers = []
         self.workerLock.acquire()
@@ -161,7 +168,7 @@ class Function:
 
         # logging.info('create worker of function: %s', self.info.name)
         try:
-            worker = FunctionWorker(self.info.name, self.info.wasmCodePath, self.info.outputSize, self.port_controller.get())
+            worker = FunctionWorker(self.info.name, self.info.wasmCodePath, self.info.outputSize, self.port_controller.get(), self.heapSize)
             # worker = tmpWorker(self.info.funcName, self.info.wasmCodePath)
         except Exception as e:
             print(e)
@@ -170,8 +177,9 @@ class Function:
         self.numOfWorkingWorkers += 1
         return worker
 
-    def removeWorker(self, worker):
-        del worker
+    def removeWorker(self, worker:FunctionWorker):
+        worker.destroy()
+        self.port_controller.put(worker.port)
 
 def cleanPool(workerPool, expireTime, expiredWorkers):
     curTime = time.time()

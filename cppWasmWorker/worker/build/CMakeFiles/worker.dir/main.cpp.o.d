@@ -158,9 +158,43 @@ CMakeFiles/worker.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/bits/stat.h \
  /usr/include/c++/9/sstream /usr/include/c++/9/bits/sstream.tcc \
- /usr/include/x86_64-linux-gnu/curl/curl.h \
- /usr/include/x86_64-linux-gnu/curl/curlver.h \
- /usr/include/x86_64-linux-gnu/curl/system.h \
+ /usr/local/include/cpr/cpr.h /usr/local/include/cpr/api.h \
+ /usr/include/c++/9/fstream /usr/include/c++/9/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
+ /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/functional \
+ /usr/include/c++/9/tuple /usr/include/c++/9/utility \
+ /usr/include/c++/9/bits/stl_relops.h /usr/include/c++/9/array \
+ /usr/include/c++/9/bits/uses_allocator.h \
+ /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/refwrap.h \
+ /usr/include/c++/9/bits/std_function.h /usr/include/c++/9/future \
+ /usr/include/c++/9/mutex /usr/include/c++/9/chrono \
+ /usr/include/c++/9/ratio /usr/include/c++/9/limits \
+ /usr/include/c++/9/ctime /usr/include/c++/9/bits/parse_numbers.h \
+ /usr/include/c++/9/bits/std_mutex.h \
+ /usr/include/c++/9/bits/unique_lock.h /usr/include/c++/9/thread \
+ /usr/include/c++/9/memory /usr/include/c++/9/bits/stl_tempbuf.h \
+ /usr/include/c++/9/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/9/ext/concurrence.h \
+ /usr/include/c++/9/bits/unique_ptr.h \
+ /usr/include/c++/9/bits/shared_ptr.h \
+ /usr/include/c++/9/bits/shared_ptr_base.h \
+ /usr/include/c++/9/bits/allocated_ptr.h \
+ /usr/include/c++/9/ext/aligned_buffer.h \
+ /usr/include/c++/9/bits/shared_ptr_atomic.h \
+ /usr/include/c++/9/bits/atomic_base.h \
+ /usr/include/c++/9/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/9/backward/auto_ptr.h \
+ /usr/include/c++/9/condition_variable /usr/include/c++/9/atomic \
+ /usr/include/c++/9/bits/atomic_futex.h /usr/local/include/cpr/async.h \
+ /usr/local/include/cpr/singleton.h /usr/local/include/cpr/threadpool.h \
+ /usr/include/c++/9/list /usr/include/c++/9/bits/stl_list.h \
+ /usr/include/c++/9/bits/list.tcc /usr/include/c++/9/queue \
+ /usr/include/c++/9/deque /usr/include/c++/9/bits/stl_deque.h \
+ /usr/include/c++/9/bits/deque.tcc /usr/include/c++/9/bits/stl_heap.h \
+ /usr/include/c++/9/bits/stl_queue.h /usr/local/include/cpr/auth.h \
+ /usr/local/include/cpr/bearer.h /usr/local/include/curl/curlver.h \
+ /usr/local/include/cpr/cprtypes.h /usr/local/include/curl/system.h \
  /usr/include/x86_64-linux-gnu/sys/socket.h \
  /usr/include/x86_64-linux-gnu/bits/socket.h \
  /usr/include/x86_64-linux-gnu/bits/socket_type.h \
@@ -176,6 +210,14 @@ CMakeFiles/worker.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/asm/sockios.h \
  /usr/include/asm-generic/sockios.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
+ /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
+ /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
+ /usr/include/c++/9/bits/erase_if.h /usr/include/c++/9/numeric \
+ /usr/include/c++/9/bits/stl_numeric.h /usr/local/include/cpr/multipart.h \
+ /usr/local/include/cpr/buffer.h /usr/local/include/cpr/file.h \
+ /usr/local/include/cpr/payload.h /usr/local/include/cpr/curl_container.h \
+ /usr/local/include/cpr/curlholder.h /usr/local/include/curl/curl.h \
+ /usr/local/include/curl/curlver.h /usr/local/include/curl/system.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
@@ -184,18 +226,38 @@ CMakeFiles/worker.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
- /usr/include/x86_64-linux-gnu/sys/time.h \
- /usr/include/x86_64-linux-gnu/curl/easy.h \
- /usr/include/x86_64-linux-gnu/curl/multi.h \
- /usr/include/x86_64-linux-gnu/curl/curl.h \
- /usr/include/x86_64-linux-gnu/curl/urlapi.h \
+ /usr/include/x86_64-linux-gnu/sys/time.h /usr/local/include/curl/easy.h \
+ /usr/local/include/curl/multi.h /usr/local/include/curl/curl.h \
+ /usr/local/include/curl/urlapi.h /usr/local/include/curl/options.h \
+ /usr/local/include/curl/header.h /usr/local/include/curl/websockets.h \
+ /usr/local/include/cpr/response.h /usr/include/c++/9/cassert \
+ /usr/include/assert.h /usr/local/include/cpr/cert_info.h \
+ /usr/local/include/cpr/cookies.h /usr/local/include/cpr/error.h \
+ /usr/local/include/cpr/ssl_options.h /usr/local/include/cpr/util.h \
+ /usr/local/include/cpr/callback.h /usr/local/include/cpr/cprtypes.h \
+ /usr/local/include/cpr/session.h \
+ /usr/local/include/cpr/accept_encoding.h /usr/local/include/cpr/body.h \
+ /usr/local/include/cpr/buffer.h /usr/local/include/cpr/file.h \
+ /usr/local/include/cpr/connect_timeout.h \
+ /usr/local/include/cpr/timeout.h /usr/local/include/cpr/http_version.h \
+ /usr/local/include/cpr/interface.h /usr/local/include/cpr/limit_rate.h \
+ /usr/local/include/cpr/local_port.h \
+ /usr/local/include/cpr/local_port_range.h \
+ /usr/local/include/cpr/low_speed.h /usr/local/include/cpr/parameters.h \
+ /usr/local/include/cpr/proxies.h /usr/local/include/cpr/proxyauth.h \
+ /usr/local/include/cpr/range.h /usr/local/include/cpr/redirect.h \
+ /usr/local/include/cpr/reserve_size.h \
+ /usr/local/include/cpr/unix_socket.h /usr/local/include/cpr/user_agent.h \
+ /usr/local/include/cpr/verbose.h /usr/local/include/cpr/cprver.h \
+ /usr/local/include/cpr/interceptor.h /usr/local/include/cpr/ssl_ctx.h \
+ /usr/local/include/cpr/status_codes.h \
  /home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_exec_env.h \
  /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_assert.h \
  /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_platform.h \
  /home/ash/wasm/wasm-micro-runtime/core/shared/utils/../platform/include/platform_common.h \
  /home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/platform_internal.h \
  /usr/include/inttypes.h \
- /usr/lib/gcc/x86_64-linux-gnu/9/include/stdbool.h /usr/include/assert.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/stdbool.h \
  /usr/include/c++/9/stdlib.h /usr/include/c++/9/math.h \
  /usr/include/c++/9/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -282,34 +344,13 @@ CMakeFiles/worker.dir/main.cpp.o: \
  /home/ash/wasm/wasm-micro-runtime/core/iwasm/include/wasm_export.h \
  /home/ash/wasm/wasm-micro-runtime/core/iwasm/include/lib_export.h \
  /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/../include/../include/json.hpp \
- /usr/include/c++/9/algorithm /usr/include/c++/9/utility \
- /usr/include/c++/9/bits/stl_relops.h /usr/include/c++/9/bits/stl_algo.h \
+ /usr/include/c++/9/algorithm /usr/include/c++/9/bits/stl_algo.h \
  /usr/include/c++/9/bits/algorithmfwd.h \
- /usr/include/c++/9/bits/stl_heap.h /usr/include/c++/9/bits/stl_tempbuf.h \
- /usr/include/c++/9/bits/uniform_int_dist.h /usr/include/c++/9/limits \
- /usr/include/c++/9/cstddef /usr/include/c++/9/functional \
- /usr/include/c++/9/tuple /usr/include/c++/9/array \
- /usr/include/c++/9/bits/uses_allocator.h \
- /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/refwrap.h \
- /usr/include/c++/9/bits/std_function.h /usr/include/c++/9/iterator \
- /usr/include/c++/9/bits/stream_iterator.h /usr/include/c++/9/memory \
- /usr/include/c++/9/bits/stl_raw_storage_iter.h \
- /usr/include/c++/9/ext/concurrence.h \
- /usr/include/c++/9/bits/unique_ptr.h \
- /usr/include/c++/9/bits/shared_ptr.h \
- /usr/include/c++/9/bits/shared_ptr_base.h \
- /usr/include/c++/9/bits/allocated_ptr.h \
- /usr/include/c++/9/ext/aligned_buffer.h \
- /usr/include/c++/9/bits/shared_ptr_atomic.h \
- /usr/include/c++/9/bits/atomic_base.h \
- /usr/include/c++/9/bits/atomic_lockfree_defines.h \
- /usr/include/c++/9/backward/auto_ptr.h /usr/include/c++/9/forward_list \
- /usr/include/c++/9/bits/forward_list.h \
- /usr/include/c++/9/bits/forward_list.tcc /usr/include/c++/9/map \
- /usr/include/c++/9/bits/stl_tree.h /usr/include/c++/9/bits/stl_map.h \
- /usr/include/c++/9/bits/stl_multimap.h \
- /usr/include/c++/9/bits/erase_if.h /usr/include/c++/9/unordered_map \
- /usr/include/c++/9/bits/hashtable.h \
+ /usr/include/c++/9/bits/uniform_int_dist.h /usr/include/c++/9/cstddef \
+ /usr/include/c++/9/iterator /usr/include/c++/9/bits/stream_iterator.h \
+ /usr/include/c++/9/forward_list /usr/include/c++/9/bits/forward_list.h \
+ /usr/include/c++/9/bits/forward_list.tcc \
+ /usr/include/c++/9/unordered_map /usr/include/c++/9/bits/hashtable.h \
  /usr/include/c++/9/bits/hashtable_policy.h \
  /usr/include/c++/9/bits/unordered_map.h /usr/include/c++/9/valarray \
  /usr/include/c++/9/bits/valarray_array.h \
@@ -320,13 +361,10 @@ CMakeFiles/worker.dir/main.cpp.o: \
  /usr/include/c++/9/bits/gslice.h /usr/include/c++/9/bits/gslice_array.h \
  /usr/include/c++/9/bits/mask_array.h \
  /usr/include/c++/9/bits/indirect_array.h /usr/include/c++/9/version \
- /usr/include/c++/9/cassert /usr/include/c++/9/numeric \
- /usr/include/c++/9/bits/stl_numeric.h /usr/include/c++/9/iomanip \
- /usr/include/c++/9/locale /usr/include/c++/9/bits/locale_facets_nonio.h \
- /usr/include/c++/9/ctime \
+ /usr/include/c++/9/iomanip /usr/include/c++/9/locale \
+ /usr/include/c++/9/bits/locale_facets_nonio.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/9/bits/codecvt.h \
- /usr/include/c++/9/bits/locale_facets_nonio.tcc \
+ /usr/include/libintl.h /usr/include/c++/9/bits/locale_facets_nonio.tcc \
  /usr/include/c++/9/bits/locale_conv.h \
  /usr/include/c++/9/bits/quoted_string.h

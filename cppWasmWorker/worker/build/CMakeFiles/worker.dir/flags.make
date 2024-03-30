@@ -6,5 +6,5 @@ CXX_DEFINES = -DBH_FREE=wasm_runtime_free -DBH_MALLOC=wasm_runtime_malloc -DBH_P
 
 CXX_INCLUDES = -I/home/ash/wasm/wasm-micro-runtime/core/iwasm/interpreter -I/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-builtin -I/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/include -I/home/ash/wasm/wasm-micro-runtime/core/iwasm/libraries/libc-wasi/sandboxed-system-primitives/src -I/home/ash/wasm/wasm-micro-runtime/core/iwasm/include -I/home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux -I/home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/../include -I/home/ash/wasm/wasm-micro-runtime/core/shared/platform/common/libc-util -I/home/ash/wasm/wasm-micro-runtime/core/shared/mem-alloc -I/home/ash/wasm/wasm-micro-runtime/core/iwasm/common -I/home/ash/wasm/wasm-micro-runtime/core/shared/utils
 
-CXX_FLAGS =  -fPIC -pthread
+CXX_FLAGS =  -fPIC -std=gnu++14 -pthread
 

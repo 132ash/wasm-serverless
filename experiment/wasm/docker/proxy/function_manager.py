@@ -4,7 +4,7 @@ import os
 from function_info import parse
 from port_controller import PortController
 from function import Function
-import random
+import requests 
 
 min_port = 20000
 repack_clean_interval = 5.000 # repack and clean every 5 seconds
@@ -19,7 +19,6 @@ class FunctionManager:
 
         self.port_controller = PortController(min_port, min_port + 4999)
         self.client = docker.from_env()
-
         self.functions = {
             x.function_name: Function(self.client, x, self.port_controller)
             for x in self.function_info

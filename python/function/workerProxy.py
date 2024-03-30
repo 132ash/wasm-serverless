@@ -21,10 +21,11 @@ class Runner:
         self.outputPipe = []
         self.message = "ready\n"
 
-    def init(self, wasmCodePath, funcName, outputSize):
+    def init(self, wasmCodePath, funcName, outputSize, heapSize):
         self.wasmCodePath = wasmCodePath
         self.funcName = funcName
         self.outputSize = outputSize
+        self.heapSize = heapSize
         p1 = os.pipe()
         p2 = os.pipe()
         self.workerPid = os.fork()
@@ -36,6 +37,7 @@ class Runner:
             os.write(self.in_fd, (self.wasmCodePath+'\n').encode()) 
             os.write(self.in_fd, (self.funcName+'\n').encode()) 
             os.write(self.in_fd, (str(self.outputSize)+'\n').encode()) 
+            os.write(self.in_fd, (str(self.heapSize)+'\n').encode()) 
             message = os.read(self.out_fd, len(self.message))
             return str(message, encoding='utf-8')
         else:
@@ -49,7 +51,7 @@ class Runner:
 
     def run(self,param):
         os.write(self.in_fd, param.encode()) 
-        res = os.read(self.out_fd, self.outputSize+8)
+        res = os.read(self.out_fd, self.outputSize+16)
         return base64.b64encode(res).decode('ascii')
 
 
@@ -71,7 +73,8 @@ def status():
 def init():
     proxy.status = 'init'
     inp = request.get_json(force=True, silent=True)
-    message = runner.init(inp["wasmCodePath"], inp['funcName'], inp['outputSize'])
+    heapSize = inp.get("heapSize", 1024 * 1024 * 10)
+    message = runner.init(inp["wasmCodePath"], inp['funcName'], inp['outputSize'], heapSize)
 
     proxy.status = 'ok'
     return {'status': proxy.status, "message":message}

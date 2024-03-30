@@ -42,6 +42,7 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/assert.h \
   /usr/include/c++/9/algorithm \
   /usr/include/c++/9/array \
+  /usr/include/c++/9/atomic \
   /usr/include/c++/9/backward/auto_ptr.h \
   /usr/include/c++/9/backward/binders.h \
   /usr/include/c++/9/bits/algorithmfwd.h \
@@ -49,6 +50,7 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/c++/9/bits/allocated_ptr.h \
   /usr/include/c++/9/bits/allocator.h \
   /usr/include/c++/9/bits/atomic_base.h \
+  /usr/include/c++/9/bits/atomic_futex.h \
   /usr/include/c++/9/bits/atomic_lockfree_defines.h \
   /usr/include/c++/9/bits/basic_ios.h \
   /usr/include/c++/9/bits/basic_ios.tcc \
@@ -60,12 +62,14 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/c++/9/bits/cpp_type_traits.h \
   /usr/include/c++/9/bits/cxxabi_forced.h \
   /usr/include/c++/9/bits/cxxabi_init_exception.h \
+  /usr/include/c++/9/bits/deque.tcc \
   /usr/include/c++/9/bits/erase_if.h \
   /usr/include/c++/9/bits/exception.h \
   /usr/include/c++/9/bits/exception_defines.h \
   /usr/include/c++/9/bits/exception_ptr.h \
   /usr/include/c++/9/bits/forward_list.h \
   /usr/include/c++/9/bits/forward_list.tcc \
+  /usr/include/c++/9/bits/fstream.tcc \
   /usr/include/c++/9/bits/functexcept.h \
   /usr/include/c++/9/bits/functional_hash.h \
   /usr/include/c++/9/bits/gslice.h \
@@ -77,6 +81,7 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/c++/9/bits/invoke.h \
   /usr/include/c++/9/bits/ios_base.h \
   /usr/include/c++/9/bits/istream.tcc \
+  /usr/include/c++/9/bits/list.tcc \
   /usr/include/c++/9/bits/locale_classes.h \
   /usr/include/c++/9/bits/locale_classes.tcc \
   /usr/include/c++/9/bits/locale_conv.h \
@@ -91,6 +96,7 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/c++/9/bits/nested_exception.h \
   /usr/include/c++/9/bits/ostream.tcc \
   /usr/include/c++/9/bits/ostream_insert.h \
+  /usr/include/c++/9/bits/parse_numbers.h \
   /usr/include/c++/9/bits/postypes.h \
   /usr/include/c++/9/bits/predefined_ops.h \
   /usr/include/c++/9/bits/ptr_traits.h \
@@ -104,19 +110,23 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/c++/9/bits/sstream.tcc \
   /usr/include/c++/9/bits/std_abs.h \
   /usr/include/c++/9/bits/std_function.h \
+  /usr/include/c++/9/bits/std_mutex.h \
   /usr/include/c++/9/bits/stl_algo.h \
   /usr/include/c++/9/bits/stl_algobase.h \
   /usr/include/c++/9/bits/stl_bvector.h \
   /usr/include/c++/9/bits/stl_construct.h \
+  /usr/include/c++/9/bits/stl_deque.h \
   /usr/include/c++/9/bits/stl_function.h \
   /usr/include/c++/9/bits/stl_heap.h \
   /usr/include/c++/9/bits/stl_iterator.h \
   /usr/include/c++/9/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/9/bits/stl_iterator_base_types.h \
+  /usr/include/c++/9/bits/stl_list.h \
   /usr/include/c++/9/bits/stl_map.h \
   /usr/include/c++/9/bits/stl_multimap.h \
   /usr/include/c++/9/bits/stl_numeric.h \
   /usr/include/c++/9/bits/stl_pair.h \
+  /usr/include/c++/9/bits/stl_queue.h \
   /usr/include/c++/9/bits/stl_raw_storage_iter.h \
   /usr/include/c++/9/bits/stl_relops.h \
   /usr/include/c++/9/bits/stl_tempbuf.h \
@@ -128,6 +138,7 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/c++/9/bits/streambuf_iterator.h \
   /usr/include/c++/9/bits/stringfwd.h \
   /usr/include/c++/9/bits/uniform_int_dist.h \
+  /usr/include/c++/9/bits/unique_lock.h \
   /usr/include/c++/9/bits/unique_ptr.h \
   /usr/include/c++/9/bits/unordered_map.h \
   /usr/include/c++/9/bits/uses_allocator.h \
@@ -139,8 +150,10 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/c++/9/cassert \
   /usr/include/c++/9/cctype \
   /usr/include/c++/9/cerrno \
+  /usr/include/c++/9/chrono \
   /usr/include/c++/9/clocale \
   /usr/include/c++/9/cmath \
+  /usr/include/c++/9/condition_variable \
   /usr/include/c++/9/cstddef \
   /usr/include/c++/9/cstdint \
   /usr/include/c++/9/cstdio \
@@ -151,6 +164,7 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/c++/9/cwctype \
   /usr/include/c++/9/debug/assertions.h \
   /usr/include/c++/9/debug/debug.h \
+  /usr/include/c++/9/deque \
   /usr/include/c++/9/exception \
   /usr/include/c++/9/ext/aligned_buffer.h \
   /usr/include/c++/9/ext/alloc_traits.h \
@@ -161,7 +175,9 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/c++/9/ext/string_conversions.h \
   /usr/include/c++/9/ext/type_traits.h \
   /usr/include/c++/9/forward_list \
+  /usr/include/c++/9/fstream \
   /usr/include/c++/9/functional \
+  /usr/include/c++/9/future \
   /usr/include/c++/9/initializer_list \
   /usr/include/c++/9/iomanip \
   /usr/include/c++/9/ios \
@@ -170,19 +186,24 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/c++/9/istream \
   /usr/include/c++/9/iterator \
   /usr/include/c++/9/limits \
+  /usr/include/c++/9/list \
   /usr/include/c++/9/locale \
   /usr/include/c++/9/map \
   /usr/include/c++/9/math.h \
   /usr/include/c++/9/memory \
+  /usr/include/c++/9/mutex \
   /usr/include/c++/9/new \
   /usr/include/c++/9/numeric \
   /usr/include/c++/9/ostream \
+  /usr/include/c++/9/queue \
+  /usr/include/c++/9/ratio \
   /usr/include/c++/9/sstream \
   /usr/include/c++/9/stdexcept \
   /usr/include/c++/9/stdlib.h \
   /usr/include/c++/9/streambuf \
   /usr/include/c++/9/string \
   /usr/include/c++/9/system_error \
+  /usr/include/c++/9/thread \
   /usr/include/c++/9/tuple \
   /usr/include/c++/9/type_traits \
   /usr/include/c++/9/typeinfo \
@@ -360,8 +381,10 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_base.h \
@@ -372,12 +395,6 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
-  /usr/include/x86_64-linux-gnu/curl/curl.h \
-  /usr/include/x86_64-linux-gnu/curl/curlver.h \
-  /usr/include/x86_64-linux-gnu/curl/easy.h \
-  /usr/include/x86_64-linux-gnu/curl/multi.h \
-  /usr/include/x86_64-linux-gnu/curl/system.h \
-  /usr/include/x86_64-linux-gnu/curl/urlapi.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -399,8 +416,120 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stdbool.h \
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h \
-  /usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h
+  /usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h \
+  /usr/local/include/cpr/accept_encoding.h \
+  /usr/local/include/cpr/api.h \
+  /usr/local/include/cpr/async.h \
+  /usr/local/include/cpr/auth.h \
+  /usr/local/include/cpr/bearer.h \
+  /usr/local/include/cpr/body.h \
+  /usr/local/include/cpr/buffer.h \
+  /usr/local/include/cpr/callback.h \
+  /usr/local/include/cpr/cert_info.h \
+  /usr/local/include/cpr/connect_timeout.h \
+  /usr/local/include/cpr/cookies.h \
+  /usr/local/include/cpr/cpr.h \
+  /usr/local/include/cpr/cprtypes.h \
+  /usr/local/include/cpr/cprver.h \
+  /usr/local/include/cpr/curl_container.h \
+  /usr/local/include/cpr/curlholder.h \
+  /usr/local/include/cpr/error.h \
+  /usr/local/include/cpr/file.h \
+  /usr/local/include/cpr/http_version.h \
+  /usr/local/include/cpr/interceptor.h \
+  /usr/local/include/cpr/interface.h \
+  /usr/local/include/cpr/limit_rate.h \
+  /usr/local/include/cpr/local_port.h \
+  /usr/local/include/cpr/local_port_range.h \
+  /usr/local/include/cpr/low_speed.h \
+  /usr/local/include/cpr/multipart.h \
+  /usr/local/include/cpr/parameters.h \
+  /usr/local/include/cpr/payload.h \
+  /usr/local/include/cpr/proxies.h \
+  /usr/local/include/cpr/proxyauth.h \
+  /usr/local/include/cpr/range.h \
+  /usr/local/include/cpr/redirect.h \
+  /usr/local/include/cpr/reserve_size.h \
+  /usr/local/include/cpr/response.h \
+  /usr/local/include/cpr/session.h \
+  /usr/local/include/cpr/singleton.h \
+  /usr/local/include/cpr/ssl_ctx.h \
+  /usr/local/include/cpr/ssl_options.h \
+  /usr/local/include/cpr/status_codes.h \
+  /usr/local/include/cpr/threadpool.h \
+  /usr/local/include/cpr/timeout.h \
+  /usr/local/include/cpr/unix_socket.h \
+  /usr/local/include/cpr/user_agent.h \
+  /usr/local/include/cpr/util.h \
+  /usr/local/include/cpr/verbose.h \
+  /usr/local/include/curl/curl.h \
+  /usr/local/include/curl/curlver.h \
+  /usr/local/include/curl/easy.h \
+  /usr/local/include/curl/header.h \
+  /usr/local/include/curl/multi.h \
+  /usr/local/include/curl/options.h \
+  /usr/local/include/curl/system.h \
+  /usr/local/include/curl/urlapi.h \
+  /usr/local/include/curl/websockets.h
 
+
+/usr/local/include/curl/urlapi.h:
+
+/usr/local/include/curl/system.h:
+
+/usr/local/include/curl/options.h:
+
+/usr/local/include/curl/multi.h:
+
+/usr/local/include/curl/easy.h:
+
+/usr/local/include/curl/curlver.h:
+
+/usr/local/include/cpr/verbose.h:
+
+/usr/local/include/cpr/util.h:
+
+/usr/local/include/cpr/ssl_ctx.h:
+
+/usr/local/include/cpr/singleton.h:
+
+/usr/local/include/curl/websockets.h:
+
+/usr/local/include/cpr/session.h:
+
+/usr/local/include/cpr/proxyauth.h:
+
+/usr/local/include/cpr/proxies.h:
+
+/usr/local/include/cpr/low_speed.h:
+
+/usr/local/include/cpr/local_port_range.h:
+
+/usr/local/include/cpr/threadpool.h:
+
+/usr/local/include/cpr/local_port.h:
+
+/usr/local/include/cpr/http_version.h:
+
+/usr/local/include/cpr/error.h:
+
+/usr/local/include/cpr/curlholder.h:
+
+/usr/local/include/cpr/cprver.h:
+
+/usr/local/include/cpr/cprtypes.h:
+
+/usr/local/include/cpr/cookies.h:
+
+/usr/local/include/cpr/cert_info.h:
+
+/usr/local/include/cpr/callback.h:
+
+/usr/local/include/cpr/auth.h:
+
+/usr/local/include/cpr/async.h:
+
+/usr/local/include/cpr/api.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h:
 
@@ -430,12 +559,6 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
-/usr/include/x86_64-linux-gnu/curl/multi.h:
-
-/usr/include/x86_64-linux-gnu/curl/easy.h:
-
-/usr/include/x86_64-linux-gnu/curl/curlver.h:
-
 /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h:
@@ -446,9 +569,15 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/cpu_defines.h:
 
+/usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h:
+
 /usr/include/x86_64-linux-gnu/c++/9/bits/atomic_word.h:
 
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+/usr/local/include/cpr/response.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
@@ -465,6 +594,8 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+/usr/local/include/cpr/interface.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
@@ -494,17 +625,21 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
+/usr/local/include/cpr/bearer.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+
+/usr/local/include/cpr/payload.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
+/usr/local/include/cpr/cpr.h:
+
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
-
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
 /usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
 
@@ -560,6 +695,8 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
+/usr/local/include/cpr/file.h:
+
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
@@ -578,33 +715,53 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
-/usr/include/x86_64-linux-gnu/bits/math-vector.h:
-
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
-/usr/include/c++/9/bits/streambuf.tcc:
+/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
 
-/usr/include/c++/9/bits/stl_uninitialized.h:
+/usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h:
 
-/usr/include/c++/9/bits/stream_iterator.h:
+/usr/include/x86_64-linux-gnu/bits/mman.h:
+
+/usr/include/x86_64-linux-gnu/bits/ioctl-types.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
+
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
+/usr/include/x86_64-linux-gnu/bits/floatn.h:
+
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/dirent_ext.h:
+
+/usr/include/x86_64-linux-gnu/bits/dirent.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
 
 /usr/include/c++/9/bits/stl_numeric.h:
 
 /usr/include/c++/9/bits/mask_array.h:
 
-/usr/include/x86_64-linux-gnu/bits/stat.h:
-
-/usr/include/c++/9/bits/ostream.tcc:
-
-/usr/include/c++/9/bits/stl_multimap.h:
-
-/usr/include/dirent.h:
+/usr/include/c++/9/bits/stl_uninitialized.h:
 
 /usr/include/c++/9/bits/stl_iterator.h:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
+
+/usr/include/c++/9/bits/stl_map.h:
+
+/usr/include/c++/9/bits/functexcept.h:
 
 /usr/include/c++/9/type_traits:
 
@@ -616,13 +773,11 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/ext/atomicity.h:
 
-/usr/include/c++/9/backward/binders.h:
-
-/usr/include/c++/9/bits/shared_ptr.h:
-
 /usr/include/c++/9/bits/move.h:
 
 /home/ash/wasm/wasm-micro-runtime/core/shared/utils/runtime_timer.h:
+
+/usr/include/c++/9/atomic:
 
 /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_hashmap.h:
 
@@ -631,6 +786,8 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/c++/9/bits/locale_facets.tcc:
 
 /usr/include/c++/9/bits/cpp_type_traits.h:
+
+/usr/local/include/cpr/body.h:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_inline.h:
 
@@ -644,7 +801,11 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/bits/locale_classes.tcc:
 
-/usr/include/x86_64-linux-gnu/bits/dirent.h:
+/usr/local/include/cpr/connect_timeout.h:
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
+/usr/include/c++/9/bits/ios_base.h:
 
 /usr/include/c++/9/bits/valarray_before.h:
 
@@ -654,21 +815,53 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_common.h:
 
+/usr/include/c++/9/future:
+
 /usr/include/c++/9/bits/hashtable_policy.h:
 
-/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
+/usr/include/x86_64-linux-gnu/bits/stat.h:
+
+/usr/include/c++/9/bits/ostream.tcc:
+
+/usr/include/c++/9/bits/stl_multimap.h:
+
+/usr/include/dirent.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
 /usr/include/c++/9/istream:
 
-/usr/include/linux/posix_types.h:
+/usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:
 
-/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+/usr/include/x86_64-linux-gnu/bits/ioctls.h:
+
+/usr/include/c++/9/bits/exception_ptr.h:
+
+/usr/include/linux/posix_types.h:
 
 /usr/include/c++/9/bits/erase_if.h:
 
 /usr/include/c++/9/bits/vector.tcc:
 
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/c++/9/cassert:
+
 /usr/include/c++/9/cmath:
+
+/usr/include/c++/9/bits/deque.tcc:
+
+/usr/include/c++/9/map:
+
+/usr/local/include/curl/curl.h:
+
+/usr/include/c++/9/cstdio:
+
+/usr/local/include/cpr/unix_socket.h:
+
+/usr/include/c++/9/iterator:
+
+/usr/local/include/cpr/redirect.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
@@ -708,7 +901,11 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/x86_64-linux-gnu/asm/types.h:
 
+/usr/local/include/cpr/interceptor.h:
+
 /usr/include/asm-generic/sockios.h:
+
+/usr/include/c++/9/bits/atomic_futex.h:
 
 /usr/include/x86_64-linux-gnu/sys/time.h:
 
@@ -719,8 +916,6 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/c++/9/bits/atomic_base.h:
 
 /usr/include/c++/9/bits/exception_defines.h:
-
-/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
@@ -740,15 +935,25 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/bits/slice_array.h:
 
+/usr/local/include/cpr/limit_rate.h:
+
 /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/worker.hpp:
-
-/usr/include/c++/9/bits/uniform_int_dist.h:
-
-/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_atomic.h:
 
 /usr/include/asm-generic/ioctl.h:
 
 /usr/include/c++/9/bits/localefwd.h:
+
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
+/usr/include/c++/9/bits/stl_queue.h:
+
+/usr/include/x86_64-linux-gnu/bits/environments.h:
+
+/usr/include/c++/9/numeric:
+
+/usr/include/c++/9/bits/shared_ptr_base.h:
+
+/usr/local/include/cpr/curl_container.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
@@ -768,11 +973,7 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /home/ash/wasm/wasm-serverless/cppWasmWorker/worker/main.cpp:
 
-/usr/include/c++/9/bits/stringfwd.h:
-
-/usr/include/wchar.h:
-
-/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_suspend_flags.h:
+/usr/include/errno.h:
 
 /home/ash/wasm/wasm-micro-runtime/core/iwasm/include/wasm_export.h:
 
@@ -782,23 +983,25 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/bits/shared_ptr_atomic.h:
 
+/usr/include/c++/9/ratio:
+
 /home/ash/wasm/wasm-micro-runtime/core/shared/platform/include/platform_wasi_types.h:
 
 /home/ash/wasm/wasm-micro-runtime/core/shared/platform/include/platform_api_vmcore.h:
 
-/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
-
-/usr/include/c++/9/cstdlib:
-
-/usr/include/c++/9/bits/stl_tempbuf.h:
-
-/usr/include/c++/9/bits/locale_conv.h:
-
-/home/ash/wasm/wasm-micro-runtime/core/iwasm/include/lib_export.h:
-
 /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_assert.h:
 
+/usr/include/c++/9/bits/std_mutex.h:
+
 /usr/include/c++/9/ext/new_allocator.h:
+
+/usr/include/c++/9/limits:
+
+/usr/include/c++/9/bits/cxxabi_forced.h:
+
+/usr/include/limits.h:
+
+/usr/local/include/cpr/range.h:
 
 /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_list.h:
 
@@ -809,10 +1012,6 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/c++/9/bits/gslice.h:
 
 /usr/include/c++/9/ctime:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h:
-
-/usr/include/c++/9/bits/quoted_string.h:
 
 /usr/include/asm-generic/errno-base.h:
 
@@ -826,6 +1025,12 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/asm-generic/types.h:
 
+/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+
+/usr/include/c++/9/bits/memoryfwd.h:
+
+/usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
+
 /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_vector.h:
 
 /usr/include/c++/9/bits/stl_algo.h:
@@ -838,17 +1043,11 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/stdc-predef.h:
 
-/usr/include/c++/9/algorithm:
-
 /usr/include/c++/9/bits/locale_classes.h:
 
 /usr/include/c++/9/stdlib.h:
 
 /usr/include/c++/9/array:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_statx.h:
-
-/usr/include/c++/9/bits/stl_relops.h:
 
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
@@ -857,6 +1056,16 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/c++/9/bits/hashtable.h:
 
 /usr/include/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/c++/9/queue:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl.h:
+
+/usr/include/c++/9/bits/list.tcc:
+
+/usr/include/c++/9/bits/algorithmfwd.h:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h:
 
@@ -870,11 +1079,17 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/bits/alloc_traits.h:
 
-/usr/include/c++/9/numeric:
+/home/ash/wasm/wasm-micro-runtime/core/iwasm/include/lib_export.h:
 
-/usr/include/c++/9/bits/shared_ptr_base.h:
+/usr/include/c++/9/fstream:
 
-/usr/include/x86_64-linux-gnu/bits/environments.h:
+/usr/include/c++/9/bits/locale_conv.h:
+
+/usr/include/c++/9/bits/shared_ptr.h:
+
+/usr/include/c++/9/backward/binders.h:
+
+/usr/include/c++/9/bits/streambuf.tcc:
 
 /usr/include/c++/9/bits/hash_bytes.h:
 
@@ -884,6 +1099,8 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/bits/postypes.h:
 
+/usr/local/include/cpr/timeout.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
 /usr/include/c++/9/bits/basic_string.h:
@@ -891,8 +1108,6 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/c++/9/cstddef:
 
 /usr/include/c++/9/bits/basic_string.tcc:
-
-/usr/include/x86_64-linux-gnu/curl/urlapi.h:
 
 /usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
 
@@ -910,13 +1125,29 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_queue.h:
 
+/home/ash/wasm/wasm-micro-runtime/core/shared/utils/bh_atomic.h:
+
+/usr/include/c++/9/bits/uniform_int_dist.h:
+
 /usr/include/c++/9/bits/concept_check.h:
 
-/usr/include/errno.h:
+/usr/include/x86_64-linux-gnu/bits/types/struct_statx.h:
 
-/usr/include/c++/9/cstdio:
+/usr/include/c++/9/bits/stl_relops.h:
 
-/usr/include/c++/9/iterator:
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
+
+/usr/include/c++/9/cstdlib:
+
+/usr/include/c++/9/bits/stl_tempbuf.h:
+
+/usr/include/c++/9/list:
+
+/usr/include/c++/9/bits/stream_iterator.h:
+
+/usr/include/netinet/in.h:
+
+/usr/include/c++/9/bits/stl_list.h:
 
 /usr/include/c++/9/bits/unique_ptr.h:
 
@@ -934,10 +1165,6 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/wctype.h:
 
-/usr/include/c++/9/cassert:
-
-/usr/include/x86_64-linux-gnu/bits/errno.h:
-
 /usr/include/c++/9/bits/valarray_after.h:
 
 /usr/include/x86_64-linux-gnu/bits/statx-generic.h:
@@ -950,17 +1177,27 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/cwctype:
 
-/usr/include/c++/9/bits/stl_vector.h:
+/usr/include/c++/9/algorithm:
+
+/usr/include/c++/9/chrono:
+
+/usr/include/c++/9/bits/stringfwd.h:
+
+/usr/include/c++/9/mutex:
+
+/usr/include/c++/9/condition_variable:
+
+/usr/include/c++/9/bits/invoke.h:
+
+/usr/include/c++/9/functional:
 
 /usr/include/c++/9/bits/stl_tree.h:
+
+/usr/include/c++/9/bits/stl_vector.h:
 
 /usr/include/c++/9/cstdint:
 
 /usr/include/c++/9/cstring:
-
-/usr/include/c++/9/bits/algorithmfwd.h:
-
-/usr/include/x86_64-linux-gnu/bits/fcntl.h:
 
 /usr/include/c++/9/debug/assertions.h:
 
@@ -968,11 +1205,15 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/string:
 
-/usr/include/x86_64-linux-gnu/curl/curl.h:
-
 /usr/include/c++/9/debug/debug.h:
 
-/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+/usr/include/wchar.h:
+
+/home/ash/wasm/wasm-micro-runtime/core/iwasm/common/wasm_suspend_flags.h:
+
+/usr/include/c++/9/bits/unique_lock.h:
+
+/usr/include/c++/9/deque:
 
 /usr/include/c++/9/exception:
 
@@ -988,11 +1229,11 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/forward_list:
 
-/usr/include/c++/9/bits/invoke.h:
-
-/usr/include/c++/9/functional:
+/usr/local/include/cpr/user_agent.h:
 
 /usr/include/c++/9/initializer_list:
+
+/usr/local/include/cpr/status_codes.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
@@ -1000,11 +1241,13 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/iomanip:
 
-/usr/include/x86_64-linux-gnu/curl/system.h:
+/usr/local/include/cpr/buffer.h:
 
 /usr/include/c++/9/iosfwd:
 
 /usr/include/c++/9/bits/forward_list.tcc:
+
+/usr/include/c++/9/bits/parse_numbers.h:
 
 /usr/include/c++/9/iostream:
 
@@ -1014,17 +1257,9 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/unistd.h:
 
-/usr/include/limits.h:
-
-/usr/include/c++/9/bits/cxxabi_forced.h:
-
-/usr/include/c++/9/limits:
-
 /usr/include/c++/9/locale:
 
 /usr/include/c++/9/vector:
-
-/usr/include/c++/9/map:
 
 /usr/include/c++/9/cerrno:
 
@@ -1048,6 +1283,12 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/c++/9/system_error:
 
+/usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h:
+
+/usr/include/c++/9/bits/quoted_string.h:
+
+/usr/include/c++/9/thread:
+
 /usr/include/c++/9/bits/stl_function.h:
 
 /usr/include/c++/9/tuple:
@@ -1065,12 +1306,6 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/c++/9/clocale:
 
 /usr/include/c++/9/unordered_map:
-
-/usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:
-
-/usr/include/c++/9/bits/exception_ptr.h:
-
-/usr/include/x86_64-linux-gnu/bits/ioctls.h:
 
 /usr/include/c++/9/bits/streambuf_iterator.h:
 
@@ -1092,8 +1327,6 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/libintl.h:
 
-/usr/include/x86_64-linux-gnu/bits/endianness.h:
-
 /usr/include/linux/errno.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
@@ -1101,6 +1334,8 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/x86_64-linux-gnu/bits/in.h:
 
 /usr/include/linux/falloc.h:
+
+/usr/include/c++/9/bits/fstream.tcc:
 
 /home/ash/wasm/wasm-micro-runtime/core/shared/platform/include/platform_common.h:
 
@@ -1112,15 +1347,17 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/linux/limits.h:
 
+/usr/local/include/cpr/ssl_options.h:
+
 /usr/include/endian.h:
 
 /usr/include/stdint.h:
 
 /usr/include/linux/stddef.h:
 
-/usr/include/netinet/in.h:
-
 /usr/include/pthread.h:
+
+/usr/local/include/cpr/multipart.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h:
 
@@ -1128,11 +1365,17 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/stdio.h:
 
+/usr/local/include/cpr/parameters.h:
+
 /usr/include/c++/9/bits/stl_bvector.h:
+
+/usr/include/c++/9/bits/stl_deque.h:
 
 /home/ash/wasm/wasm-micro-runtime/core/shared/platform/linux/platform_internal.h:
 
 /usr/include/stdlib.h:
+
+/usr/local/include/cpr/reserve_size.h:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
@@ -1140,9 +1383,13 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/string.h:
 
+/usr/local/include/curl/header.h:
+
 /usr/include/signal.h:
 
 /usr/include/strings.h:
+
+/usr/local/include/cpr/accept_encoding.h:
 
 /usr/include/c++/9/bits/istream.tcc:
 
@@ -1150,9 +1397,9 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
 
-/usr/include/c++/9/bits/stl_construct.h:
-
 /usr/include/c++/9/bits/cxxabi_init_exception.h:
+
+/usr/include/c++/9/bits/stl_construct.h:
 
 /usr/include/x86_64-linux-gnu/asm/ioctl.h:
 
@@ -1165,37 +1412,3 @@ CMakeFiles/worker.dir/main.cpp.o: /home/ash/wasm/wasm-serverless/cppWasmWorker/w
 /usr/include/math.h:
 
 /usr/include/x86_64-linux-gnu/asm/sockios.h:
-
-/usr/include/x86_64-linux-gnu/bits/byteswap.h:
-
-/usr/include/x86_64-linux-gnu/bits/confname.h:
-
-/usr/include/c++/9/bits/memoryfwd.h:
-
-/usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
-
-/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
-
-/usr/include/x86_64-linux-gnu/bits/local_lim.h:
-
-/usr/include/x86_64-linux-gnu/bits/dirent_ext.h:
-
-/usr/include/c++/9/bits/stl_map.h:
-
-/usr/include/c++/9/bits/functexcept.h:
-
-/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
-
-/usr/include/c++/9/bits/ios_base.h:
-
-/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
-
-/usr/include/x86_64-linux-gnu/bits/floatn.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h:
-
-/usr/include/x86_64-linux-gnu/bits/mman.h:
-
-/usr/include/x86_64-linux-gnu/bits/ioctl-types.h:
-
-/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
