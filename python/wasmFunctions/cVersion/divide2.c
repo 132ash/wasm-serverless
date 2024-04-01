@@ -1,4 +1,4 @@
-#include "wasmUtils.h"
+#include "./utils/wasmUtils.h"
 
 int divide2(int resultSize, float arg1) {
     float res = arg1 / 2;

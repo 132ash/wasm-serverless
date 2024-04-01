@@ -184,6 +184,8 @@ def getGroupingResult(workflow: component.Workflow, nodeInfo:dict):
                          'parent_cnt': workflow.parent_cnt[node.name], 'conditions': node.conditions}
         function_info['next'] = node.next
         function_info['output'] = node.output
+        function_info['traverse'] = node.traverse
+        function_info['split'] = node.split
         function_info_dict[node_name] = function_info
     return nodeInfo, function_info_dict
 

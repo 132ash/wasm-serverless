@@ -6,6 +6,7 @@ sys.path.append('./function')
 sys.path.append('./test')
 sys.path.append('./config')
 import json
+import signal
 from typing import Dict
 from functionManager import FunctionManager
 from workersp import WorkerSPManager
@@ -41,9 +42,8 @@ class Dispatcher:
     def delStateAndParam(self, workflowName, requestId, master):
         self.managers[workflowName].delStateAndParam(requestId, master)
 
-functionManager = FunctionManager(watch_container_num=True)
+functionManager = FunctionManager(watch_container_num=False)
 dispatcher = Dispatcher()
-
 
 @app.route('/workflow/request', methods = ['POST'])
 def workflowReq():

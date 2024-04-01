@@ -1,17 +1,18 @@
 import logging
 import time
 import yaml
-import json
+import signal
 import couchdb
 import sys
 sys.path.append('./config')
 sys.path.append('./storage')
+sys.path.append('./workflow')
 import config
 from gevent import event
 from gevent.lock import BoundedSemaphore
-from functionWorker import FunctionWorker
+from Worker import FunctionWorker
+from functionInfo import FunctionInfo
 
-SINGLEFUNCYAMLPATH = config.SINGLEFUNCYAMLPATH
 COUCH_URL = config.COUCH_DB_URL
 DATA_TRANSFER_DB = config.DATA_TRANSFER_DB
 
@@ -32,35 +33,9 @@ class stringRepo:
         doc = self.couch[DATA_TRANSFER_DB][size]
         if 'content' in doc:
             return doc['content']
-
-class FunctionInfo:
-    def __init__(self, funcName):
-        funcYamlData = yaml.load(open(SINGLEFUNCYAMLPATH+'/'+funcName+'.yaml'), Loader=yaml.FullLoader)
-        self.name = funcYamlData['name']
-        self.wasmCodePath = funcYamlData['wasmCodePath']
-        self.maxWorkers = funcYamlData['maxWorkers']
-        self.expireTime = funcYamlData['expireTime']
-        self.input = {}
-        self.output = {}
-        self.outputSize = 0
-        self.maxOutputStrSize = funcYamlData.get("maxStringSize", 0)
-        outputStrNum = 0
-        for param in funcYamlData['input']:
-            self.input[param['name']] = param['type']
-        for param in funcYamlData['output']:
-            if param['type'] == 'string':
-                outputStrNum += 1
-            elif param['type'] == 'double':
-                self.outputSize += 8
-            else:
-                self.outputSize += 4
-            self.output[param['name']] = param['type']
-        self.outputSize += self.maxOutputStrSize * outputStrNum
-
-
-
+        
 class Function:
-    def __init__(self, functionInfo:FunctionInfo, port_controller, heapSize=1024 * 1024 * 10):
+    def __init__(self, functionInfo:FunctionInfo, client, port_controller, heapSize=1024 * 1024 * 10):
         self.requestQueue = []
         self.numOfContainer = []
         self.info = functionInfo
@@ -70,19 +45,10 @@ class Function:
         self.heapSize = heapSize
         self.numOfWorkingWorkers = 0
         self.port_controller = port_controller
-
-    def constructInput(self, data):
-        param = {}
-        prefix = 1
-        for name, _ in self.info.input.items():
-            # if name.endswith('_DB'):
-            #     repo = stringRepo()
-            #     value = repo.fetchString(data[name])
-            #     print(len(value))
-            # else:
-            param[str(prefix)+name] = data[name]
-            prefix += 1
-        return json.dumps(param) + '\n'
+        self.wasmParam = self.info.wasmParam
+        self.dockerParam = self.info.dockerParam
+        self.wasmParam['heapSize'] = heapSize
+        self.dockerParam['client'] = client
 
     def sendRequest(self, data):
         req = RequestInfo(data)
@@ -116,8 +82,7 @@ class Function:
         
         # reqtime after container is ready.
         timeStamps.append(time.time())
-        param = self.constructInput(req.data)
-        res = worker.run(param)
+        res = worker.run(req.data)
         # print("[function] set result in Request.res:{}".format(res))
         req.result.set({'res':res, 'timeStamps':timeStamps})
         # 3. put the worker back into pool
@@ -168,7 +133,7 @@ class Function:
 
         # logging.info('create worker of function: %s', self.info.name)
         try:
-            worker = FunctionWorker(self.info.name, self.info.wasmCodePath, self.info.outputSize, self.port_controller.get(), self.heapSize)
+            worker = FunctionWorker(self.info, self.port_controller.get(self.info.containerType), self.info.containerType, self.wasmParam, self.dockerParam)
             # worker = tmpWorker(self.info.funcName, self.info.wasmCodePath)
         except Exception as e:
             print(e)
@@ -179,7 +144,7 @@ class Function:
 
     def removeWorker(self, worker:FunctionWorker):
         worker.destroy()
-        self.port_controller.put(worker.port)
+        self.port_controller.put(worker.port, self.info.containerType)
 
 def cleanPool(workerPool, expireTime, expiredWorkers):
     curTime = time.time()

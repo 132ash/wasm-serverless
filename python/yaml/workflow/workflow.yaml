@@ -28,7 +28,7 @@ functions:
     funcs:
       - sum
 - name: switch1
-  source: VIRTUAL
+  source: SWITCH
   scale: 3
   runtime: 0.01
   output:
@@ -52,7 +52,7 @@ functions:
     funcs:
       - sink
 - name: sink
-  source: VIRTUAL
+  source: SWITCH
   scale: 3
   runtime: 0.01
   output:

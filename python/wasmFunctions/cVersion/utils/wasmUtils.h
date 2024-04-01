@@ -3,9 +3,11 @@
 #include <stdarg.h>
 #include <malloc.h> 
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <unistd.h>
 #include <sys/time.h>
+#include "cJSON.h"
 
 void _Z10set_outputPhi(uint8_t* inBuffer, int32_t inLength);
 

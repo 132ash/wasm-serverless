@@ -21,7 +21,6 @@ class Parser:
         total = 0
         functions = self.yamlData['functions']
         haveEndFunction = False
-        sinkFuncs = []
         parent_cnt[functions[0]['name']] = 0
         for function in functions:
             name = function['name']
@@ -31,7 +30,15 @@ class Parser:
             nextDis = list()
             send_time = 0
             conditions = list()
+            traverse = list()
             output = list()
+            split = 0
+            sinkFuncs = {}
+            if source == 'FOREACH':
+                split = function['split'] 
+                traverse = function['traverse'] 
+                if len(function['next']['funcs'] != 1):
+                    raise Exception("Mutiple foreach unit.")
             if source == 'END':
                 if haveEndFunction:
                     raise Exception("Mutiple end function.")
@@ -52,7 +59,7 @@ class Parser:
                     else:
                         parent_cnt[next_func] = parent_cnt[next_func] + 1
             current_function = component.Function(name, [], next, nextDis, source, 
-                                                  runtime,conditions, output)
+                                                  runtime,conditions, output, traverse, split)
             if 'scale' in function:
                 current_function.set_scale(function['scale'])
             total = total + 1

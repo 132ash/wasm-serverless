@@ -19,10 +19,10 @@ class Container:
         res.wait_start()
         return res
 
-    def __init__(self, container, port, attr):
+    def __init__(self, container, port):
         self.container = container
         self.port = port
-        self.attr = attr
+        self.attr = 'exec'
         self.lasttime = time.time()
 
     # wait for the container cold start

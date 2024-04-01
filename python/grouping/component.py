@@ -1,7 +1,7 @@
 from typing import Dict
 
 class Function:
-    def __init__(self, name, prev, next, nextDis, source, runtime, conditions, output=[]):
+    def __init__(self, name, prev, next, nextDis, source, runtime, conditions, output=[], traverse=[], split=0):
         self.name = name
         self.prev = prev
         self.next = next
@@ -11,6 +11,8 @@ class Function:
         self.conditions = conditions
         self.scale = 0
         self.output = output
+        self.traverse = traverse
+        self.split = split
     
     def set_scale(self, scale):
         self.scale = scale

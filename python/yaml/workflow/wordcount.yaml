@@ -1,0 +1,47 @@
+functions:
+- name: cut
+  source: cut
+  scale: 3
+  runtime: 0.02
+  container: docker
+  next:
+    type: PASS
+    size: 8999999
+    funcs:
+      - count
+- name: count
+  source: FOREACH
+  container: wasm
+  traverse:
+    - text
+  scale: 3
+  split: 5
+  runtime: 0.01
+  next:
+    type: PASS
+    size: 4999999
+    funcs:
+      - merge
+- name: merge
+  source: merge
+  container: docker
+  scale: 3
+  runtime: 0.01
+  next:
+    type: PASS
+    size: 4999999
+    funcs:
+      - end
+- name: end
+  source: END
+  scale: 3
+  runtime: 0.01
+  output:
+    - input: DEFAULT
+
+
+# 
+#       |--->count--|
+# cut-->|   foreach -->merge-->end
+#       |--->count--|
+#

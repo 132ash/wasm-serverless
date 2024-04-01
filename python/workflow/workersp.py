@@ -38,9 +38,18 @@ class FunctionParameters:
         for f in functions:
             self.funcParameters[f] = {}
 
-    def setParam(self, funcName, param):
+    def setParam(self, funcName, param, traverse:list):
         self.lock.acquire()
-        self.funcParameters[funcName].update(param)
+        if len(traverse) != 0:
+            for name, value in param:
+                if name in traverse:
+                    paramList = self.funcParameters[funcName].get(name, [])
+                    paramList.append(value)
+                    self.funcParameters[funcName][name] = paramList
+                else:
+                    self.funcParameters[funcName][name] = value
+        else:
+            self.funcParameters[funcName].update(param)
         self.lock.release()
 
     def getParam(self, funcName):
@@ -63,11 +72,15 @@ class WorkerSPManager:
         self.funcNames = repo.getWorkflowFunctions(workflowName)[0]
 
     def setFunctionParam(self, request_id: str, funcName:str, param:dict):
+        info = self.getFunctionInfo(funcName)
+        traverse = []
+        if info["source"] == "FOREACHSINK":
+            traverse = info["traverse"]
         self.paramLock.acquire()
         if request_id not in self.funcParameters:
             self.funcParameters[request_id] =FunctionParameters(request_id, self.funcNames)
         self.paramLock.release()
-        self.funcParameters[request_id].setParam(funcName, param)
+        self.funcParameters[request_id].setParam(funcName, param, traverse)
 
     def getFunctionParam(self, request_id: str, funcName:str):
         return self.funcParameters[request_id].getParam(funcName)
@@ -155,21 +168,28 @@ class WorkerSPManager:
     def runFunction(self, state:WorkflowState, funcName, parameters:dict):
         info = self.getFunctionInfo(funcName)
         source = info['source']
-        if source == 'VIRTUAL':
+        if source == 'SWITCH':
             self.runSwitchFunction(info, state, parameters)
             return
         if source == 'END':
             self.runEndFunction(info, state, parameters) 
             return 
-        res = self.runNormalFunction(funcName, parameters)
+        if source == 'FOREACH':
+            res = self.runForeachFunction(info, funcName, parameters) 
+        else:
+            res = self.runNormalFunction(funcName, parameters)
         jobs = [
             gevent.spawn(self.triggerFunction, state, func, res)
             for func in info['next']
         ]
         gevent.joinall(jobs)
     
-    def runNormalFunction(self, funcName, parameters):
-        return self.functionManager.runFunction(funcName, parameters)[0]
+    def runNormalFunction(self, funcName, parameters, collectedRes = [], foreach=False):
+        if foreach:
+            collectedRes.append(self.functionManager.runFunction(funcName, parameters)[0])
+            return
+        else:
+            return self.functionManager.runFunction(funcName, parameters)[0]
        
     def runSwitchFunction(self, info, state:WorkflowState, parameters):
         output = info['output']
@@ -182,6 +202,32 @@ class WorkerSPManager:
             if condExec(cond, ctx):
                 self.triggerFunction(state, next_func, selectedParam)
                 break
+
+    def runForeachFunction(self, info, funcName, parameters):
+        traverse = info['traverse']
+        split = info['split']
+        selectedParam = []
+        splitedRes = []
+        
+        for i in range(split):
+            sub_param = {}
+            for param in parameters:
+                if param in traverse:
+                    sub_param[param] = parameters[param][i]
+                else:
+                    sub_param[param] = parameters[param]
+            selectedParam.append(sub_param)
+        jobs = [
+            gevent.spawn(self.runNormalFunction, funcName, param, splitedRes, True)
+            for param in selectedParam
+        ]
+        gevent.joinall(jobs)
+        collectedRes = {key:[] for key in splitedRes[0].keys()}
+        for key in collectedRes:
+            for foreachRes in splitedRes:
+                collectedRes[key].append(foreachRes[key])
+        return collectedRes
+        
     
     # choose multiple(or single) params in parameters and construct output dict.
     def runEndFunction(self, info, state:WorkflowState, parameters:dict):

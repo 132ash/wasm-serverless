@@ -8,7 +8,7 @@ for func_name in "$@"; do
     /opt/wasi-sdk/bin/clang     \
         -Wl,--export=${func_name}\
         -Wl,--allow-undefined \
-        -o ${func_name}.wasm ${func_name}.c wasmUtils.c
+        -o ${func_name}.wasm ${func_name}.c 
     mv ${func_name}.wasm ../${func_name}.wasm
     echo "Compiled ${func_name}.wasm."
 done
