@@ -2,6 +2,8 @@ import os
 import signal
 import sys
 import time
+import psutil
+import chardet
 import json
 import gevent
 import struct
@@ -20,9 +22,9 @@ base_url = 'http://127.0.0.1:{}/{}'
 connection_pool_size = 500
 proxyPath = config.WASMPROXYPATH
 
-def preexec_function():
-    # 将子进程的进程组 ID 设置为其自身的 PID
-    os.setpgrp()
+# def preexec_function():
+#     # 将子进程的进程组 ID 设置为其自身的 PID
+#     os.setpgrp()
 
 
 
@@ -31,11 +33,12 @@ class FunctionWorker:
         self.type = type
         self.info = info
         self.funcName = info.name
+        self.port = port
         if self.type == 'wasm':
             self.worker = wasmWorker(info.name, info, port, wasmParam['wasmCodePath'],  wasmParam['outputSize'],  wasmParam['heapSize'])
         elif self.type == 'docker':
             self.worker = dockerWorker(info.name, dockerParam['client'], dockerParam['imageName'], port)
-        self.lastTriggeredTime = -1
+        self.lastTriggeredTime = time.time()
         
     def startWorker(self):
         self.lastTriggeredTime = time.time()
@@ -54,7 +57,7 @@ class FunctionWorker:
 
 
 class wasmWorker:
-    def __init__(self, funcName, info:FunctionInfo, port, wasmCodePath='', outputSize=0, heapSize=1024*10):
+    def __init__(self, funcName, info:FunctionInfo, port, wasmCodePath='', outputSize=0, heapSize=1024*1024*10):
         self.workerProcess = None
         self.info = info
         self.funcName = funcName
@@ -62,17 +65,16 @@ class wasmWorker:
         self.outputSize = outputSize
         self.heapSize = heapSize
         self.lastTriggeredTime = 0
-        self.message = "ready\n"
         self.port = port
 
     def startWorker(self):
         self.workerProcess = subprocess.Popen(["python", proxyPath, str(self.port)],stdout=subprocess.DEVNULL,
-                           stderr=subprocess.DEVNULL, preexec_fn=preexec_function)
+                           stderr=subprocess.DEVNULL, start_new_session=True)
         self.waitStart()
-        # print(f"{self.funcName}'s worker start. pid:{self.workerProcess}")
         initParam = {"wasmCodePath":self.wasmCodePath,'funcName':self.funcName,'outputSize':self.outputSize, "heapSize":self.heapSize}
         r = requests.post(base_url.format(self.port, 'init'), json=initParam)
-        # print(r.json())
+        # print(f"{self.funcName}'s worker {self.workerProcess.pid} start on port {self.port}.")
+        # # print(r.json())
         # return 
 
     def waitStart(self):
@@ -86,17 +88,22 @@ class wasmWorker:
             gevent.sleep(0.005)
         
     def run(self,param):
-        r = requests.post(base_url.format(self.port, 'run'), json={"parameters":self.constructInput(param)})
-        # print(f"{self.funcName}'s worker run. pid:{self.workerProcess}")
-        print(base64.b64decode(r.json()["out"]))
-        return self.constructOutput(base64.b64decode(r.json()["out"]))
+        data = self.constructInput(param)
+        print(f"send data to wasm proxy. length:{len(data)}")
+        r = requests.post(base_url.format(self.port, 'run'), json={"parameters":data})
+        res = self.constructOutput(base64.b64decode(r.json()["out"]))
+        # print(f"{self.funcName}'s worker {self.workerProcess.pid} exists: {psutil.pid_exists(self.workerProcess.pid)}.")
+        return res
         
         # print("run function {}. param:{}".format(self.funcName, param))
     
     def destroy(self):
-        print(f"{self.funcName}'s worker delete. pid:{self.workerProcess}")
+        # print(f"delete {self.funcName}'s worker. pid:{self.workerProcess.pid}")
         pid = self.workerProcess.pid
-        os.killpg(pid, signal.SIGKILL)
+        if psutil.pid_exists(pid):
+            os.killpg(pid, signal.SIGKILL)
+        else:
+            print(f"{self.funcName}'s worker {self.workerProcess.pid} doesn't exist.")
 
 
     def constructInput(self, data):
@@ -115,7 +122,13 @@ class wasmWorker:
                 start = bitsIdx 
                 while uintBits[bitsIdx] != 0:
                     bitsIdx += 1
-                res[name] = uintBits[start:bitsIdx].decode('ascii')
+                # encoding = chardet.detect(uintBits[start:bitsIdx])['encoding']
+                # print(f"encoding: {encoding}")
+                res[name] = uintBits[start:bitsIdx].decode("ISO-8859-1")
+                # except:
+                #     print(uintBits[18780:18798])
+                #     print(uintBits[18799:18810])
+                #     input("wrong decode.")
                 bitsIdx += 1
             elif type == 'double':
                 chunk = uintBits[bitsIdx:bitsIdx+8]
@@ -128,6 +141,7 @@ class wasmWorker:
                 elif type == 'float':
                     res[name] = struct.unpack('<f', chunk)[0]
                 bitsIdx += 4 
+        # bitsIdx = self.outputSize
         # for _ in range(2):
         #     chunk = uintBits[bitsIdx:bitsIdx+8]
         #     timeStamps.append(int.from_bytes(chunk, 'little'))

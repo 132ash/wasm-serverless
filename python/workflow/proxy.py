@@ -47,6 +47,7 @@ dispatcher = Dispatcher()
 
 @app.route('/workflow/request', methods = ['POST'])
 def workflowReq():
+    print("in proxy workflow request.")
     data = request.get_json(force=True, silent=True)
     requestId = data['requestId']
     workflowName = data['workflowName']
@@ -81,15 +82,19 @@ def delete():
 def create():
     data = request.get_json(force=True, silent=True)
     master = data.get('master', False)
+    workerTypes = []
+    workerType = ''
     if 'workflowName' in data:
+        workerTypes = data["workerTypes"]
         dispatcher.createManager(CONTROL_MODE, data['workflowName'], functionManager)
-    if not master:
+    if not master: # not create functon on master in mastersp.
         funcNames = data["funcNames"]
         heapSize = data.get("heapSize", 1024 * 1024 * 10)
-        for funcName in funcNames:
-            functionManager.createFunction(funcName, heapSize)
-            print(f"create func {funcName} with heap size {heapSize}.")
-    return json.dumps({'status': 'ok'})
+        for i, funcName in enumerate(funcNames):
+            if len(workerTypes) != 0:
+                workerType = workerTypes[i]
+            msg = functionManager.createFunction(funcName, workerType, heapSize)
+    return json.dumps({'status': 'ok', 'msg':msg})
 
 @app.route('/clear', methods = ['GET'])
 def clear():
@@ -117,6 +122,15 @@ if __name__ == '__main__':
     logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%H:%M:%S', level='INFO')
     server = WSGIServer((sys.argv[1], int(sys.argv[2])), app)
     # server = WSGIServer(('0.0.0.0', 7000), app)
+
+    
+    def signal_handler(sig, frame):
+        print('收到停止信号，正在关闭所有子进程...')
+        for funcName in functionManager.functions:
+            functionManager.deleteFunction(funcName)
+        sys.exit(0)
+    signal.signal(signal.SIGINT, signal_handler)
+
 
     # run on 7000.
     print(f"proxy started on {sys.argv[1]+ ':'+ sys.argv[2]}.")

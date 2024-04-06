@@ -1,0 +1,1 @@
+docker build --no-cache -t merge /home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/merge

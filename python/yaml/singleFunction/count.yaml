@@ -1,0 +1,13 @@
+name: count
+input: 
+  - name: slice # text_DB #slice
+    type: string
+output:
+  - name: wordNum
+    type: int
+wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/count.wasm
+containerType: wasm
+imageName: count
+maxWorkers: 10
+expireTime: 1000
+maxStringSize: 400000

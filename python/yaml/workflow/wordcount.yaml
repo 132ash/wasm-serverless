@@ -13,9 +13,8 @@ functions:
   source: FOREACH
   container: wasm
   traverse:
-    - text
+    - slice
   scale: 3
-  split: 5
   runtime: 0.01
   next:
     type: PASS
@@ -42,6 +41,6 @@ functions:
 
 # 
 #       |--->count--|
-# cut-->|   foreach -->merge-->end
+# cut-->| foreach   -->merge-->end
 #       |--->count--|
 #

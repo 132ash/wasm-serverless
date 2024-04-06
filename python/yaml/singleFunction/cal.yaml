@@ -12,7 +12,7 @@ output:
   - name: divres
     type: float
 wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/cal.wasm
-containerType: docker
+containerType: wasm
 imageName: cal
 maxWorkers: 10
 expireTime: 1000

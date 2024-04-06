@@ -22,20 +22,22 @@ app = Flask(__name__)
 repo = Repository()
 
 def getWorkflowRealFunctions(workflowName):
-    allFunctions, sources = repo.getWorkflowFunctions(workflowName)
+    allFunctions, sources, containers = repo.getWorkflowFunctions(workflowName)
     trueFunctions = []
+    workerTypes = []
     for func in  allFunctions:
-        if sources[func] != 'VIRTUAL' and sources[func] != 'END':
+        if sources[func] != 'SWITCH' and sources[func] != 'END':
             trueFunctions.append(func)
-    return trueFunctions
+            workerTypes.append(containers[func])
+    return trueFunctions, workerTypes
 
 
 def createOnWorker(workflowName):
-    trueFunctions = getWorkflowRealFunctions(workflowName)
+    trueFunctions, workerTypes = getWorkflowRealFunctions(workflowName)
     workerAddrs = repo.getAllWorkerAddrs(workflowName)
     for workerIP in workerAddrs:
         createUrl = 'http://{}/create'.format(workerIP)
-        data = {"funcNames" : trueFunctions, 'workflowName':workflowName}
+        data = {"funcNames" : trueFunctions, 'workflowName':workflowName, 'workerTypes':workerTypes}
         requests.post(createUrl, json=data)
     if config.CONTROL_MODE == 'MasterSP': #Create workflowManager on master.
         createUrl = 'http://{}/create'.format(config.MASTER_HOST)
@@ -44,7 +46,7 @@ def createOnWorker(workflowName):
     return json.dumps({'status': 'ok'})
 
 def deleteOnWorker(workflowName):
-    trueFunctions = getWorkflowRealFunctions(workflowName)
+    trueFunctions = getWorkflowRealFunctions(workflowName)[0]
     workerAddrs = repo.getAllWorkerAddrs(workflowName)
     for workerIP in workerAddrs:
         deleteUrl = 'http://{}/delete'.format(workerIP)
@@ -81,6 +83,7 @@ def runWorkflow(workflowName, requestId, parameters):
     end = time.time()
     print("[GATEWAY] workflow finished.")
     res = repo.getWorkflowRes(requestId)
+    funcLatency = repo.getLatency(requestId)
 
     # clear memory and other stuff
     if config.CLEAR_DB_AND_MEM:
@@ -92,7 +95,7 @@ def runWorkflow(workflowName, requestId, parameters):
         clear_url = 'http://{}/clear'.format(masterAddr)
         requests.post(clear_url, json={'requestID': requestId, 
                                        'master': True, 'workflowName': workflowName})
-    return {'latency':end - start, 'workflowResult': res}
+    return {'e2elatency':end - start, 'workflowResult': res, 'funcLatency':funcLatency}
 
 @app.route('/workflow/create', methods = ['POST'])
 def workflowCreate():
@@ -109,7 +112,7 @@ def workflowRun():
     workflowName = data["workflowName"]
     parameters = data["parameters"]
     res = runWorkflow(workflowName, id, parameters)
-    print("workflow result:{}".format(res))
+    # print("workflow result:{}".format(res))
     return json.dumps({'status': 'ok', 'result':res})
 
 @app.route('/workflow/delete', methods = ['POST'])

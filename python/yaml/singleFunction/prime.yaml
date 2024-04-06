@@ -1,0 +1,12 @@
+name: prime
+input: 
+  - name: maxNum # text_DB #slice
+    type: int
+output:
+  - name: count
+    type: int
+wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/prime.wasm
+containerType: wasm
+imageName: prime
+maxWorkers: 10
+expireTime: 1000

@@ -35,7 +35,7 @@ class stringRepo:
             return doc['content']
         
 class Function:
-    def __init__(self, functionInfo:FunctionInfo, client, port_controller, heapSize=1024 * 1024 * 10):
+    def __init__(self, functionInfo:FunctionInfo, client, port_controller, workerType='',heapSize=1024 * 1024 * 10):
         self.requestQueue = []
         self.numOfContainer = []
         self.info = functionInfo
@@ -128,10 +128,10 @@ class Function:
         self.workerLock.acquire()
         if self.numOfWorkingWorkers + len(self.workerPool) > self.info.maxWorkers:
             logging.info('hit worker limit, function: %s', self.info.name)
+            self.workerLock.release()
             return None
         self.workerLock.release()
 
-        # logging.info('create worker of function: %s', self.info.name)
         try:
             worker = FunctionWorker(self.info, self.port_controller.get(self.info.containerType), self.info.containerType, self.wasmParam, self.dockerParam)
             # worker = tmpWorker(self.info.funcName, self.info.wasmCodePath)

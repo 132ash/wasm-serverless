@@ -1,30 +1,30 @@
-#include "./utils/wasmUtils.h"
+#include "../utils/wasmUtils.h"
+
 
 int count(int resultSize, uint64_t buffer)
 {
-    struct timeval tv;
-    gettimeofday(&tv, NULL);
-    long long startTime;
-    startTime = 
-        (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec;
 
-    char* text = (char*) buffer;
+    char* str = (char*) buffer;
+    int inWord = 0; // 当前是否在单词中
+    int wordCount = 0; // 单词计数
 
-    cJSON *root = cJSON_CreateObject();
-    char *word = strtok((char*)text, " ");
-    while (word != NULL) {
-        if (cJSON_HasObjectItem(root, word)) {
-            cJSON *item = cJSON_GetObjectItem(root, word);
-            cJSON_SetNumberValue(item, item->valuedouble + 1);
+    // 遍历字符串
+    for (; *str != '\0'; str++) {
+        if (isalpha((unsigned char)*str)) {
+            // 当前字符是字母
+            if (!inWord) {
+                // 这标志着一个新单词的开始
+                inWord = 1;
+                wordCount++; // 增加单词计数
+            }
         } else {
-            cJSON_AddNumberToObject(root, word, 1);
+            // 当前字符不是字母
+            if (inWord) {
+                // 这标志着一个单词的结束
+                inWord = 0;
+            }
         }
-        word = strtok(NULL, " ");
     }
-
-    char *json_str = cJSON_Print(root);
-    cJSON_Delete(root);
-    int flag = setFlagForStringOutput(1,0);
-    setOutput(resultSize, flag,  0, 1, json_str);
+    setOutput(resultSize, 0,  0, 1, &wordCount);
     return 1;
 }

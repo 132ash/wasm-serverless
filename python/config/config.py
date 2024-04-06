@@ -1,4 +1,5 @@
 PIPE_WRITE_FD  = 10713
+STATE_WRITE_FD = 10714
 COUCH_DB_URL = 'http://132ash:ash020620@192.168.35.132:5984'
 WORKERPATH = "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/worker"
 WORKFLOWYAMLPATH = "/home/ash/wasm/wasm-serverless/python/yaml/workflow"
@@ -13,4 +14,4 @@ MASTER_HOST = '192.168.35.132:7000'
 CLEAR_DB_AND_MEM = True
 CONTROL_MODE = 'WorkerSP' #WorkerSP
 DATA_TRANSFER_DB = "strings_for_data_transfer"
-WASMPROXYPATH = "/home/ash/wasm/wasm-serverless/python/function/workerProxy.py"
+WASMPROXYPATH = "/home/ash/wasm/wasm-serverless/python/function/wasmProxy.py"

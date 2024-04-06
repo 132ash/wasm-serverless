@@ -1,0 +1,15 @@
+name: cut
+input:
+  - name: text_DB
+    type: string
+  - name: sliceNum
+    type: int
+output:
+  - name: slice
+    type: list
+wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/cut.wasm
+containerType: docker
+imageName: cut
+maxWorkers: 10
+expireTime: 1000
+maxStringSize: 400000

@@ -30,12 +30,15 @@ class Repository:
         db = self.couch[dbName]
         functions = []
         sources = {}
+        containers = {}
         for item in db:
             name = db[item]['function_name']
             source = db[item]['source']
+            container = db[item]['container']
             functions.append(db[item]['function_name'])
             sources[name] = source
-        return (functions, sources)
+            containers[name] = container
+        return (functions, sources, containers)
 
     def getStartFunctions(self, workflowName):
         dbName = workflowName + '_workflow_metadata'
@@ -56,6 +59,17 @@ class Repository:
         if 'result' in doc:
             return doc['result']
         # return doc
+
+    def updateLatency(self, requestID: str, latancy:dict):
+        if requestID not in self.couch['latency']:
+            self.couch['latency'][requestID]  = {'latency':{}}
+        doc = self.couch['latency'][requestID]
+        doc['latency'].update(latancy)
+        self.couch['latency'][requestID] = doc
+
+        
+    def getLatency(self, requestID: str):
+        return self.couch['latency'][requestID]['latency']
 
     def clearDB(self, requestID):
         db = self.couch['results']

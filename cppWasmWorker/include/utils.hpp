@@ -66,31 +66,20 @@ void readFileToBytes(const std::string& path, std::vector<uint8_t>& codeBytes){
     return;
 }
 
-// // 回调函数，用于从libcurl接收数据
-// size_t WriteCallback(void *contents, size_t size, size_t nmemb, std::string *s) {
-//     size_t newLength = size * nmemb;
-//     try {
-//         s->append((char*)contents, newLength);
-//         return newLength;
-//     } catch (std::bad_alloc &e) {
-//         // 如果内存不足，返回0告诉curl停止传输
-//         return 0;
-//     }
-// }
 
-// std::string ExtractContentFromRawJson(std::string rawJson) {
-//     std::string contentKey = "\"content\":\"";
-//     size_t startPos = rawJson.find(contentKey);
-//     if (startPos == std::string::npos) {
-//         return ""; // "content" key not found
-//     }
-//     startPos += contentKey.length(); // Move start position to the beginning of the value
-//     size_t endPos = rawJson.find("\"", startPos);
-//     if (endPos == std::string::npos) {
-//         return ""; // Malformed JSON or unexpected end of content
-//     }
-//     return rawJson.substr(startPos, endPos - startPos);
-// }
+void writeResultToPipe(int fd, uint8_t* buffer, size_t totalSize) {
+    size_t chunkSize = 4096; 
+    for (size_t written = 0; written < totalSize; written += chunkSize) {
+        size_t sizeToWrite = std::min(chunkSize, totalSize - written);
+        ssize_t writtenThisTime = write(fd, buffer + written, sizeToWrite);
+        if (writtenThisTime < 0) {
+            // 错误处理
+            perror("write");
+            break;
+        }   
+    }
+}
+
 
 std::string GetDocumentContent(const std::string& strKey, long long *getStringTime) {
     std::string url = COUCH_URL + "/" + DATA_TRANSFER_DB + "/" + strKey;
@@ -115,9 +104,5 @@ std::string GetDocumentContent(const std::string& strKey, long long *getStringTi
             }
         }
     }
-    // } else {
-    //     std::cerr << "Failed to get document. Status code: " << response.status_code << std::endl;
-    // }
-
     return "nullstring"; // 返回空字符串表示未找到或出错
 }

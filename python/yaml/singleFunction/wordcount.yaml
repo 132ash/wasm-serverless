@@ -1,0 +1,15 @@
+name: wordcount
+input: 
+  - name: slice # text_DB #slice
+    type: string
+output:
+  - name: strlen
+    type: int
+  - name: countRes
+    type: string
+wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/wordcount.wasm
+containerType: docker
+imageName: wordcount
+maxWorkers: 10
+expireTime: 1000
+maxStringSize: 400000

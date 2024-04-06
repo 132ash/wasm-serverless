@@ -213,7 +213,6 @@ class MasterSPManager:
         else:
             for item in output:
                 res[item['input']] = parameters[item['input']]
-        print("end function result: {}".format(res))
         repo.saveWorkflowRes(reqID, res)
 
     def clearDB(self, requestID):

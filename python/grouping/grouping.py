@@ -180,12 +180,11 @@ def getGroupingResult(workflow: component.Workflow, nodeInfo:dict):
     for node_name in workflow.nodes:
         node = workflow.nodes[node_name]
         ip = group_ip[find_set(node_name, group_detail)]
-        function_info = {'function_name': node.name, 'runtime': node.runtime, 'ip': ip, 'source':node.source,
+        function_info = {'function_name': node.name, 'container':node.container, 'runtime': node.runtime, 'ip': ip, 'source':node.source,
                          'parent_cnt': workflow.parent_cnt[node.name], 'conditions': node.conditions}
         function_info['next'] = node.next
         function_info['output'] = node.output
         function_info['traverse'] = node.traverse
-        function_info['split'] = node.split
         function_info_dict[node_name] = function_info
     return nodeInfo, function_info_dict
 

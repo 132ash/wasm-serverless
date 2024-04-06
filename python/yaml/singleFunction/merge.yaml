@@ -1,0 +1,13 @@
+name: merge
+input:
+  - name: wordNum
+    type: list
+output:
+  - name: wordCount
+    type: int
+wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/merge.wasm
+containerType: docker
+imageName: merge
+maxWorkers: 10
+expireTime: 1000
+maxStringSize: 400000

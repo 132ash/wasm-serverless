@@ -4,6 +4,7 @@ sys.path.append('./config')
 sys.path.append('./storage')
 import config
 import requests
+import time
 from datetime import datetime
 import gevent
 import gevent.lock
@@ -38,18 +39,9 @@ class FunctionParameters:
         for f in functions:
             self.funcParameters[f] = {}
 
-    def setParam(self, funcName, param, traverse:list):
+    def setParam(self, funcName, param):
         self.lock.acquire()
-        if len(traverse) != 0:
-            for name, value in param:
-                if name in traverse:
-                    paramList = self.funcParameters[funcName].get(name, [])
-                    paramList.append(value)
-                    self.funcParameters[funcName][name] = paramList
-                else:
-                    self.funcParameters[funcName][name] = value
-        else:
-            self.funcParameters[funcName].update(param)
+        self.funcParameters[funcName].update(param)
         self.lock.release()
 
     def getParam(self, funcName):
@@ -73,14 +65,11 @@ class WorkerSPManager:
 
     def setFunctionParam(self, request_id: str, funcName:str, param:dict):
         info = self.getFunctionInfo(funcName)
-        traverse = []
-        if info["source"] == "FOREACHSINK":
-            traverse = info["traverse"]
         self.paramLock.acquire()
         if request_id not in self.funcParameters:
             self.funcParameters[request_id] =FunctionParameters(request_id, self.funcNames)
         self.paramLock.release()
-        self.funcParameters[request_id].setParam(funcName, param, traverse)
+        self.funcParameters[request_id].setParam(funcName, param)
 
     def getFunctionParam(self, request_id: str, funcName:str):
         return self.funcParameters[request_id].getParam(funcName)
@@ -133,7 +122,7 @@ class WorkerSPManager:
 
 
     def triggerFunctionLocal(self, state: WorkflowState, function_name: str, parameters:dict, noParentExecution = False) -> None:
-        print(f"[Workflow Manager] run func {function_name} with param {parameters}.]")
+        # print(f"[Workflow Manager] run func {function_name} with param {parameters}.]")
         state.lock.acquire()
         if not noParentExecution:
             state.parentExecuted[function_name] += 1
@@ -175,21 +164,26 @@ class WorkerSPManager:
             self.runEndFunction(info, state, parameters) 
             return 
         if source == 'FOREACH':
-            res = self.runForeachFunction(info, funcName, parameters) 
+            res = self.runForeachFunction(state, info, funcName, parameters) 
         else:
-            res = self.runNormalFunction(funcName, parameters)
+            res = self.runNormalFunction(state, funcName, parameters)
         jobs = [
             gevent.spawn(self.triggerFunction, state, func, res)
             for func in info['next']
         ]
         gevent.joinall(jobs)
     
-    def runNormalFunction(self, funcName, parameters, collectedRes = [], foreach=False):
+    def runNormalFunction(self, state:WorkflowState, funcName, parameters, collectedRes = [], foreach=False):
         if foreach:
             collectedRes.append(self.functionManager.runFunction(funcName, parameters)[0])
             return
         else:
-            return self.functionManager.runFunction(funcName, parameters)[0]
+            reqID = state.request_id
+            start = time.time()
+            res = self.functionManager.runFunction(funcName, parameters)[0]
+            end = time.time()
+            repo.updateLatency(reqID, {funcName:end-start})
+            return res
        
     def runSwitchFunction(self, info, state:WorkflowState, parameters):
         output = info['output']
@@ -203,13 +197,14 @@ class WorkerSPManager:
                 self.triggerFunction(state, next_func, selectedParam)
                 break
 
-    def runForeachFunction(self, info, funcName, parameters):
+    def runForeachFunction(self, state:WorkflowState, info, funcName, parameters):
+        reqID = state.request_id
+        start = time.time()
         traverse = info['traverse']
-        split = info['split']
         selectedParam = []
         splitedRes = []
         
-        for i in range(split):
+        for i in range(len(parameters[traverse[0]])):
             sub_param = {}
             for param in parameters:
                 if param in traverse:
@@ -218,19 +213,22 @@ class WorkerSPManager:
                     sub_param[param] = parameters[param]
             selectedParam.append(sub_param)
         jobs = [
-            gevent.spawn(self.runNormalFunction, funcName, param, splitedRes, True)
+            gevent.spawn(self.runNormalFunction, state, funcName, param, splitedRes, True)
             for param in selectedParam
         ]
         gevent.joinall(jobs)
+        end = time.time()
         collectedRes = {key:[] for key in splitedRes[0].keys()}
         for key in collectedRes:
             for foreachRes in splitedRes:
                 collectedRes[key].append(foreachRes[key])
+        repo.updateLatency(reqID, {funcName:end-start})
         return collectedRes
         
     
     # choose multiple(or single) params in parameters and construct output dict.
     def runEndFunction(self, info, state:WorkflowState, parameters:dict):
+        start = time.time()
         output = info['output']
         reqID = state.request_id
         res = {}
@@ -241,7 +239,9 @@ class WorkerSPManager:
         else:
             for item in output:
                 res[item['input']] = parameters[item['input']]
-        print("end function result: {}".format(res))
+        end = time.time()
+        # print("end function result: {}".format(res))
+        repo.updateLatency(reqID, {'end':end-start})
         repo.saveWorkflowRes(reqID, res)
 
     def clearDB(self, requestID):

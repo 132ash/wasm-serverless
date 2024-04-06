@@ -1,10 +1,11 @@
 from typing import Dict
 
 class Function:
-    def __init__(self, name, prev, next, nextDis, source, runtime, conditions, output=[], traverse=[], split=0):
+    def __init__(self, name, container, prev, next, nextDis, source, runtime, conditions, output=[], traverse=[]):
         self.name = name
         self.prev = prev
         self.next = next
+        self.container = container
         self.nextDis = nextDis
         self.source = source
         self.runtime = runtime
@@ -12,7 +13,6 @@ class Function:
         self.scale = 0
         self.output = output
         self.traverse = traverse
-        self.split = split
     
     def set_scale(self, scale):
         self.scale = scale

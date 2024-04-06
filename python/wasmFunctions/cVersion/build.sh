@@ -7,8 +7,10 @@ fi
 for func_name in "$@"; do
     /opt/wasi-sdk/bin/clang     \
         -Wl,--export=${func_name}\
+        -z stack-size=8192 -Wl,--initial-memory=65536,--max-memory=655360 \
+        -Wl,--export=malloc -Wl,--export=free\
         -Wl,--allow-undefined \
-        -o ${func_name}.wasm ${func_name}.c 
+        -o ${func_name}.wasm ${func_name}.c ../utils/cJSON.c ../utils/wasmUtils.c
     mv ${func_name}.wasm ../${func_name}.wasm
     echo "Compiled ${func_name}.wasm."
 done

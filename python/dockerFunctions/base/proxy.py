@@ -75,13 +75,8 @@ def run():
     inp = request.get_json(force=True, silent=True)
     # record the execution time
     out = runner.run(inp)
-
-    res = {
-        "out": out
-    }
-
     proxy.status = 'ok'
-    return res
+    return out
 
 
 if __name__ == '__main__':

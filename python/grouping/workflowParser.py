@@ -26,18 +26,17 @@ class Parser:
             name = function['name']
             source = function['source']
             runtime = function['runtime']
+            container = function.get('container', '')
             next = list()
             nextDis = list()
             send_time = 0
             conditions = list()
             traverse = list()
             output = list()
-            split = 0
             sinkFuncs = {}
             if source == 'FOREACH':
-                split = function['split'] 
                 traverse = function['traverse'] 
-                if len(function['next']['funcs'] != 1):
+                if len(function['next']['funcs']) != 1:
                     raise Exception("Mutiple foreach unit.")
             if source == 'END':
                 if haveEndFunction:
@@ -58,8 +57,8 @@ class Parser:
                         parent_cnt[next_func] = 1
                     else:
                         parent_cnt[next_func] = parent_cnt[next_func] + 1
-            current_function = component.Function(name, [], next, nextDis, source, 
-                                                  runtime,conditions, output, traverse, split)
+            current_function = component.Function(name, container, [], next, nextDis, source, 
+                                                  runtime,conditions, output, traverse)
             if 'scale' in function:
                 current_function.set_scale(function['scale'])
             total = total + 1
