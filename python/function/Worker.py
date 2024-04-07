@@ -89,7 +89,6 @@ class wasmWorker:
         
     def run(self,param):
         data = self.constructInput(param)
-        print(f"send data to wasm proxy. length:{len(data)}")
         r = requests.post(base_url.format(self.port, 'run'), json={"parameters":data})
         res = self.constructOutput(base64.b64decode(r.json()["out"]))
         # print(f"{self.funcName}'s worker {self.workerProcess.pid} exists: {psutil.pid_exists(self.workerProcess.pid)}.")

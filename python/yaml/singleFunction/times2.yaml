@@ -6,5 +6,6 @@ output:
   - name: time2res
     type: int
 wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/times2.wasm
+containerType: wasm
 maxWorkers: 10
 expireTime: 1000

@@ -22,6 +22,7 @@ class Parser:
         functions = self.yamlData['functions']
         haveEndFunction = False
         parent_cnt[functions[0]['name']] = 0
+        sinkFuncs = []
         for function in functions:
             name = function['name']
             source = function['source']
@@ -33,7 +34,6 @@ class Parser:
             conditions = list()
             traverse = list()
             output = list()
-            sinkFuncs = {}
             if source == 'FOREACH':
                 traverse = function['traverse'] 
                 if len(function['next']['funcs']) != 1:

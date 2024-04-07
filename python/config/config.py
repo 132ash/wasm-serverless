@@ -12,6 +12,6 @@ GROUP_LIMIT = 3
 GATEWAY_ADDR =  '192.168.35.132:8000'
 MASTER_HOST = '192.168.35.132:7000'
 CLEAR_DB_AND_MEM = True
-CONTROL_MODE = 'WorkerSP' #WorkerSP
+CONTROL_MODE = 'MasterSP' # WorkerSP MasterSP
 DATA_TRANSFER_DB = "strings_for_data_transfer"
 WASMPROXYPATH = "/home/ash/wasm/wasm-serverless/python/function/wasmProxy.py"

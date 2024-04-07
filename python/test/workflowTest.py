@@ -7,11 +7,11 @@ workflowDeleteAddr = ip + "workflow/delete"
 workflowRunAddr = ip + "workflow/run"
 FILE_NAME = "pg-being_ernest.txt"
 FILE_NAME_TEST = "test.txt"
-# workflowName = 'workflow'
-# parameters = {"cal":{"arg1":2, "arg2":4},  "divide2":{"div":2.5}}
+workflowName = 'workflow'
+parameters = {"cal":{"arg1":2, "arg2":4},  "divide2":{"div":2.5}}
 
-workflowName = 'wordcount'
-parameters = {"cut":{"text_DB":FILE_NAME, "sliceNum":10}}
+# workflowName = 'wordcount'
+# parameters = {"cut":{"text_DB":FILE_NAME, "sliceNum":10}}
 
 def workflowCreate(name):
     data = {"workflowName": name}

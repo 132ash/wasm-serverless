@@ -6,5 +6,7 @@ output:
   - name: divres
     type: float
 wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/divide2.wasm
+containerType: wasm
+imageName: divide2
 maxWorkers: 10
 expireTime: 1000

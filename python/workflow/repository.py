@@ -60,17 +60,23 @@ class Repository:
             return doc['result']
         # return doc
 
-    def updateLatency(self, requestID: str, latancy:dict):
-        if requestID not in self.couch['latency']:
-            self.couch['latency'][requestID]  = {'latency':{}}
-        doc = self.couch['latency'][requestID]
-        doc['latency'].update(latancy)
-        self.couch['latency'][requestID] = doc
+    def saveLatency(self, requestID: str,funcName:str, latancy:dict):
+        latency_db = self.couch['latency']
+        latency_db.save({'requestID':requestID, 'funcName':funcName, 'latancy':latancy})
 
         
     def getLatency(self, requestID: str):
-        return self.couch['latency'][requestID]['latency']
+        docs = []
+        for _id in self.couch['latency']:
+            doc = self.couch['latency'][_id]
+            if doc['requestID'] == requestID:
+                docs.append({'funcName':doc['funcName'], 'latancy':doc['latancy']})
+        return docs
 
     def clearDB(self, requestID):
         db = self.couch['results']
         db.delete(db[requestID])
+        for _id in self.couch['latency']:
+            doc = self.couch['latency'][_id]
+            if doc['requestID'] == requestID:
+                self.couch['latency'].delete(doc)

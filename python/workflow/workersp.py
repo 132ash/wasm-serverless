@@ -151,6 +151,7 @@ class WorkerSPManager:
 
     def checkRunnable(self, state: WorkflowState, function_name: str) -> bool:
         info = self.getFunctionInfo(function_name)
+        print(f"check func {function_name}. exec parent {state.parentExecuted[function_name]} with total {info['parent_cnt']}.")
         return state.parentExecuted[function_name] == info['parent_cnt'] and not state.executed[function_name]
 
 
@@ -182,7 +183,8 @@ class WorkerSPManager:
             start = time.time()
             res = self.functionManager.runFunction(funcName, parameters)[0]
             end = time.time()
-            repo.updateLatency(reqID, {funcName:end-start})
+            print(f"func {funcName} update latency.")
+            repo.saveLatency(reqID, funcName, end-start)
             return res
        
     def runSwitchFunction(self, info, state:WorkflowState, parameters):
@@ -222,7 +224,7 @@ class WorkerSPManager:
         for key in collectedRes:
             for foreachRes in splitedRes:
                 collectedRes[key].append(foreachRes[key])
-        repo.updateLatency(reqID, {funcName:end-start})
+        repo.saveLatency(reqID, funcName, end-start)
         return collectedRes
         
     
@@ -241,7 +243,7 @@ class WorkerSPManager:
                 res[item['input']] = parameters[item['input']]
         end = time.time()
         # print("end function result: {}".format(res))
-        repo.updateLatency(reqID, {'end':end-start})
+        repo.saveLatency(reqID, 'end', end-start)
         repo.saveWorkflowRes(reqID, res)
 
     def clearDB(self, requestID):

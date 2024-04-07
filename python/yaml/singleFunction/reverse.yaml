@@ -6,5 +6,6 @@ output:
   - name: subres
     type: int
 wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/reverse.wasm
+containerType: wasm
 maxWorkers: 10
 expireTime: 1000

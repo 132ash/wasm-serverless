@@ -47,7 +47,6 @@ dispatcher = Dispatcher()
 
 @app.route('/workflow/request', methods = ['POST'])
 def workflowReq():
-    print("in proxy workflow request.")
     data = request.get_json(force=True, silent=True)
     requestId = data['requestId']
     workflowName = data['workflowName']
@@ -83,18 +82,19 @@ def create():
     data = request.get_json(force=True, silent=True)
     master = data.get('master', False)
     workerTypes = []
+    msgs = {}
     workerType = ''
     if 'workflowName' in data:
-        workerTypes = data["workerTypes"]
         dispatcher.createManager(CONTROL_MODE, data['workflowName'], functionManager)
     if not master: # not create functon on master in mastersp.
         funcNames = data["funcNames"]
+        workerTypes = data["workerTypes"]
         heapSize = data.get("heapSize", 1024 * 1024 * 10)
         for i, funcName in enumerate(funcNames):
             if len(workerTypes) != 0:
                 workerType = workerTypes[i]
-            msg = functionManager.createFunction(funcName, workerType, heapSize)
-    return json.dumps({'status': 'ok', 'msg':msg})
+            msgs[funcName]=functionManager.createFunction(funcName, workerType, heapSize)
+    return json.dumps({'status': 'ok', 'msg':msgs})
 
 @app.route('/clear', methods = ['GET'])
 def clear():

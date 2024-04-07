@@ -10,5 +10,6 @@ output:
   - name: sumres
     type: float
 wasmCodePath:  /home/ash/wasm/wasm-serverless/python/wasmFunctions/sum.wasm
+containerType: wasm
 maxWorkers: 10
 expireTime: 1000

@@ -1,6 +1,7 @@
 import sys
 import logging
 sys.path.append('./config')
+import time
 sys.path.append('./storage')
 import config
 import requests
@@ -128,16 +129,16 @@ class MasterSPManager:
         funcInfo = self.getFunctionInfo(functionName)
         if funcInfo['ip'] == self.hostAddr:
             # function runs on local
-            return self.triggerFunctionLocal(functionName, parameters)
+            return self.triggerFunctionLocal(state, functionName, parameters)
         else:
             # function runs on remote machine
             self.triggerFunctionRemote(state, functionName, funcInfo['ip'], parameters, noParentExecution)
             return {}
 
 
-    def triggerFunctionLocal(self, function_name: str, parameters:dict) -> None:
-        print(f"[Workflow Manager] run local func {function_name} with param {parameters}.]")
-        return self.runFunction(function_name, parameters)
+    def triggerFunctionLocal(self, state:WorkflowState, function_name: str, parameters:dict) -> None:
+        print(f"[Workflow Manager] run local func {function_name} with param {parameters}.")
+        return self.runFunction(state, function_name, parameters)
 
     # trigger a function that runs on remote machine
     def triggerFunctionRemote(self, state: WorkflowState, function_name: str, remote_addr: str, parameters:dict, noParentExecution = False) -> None:
@@ -153,7 +154,7 @@ class MasterSPManager:
             self.node_select() #simulate node selection process.
             info = self.getFunctionInfo(function_name)
             source = info['source']
-            if source == 'VIRTUAL':
+            if source == 'SWITCH':
                 self.runSwitchFunction(info, state, parameters)
                 return
             if source == 'END':
@@ -183,11 +184,55 @@ class MasterSPManager:
         return state.parentExecuted[function_name] == info['parent_cnt'] and not state.executed[function_name]
 
 
-    def runFunction(self, funcName, parameters:dict):
-        return self.runNormalFunction(funcName, parameters)
+    def runFunction(self, state:WorkflowState, funcName, parameters:dict):
+        info = self.getFunctionInfo(funcName)
+        source = info['source']
+        if source == 'FOREACH':
+            res = self.runForeachFunction(state, info, funcName, parameters) 
+        else:
+            res = self.runNormalFunction(state, funcName, parameters)
+        return res
     
-    def runNormalFunction(self, funcName, parameters):
-        return self.functionManager.runFunction(funcName, parameters)[0]
+    def runForeachFunction(self, state:WorkflowState, info, funcName, parameters):
+        reqID = state.request_id
+        start = time.time()
+        traverse = info['traverse']
+        selectedParam = []
+        splitedRes = []
+        
+        for i in range(len(parameters[traverse[0]])):
+            sub_param = {}
+            for param in parameters:
+                if param in traverse:
+                    sub_param[param] = parameters[param][i]
+                else:
+                    sub_param[param] = parameters[param]
+            selectedParam.append(sub_param)
+        jobs = [
+            gevent.spawn(self.runNormalFunction, state, funcName, param, splitedRes, True)
+            for param in selectedParam
+        ]
+        gevent.joinall(jobs)
+        end = time.time()
+        collectedRes = {key:[] for key in splitedRes[0].keys()}
+        for key in collectedRes:
+            for foreachRes in splitedRes:
+                collectedRes[key].append(foreachRes[key])
+        repo.saveLatency(reqID, funcName, end-start)
+        return collectedRes
+
+    def runNormalFunction(self, state:WorkflowState, funcName, parameters, collectedRes = [], foreach=False):
+        if foreach:
+            collectedRes.append(self.functionManager.runFunction(funcName, parameters)[0])
+            return
+        else:
+            reqID = state.request_id
+            start = time.time()
+            res = self.functionManager.runFunction(funcName, parameters)[0]
+            end = time.time()
+            print(f"func {funcName} update latency.")
+            repo.saveLatency(reqID, funcName, end-start)
+            return res
        
     def runSwitchFunction(self, info, state:WorkflowState, parameters):
         output = info['output']
@@ -203,6 +248,7 @@ class MasterSPManager:
     
     # choose multiple(or single) params in parameters and construct output dict.
     def runEndFunction(self, info, state:WorkflowState, parameters:dict):
+        start = time.time()
         output = info['output']
         reqID = state.request_id
         res = {}
@@ -213,6 +259,8 @@ class MasterSPManager:
         else:
             for item in output:
                 res[item['input']] = parameters[item['input']]
+        end = time.time()
+        repo.saveLatency(reqID, 'end', end-start)
         repo.saveWorkflowRes(reqID, res)
 
     def clearDB(self, requestID):
