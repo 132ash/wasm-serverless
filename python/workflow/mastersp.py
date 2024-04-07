@@ -226,8 +226,8 @@ class MasterSPManager:
             collectedRes.append(self.functionManager.runFunction(funcName, parameters)[0])
             return
         else:
-            reqID = state.request_id
             start = time.time()
+            reqID = state.request_id
             res = self.functionManager.runFunction(funcName, parameters)[0]
             end = time.time()
             print(f"func {funcName} update latency.")
@@ -235,6 +235,7 @@ class MasterSPManager:
             return res
        
     def runSwitchFunction(self, info, state:WorkflowState, parameters):
+        start = time.time()
         output = info['output']
         selectedParam ={}
         for name in output:
@@ -243,6 +244,8 @@ class MasterSPManager:
             cond = info['conditions'][i]
             ctx = parameters.copy()
             if condExec(cond, ctx):
+                end = time.time()
+                repo.saveLatency(state.request_id, info["function_name"] , end-start)
                 self.triggerFunction(state, next_func, selectedParam)
                 break
     

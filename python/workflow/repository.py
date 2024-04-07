@@ -66,12 +66,12 @@ class Repository:
 
         
     def getLatency(self, requestID: str):
-        docs = []
+        latency = {}
         for _id in self.couch['latency']:
             doc = self.couch['latency'][_id]
             if doc['requestID'] == requestID:
-                docs.append({'funcName':doc['funcName'], 'latancy':doc['latancy']})
-        return docs
+                latency[doc['funcName']] = doc['latancy']
+        return latency
 
     def clearDB(self, requestID):
         db = self.couch['results']

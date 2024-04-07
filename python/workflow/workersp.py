@@ -188,6 +188,7 @@ class WorkerSPManager:
             return res
        
     def runSwitchFunction(self, info, state:WorkflowState, parameters):
+        start = time.time()
         output = info['output']
         selectedParam ={}
         for name in output:
@@ -196,6 +197,8 @@ class WorkerSPManager:
             cond = info['conditions'][i]
             ctx = parameters.copy()
             if condExec(cond, ctx):
+                end = time.time()
+                repo.saveLatency(state.request_id, info["function_name"] , end-start)
                 self.triggerFunction(state, next_func, selectedParam)
                 break
 
@@ -242,7 +245,6 @@ class WorkerSPManager:
             for item in output:
                 res[item['input']] = parameters[item['input']]
         end = time.time()
-        # print("end function result: {}".format(res))
         repo.saveLatency(reqID, 'end', end-start)
         repo.saveWorkflowRes(reqID, res)
 

@@ -1,0 +1,101 @@
+functions:
+- name: func1
+  next:
+    funcs:
+    - func2
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func2
+  next:
+    funcs:
+    - func3
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func3
+  next:
+    funcs:
+    - func4
+    - func5
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func4
+  next:
+    funcs:
+    - func5
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func5
+  next:
+    funcs:
+    - func6
+    - end
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func6
+  next:
+    funcs:
+    - func7
+    - func8
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func7
+  next:
+    funcs:
+    - func8
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func8
+  next:
+    funcs:
+    - func9
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func9
+  next:
+    funcs:
+    - func10
+    - func10
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func10
+  next:
+    funcs:
+    - end
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: end
+  output:
+  - input: DEFAULT
+  runtime: 1
+  scale: 1
+  source: func

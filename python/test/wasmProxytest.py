@@ -15,14 +15,19 @@ with open(f"/home/ash/wasm/wasm-serverless/python/setupScripts/text/{FILE_NAME}"
 
 # slice = "hello the world\nhello the world\nhello the world"
 
-funcNames = ['count']
-param = json.dumps({'slice':slice}) + '\n'
-# param = json.dumps({'slice':"world"}) + '\n'
-outputSize = 500000
-initParam = {"wasmCodePath":"/home/ash/wasm/wasm-serverless/python/wasmFunctions/count.wasm",
-                    'funcName':"count",'outputSize':outputSize}
+# funcNames = ['count']
+# param = json.dumps({'slice':slice}) + '\n'
 
-info = yaml.load(open("/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/count.yaml"), Loader=yaml.FullLoader)
+funcName = 'divide2'
+param = json.dumps({'div':2.5}) + '\n'
+
+funcNames = [funcName]
+# param = json.dumps({'slice':"world"}) + '\n'
+outputSize = 4
+initParam = {"wasmCodePath":f"/home/ash/wasm/wasm-serverless/python/wasmFunctions/{funcName}.wasm",
+                    'funcName':f"{funcName}",'outputSize':outputSize}
+
+info = yaml.load(open(f"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/{funcName}.yaml"), Loader=yaml.FullLoader)
         
 triggerData = {"parameters":param}
 
@@ -37,7 +42,7 @@ def testRun(n):
     t2 = time.time()
     with open(f"/home/ash/wasm/wasm-serverless/python/wrongByte{n}.txt", 'w') as f:
         f.write(json.dumps(res))
-    # print(res)[:50]
+    print(res)
     print(t2-t1)
     print(timeStamps)
 

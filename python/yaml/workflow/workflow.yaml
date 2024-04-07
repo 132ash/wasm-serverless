@@ -2,40 +2,40 @@ functions:
 - name: cal
   source: cal
   scale: 3
-  runtime: 0.02
+  runtime: 0.004914760589599609
   next:
     type: PASS
-    size: 8999999
+    size: 12
     funcs:
       - switch1
       - times2
 - name: divide2
   scale: 3
   source: divide2
-  runtime: 0.01
+  runtime: 0.0055408477783203125
   next:
     type: PASS
-    size: 4999999
+    size: 4
     funcs:
       - sum
 - name: times2
   source: times2
   scale: 3
-  runtime: 0.01
+  runtime: 0.012680768966674805
   next:
     type: PASS
-    size: 4999999
+    size: 4
     funcs:
       - sum
 - name: switch1
   source: SWITCH
-  scale: 3
-  runtime: 0.01
+  scale: 1
+  runtime: 5.030632019042969e-05
   output:
       - subres
   next: 
     type: SWITCH
-    size: 4999999
+    size: 4
     conditions: 
       - subres < 0
       - default
@@ -45,7 +45,7 @@ functions:
 - name: reverse
   source: reverse
   scale: 3
-  runtime: 0.01
+  runtime: 0.010341882705688477
   next: 
     type: PASS
     size: 4
@@ -53,13 +53,13 @@ functions:
       - sink
 - name: sink
   source: SWITCH
-  scale: 3
-  runtime: 0.01
+  scale: 1
+  runtime: 8.821487426757812e-06
   output:
       - subres
   next: 
     type: SINK
-    size: 4999999
+    size: 4
     conditions: 
       - default
     funcs:
@@ -67,18 +67,25 @@ functions:
 - name: sum
   source: sum
   scale: 3
-  runtime: 0.01
+  runtime: 0.014055252075195312
   next: 
     type: PASS
-    size: 4999999
+    size: 4
     funcs:
       - end
 - name: end
   source: END
-  scale: 3
-  runtime: 0.01
+  scale: 1
+  runtime: 3.337860107421875e-06
   output:
     - input: DEFAULT
+
+    # {('divide2',): '192.168.35.133:7000', 
+    # ('switch1',): '192.168.35.134:7000', 
+    # ('reverse',): '192.168.35.133:7000', 
+    # ('sink',): '192.168.35.133:7000', 
+    # ('cal', 'times2'): '192.168.35.133:7000', 
+    # ('sum', 'end'): '192.168.35.134:7000'}
 
 #  divide2---------------
 #                       +

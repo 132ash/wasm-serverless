@@ -1,1 +1,1 @@
-{"strlen": 138885, "countRes": ""}
+{"divres": 1.25}

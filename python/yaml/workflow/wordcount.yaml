@@ -14,7 +14,7 @@ functions:
   container: wasm
   traverse:
     - slice
-  scale: 3
+  scale: 10
   runtime: 0.01
   next:
     type: PASS

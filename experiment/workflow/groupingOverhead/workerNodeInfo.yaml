@@ -1,0 +1,17 @@
+nodes:
+- worker_address: 192.168.35.133:7000
+  scale_limit: 50
+- worker_address: 192.168.35.134:7000
+  scale_limit: 50
+- worker_address: 192.168.35.135:7000
+  scale_limit: 50
+- worker_address: 192.168.35.136:7000
+  scale_limit: 50
+- worker_address: 192.168.35.137:7000
+  scale_limit: 50
+- worker_address: 192.168.35.138:7000
+  scale_limit: 50
+- worker_address: 192.168.35.139:7000
+  scale_limit: 50
+- worker_address: 192.168.35.140:7000
+  scale_limit: 50

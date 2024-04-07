@@ -1,0 +1,244 @@
+functions:
+- name: func1
+  next:
+    funcs:
+    - func2
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func2
+  next:
+    funcs:
+    - func3
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func3
+  next:
+    funcs:
+    - func4
+    - func5
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func4
+  next:
+    funcs:
+    - func5
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func5
+  next:
+    funcs:
+    - func6
+    - end
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func6
+  next:
+    funcs:
+    - func7
+    - func8
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func7
+  next:
+    funcs:
+    - func8
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func8
+  next:
+    funcs:
+    - func9
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func9
+  next:
+    funcs:
+    - func10
+    - func11
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func10
+  next:
+    funcs:
+    - func11
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func11
+  next:
+    funcs:
+    - func12
+    - end
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func12
+  next:
+    funcs:
+    - func13
+    - func14
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func13
+  next:
+    funcs:
+    - func14
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func14
+  next:
+    funcs:
+    - func15
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func15
+  next:
+    funcs:
+    - func16
+    - func17
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func16
+  next:
+    funcs:
+    - func17
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func17
+  next:
+    funcs:
+    - func18
+    - end
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func18
+  next:
+    funcs:
+    - func19
+    - func20
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func19
+  next:
+    funcs:
+    - func20
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func20
+  next:
+    funcs:
+    - func21
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func21
+  next:
+    funcs:
+    - func22
+    - func23
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func22
+  next:
+    funcs:
+    - func23
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func23
+  next:
+    funcs:
+    - func24
+    - end
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func24
+  next:
+    funcs:
+    - func25
+    - func25
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: func25
+  next:
+    funcs:
+    - end
+    size: 4
+    type: PASS
+  runtime: 1
+  scale: 1
+  source: func
+- name: end
+  output:
+  - input: DEFAULT
+  runtime: 1
+  scale: 1
+  source: func

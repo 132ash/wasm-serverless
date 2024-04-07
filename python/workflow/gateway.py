@@ -107,8 +107,11 @@ def workflowCreate():
 
 @app.route('/workflow/run', methods = ['POST'])
 def workflowRun():
-    id = str(uuid.uuid4())
     data = request.get_json(force=True, silent=True)
+    if 'requestID' not in data:
+        id = str(uuid.uuid4())
+    else:
+        id = data["requestID"]
     workflowName = data["workflowName"]
     parameters = data["parameters"]
     res = runWorkflow(workflowName, id, parameters)
