@@ -1,6 +1,6 @@
 import requests
 
-# docker run -p 6000:5000 --name simple_func -l dockerContainer -d simple_func_cpp
+# docker run -p 6000:5000 --name spectral_norm -l dockerContainer -d spectral_norm
 
 # docker remove --force 87776b4880d546be6fa4b896e659eaea2399facd63a4d92cd0308f417c0db4c9
 
@@ -29,8 +29,8 @@ def testInvoke(param):
 
 
 
-funcName = 'simple_func'
-param = {'arg1':1, "arg2":2}
+funcName = 'spectral_norm'
+param = {'number':50}
 
 
 testInit(funcName)

@@ -60,3 +60,87 @@ int isStringAt(int stringFlag, int pos) {
 int isDoubleAt(int doubleFlag, int pos) {
     return (doubleFlag & (1U << pos)) != 0;
 }
+
+void mult_AtAv(double *tmp, double *v, double *out, const int n) {
+   mult_Av(v, tmp, n);
+   mult_Atv(tmp, out, n);
+}
+
+int A(int i, int j) {
+   return ((i+j) * (i+j+1) / 2 + i + 1);
+}
+
+double dot(double * v, double * u, int n) {
+   int i;
+   double sum = 0;
+   for (i = 0; i < n; i++)
+      sum += v[i] * u[i];
+   return sum;
+}
+
+void mult_Av(double * v, double * out, const int n) {
+   int i, j;
+   double sum;
+   for (i = 0; i < n; i++) {
+      for (sum = j = 0; j < n; j++)
+         sum += v[j] / A(i,j);
+      out[i] = sum;
+   }
+}
+
+void mult_Atv(double * v, double * out, const int n) {
+   int i, j;
+   double sum;
+   for (i = 0; i < n; i++) {
+      for (sum = j = 0; j < n; j++)
+         sum += v[j] / A(j,i);
+      out[i] = sum;
+   }
+}
+
+
+treeNode* NewTreeNode(treeNode* left, treeNode* right)
+{
+    treeNode*    new;
+
+    new = (treeNode*)malloc(sizeof(treeNode));
+
+    new->left = left;
+    new->right = right;
+
+    return new;
+} /* NewTreeNode() */
+
+
+long long ItemCheck(treeNode* tree)
+{
+    if (tree->left == NULL)
+        return 1;
+    else
+        return 1 + ItemCheck(tree->left) + ItemCheck(tree->right);
+} /* ItemCheck() */
+
+
+treeNode* BottomUpTree(unsigned depth)
+{
+    if (depth > 0)
+        return NewTreeNode
+        (
+            BottomUpTree(depth - 1),
+            BottomUpTree(depth - 1)
+        );
+    else
+        return NewTreeNode(NULL, NULL);
+} /* BottomUpTree() */
+
+
+void DeleteTree(treeNode* tree)
+{
+    if (tree->left != NULL)
+    {
+        DeleteTree(tree->left);
+        DeleteTree(tree->right);
+    }
+
+    free(tree);
+} /* DeleteTree() */

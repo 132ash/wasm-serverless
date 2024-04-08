@@ -1,0 +1,14 @@
+containerType: docker
+expireTime: 1000
+imageName: binarytree
+input:
+- name: number
+  type: int
+maxWorkers: 10
+name: binarytree
+output:
+- name: res
+  type: long long
+- name: runtime
+  type: double
+wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/binarytree.wasm

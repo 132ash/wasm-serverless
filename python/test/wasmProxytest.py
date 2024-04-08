@@ -18,12 +18,12 @@ with open(f"/home/ash/wasm/wasm-serverless/python/setupScripts/text/{FILE_NAME}"
 # funcNames = ['count']
 # param = json.dumps({'slice':slice}) + '\n'
 
-funcName = 'divide2'
-param = json.dumps({'div':2.5}) + '\n'
+funcName = 'spectral_norm'
+param = json.dumps({'number':5500}) + '\n'
 
 funcNames = [funcName]
 # param = json.dumps({'slice':"world"}) + '\n'
-outputSize = 4
+outputSize = 8
 initParam = {"wasmCodePath":f"/home/ash/wasm/wasm-serverless/python/wasmFunctions/{funcName}.wasm",
                     'funcName':f"{funcName}",'outputSize':outputSize}
 
@@ -66,6 +66,10 @@ def constructOutput(uintBits):
                 #     input("wrong decode.")
                     bitsIdx += 1
                 elif type == 'double':
+                    chunk = uintBits[bitsIdx:bitsIdx+8]
+                    res[name] =  struct.unpack('<d', chunk)[0]
+                    bitsIdx += 8
+                elif type == 'long long':
                     chunk = uintBits[bitsIdx:bitsIdx+8]
                     res[name] = int.from_bytes(chunk, 'little')
                     bitsIdx += 8

@@ -45,9 +45,10 @@ class FunctionWorker:
         self.worker.startWorker()
         
     def run(self,param):
+        start = time.time()
         res = self.worker.run(param)
+        end = time.time()
         self.lastTriggeredTime = time.time()
-        # print(f"{self.funcName}'s worker run. pid:{self.workerProcess}")
         return res
         # print("run function {}. param:{}".format(self.funcName, param))
     
@@ -115,6 +116,7 @@ class wasmWorker:
     
     def constructOutput(self, uintBits):
         res = {}
+        wasmTimeStamps = []
         bitsIdx = 0
         for name, type in self.info.output.items():
             if type == 'string':
@@ -129,9 +131,13 @@ class wasmWorker:
                 #     print(uintBits[18799:18810])
                 #     input("wrong decode.")
                 bitsIdx += 1
-            elif type == 'double':
+            elif type == 'long long':
                 chunk = uintBits[bitsIdx:bitsIdx+8]
                 res[name] = int.from_bytes(chunk, 'little')
+                bitsIdx += 8
+            elif type == 'double':
+                chunk = uintBits[bitsIdx:bitsIdx+8]
+                res[name] = struct.unpack('<d', chunk)[0]
                 bitsIdx += 8
             else:
                 chunk = uintBits[bitsIdx:bitsIdx+4]
@@ -140,11 +146,11 @@ class wasmWorker:
                 elif type == 'float':
                     res[name] = struct.unpack('<f', chunk)[0]
                 bitsIdx += 4 
-        # bitsIdx = self.outputSize
-        # for _ in range(2):
-        #     chunk = uintBits[bitsIdx:bitsIdx+8]
-        #     timeStamps.append(int.from_bytes(chunk, 'little'))
-        #     bitsIdx += 8
+        bitsIdx = self.outputSize
+        for _ in range(2):
+            chunk = uintBits[bitsIdx:bitsIdx+8]
+            wasmTimeStamps.append(int.from_bytes(chunk, 'little'))
+            bitsIdx += 8
         return res
 
 

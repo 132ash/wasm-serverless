@@ -81,14 +81,13 @@ def delete():
 def create():
     data = request.get_json(force=True, silent=True)
     master = data.get('master', False)
-    workerTypes = []
     msgs = {}
     workerType = ''
     if 'workflowName' in data:
         dispatcher.createManager(CONTROL_MODE, data['workflowName'], functionManager)
     if not master: # not create functon on master in mastersp.
         funcNames = data["funcNames"]
-        workerTypes = data["workerTypes"]
+        workerTypes = data.get("workerTypes", [])
         heapSize = data.get("heapSize", 1024 * 1024 * 10)
         for i, funcName in enumerate(funcNames):
             if len(workerTypes) != 0:

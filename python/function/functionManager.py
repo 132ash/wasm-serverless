@@ -69,6 +69,8 @@ class FunctionManager:
             function = self.functions[funcName]
             function.cleanWorker(force=True)
             self.functions.pop(funcName)
+            for port in [0,1,2]:
+                killProcessesOnPort(min_port+port)
 
     def _watch_loop(self):
         gevent.spawn_later(watch_interval, self._watch_loop)

@@ -1,6 +1,6 @@
 import requests
-
-ip = 'http://127.0.0.1:7000/'
+import time
+ip = 'http://192.168.35.132:7000/'
 
 requestAddr = ip + "request"
 createAddr = ip + 'create'
@@ -8,11 +8,15 @@ deleteAddr = ip + 'delete'
 infoAddr = ip + 'info'
 FILE_NAME = "pg-being_ernest.txt"
 FILE_NAME_TEST = "test.txt"
-funcNames = ['cal']
+funcNames = ['binarytree']
 triggerData = {'cal': {"funcName":"cal", "parameters":{"arg1":1, 'arg2':2}},
                'cut':  {"funcName":"cut", "parameters":{"text_DB":FILE_NAME, 'sliceNum':3}},
-               'merge':  {"funcName":"merge", "parameters":{"countRes":[{'hello':1, 'world':1}, {'the':1}, {'world':1}]}}
+               'merge':  {"funcName":"merge", "parameters":{"countRes":[{'hello':1, 'world':1}, {'the':1}, {'world':1}]}},
+               'spectral_norm': {"funcName":"spectral_norm", "parameters":{"number":200}},
+               'binarytree': {"funcName":"binarytree", "parameters":{"number":10}}
                }
+
+# 'binarytree': {"funcName":"binarytree", "parameters":{"number":10}}
 
 def testCreateAllFunc(funcNames):
     req = {"funcNames":funcNames}
@@ -28,13 +32,20 @@ def testDeleteAllFunc(funcNames):
 def testRunAllFunc(funcNames):
     for func in funcNames:
         req = triggerData[func]
-        return requests.post(requestAddr, json=req).json()
+        start = time.time()
+        res=  requests.post(requestAddr, json=req).json()
+        end = time.time()
+        return res, end - start
     
 def getInfo(funcName):
     req = {"funcName":funcName}
     res = requests.post(infoAddr, json=req)
     print(res.json())
 
-testCreateAllFunc(['merge'])
-res = testRunAllFunc(['merge'])
+testDeleteAllFunc(funcNames)
+testCreateAllFunc(funcNames)
+res, time1 = testRunAllFunc(funcNames)
 print(res)
+print(time1)
+
+# 8591.747946

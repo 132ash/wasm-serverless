@@ -1,0 +1,1 @@
+docker build --no-cache -t spectral_norm /home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/spectral_norm

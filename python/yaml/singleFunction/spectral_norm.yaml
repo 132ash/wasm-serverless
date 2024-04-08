@@ -1,0 +1,14 @@
+containerType: docker
+expireTime: 1000
+imageName: spectral_norm
+input:
+- name: number
+  type: int
+maxWorkers: 10
+name: spectral_norm
+output:
+- name: res
+  type: double
+- name: runtime
+  type: double
+wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/spectral_norm.wasm

@@ -76,14 +76,13 @@ class Function:
         if worker is None:
             self.numOfProcessingReq -= 1
             return
-        print(f'get worker. working worker: {self.numOfWorkingWorkers}.')
+        # print(f'get worker. working worker: {self.numOfWorkingWorkers}.')
         req = self.requestQueue.pop(0)
         self.numOfProcessingReq -= 1
         
         # reqtime after container is ready.
         timeStamps.append(time.time())
         res = worker.run(req.data)
-        # print("[function] set result in Request.res:{}".format(res))
         req.result.set({'res':res, 'timeStamps':timeStamps})
         # 3. put the worker back into pool
         self.returnWorker(worker)

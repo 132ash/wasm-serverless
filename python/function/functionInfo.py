@@ -25,7 +25,7 @@ class FunctionInfo:
         for param in funcYamlData['output']:
             if param['type'] == 'string':
                 outputStrNum += 1
-            elif param['type'] == 'double':
+            elif param['type'] == 'double' or param['type'] == 'long long':
                 self.outputSize += 8
             else:
                 self.outputSize += 4
