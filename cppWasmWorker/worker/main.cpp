@@ -22,7 +22,9 @@ int main() {
     scanf("%d", &returnSize);
     scanf("%d", &heapSize);
     long long getStringTime=2;
+    long long getParamTime=2, analyzedParamTime=2;
     long long inWasmTime=2;
+    long long wrapStringTime=2;
     const char* message = "ready\n"; 
     wasrModule wasmRuntime(wasmCodePath, funcName, returnSize, heapSize);
     while(true) {
@@ -32,6 +34,8 @@ int main() {
         while (jsonParamStr.empty()) {
             std::getline(std::cin, jsonParamStr);
         }
+        gettimeofday(&tv, NULL);
+        getParamTime = (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec;
         std::cout << "json input length: " << jsonParamStr.length() << std::endl;
         auto jsonObject = json::parse(jsonParamStr);
         std::memcpy(&argv[0], &returnSize, sizeof(returnSize));
@@ -54,6 +58,8 @@ int main() {
                 argv[argc] = binaryRepresentation;
                 argc += 1;   
             } else if (element.is_string()) {
+                gettimeofday(&tv, NULL);
+                wrapStringTime = (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec;
                 uint64_t buffer_for_wasm;
                 uint64_t strSize;
                 std::string strValue;
@@ -77,17 +83,23 @@ int main() {
                 } else {
                     printf("error: wasm buffer allocation failed.\n");
                 }
+                gettimeofday(&tv, NULL);
+                wrapStringTime = (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec - wrapStringTime;
             }   
         }
         gettimeofday(&tv, NULL);
-        inWasmTime = (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec;
+        analyzedParamTime = (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec;
+        // gettimeofday(&tv, NULL);
+        // inWasmTime = (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec;
         wasmRuntime.runWasmCode(argc, argv);
-        gettimeofday(&tv, NULL);
-        inWasmTime = (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec - inWasmTime;
-                
-        memcpy(resultBuffer+returnSize, &getStringTime, sizeof(long long));
-        memcpy(resultBuffer+returnSize+sizeof(long long), &inWasmTime, sizeof(long long));
-        writeResultToPipe(PIPE_WRITE_FD, resultBuffer, returnSize+2*sizeof(long long));
+        // gettimeofday(&tv, NULL);
+        // inWasmTime = (long long)tv.tv_sec * 1000000LL + (long long)tv.tv_usec - inWasmTime;
+        wrapStringTime = wrapStringTime - getStringTime;
+        memcpy(resultBuffer+returnSize, &getParamTime, sizeof(long long));
+        memcpy(resultBuffer+returnSize+sizeof(long long), &analyzedParamTime, sizeof(long long));
+        memcpy(resultBuffer+returnSize+2*sizeof(long long), &wrapStringTime, sizeof(long long));
+        memcpy(resultBuffer+returnSize+3*sizeof(long long), &getStringTime, sizeof(long long));
+        writeResultToPipe(PIPE_WRITE_FD, resultBuffer, returnSize+4*sizeof(long long));
         // write(PIPE_WRITE_FD, resultBuffer, returnSize+2*sizeof(long long));
         wasmRuntime.freeAllBuffer();
     }

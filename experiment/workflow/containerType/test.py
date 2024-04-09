@@ -69,7 +69,7 @@ def warme2eTime(workflowName, testTime):
 
 def testContainerType(testTime):
     e2eTime = {workflow:{} for workflow in FORKFLOW_LIST}
-    containers = ['wasm', 'docker']
+    containers = [ 'docker', 'wasm']
     timeFunc = {"cold":colde2eTime, "warm":warme2eTime}
     print("---------------------CONTAINER TYPE COST-----------------------------")
     for container in containers:
@@ -86,7 +86,7 @@ def testContainerType(testTime):
             tmp_df["container"] = container
             workflow_df.append(pd.DataFrame(tmp_df))
         workflow_df_combined = pd.concat(workflow_df, ignore_index=True)
-        workflow_df_combined.to_csv('/'.join([resdir,"containerType",f'{workflow}.csv']), index=False)
+        workflow_df_combined.to_csv('/'.join([resdir,"containerType",f'{workflow}_result.csv']), index=False)
     
 if __name__ == "__main__":
     if len(sys.argv) != 2:

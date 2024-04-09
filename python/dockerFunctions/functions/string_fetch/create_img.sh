@@ -1,1 +1,1 @@
-docker build --no-cache -t string_fetch /home/ash/wasm/wasm-serverless/experiment/wasm/docker/functions_python/functions/string_fetch
+docker build --no-cache -t string_fetch /home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/string_fetch

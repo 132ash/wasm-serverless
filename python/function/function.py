@@ -83,6 +83,7 @@ class Function:
         # reqtime after container is ready.
         timeStamps.append(time.time())
         res = worker.run(req.data)
+        timeStamps.append(res['postProxyTime'])
         req.result.set({'res':res, 'timeStamps':timeStamps})
         # 3. put the worker back into pool
         self.returnWorker(worker)

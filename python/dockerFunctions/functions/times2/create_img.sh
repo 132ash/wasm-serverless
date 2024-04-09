@@ -1,0 +1,1 @@
+docker build --no-cache -t times2 /home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/times2

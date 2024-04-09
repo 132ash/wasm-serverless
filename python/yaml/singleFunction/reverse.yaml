@@ -7,5 +7,6 @@ output:
     type: int
 wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/reverse.wasm
 containerType: wasm
+imageName: reverse
 maxWorkers: 10
 expireTime: 1000

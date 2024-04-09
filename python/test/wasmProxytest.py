@@ -18,8 +18,11 @@ with open(f"/home/ash/wasm/wasm-serverless/python/setupScripts/text/{FILE_NAME}"
 # funcNames = ['count']
 # param = json.dumps({'slice':slice}) + '\n'
 
-funcName = 'spectral_norm'
-param = json.dumps({'number':5500}) + '\n'
+# funcName = 'spectral_norm'
+# param = json.dumps({'number':5500}) + '\n'
+
+funcName = 'string_fetch'
+param = json.dumps({'size_DB':"100MB"}) + '\n'
 
 funcNames = [funcName]
 # param = json.dumps({'slice':"world"}) + '\n'
@@ -91,7 +94,7 @@ def constructOutput(uintBits):
 
 testinit()
 testRun(1)
-time.sleep(1)
-testRun(2)
-time.sleep(1)
-testRun(3)
+# time.sleep(1)
+# testRun(2)
+# time.sleep(1)
+# testRun(3)

@@ -7,7 +7,7 @@ import requests
 
 ip = 'http://192.168.35.132:7000/'
 resdir = config.RESULT_DIR
-FUNCFLOWYAMLPATH = config.FUNCFLOWYAMLPATH
+FUNCYAMLPATH = config.FUNCYAMLPATH
 
 requestAddr = ip + "request"
 createAddr = ip + 'create'
@@ -46,7 +46,7 @@ def flushAndPreWarm(funcName):
     RunFunc(funcName, 1)
 
 def changeWorkerType(funcName, workerType):
-    filename = '/'.join([FUNCFLOWYAMLPATH, f'{funcName}.yaml'])
+    filename = '/'.join([FUNCYAMLPATH, f'{funcName}.yaml'])
     with open(filename, 'r') as f:
         yamlData = yaml.load(f.read(), Loader=yaml.FullLoader)
     yamlData['containerType'] = workerType

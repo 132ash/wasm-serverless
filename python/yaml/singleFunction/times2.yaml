@@ -7,5 +7,6 @@ output:
     type: int
 wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/times2.wasm
 containerType: wasm
+imageName: times2
 maxWorkers: 10
 expireTime: 1000

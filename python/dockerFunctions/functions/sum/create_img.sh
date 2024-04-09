@@ -1,0 +1,1 @@
+docker build --no-cache -t sum /home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/sum

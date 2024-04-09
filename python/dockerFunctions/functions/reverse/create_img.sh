@@ -1,0 +1,1 @@
+docker build --no-cache -t reverse /home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/reverse

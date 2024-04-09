@@ -1,4 +1,4 @@
-#include "wasmUtils.h"
+#include "../utils/wasmUtils.h"
 
 int string_fetch(int resultSize, uint64_t buffer)
 {

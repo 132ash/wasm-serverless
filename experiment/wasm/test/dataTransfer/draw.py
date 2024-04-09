@@ -4,7 +4,7 @@ import pandas as pd
 
 # 假设 data 是通过 pd.read_csv('/path/to/your/data_transfer(ms).csv') 读取的DataFrame
 # 这里是从CSV文件中读取数据的代码示例
-file_path = '/home/ash/wasm/wasm-serverless/experiment/result/data_transfer(ms).csv'
+file_path = '/home/ash/wasm/wasm-serverless/experiment/result/data_transfer_new(ms).csv'
 data = pd.read_csv(file_path)
 
 # 计算每个平台和每种数据大小的平均传输时延和标准差

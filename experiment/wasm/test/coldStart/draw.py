@@ -13,6 +13,8 @@ data_coldstart_cleaned = pd.read_csv(file_path)
 mean_coldstart = data_coldstart_cleaned.mean()
 std_coldstart = data_coldstart_cleaned.std()
 
+print(mean_coldstart)
+
 # 设置柱状图的位置和宽度
 ind = np.arange(len(mean_coldstart))
 width = 0.35

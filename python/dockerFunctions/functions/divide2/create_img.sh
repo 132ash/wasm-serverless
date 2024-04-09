@@ -1,0 +1,1 @@
+docker build --no-cache -t divide2 /home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/divide2

@@ -90,8 +90,11 @@ class wasmWorker:
         
     def run(self,param):
         data = self.constructInput(param)
+        postProxyTime = time.time()
         r = requests.post(base_url.format(self.port, 'run'), json={"parameters":data})
-        res = self.constructOutput(base64.b64decode(r.json()["out"]))
+        res, wasmTimeStamp = self.constructOutput(base64.b64decode(r.json()["out"]))
+        res["postProxyTime"] = postProxyTime
+        res["wasmTimeStamp"] = wasmTimeStamp
         # print(f"{self.funcName}'s worker {self.workerProcess.pid} exists: {psutil.pid_exists(self.workerProcess.pid)}.")
         return res
         
@@ -147,11 +150,11 @@ class wasmWorker:
                     res[name] = struct.unpack('<f', chunk)[0]
                 bitsIdx += 4 
         bitsIdx = self.outputSize
-        for _ in range(2):
+        for _ in range(4):
             chunk = uintBits[bitsIdx:bitsIdx+8]
             wasmTimeStamps.append(int.from_bytes(chunk, 'little'))
             bitsIdx += 8
-        return res
+        return res, wasmTimeStamps
 
 
 class dockerWorker:
@@ -187,9 +190,12 @@ class dockerWorker:
 
     # send a request to container and wait for result
     def run(self, data = {}):
+        postProxyTime = time.time()
         r = requests.post(base_url.format(self.port, 'run'), json=data)
         self.lasttime = time.time()
-        return r.json()
+        res = r.json()
+        res['postProxyTime'] = postProxyTime
+        return res
 
     # initialize the container
     def init(self):

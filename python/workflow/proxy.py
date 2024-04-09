@@ -112,8 +112,12 @@ def clear():
 def info():
     data = request.get_json(force=True, silent=True)
     funcName = data['funcName']
-    container_num = functionManager.functions[funcName].numOfContainer
+    if funcName in functionManager.functions:
+        container_num = functionManager.functions[funcName].numOfContainer
+    else:
+        container_num = 0
     return json.dumps({"containerNum":container_num})
+
 
 from gevent.pywsgi import WSGIServer
 import logging

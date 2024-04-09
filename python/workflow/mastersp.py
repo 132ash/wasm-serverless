@@ -111,7 +111,7 @@ class MasterSPManager:
 
     def get_node_status(self, addr: str, status: Dict):
         url = f'http://{addr}/info'
-        result = requests.get(url)
+        result = requests.post(url, json={'funcName':"func"})
         status[addr] = result.json()
 
     # simulate dynamic node selecting
@@ -142,7 +142,6 @@ class MasterSPManager:
 
     # trigger a function that runs on remote machine
     def triggerFunctionRemote(self, state: WorkflowState, function_name: str, remote_addr: str, parameters:dict, noParentExecution = False) -> None:
-        print(f"[Workflow Manager] run remote func {function_name} on IP {remote_addr} with param {parameters}.]")
         state.lock.acquire()
         if not noParentExecution:
             state.parentExecuted[function_name] += 1

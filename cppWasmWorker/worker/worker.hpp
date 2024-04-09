@@ -18,7 +18,7 @@ class wasrModule{
   public:
 
     wasrModule(std::string wasmFilePath, std::string funcName, int return_size, int heapSize=stackSize){
-      int buffer_size = return_size + 3*sizeof(long long);
+      int buffer_size = return_size + 4*sizeof(long long);
       resultBuffer = new uint8_t[buffer_size];
       printf("buffer_size  %d, heap_size %d\n",buffer_size,heapSize );
       memset(resultBuffer, 1, buffer_size);
