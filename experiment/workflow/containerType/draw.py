@@ -4,7 +4,7 @@ import pandas as pd
 
 # 假设 data 是通过 pd.read_csv('/path/to/your/data_transfer(ms).csv') 读取的DataFrame
 # 这里是从CSV文件中读取数据的代码示例
-file_path = '/home/ash/wasm/wasm-serverless/experiment/result/containerType/wordcount.csv'
+file_path = '/home/ash/wasm/wasm-serverless/experiment/result/containerType/workflow_result.csv'
 data = pd.read_csv(file_path)
 
 mean_delay = data.groupby('container').mean()

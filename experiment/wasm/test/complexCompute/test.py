@@ -54,11 +54,12 @@ def changeWorkerType(funcName, workerType):
         yaml.dump(stream=f, data=yamlData)
 
 def getRunTime(data, mode):
-    if mode == 'docker':
-        dataLis = data['result'].split()
-        return float(dataLis[1])
-    else:
-        return data['runtime']
+    return data['runtime']
+    # if mode == 'docker':
+    #     dataLis = data['result'].split()
+    #     return float(dataLis[1])
+    # else:
+    #     return data['runtime']
 
     
 def testCompute(testTime):

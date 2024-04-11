@@ -1,4 +1,4 @@
-containerType: docker
+containerType: wasm
 expireTime: 1000
 imageName: binarytree
 input:

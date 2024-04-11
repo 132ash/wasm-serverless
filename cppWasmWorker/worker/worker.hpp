@@ -2,7 +2,7 @@
 
 // std::string wasmTestFilePath = "/home/ash/wasm/wasm-serverless/worker/wasmFunctions/sum.wasm";
 
-uint32 stackSize = 1024 * 1024 * 50; //50MB
+uint32 stackSize = 8192; //
 // int heapSize = 1024 * 1024 * 50; //50MB
 
 class wasrModule{

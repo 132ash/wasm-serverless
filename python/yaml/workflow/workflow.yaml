@@ -1,101 +1,89 @@
 functions:
-- name: cal
-  source: cal
-  scale: 3
-  runtime: 0.004914760589599609
+- container: docker
+  name: cal
   next:
-    type: PASS
-    size: 12
     funcs:
-      - switch1
-      - times2
-- name: divide2
+    - switch1
+    - times2
+    size: 12
+    type: PASS
+  runtime: 0.004914760589599609
+  scale: 3
+  source: cal
+- container: docker
+  name: divide2
+  next:
+    funcs:
+    - sum
+    size: 4
+    type: PASS
+  runtime: 0.0055408477783203125
   scale: 3
   source: divide2
-  runtime: 0.0055408477783203125
+- container: docker
+  name: times2
   next:
-    type: PASS
-    size: 4
     funcs:
-      - sum
-- name: times2
-  source: times2
-  scale: 3
+    - sum
+    size: 4
+    type: PASS
   runtime: 0.012680768966674805
+  scale: 3
+  source: times2
+- container: docker
+  name: switch1
   next:
-    type: PASS
-    size: 4
+    conditions:
+    - subres < 0
+    - default
     funcs:
-      - sum
-- name: switch1
-  source: SWITCH
-  scale: 1
-  runtime: 5.030632019042969e-05
-  output:
-      - subres
-  next: 
+    - reverse
+    - sink
+    size: 4
     type: SWITCH
-    size: 4
-    conditions: 
-      - subres < 0
-      - default
-    funcs:
-      - reverse
-      - sink
-- name: reverse
-  source: reverse
-  scale: 3
-  runtime: 0.010341882705688477
-  next: 
-    type: PASS
-    size: 4
-    funcs:
-      - sink
-- name: sink
+  output:
+  - subres
+  runtime: 5.030632019042969e-05
+  scale: 1
   source: SWITCH
-  scale: 1
-  runtime: 8.821487426757812e-06
-  output:
-      - subres
-  next: 
-    type: SINK
-    size: 4
-    conditions: 
-      - default
+- container: docker
+  name: reverse
+  next:
     funcs:
-      - sum
-- name: sum
-  source: sum
-  scale: 3
-  runtime: 0.014055252075195312
-  next: 
+    - sink
+    size: 4
     type: PASS
-    size: 4
+  runtime: 0.010341882705688477
+  scale: 3
+  source: reverse
+- container: docker
+  name: sink
+  next:
+    conditions:
+    - default
     funcs:
-      - end
-- name: end
-  source: END
-  scale: 1
-  runtime: 3.337860107421875e-06
+    - sum
+    size: 4
+    type: SINK
   output:
-    - input: DEFAULT
-
-    # {('divide2',): '192.168.35.133:7000', 
-    # ('switch1',): '192.168.35.134:7000', 
-    # ('reverse',): '192.168.35.133:7000', 
-    # ('sink',): '192.168.35.133:7000', 
-    # ('cal', 'times2'): '192.168.35.133:7000', 
-    # ('sum', 'end'): '192.168.35.134:7000'}
-
-#  divide2---------------
-#                       +
-#  ------times2------->sum---> end
-#  |                    +
-#  |                    |                 
-#  |             |--->sink<---
-# cal-->switch1---           |
-#                |           |
-#                -------> reverse
-#
-
- 
+  - subres
+  runtime: 8.821487426757812e-06
+  scale: 1
+  source: SWITCH
+- container: docker
+  name: sum
+  next:
+    funcs:
+    - end
+    size: 4
+    type: PASS
+  runtime: 0.014055252075195312
+  scale: 3
+  source: sum
+- container: docker
+  name: end
+  output:
+  - input: DEFAULT
+  runtime: 3.337860107421875e-06
+  scale: 1
+  source: END

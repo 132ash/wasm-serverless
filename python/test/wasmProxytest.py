@@ -18,11 +18,11 @@ with open(f"/home/ash/wasm/wasm-serverless/python/setupScripts/text/{FILE_NAME}"
 # funcNames = ['count']
 # param = json.dumps({'slice':slice}) + '\n'
 
-# funcName = 'spectral_norm'
-# param = json.dumps({'number':5500}) + '\n'
+funcName = 'spectral_norm'
+param = json.dumps({'number':50}) + '\n'
 
-funcName = 'string_fetch'
-param = json.dumps({'size_DB':"100MB"}) + '\n'
+# funcName = 'string_fetch'
+# param = json.dumps({'size_DB':"100MB"}) + '\n'
 
 funcNames = [funcName]
 # param = json.dumps({'slice':"world"}) + '\n'

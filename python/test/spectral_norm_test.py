@@ -1,17 +1,14 @@
 import requests
 
-ip = 'http://127.0.0.1:7000/'
+ip = 'http://192.168.35.132:7000/'
 
 requestAddr = ip + "request"
 createAddr = ip + 'create'
 deleteAddr = ip + 'delete'
 infoAddr = ip + 'info'
 funcNames = ['spectral_norm']
-triggerData = {'spectral_norm': {"funcName":"spectral_norm", "parameters":{"arg1":1, 'arg2':2}},
-               'cut':  {"funcName":"cut", "parameters":{"text_DB":FILE_NAME, 'sliceNum':3}},
-               'merge':  {"funcName":"merge", "parameters":{"countRes":[{'hello':1, 'world':1}, {'the':1}, {'world':1}]}}
-               }
-
+triggerData = {'spectral_norm': {"funcName":"spectral_norm", "parameters":{"number":10}},
+            }
 def testCreateAllFunc(funcNames):
     req = {"funcNames":funcNames}
     res = requests.post(createAddr, json=req)
@@ -33,6 +30,6 @@ def getInfo(funcName):
     res = requests.post(infoAddr, json=req)
     print(res.json())
 
-testCreateAllFunc(['merge'])
-res = testRunAllFunc(['merge'])
+testCreateAllFunc(funcNames)
+res = testRunAllFunc(funcNames)
 print(res)

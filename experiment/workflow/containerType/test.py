@@ -12,12 +12,16 @@ gatewayAddr = ':'.join([config.HOST_IP, config.GATEWAY_PORT])
 workflowCreateAddr = '/'.join([gatewayAddr, "workflow/create"])
 workflowDeleteAddr = '/'.join([gatewayAddr, "workflow/delete"])
 workflowRunAddr = '/'.join([gatewayAddr, "workflow/run"])
-FORKFLOW_LIST = ["wordcount"]
+FORKFLOW_LIST = ["workflow"]
 FILE_NAME = "pg-being_ernest.txt"
 FILE_NAME_TEST = "test.txt"
-parameters = {"wordcount":{"workflowName":"wordcount", "parameters":{"cut":{"text_DB":FILE_NAME, "sliceNum":10}}}}
+parameters = {
+    "wordcount":{"workflowName":"wordcount", "parameters":{"cut":{"text_DB":FILE_NAME, "sliceNum":10}}},
+    "workflow": {"workflowName":"workflow", "parameters":{"cal":{"arg1":2, "arg2":4},  "divide2":{"div":2.5}}}                       
+            }
 
 
+    
 def workflowCreate(name):
     data = {"workflowName": name}
     res = requests.post(workflowCreateAddr, json=data)
@@ -37,11 +41,16 @@ def changeWorkerType(workflowName, funcName, workerType):
         yamlData = yaml.load(f.read(), Loader=yaml.FullLoader)
     for i in range(len(yamlData["functions"])):
         func = yamlData['functions'][i]
-        if func['name'] == funcName:
+        if funcName:
+            if func['name'] == funcName:
+                yamlData['functions'][i]["container"] = workerType
+                with open(filename, 'w') as f:
+                    yaml.dump(stream=f, data=yamlData)
+                break
+        else:
             yamlData['functions'][i]["container"] = workerType
-            with open(filename, 'w') as f:
-                yaml.dump(stream=f, data=yamlData)
-            break
+    with open(filename, 'w') as f:
+        yaml.dump(stream=f, data=yamlData)
 
 def colde2eTime(workflowName, testTime):
     colde2etimes = []
@@ -74,7 +83,10 @@ def testContainerType(testTime):
     print("---------------------CONTAINER TYPE COST-----------------------------")
     for container in containers:
         for workflow in FORKFLOW_LIST:
-            changeWorkerType(workflow, 'count', container)
+            if workflow == "wordcount":
+                changeWorkerType(workflow, 'count', container)
+            else:
+                changeWorkerType(workflow, '', container)
             e2eTime[workflow][container] = {}
             for startType in timeFunc.keys():
                 print(f"Testing {container} {startType}.")

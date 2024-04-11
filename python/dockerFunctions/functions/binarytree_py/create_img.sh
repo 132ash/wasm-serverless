@@ -1,0 +1,1 @@
+docker build --no-cache -t binarytree_py /home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/binarytree_py

@@ -3,24 +3,20 @@ import signal
 import sys
 import time
 import psutil
-import chardet
 import json
 import gevent
 import struct
-from functionInfo import FunctionInfo
-from requests.adapters import HTTPAdapter
 import requests
+import threading
 import base64
-
-
-sys.path.append('./config')
-sys.path.append('./workflow')
-import config
+import info
 import subprocess
 
+DOCKER_FILE_PATH = "/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/dockerMemusage.txt"
+
 base_url = 'http://127.0.0.1:{}/{}'
-connection_pool_size = 500
-proxyPath = config.WASMPROXYPATH
+
+proxyPath = "/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/wasmProxy.py"
 
 # def preexec_function():
 #     # 将子进程的进程组 ID 设置为其自身的 PID
@@ -28,26 +24,22 @@ proxyPath = config.WASMPROXYPATH
 
 
 
-class FunctionWorker:
-    def __init__(self, info:FunctionInfo, port, type, wasmParam, dockerParam):
+class Container:
+    def __init__(self, funcName, port, type, client):
         self.type = type
-        self.info = info
-        self.funcName = info.name
+        self.funcName = funcName
         self.port = port
+        self.client = client
         if self.type == 'wasm':
-            self.worker = wasmWorker(info.name, info, port, wasmParam['wasmCodePath'],  wasmParam['outputSize'],  wasmParam['heapSize'])
+            self.worker = wasmWorker(funcName, port, info.wasmPath[funcName], info.outPutSize)
         elif self.type == 'docker':
-            self.worker = dockerWorker(info.name, dockerParam['client'], dockerParam['imageName'], port)
-        self.lastTriggeredTime = time.time()
+            self.worker = dockerWorker(funcName, client, info.imageName[funcName], port)
         
     def startWorker(self):
-        self.lastTriggeredTime = time.time()
         self.worker.startWorker()
         
     def run(self,param):
-        start = time.time()
         res = self.worker.run(param)
-        end = time.time()
         self.lastTriggeredTime = time.time()
         return res
         # print("run function {}. param:{}".format(self.funcName, param))
@@ -56,15 +48,18 @@ class FunctionWorker:
         # print(f"{self.funcName}'s worker delete. pid:{self.workerProcess}")
         self.worker.destroy()
 
+    def writeMaxMem(self):
+        if self.type == 'docker':
+            self.worker.writeMaxMem()
+
 
 class wasmWorker:
-    def __init__(self, funcName, info:FunctionInfo, port, wasmCodePath='', outputSize=0, heapSize=1024*1024*10):
+    def __init__(self, funcName, port, wasmCodePath='', outputSize=0, heapSize = 1024*1024*10):
         self.workerProcess = None
-        self.info = info
         self.funcName = funcName
         self.wasmCodePath = wasmCodePath
-        self.outputSize = outputSize
         self.heapSize = heapSize
+        self.outputSize = outputSize
         self.lastTriggeredTime = 0
         self.port = port
 
@@ -91,7 +86,6 @@ class wasmWorker:
     def run(self,param):
         data = self.constructInput(param)
         postProxyTime = time.time()
-        print(data)
         r = requests.post(base_url.format(self.port, 'run'), json={"parameters":data})
         res, wasmTimeStamp = self.constructOutput(base64.b64decode(r.json()["out"]))
         res["postProxyTime"] = postProxyTime
@@ -113,7 +107,7 @@ class wasmWorker:
     def constructInput(self, data):
         param = {}
         prefix = 1
-        for name, _ in self.info.input.items():
+        for name, _ in info.input[self.funcName].items():
             param[str(prefix)+name] = data[name]
             prefix += 1
         return json.dumps(param) + '\n'
@@ -122,18 +116,12 @@ class wasmWorker:
         res = {}
         wasmTimeStamps = []
         bitsIdx = 0
-        for name, type in self.info.output.items():
+        for name, type in info.output[self.funcName].items():
             if type == 'string':
                 start = bitsIdx 
                 while uintBits[bitsIdx] != 0:
                     bitsIdx += 1
-                # encoding = chardet.detect(uintBits[start:bitsIdx])['encoding']
-                # print(f"encoding: {encoding}")
                 res[name] = uintBits[start:bitsIdx].decode("ISO-8859-1")
-                # except:
-                #     print(uintBits[18780:18798])
-                #     print(uintBits[18799:18810])
-                #     input("wrong decode.")
                 bitsIdx += 1
             elif type == 'long long':
                 chunk = uintBits[bitsIdx:bitsIdx+8]
@@ -167,6 +155,7 @@ class dockerWorker:
         self.port = port
         self.attr = 'exec'
         self.funcName = funcName
+        self.maxMem = 0
         self.lasttime = -1
 
     def startWorker(self):
@@ -189,14 +178,42 @@ class dockerWorker:
                 pass
             gevent.sleep(0.005)
 
+    def send_request(self, data, response_list):
+        """
+        发送POST请求的线程函数。
+        """
+        response = requests.post(base_url.format(self.port, 'run'), json=data)
+        response_list.append(response.json())  # 存储响应数据供主线程访问
+
+    def monitor_container_memory(self, request_thread):
+        """
+        监控Docker容器的最大内存使用量。
+        """
+        max_memory_usage = 0
+        while True:
+            stats = self.container.stats(stream=False)
+            current_memory_usage = stats['memory_stats']['usage']
+            max_memory_usage = max(max_memory_usage, current_memory_usage)
+            
+            self.container.reload()  # 刷新容器状态
+            if not request_thread.is_alive():
+                break  # 如果容器不再运行，终止监控
+            
+            time.sleep(0.01)  # 短暂休眠以减少CPU占用
+        self.maxMem = max(self.maxMem, max_memory_usage)
+        # return max_memory_usage
+
     # send a request to container and wait for result
     def run(self, data = {}):
-        postProxyTime = time.time()
-        r = requests.post(base_url.format(self.port, 'run'), json=data)
-        self.lasttime = time.time()
-        res = r.json()
-        res['postProxyTime'] = postProxyTime
-        return res
+        response_list = []
+        request_thread = threading.Thread(target=self.send_request, args=(data, response_list))
+        request_thread.start() 
+        self.monitor_container_memory(request_thread)
+        return response_list[0]
+    
+    def writeMaxMem(self):
+        with open(DOCKER_FILE_PATH, 'a') as f:
+            f.write(self.funcName+":"+str(self.maxMem)+'\n')
 
     # initialize the container
     def init(self):
