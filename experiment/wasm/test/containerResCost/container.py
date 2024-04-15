@@ -12,7 +12,8 @@ import base64
 import info
 import subprocess
 
-DOCKER_FILE_PATH = "/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/dockerMemusage.txt"
+DOCKER_FILE_PATH = info.DOCKER_FILE_PATH
+WASM_FILE_PATH = info.WASM_FILE_PATH
 
 base_url = 'http://127.0.0.1:{}/{}'
 
@@ -33,7 +34,10 @@ class Container:
         if self.type == 'wasm':
             self.worker = wasmWorker(funcName, port, info.wasmPath[funcName], info.outPutSize)
         elif self.type == 'docker':
-            self.worker = dockerWorker(funcName, client, info.imageName[funcName], port)
+            if info.dockerFunctype != 'python':
+                self.worker = dockerWorker(funcName, client, info.imageName[funcName], port)
+            else:
+                self.worker = dockerWorker(funcName, client, info.imageName_py[funcName], port)
         
     def startWorker(self):
         self.worker.startWorker()
@@ -49,8 +53,7 @@ class Container:
         self.worker.destroy()
 
     def writeMaxMem(self):
-        if self.type == 'docker':
-            self.worker.writeMaxMem()
+        self.worker.writeMaxMem()
 
 
 class wasmWorker:
@@ -62,6 +65,7 @@ class wasmWorker:
         self.outputSize = outputSize
         self.lastTriggeredTime = 0
         self.port = port
+        self.maxMem = 0
 
     def startWorker(self):
         self.workerProcess = subprocess.Popen(["python", proxyPath, str(self.port)],stdout=subprocess.DEVNULL,
@@ -82,19 +86,57 @@ class wasmWorker:
             except Exception:
                 pass
             gevent.sleep(0.005)
-        
-    def run(self,param):
+
+    def monitor_container_memory(self):
+        """
+        监控Wasm容器的最大内存使用量。
+        """
+        max_memory_usage = 0
+        start = time.time()
+        while True:  
+            total_memory = 0     
+            try:
+                p = psutil.Process(self.workerProcess.pid)
+                # 计算主进程的内存使用
+                # total_memory += p.memory_info().rss / (1024 * 1024)
+                # print(total_memory)
+                for child in p.children(recursive=True):
+                    print(p)
+                    try:
+                        total_memory += child.memory_info().rss / (1024 * 1024)
+                    except (psutil.NoSuchProcess, psutil.AccessDenied):
+                        pass
+                max_memory_usage = max(max_memory_usage, total_memory)
+                print("all process.")
+            except (psutil.NoSuchProcess, psutil.AccessDenied):
+                break
+            if time.time() - start >= 6:
+                break
+            time.sleep(0.01)  # 短暂休眠以减少CPU占用
+        self.maxMem = max(self.maxMem, max_memory_usage)
+        # return max_memory_usage
+
+    # send a request to container and wait for result
+    def run(self, data = {}):
+        response_list = []
+        request_thread = threading.Thread(target=self.send_request, args=(data, response_list))
+        request_thread.start() 
+        self.monitor_container_memory()
+        return response_list[0]
+    
+    def writeMaxMem(self):
+        with open(WASM_FILE_PATH, 'a') as f:
+            f.write(self.funcName+":"+str(self.maxMem)+'\n')
+
+    def send_request(self, param, response_list):
         data = self.constructInput(param)
         postProxyTime = time.time()
         r = requests.post(base_url.format(self.port, 'run'), json={"parameters":data})
         res, wasmTimeStamp = self.constructOutput(base64.b64decode(r.json()["out"]))
         res["postProxyTime"] = postProxyTime
         res["wasmTimeStamp"] = wasmTimeStamp
-        # print(f"{self.funcName}'s worker {self.workerProcess.pid} exists: {psutil.pid_exists(self.workerProcess.pid)}.")
-        return res
-        
-        # print("run function {}. param:{}".format(self.funcName, param))
-    
+        response_list.append(res)
+ 
     def destroy(self):
         # print(f"delete {self.funcName}'s worker. pid:{self.workerProcess.pid}")
         pid = self.workerProcess.pid
@@ -190,6 +232,7 @@ class dockerWorker:
         监控Docker容器的最大内存使用量。
         """
         max_memory_usage = 0
+        start = time.time()
         while True:
             stats = self.container.stats(stream=False)
             current_memory_usage = stats['memory_stats']['usage']
@@ -200,6 +243,8 @@ class dockerWorker:
                 break  # 如果容器不再运行，终止监控
             
             time.sleep(0.01)  # 短暂休眠以减少CPU占用
+            if time.time() - start >= 6:
+                break
         self.maxMem = max(self.maxMem, max_memory_usage)
         # return max_memory_usage
 

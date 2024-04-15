@@ -40,10 +40,10 @@ def runFunction(funcName, param, runtimes, type):
     container = containerList[funcName][0]
     for _ in range(runtimes):
         print(container.run(param))
-    if type == 'docker':
-        container.writeMaxMem()
+    container.writeMaxMem()
 
 if __name__ == "__main__":
+    print("running.")
     funcName = sys.argv[1]
     mode = sys.argv[2]
     runtimes = int(sys.argv[3])
@@ -51,3 +51,4 @@ if __name__ == "__main__":
     flush()
     createContainer(funcName, mode)
     runFunction(funcName, param, runtimes,mode)
+    print("finished.")

@@ -26,6 +26,7 @@ int main() {
     long long inWasmTime=2;
     long long wrapStringTime=2;
     const char* message = "ready\n"; 
+    heapSize = 65536;
     wasrModule wasmRuntime(wasmCodePath, funcName, returnSize, heapSize);
     while(true) {
         jsonParamStr.clear();
