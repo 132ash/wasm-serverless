@@ -13,7 +13,12 @@ output = {
         "spectral_norm":{"res":"double", "runtime":"double"}
 }
 
-dockerFunctype = "python" # c python
+dockerFunctype = "c" # c python
+
+wasmMode = {
+            "binarytree":"JIT",
+            "spectral_norm":"JIT"
+}
 
 imageName = {
             "binarytree":"binarytree",
@@ -26,14 +31,18 @@ imageName_py = {
 }
 
 param = {
-        "binarytree":{"number":14},
+        "binarytree":{"number":10},
         "spectral_norm":{"number":200}
 }
 
-DOCKER_FILE_PATH = "/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/dockerMemUsage.txt"
-WASM_FILE_PATH = "/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/wasmMemUsage.txt"
+resFiles = {
+    "docker":"/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/dockerMemUsage.txt",
+    "wasm interpreter" : "/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/wasmINTERPmem.txt",
+    "wasm jit" : "/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/wasmJITmem.txt"
 
-# param = {
+}
+
+
 #         "binarytree":{"number":5},
 #         "spectral_norm":{"number":50}
 # }

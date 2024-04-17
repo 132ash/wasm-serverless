@@ -35,7 +35,7 @@ class FunctionWorker:
         self.funcName = info.name
         self.port = port
         if self.type == 'wasm':
-            self.worker = wasmWorker(info.name, info, port, wasmParam['wasmCodePath'],  wasmParam['outputSize'],  wasmParam['heapSize'])
+            self.worker = wasmWorker(info.name, info, port, wasmParam['wasmCodePath'],  wasmParam['outputSize'],  wasmParam['heapSize'], wasmParam['wasmMode'])
         elif self.type == 'docker':
             self.worker = dockerWorker(info.name, dockerParam['client'], dockerParam['imageName'], port)
         self.lastTriggeredTime = time.time()
@@ -58,9 +58,10 @@ class FunctionWorker:
 
 
 class wasmWorker:
-    def __init__(self, funcName, info:FunctionInfo, port, wasmCodePath='', outputSize=0, heapSize=1024*1024*10):
+    def __init__(self, funcName, info:FunctionInfo, port, wasmCodePath='', outputSize=0, heapSize=1024*1024*10, wasmMode="INTERP"):
         self.workerProcess = None
         self.info = info
+        self.wasmMode = wasmMode
         self.funcName = funcName
         self.wasmCodePath = wasmCodePath
         self.outputSize = outputSize
@@ -69,7 +70,7 @@ class wasmWorker:
         self.port = port
 
     def startWorker(self):
-        self.workerProcess = subprocess.Popen(["python", proxyPath, str(self.port)],stdout=subprocess.DEVNULL,
+        self.workerProcess = subprocess.Popen(["python", proxyPath, str(self.port), self.wasmMode],stdout=subprocess.DEVNULL,
                            stderr=subprocess.DEVNULL, start_new_session=True)
         self.waitStart()
         initParam = {"wasmCodePath":self.wasmCodePath,'funcName':self.funcName,'outputSize':self.outputSize, "heapSize":self.heapSize}

@@ -6,7 +6,8 @@ sys.path.append('./config')
 import config
 import base64
 
-workerPath = config.WORKERPATH
+mode = ""
+workerPath = {"INTERP":config.INTERPWORKERPATH, "JIT":config.JITPWORKERPATH}
 PIPE_WRITE_FD = config.PIPE_WRITE_FD
 STATE_WRITE_FD = config.STATE_WRITE_FD 
 # db_server = couchdb.Server(couchdb_url)
@@ -52,7 +53,7 @@ class Runner:
             os.close(p1[1]) 
             os.close(p2[0]) 
             os.close(p3[0])
-            os.execvp(workerPath, [workerPath])
+            os.execvp(workerPath[mode], [workerPath[mode]])
             print("error occured.")
             exit()
 
@@ -126,10 +127,11 @@ def run():
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Usage: python proxy.py <port>")
+    if len(sys.argv) != 3:
+        print("Usage: python proxy.py <port> <wasmMode>")
         sys.exit(1)
     
     port = int(sys.argv[1])
-    print(f"wasm proxy started on {port}.")
+    mode = sys.argv[2]
+    print(f"wasm proxy started on {port} with pode {mode}.")
     proxy.run(debug=False, port=port)

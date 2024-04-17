@@ -1,0 +1,2 @@
+binarytree:17.72265625
+spectral_norm:17.91015625

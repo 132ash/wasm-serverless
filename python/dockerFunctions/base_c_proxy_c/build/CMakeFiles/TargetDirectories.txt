@@ -1,0 +1,3 @@
+/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c/build/CMakeFiles/proxy.dir
+/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c/build/CMakeFiles/edit_cache.dir
+/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c/build/CMakeFiles/rebuild_cache.dir

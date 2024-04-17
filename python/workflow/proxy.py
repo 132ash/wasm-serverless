@@ -88,11 +88,13 @@ def create():
     if not master: # not create functon on master in mastersp.
         funcNames = data["funcNames"]
         workerTypes = data.get("workerTypes", [])
+        wasmModes = data.get("wasmModes", [])
         heapSize = data.get("heapSize", 1024 * 1024 * 10)
         for i, funcName in enumerate(funcNames):
             if len(workerTypes) != 0:
                 workerType = workerTypes[i]
-            msgs[funcName]=functionManager.createFunction(funcName, workerType, heapSize)
+                wasmMode = wasmModes[i]
+            msgs[funcName]=functionManager.createFunction(funcName, workerType, heapSize, wasmMode)
     return json.dumps({'status': 'ok', 'msg':msgs})
 
 @app.route('/clear', methods = ['GET'])

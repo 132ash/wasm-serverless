@@ -1,4 +1,4 @@
-containerType: wasm
+containerType: docker
 expireTime: 1000
 imageName: binarytree
 input:
@@ -12,3 +12,4 @@ output:
 - name: runtime
   type: double
 wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/binarytree.wasm
+wasmMode: JIT

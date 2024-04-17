@@ -1,7 +1,8 @@
 PIPE_WRITE_FD  = 10713
 STATE_WRITE_FD = 10714
 COUCH_DB_URL = 'http://132ash:ash020620@192.168.35.132:5984'
-WORKERPATH = "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/worker"
+INTERPWORKERPATH = "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker_INTERP/build/worker"
+JITPWORKERPATH = "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker_JIT/build/worker"
 WORKFLOWYAMLPATH = "/home/ash/wasm/wasm-serverless/python/yaml/workflow"
 SINGLEFUNCYAMLPATH = "/home/ash/wasm/wasm-serverless/python/yaml/singleFunction"
 WASMFUNCTIONPATH = "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/wasmFunctions"

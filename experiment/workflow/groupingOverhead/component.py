@@ -21,12 +21,13 @@ class Function:
         return self.name
 
 class Workflow:
-    def __init__(self, workflowName, startFunctions, nodes: Dict[str, Function], total, parentCnt):
+    def __init__(self, workflowName, startFunctions, nodes: Dict[str, Function], total, parentCnt,wasmMode):
         self.workflowName:str = workflowName
         self.startFunctions = startFunctions
         self.nodes = nodes  # dict: {name: function()}
         self.total = total
         self.parent_cnt = parentCnt  # dict: {name: parent_cnt}
+        self.wasmMode = wasmMode
 
     def __str__(self):
         workflowName = f"workflow name:{self.workflowName}" 

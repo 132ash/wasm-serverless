@@ -46,29 +46,51 @@ def flushAndPreWarm(funcName):
     RunFunc(funcName, 1)
 
 def changeWorkerType(funcName, workerType):
-    filename = '/'.join([FUNCYAMLPATH, f'{funcName}.yaml'])
+    filename = '/'.join([config.FUNCYAMLPATH, f'{funcName}.yaml'])
     with open(filename, 'r') as f:
         yamlData = yaml.load(f.read(), Loader=yaml.FullLoader)
     yamlData['containerType'] = workerType
     with open(filename, 'w') as f:
         yaml.dump(stream=f, data=yamlData)
 
+def changeWasmMode(funcName, mode):
+    filename = '/'.join([config.FUNCYAMLPATH, f'{funcName}.yaml'])
+    with open(filename, 'r') as f:
+        yamlData = yaml.load(f.read(), Loader=yaml.FullLoader)
+    yamlData['wasmMode'] = mode
+    with open(filename, 'w') as f:
+        yaml.dump(stream=f, data=yamlData)
+
 def getRunTime(data, mode):
-    return data['runtime']
-    # if mode == 'docker':
-    #     dataLis = data['result'].split()
-    #     return float(dataLis[1])
-    # else:
-    #     return data['runtime']
+    if mode == 'docker':
+        dataLis = data['result'].split()
+        return float(dataLis[1])
+    else:
+        return data['runtime']
 
     
 def testCompute(testTime):
-    ComputeLatencies = {func:{mode:[]for mode in ['wasm', 'docker'] } for func in funcNames}
+    ComputeLatencies = {func:{mode:[]for mode in ['wasm interpreter', 'wasm jit', 'docker'] } for func in funcNames}
     print("---------------------COMPLEX COMPUTE-----------------------------")
-    print("TESTING WASM CONTAINER.")
-    mode = 'wasm'
+    print("TESTING WASM interpreter.")
+    mode = 'wasm interpreter'
     for func in funcNames:
-        changeWorkerType(func, mode)
+        changeWorkerType(func, 'wasm')
+        changeWasmMode(func, 'INTERP')
+        flushAndPreWarm(func)
+        for param in paramList[func]:
+            totalLatency = 0
+            for i in range(testTime):
+                if (i+1) % max((testTime) // 10, 1) == 0:
+                    print(f"{mode} {func} with param {param} Test Step:{(i+1)}/{testTime}")
+                rawResult = RunFunc(func, param)['res']
+                runtime = getRunTime(rawResult, mode)
+                totalLatency += runtime
+            ComputeLatencies[func][mode].append(totalLatency/testTime)
+    print("TESTING WASM jit.")
+    mode = 'wasm jit'
+    for func in funcNames:
+        changeWasmMode(func, 'JIT')
         flushAndPreWarm(func)
         for param in paramList[func]:
             totalLatency = 0
@@ -82,7 +104,7 @@ def testCompute(testTime):
     print("TESTING DOCKER CONTAINER.")
     mode = 'docker'
     for func in funcNames:
-        changeWorkerType(func, mode)
+        changeWorkerType(func, 'docker')
         flushAndPreWarm(func)
         for param in paramList[func]:
             totalLatency = 0
@@ -97,7 +119,8 @@ def testCompute(testTime):
     for func, platforms in ComputeLatencies.items():
         df = pd.DataFrame({
             'Input': paramList[func],
-            'WASM': platforms['wasm'],
+            'WASM interpreter': platforms['wasm interpreter'],
+            'WASM jit': platforms['wasm jit'],
             'Docker': platforms['docker']
         })
         df.to_csv('/'.join([resdir,"complexCompute",f'{func}_performance.csv']), index=False)

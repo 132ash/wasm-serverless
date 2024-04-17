@@ -19,7 +19,10 @@ with open(f"/home/ash/wasm/wasm-serverless/python/setupScripts/text/{FILE_NAME}"
 # param = json.dumps({'slice':slice}) + '\n'
 
 funcName = 'spectral_norm'
-param = json.dumps({'number':50}) + '\n'
+param = json.dumps({'number':200}) + '\n'
+
+# funcName = 'binarytree'
+# param = json.dumps({'number':10}) + '\n'
 
 # funcName = 'string_fetch'
 # param = json.dumps({'size_DB':"100MB"}) + '\n'
@@ -36,6 +39,11 @@ triggerData = {"parameters":param}
 
 def testinit():
     r = requests.post(base_url.format('init'), json=initParam)
+    print(r.text)
+
+def testStatus():
+    r = requests.get(base_url.format('status'))
+    print(r.json())
 
 def testRun(n):
     t1 = time.time()
@@ -91,7 +99,7 @@ def constructOutput(uintBits):
         return res, timeStamps
 
 
-
+testStatus()
 testinit()
 testRun(1)
 # time.sleep(1)

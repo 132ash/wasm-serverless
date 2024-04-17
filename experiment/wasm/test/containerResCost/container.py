@@ -17,7 +17,10 @@ WASM_FILE_PATH = info.WASM_FILE_PATH
 
 base_url = 'http://127.0.0.1:{}/{}'
 
-proxyPath = "/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/wasmProxy.py"
+proxyPath = "/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/wasmProxy/build/wasmProxy" 
+
+
+"/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/wasmProxy/build/wasmProxy"
 
 # def preexec_function():
 #     # 将子进程的进程组 ID 设置为其自身的 PID
@@ -26,13 +29,13 @@ proxyPath = "/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCos
 
 
 class Container:
-    def __init__(self, funcName, port, type, client):
+    def __init__(self, funcName, port, type, client,wasmMode):
         self.type = type
         self.funcName = funcName
         self.port = port
         self.client = client
         if self.type == 'wasm':
-            self.worker = wasmWorker(funcName, port, info.wasmPath[funcName], info.outPutSize)
+            self.worker = wasmWorker(funcName, port, info.wasmPath[funcName], info.outPutSize, info.wasmMode)
         elif self.type == 'docker':
             if info.dockerFunctype != 'python':
                 self.worker = dockerWorker(funcName, client, info.imageName[funcName], port)
@@ -57,9 +60,10 @@ class Container:
 
 
 class wasmWorker:
-    def __init__(self, funcName, port, wasmCodePath='', outputSize=0, heapSize = 1024*1024*10):
+    def __init__(self, funcName, port, wasmCodePath='', outputSize=0, heapSize = 1024*1024*10, wasmMode="INTERP"):
         self.workerProcess = None
         self.funcName = funcName
+        self.wasmMode = wasmMode
         self.wasmCodePath = wasmCodePath
         self.heapSize = heapSize
         self.outputSize = outputSize
@@ -68,12 +72,14 @@ class wasmWorker:
         self.maxMem = 0
 
     def startWorker(self):
-        self.workerProcess = subprocess.Popen(["python", proxyPath, str(self.port)],stdout=subprocess.DEVNULL,
+        self.workerProcess = subprocess.Popen([proxyPath, str(self.port), self.wasmMode],stdout=subprocess.DEVNULL,
                            stderr=subprocess.DEVNULL, start_new_session=True)
+        # self.workerProcess = subprocess.Popen([proxyPath, str(self.port)])
+        
         self.waitStart()
         initParam = {"wasmCodePath":self.wasmCodePath,'funcName':self.funcName,'outputSize':self.outputSize, "heapSize":self.heapSize}
         r = requests.post(base_url.format(self.port, 'init'), json=initParam)
-        # print(f"{self.funcName}'s worker {self.workerProcess.pid} start on port {self.port}.")
+        print(f"{self.funcName}'s worker {self.workerProcess.pid} start on port {self.port}.")
         # # print(r.json())
         # return 
 
@@ -87,7 +93,7 @@ class wasmWorker:
                 pass
             gevent.sleep(0.005)
 
-    def monitor_container_memory(self):
+    def monitor_container_memory(self, response_list):
         """
         监控Wasm容器的最大内存使用量。
         """
@@ -98,19 +104,16 @@ class wasmWorker:
             try:
                 p = psutil.Process(self.workerProcess.pid)
                 # 计算主进程的内存使用
-                # total_memory += p.memory_info().rss / (1024 * 1024)
-                # print(total_memory)
+                total_memory += p.memory_info().rss / (1024 * 1024)
                 for child in p.children(recursive=True):
-                    print(p)
                     try:
                         total_memory += child.memory_info().rss / (1024 * 1024)
                     except (psutil.NoSuchProcess, psutil.AccessDenied):
                         pass
                 max_memory_usage = max(max_memory_usage, total_memory)
-                print("all process.")
             except (psutil.NoSuchProcess, psutil.AccessDenied):
                 break
-            if time.time() - start >= 6:
+            if len(response_list)!=0:
                 break
             time.sleep(0.01)  # 短暂休眠以减少CPU占用
         self.maxMem = max(self.maxMem, max_memory_usage)
@@ -121,7 +124,8 @@ class wasmWorker:
         response_list = []
         request_thread = threading.Thread(target=self.send_request, args=(data, response_list))
         request_thread.start() 
-        self.monitor_container_memory()
+        self.monitor_container_memory(response_list)
+        print(self.maxMem)
         return response_list[0]
     
     def writeMaxMem(self):
@@ -185,6 +189,7 @@ class wasmWorker:
             chunk = uintBits[bitsIdx:bitsIdx+8]
             wasmTimeStamps.append(int.from_bytes(chunk, 'little'))
             bitsIdx += 8
+        print(f"res:{res}")
         return res, wasmTimeStamps
 
 

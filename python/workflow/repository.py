@@ -31,14 +31,17 @@ class Repository:
         functions = []
         sources = {}
         containers = {}
+        wasmModes = {}
         for item in db:
             name = db[item]['function_name']
             source = db[item]['source']
             container = db[item]['container']
+            wasmMode = db[item]['wasmMode']
             functions.append(db[item]['function_name'])
             sources[name] = source
             containers[name] = container
-        return (functions, sources, containers)
+            wasmModes[name] =wasmMode
+        return (functions, sources, containers, wasmModes)
 
     def getStartFunctions(self, workflowName):
         dbName = workflowName + '_workflow_metadata'

@@ -45,11 +45,13 @@ class FunctionManager:
         if watch_container_num:
             gevent.spawn_later(watch_interval, self._watch_loop)
 
-    def createFunction(self,funcName,workerType='',heapSize=1024 * 1024 * 10):
+    def createFunction(self,funcName,workerType='',heapSize=1024 * 1024 * 10, wasmMode='INTERP'):
         if funcName not in self.functions:
             info = FunctionInfo(funcName)
             if workerType:
                info.containerType = workerType
+               info.wasmMode = wasmMode
+               info.wasmParam["wasmMode"] = wasmMode
             function = Function(info, self.client, self.portController, workerType, heapSize)
             self.functions[funcName] = function
             print(f"create func {funcName}, container type: {info.containerType}")
@@ -70,6 +72,7 @@ class FunctionManager:
             function.cleanWorker(force=True)
             self.functions.pop(funcName)
             for port in [0,1,2]:
+                os.system('docker rm -f $(docker ps -aq --filter label=dockerContainer)')
                 killProcessesOnPort(min_port+port)
 
     def _watch_loop(self):

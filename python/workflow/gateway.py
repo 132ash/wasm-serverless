@@ -22,22 +22,24 @@ app = Flask(__name__)
 repo = Repository()
 
 def getWorkflowRealFunctions(workflowName):
-    allFunctions, sources, containers = repo.getWorkflowFunctions(workflowName)
+    allFunctions, sources, containers, wasmModes = repo.getWorkflowFunctions(workflowName)
     trueFunctions = []
     workerTypes = []
+    wasmrunModes = []
     for func in  allFunctions:
         if sources[func] != 'SWITCH' and sources[func] != 'END':
             trueFunctions.append(func)
             workerTypes.append(containers[func])
-    return trueFunctions, workerTypes
+            wasmrunModes.append(wasmModes[func])
+    return trueFunctions, workerTypes, wasmrunModes
 
 
 def createOnWorker(workflowName):
-    trueFunctions, workerTypes = getWorkflowRealFunctions(workflowName)
+    trueFunctions, workerTypes, wasmrunModes = getWorkflowRealFunctions(workflowName)
     workerAddrs = repo.getAllWorkerAddrs(workflowName)
     for workerIP in workerAddrs:
         createUrl = 'http://{}/create'.format(workerIP)
-        data = {"funcNames" : trueFunctions, 'workflowName':workflowName, 'workerTypes':workerTypes}
+        data = {"funcNames" : trueFunctions, 'workflowName':workflowName, 'workerTypes':workerTypes, "wasmModes":wasmrunModes}
         requests.post(createUrl, json=data)
     if config.CONTROL_MODE == 'MasterSP': #Create workflowManager on master.
         createUrl = 'http://{}/create'.format(config.MASTER_HOST)

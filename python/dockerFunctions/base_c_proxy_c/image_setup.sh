@@ -1,0 +1,1 @@
+docker build --no-cache -t docker_base_c /home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c

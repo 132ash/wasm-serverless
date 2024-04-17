@@ -175,7 +175,7 @@ def getGroupingResult(workflow: component.Workflow, nodeInfo:dict):
         node = workflow.nodes[node_name]
         ip = group_ip[find_set(node_name, group_detail)]
         function_info = {'function_name': node.name, 'container':node.container, 'runtime': node.runtime, 'ip': ip, 'source':node.source,
-                         'parent_cnt': workflow.parent_cnt[node.name], 'conditions': node.conditions}
+                         'parent_cnt': workflow.parent_cnt[node.name], 'conditions': node.conditions, 'wasmMode':workflow.wasmMode}
         function_info['next'] = node.next
         function_info['output'] = node.output
         function_info['traverse'] = node.traverse

@@ -14,6 +14,7 @@ class FunctionInfo:
         self.maxWorkers = funcYamlData['maxWorkers']
         self.expireTime = funcYamlData['expireTime']
         self.imageName = funcYamlData.get('imageName', '')
+        self.wasmMode = funcYamlData.get('wasmMode', '')
         self.containerType = funcYamlData['containerType']
         self.input = {}
         self.output = {}
@@ -31,5 +32,5 @@ class FunctionInfo:
                 self.outputSize += 4
             self.output[param['name']] = param['type']
         self.outputSize += self.maxOutputStrSize * outputStrNum
-        self.wasmParam = {"wasmCodePath":self.wasmCodePath, 'outputSize':self.outputSize}
+        self.wasmParam = {"wasmCodePath":self.wasmCodePath, 'outputSize':self.outputSize, "wasmMode":self.wasmMode}
         self.dockerParam = {'imageName': self.imageName}

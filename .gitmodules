@@ -1,0 +1,3 @@
+[submodule "cppWasmWorker/worker_JIT/build/_deps/asmjit-src"]
+	path = cppWasmWorker/worker_JIT/build/_deps/asmjit-src
+	url = ./asmjit-src

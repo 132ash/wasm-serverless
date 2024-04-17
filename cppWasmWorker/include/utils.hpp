@@ -11,7 +11,7 @@
 #include <cpr/cpr.h>
 #include <wasm_exec_env.h>
 #include <wasm_export.h>
-#include "../include/json.hpp"
+#include "json.hpp"
 
 using json = nlohmann::json;
 

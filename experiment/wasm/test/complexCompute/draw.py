@@ -10,11 +10,10 @@ import requests
 resdir = config.RESULT_DIR
 
 # 去除未命名的索引列
-
 # 假设 data 是通过 pd.read_csv('/path/to/your/data_transfer(ms).csv') 读取的DataFrame
 # 这里是从CSV文件中读取数据的代码示例
 funcNames = ['spectral_norm', 'binarytree']
-filePath = {func:'/'.join([resdir,"complexCompute",f'{func}_performance_py.csv']) for func in funcNames}
+filePath = {func:'/'.join([resdir,"complexCompute_JIT",f'{func}_performance.csv']) for func in funcNames}
 param_list = {
                'spectral_norm':[10 * i for i in range(1,21)],
                'binarytree': [i for i in range(1,11)]

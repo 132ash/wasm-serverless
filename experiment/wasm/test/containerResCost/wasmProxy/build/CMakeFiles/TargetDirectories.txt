@@ -1,0 +1,3 @@
+/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/wasmProxy/build/CMakeFiles/wasmProxy.dir
+/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/wasmProxy/build/CMakeFiles/edit_cache.dir
+/home/ash/wasm/wasm-serverless/experiment/wasm/test/containerResCost/wasmProxy/build/CMakeFiles/rebuild_cache.dir

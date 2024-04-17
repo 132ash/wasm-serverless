@@ -1,5 +1,5 @@
 functions:
-- container: docker
+- container: wasm
   name: cal
   next:
     funcs:
@@ -10,7 +10,7 @@ functions:
   runtime: 0.004914760589599609
   scale: 3
   source: cal
-- container: docker
+- container: wasm
   name: divide2
   next:
     funcs:
@@ -20,7 +20,7 @@ functions:
   runtime: 0.0055408477783203125
   scale: 3
   source: divide2
-- container: docker
+- container: wasm
   name: times2
   next:
     funcs:
@@ -30,7 +30,7 @@ functions:
   runtime: 0.012680768966674805
   scale: 3
   source: times2
-- container: docker
+- container: wasm
   name: switch1
   next:
     conditions:
@@ -46,7 +46,7 @@ functions:
   runtime: 5.030632019042969e-05
   scale: 1
   source: SWITCH
-- container: docker
+- container: wasm
   name: reverse
   next:
     funcs:
@@ -56,7 +56,7 @@ functions:
   runtime: 0.010341882705688477
   scale: 3
   source: reverse
-- container: docker
+- container: wasm
   name: sink
   next:
     conditions:
@@ -70,7 +70,7 @@ functions:
   runtime: 8.821487426757812e-06
   scale: 1
   source: SWITCH
-- container: docker
+- container: wasm
   name: sum
   next:
     funcs:
@@ -80,10 +80,11 @@ functions:
   runtime: 0.014055252075195312
   scale: 3
   source: sum
-- container: docker
+- container: wasm
   name: end
   output:
   - input: DEFAULT
   runtime: 3.337860107421875e-06
   scale: 1
   source: END
+wasmMode: INTERP

@@ -7,7 +7,7 @@ fi
 for func_name in "$@"; do
     /opt/wasi-sdk/bin/clang     \
         -Wl,--export=${func_name}\
-        -z stack-size=8192 -Wl,--initial-memory=65536,--max-memory=1310720000 \
+        -z stack-size=65536 -Wl,--initial-memory=131072,--max-memory=1310720000 \
         -Wl,--export=malloc -Wl,--export=free\
         -Wl,--allow-undefined \
         -o ${func_name}.wasm ${func_name}.c ../utils/cJSON.c ../utils/wasmUtils.c

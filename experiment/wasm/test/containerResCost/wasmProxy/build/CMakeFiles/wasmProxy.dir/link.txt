@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/wasmProxy.dir/wasmProxy.cpp.o -o wasmProxy  -lpthread

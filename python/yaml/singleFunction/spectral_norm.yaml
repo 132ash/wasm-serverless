@@ -12,3 +12,4 @@ output:
 - name: runtime
   type: double
 wasmCodePath: /home/ash/wasm/wasm-serverless/python/wasmFunctions/spectral_norm.wasm
+wasmMode: JIT

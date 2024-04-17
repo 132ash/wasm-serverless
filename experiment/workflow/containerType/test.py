@@ -52,6 +52,15 @@ def changeWorkerType(workflowName, funcName, workerType):
     with open(filename, 'w') as f:
         yaml.dump(stream=f, data=yamlData)
 
+def changeWasmMode(workflowName, wasmMode):
+    filename = '/'.join([yamlDirPath, f'{workflowName}.yaml'])
+    with open(filename, 'r') as f:
+        yamlData = yaml.load(f.read(), Loader=yaml.FullLoader)
+   
+    yamlData['wasmMode'] = wasmMode
+    with open(filename, 'w') as f:
+        yaml.dump(stream=f, data=yamlData)
+
 def colde2eTime(workflowName, testTime):
     colde2etimes = []
     for i in range(testTime):

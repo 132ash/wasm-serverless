@@ -20,6 +20,7 @@ class Parser:
         parent_cnt = dict()
         total = 0
         functions = self.yamlData['functions']
+        wasmMode = self.yamlData['wasmMode']
         haveEndFunction = False
         parent_cnt[functions[0]['name']] = 0
         sinkFuncs = []
@@ -71,7 +72,7 @@ class Parser:
                 nodes[next_node].prev.append(name)
         for sink in sinkFuncs:
             parent_cnt[sink] = 1
-        return component.Workflow(self.workflowName, start_functions, nodes, total, parent_cnt)
+        return component.Workflow(self.workflowName, start_functions, nodes, total, parent_cnt, wasmMode)
 
 
 if __name__ == "__main__":

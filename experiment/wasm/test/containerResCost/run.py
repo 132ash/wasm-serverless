@@ -31,8 +31,8 @@ def flush():
     os.system('docker rm -f $(docker ps -aq --filter label=dockerContainer)')
     killProcessesOnPort(port)
 
-def createContainer(funcName, type):
-    container = Container(funcName, port, type, client)
+def createContainer(funcName, type,wasmMode):
+    container = Container(funcName, port, type, client,wasmMode)
     container.startWorker()
     containerList[funcName].append(container)
 
@@ -45,10 +45,11 @@ def runFunction(funcName, param, runtimes, type):
 if __name__ == "__main__":
     print("running.")
     funcName = sys.argv[1]
-    mode = sys.argv[2]
-    runtimes = int(sys.argv[3])
-    param = ast.literal_eval(sys.argv[4])
+    container = sys.argv[2]
+    wasmMode =  sys.argv[3]
+    runtimes = int(sys.argv[4])
+    param = ast.literal_eval(sys.argv[5])
     flush()
-    createContainer(funcName, mode)
-    runFunction(funcName, param, runtimes,mode)
+    createContainer(funcName, container,wasmMode)
+    runFunction(funcName, param, runtimes,container)
     print("finished.")
