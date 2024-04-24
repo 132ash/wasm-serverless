@@ -16,7 +16,8 @@
 #define STATE_WRITE_FD 10714
 
 using json = nlohmann::json;
-std::string workerPath =  "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker/build/worker";
+// std::string workerPath =  "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker_INTERP/build/worker";
+std::string workerPath =  "/home/ash/wasm/wasm-serverless/cppWasmWorker/worker_JIT/build/worker";
 
 class Runner {
 public:

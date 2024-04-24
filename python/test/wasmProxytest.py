@@ -19,7 +19,7 @@ with open(f"/home/ash/wasm/wasm-serverless/python/setupScripts/text/{FILE_NAME}"
 # param = json.dumps({'slice':slice}) + '\n'
 
 funcName = 'spectral_norm'
-param = json.dumps({'number':200}) + '\n'
+param = json.dumps({'number':300}) + '\n'
 
 # funcName = 'binarytree'
 # param = json.dumps({'number':10}) + '\n'
@@ -101,7 +101,7 @@ def constructOutput(uintBits):
 
 testStatus()
 testinit()
-testRun(1)
+# testRun(1)
 # time.sleep(1)
 # testRun(2)
 # time.sleep(1)

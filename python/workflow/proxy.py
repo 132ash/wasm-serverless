@@ -83,6 +83,7 @@ def create():
     master = data.get('master', False)
     msgs = {}
     workerType = ''
+    wasmMode = ''
     if 'workflowName' in data:
         dispatcher.createManager(CONTROL_MODE, data['workflowName'], functionManager)
     if not master: # not create functon on master in mastersp.

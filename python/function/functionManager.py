@@ -45,11 +45,12 @@ class FunctionManager:
         if watch_container_num:
             gevent.spawn_later(watch_interval, self._watch_loop)
 
-    def createFunction(self,funcName,workerType='',heapSize=1024 * 1024 * 10, wasmMode='INTERP'):
+    def createFunction(self,funcName,workerType='',heapSize=1024 * 1024 * 10, wasmMode=''):
         if funcName not in self.functions:
             info = FunctionInfo(funcName)
             if workerType:
                info.containerType = workerType
+            if wasmMode:
                info.wasmMode = wasmMode
                info.wasmParam["wasmMode"] = wasmMode
             function = Function(info, self.client, self.portController, workerType, heapSize)

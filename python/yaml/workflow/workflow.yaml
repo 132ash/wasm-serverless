@@ -87,4 +87,4 @@ functions:
   runtime: 3.337860107421875e-06
   scale: 1
   source: END
-wasmMode: INTERP
+wasmMode: JIT

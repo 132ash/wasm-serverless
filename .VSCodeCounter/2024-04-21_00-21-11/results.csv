@@ -1,0 +1,182 @@
+"filename", "language", "YAML", "Python", "C++", "Docker", "Shell Script", "Properties", "CMake", "Makefile", "CMake Cache", "TypeScript", "C", "pip requirements", "WebAssembly Text Format", "JSON", "comment", "blank", "total"
+"/home/ash/wasm/wasm-serverless/python/config/config.py", "Python", 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 6, 31
+"/home/ash/wasm/wasm-serverless/python/config/workerNodeInfo.yaml", "YAML", 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 2, 13
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base/Dockerfile", "Docker", 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 9, 32
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base/container_config.py", "Python", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base/image_setup.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base/main.py", "Python", 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 10
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base/pip.conf", "Properties", 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base/proxy.py", "Python", 0, 56, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 24, 85
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c/Dockerfile", "Docker", 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 8, 30
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c/container_config.py", "Python", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c/image_setup.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c/pip.conf", "Properties", 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c/proxy.py", "Python", 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 18, 85
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/Dockerfile", "Docker", 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 7, 19
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeCache.txt", "CMake Cache", 0, 0, 0, 0, 0, 0, 0, 0, 342, 0, 0, 0, 0, 0, 0, 78, 420
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/3.29.0-rc1/CMakeCCompiler.cmake", "CMake", 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 18, 81
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/3.29.0-rc1/CMakeCXXCompiler.cmake", "CMake", 0, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 0, 0, 20, 92
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/3.29.0-rc1/CMakeSystem.cmake", "CMake", 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 6, 16
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/3.29.0-rc1/CompilerIdC/CMakeCCompilerId.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 682, 0, 0, 0, 61, 153, 896
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/3.29.0-rc1/CompilerIdCXX/CMakeCXXCompilerId.cpp", "C++", 0, 0, 667, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62, 150, 879
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/CMakeConfigureLog.yaml", "YAML", 540, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 28, 572
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/CMakeDirectoryInformation.cmake", "CMake", 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 5, 17
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/Makefile.cmake", "CMake", 0, 0, 0, 0, 0, 0, 59, 0, 0, 0, 0, 0, 0, 0, 0, 6, 65
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/proxy.dir/DependInfo.cmake", "CMake", 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 7, 24
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/proxy.dir/cmake_clean.cmake", "CMake", 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 12
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/proxy.dir/compiler_depend.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 3
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/server.dir/DependInfo.cmake", "CMake", 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 7, 24
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/server.dir/cmake_clean.cmake", "CMake", 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 12
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/CMakeFiles/server.dir/compiler_depend.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 3
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/Makefile", "Makefile", 0, 0, 0, 0, 0, 0, 0, 87, 0, 0, 0, 0, 0, 0, 48, 47, 182
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/build/cmake_install.cmake", "CMake", 0, 0, 0, 0, 0, 0, 46, 0, 0, 0, 0, 0, 0, 0, 0, 9, 55
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/image_setup.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/include/httplib.h", "C++", 0, 0, 7651, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 326, 1507, 9484
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/include/json.hpp", "C++", 0, 0, 17453, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4342, 2972, 24767
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/base_c_proxy_c/proxy.cpp", "C++", 0, 0, 86, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 100
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/docker_setup.sh", "Shell Script", 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 13
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/binarytree/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/binarytree/cfile/main.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 85, 0, 0, 0, 1, 30, 116
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/binarytree/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/binarytree_py/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/binarytree_py/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/binarytree_py/main.py", "Python", 0, 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 53
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/cal/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/cal/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/cal/main.py", "Python", 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/count/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/count/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/count/main.py", "Python", 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 15
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/cut/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/cut/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/cut/main.py", "Python", 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 10, 35
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/divide2/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/divide2/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/divide2/main.py", "Python", 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/exec.py", "Python", 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 7, 19
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/main.py", "Python", 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/matmul/Dockerfile", "Docker", 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/matmul/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/matmul/main.py", "Python", 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 15
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/merge/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/merge/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/merge/main.py", "Python", 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 24
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/prime/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/prime/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/prime/main.py", "Python", 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 12
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/reverse/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/reverse/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/reverse/main.py", "Python", 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/simple_func/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/simple_func/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/simple_func/main.py", "Python", 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/sleep/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/sleep/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/sleep/main.py", "Python", 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 6
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/spectral_norm/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/spectral_norm/cfile/main.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 65, 0, 0, 0, 1, 9, 75
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/spectral_norm/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/spectral_norm/main.py", "Python", 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 26
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/spectral_norm_py/Dockerfile", "Docker", 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/spectral_norm_py/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/spectral_norm_py/main.py", "Python", 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 41
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/string_fetch/Dockerfile", "Docker", 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/string_fetch/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/string_fetch/main.py", "Python", 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 27
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/sum/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/sum/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/sum/main.py", "Python", 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/times2/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/times2/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/times2/main.py", "Python", 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/wordcount/Dockerfile", "Docker", 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/wordcount/create_img.sh", "Shell Script", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/dockerFunctions/functions/wordcount/main.py", "Python", 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 9
+"/home/ash/wasm/wasm-serverless/python/function/Worker.py", "Python", 0, 162, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 29, 212
+"/home/ash/wasm/wasm-serverless/python/function/function.py", "Python", 0, 132, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36, 30, 198
+"/home/ash/wasm/wasm-serverless/python/function/functionInfo.py", "Python", 0, 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 37
+"/home/ash/wasm/wasm-serverless/python/function/functionManager.py", "Python", 0, 80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 13, 98
+"/home/ash/wasm/wasm-serverless/python/function/portController.py", "Python", 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 29
+"/home/ash/wasm/wasm-serverless/python/function/wasmProxy.py", "Python", 0, 112, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 21, 138
+"/home/ash/wasm/wasm-serverless/python/grouping/component.py", "Python", 0, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 39
+"/home/ash/wasm/wasm-serverless/python/grouping/grouping.py", "Python", 0, 175, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 33, 219
+"/home/ash/wasm/wasm-serverless/python/grouping/groupingRepository.py", "Python", 0, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 43
+"/home/ash/wasm/wasm-serverless/python/grouping/workflowParser.py", "Python", 0, 75, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 82
+"/home/ash/wasm/wasm-serverless/python/setupScripts/dbSetup.py", "Python", 0, 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 12, 62
+"/home/ash/wasm/wasm-serverless/python/setupScripts/db_setup.bash", "Shell Script", 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 20
+"/home/ash/wasm/wasm-serverless/python/setupScripts/requirements.txt", "pip requirements", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 8
+"/home/ash/wasm/wasm-serverless/python/storage/repoTest.py", "Python", 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 12
+"/home/ash/wasm/wasm-serverless/python/storage/repository.py", "Python", 0, 72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 90
+"/home/ash/wasm/wasm-serverless/python/test/postData.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1
+"/home/ash/wasm/wasm-serverless/python/test/primeTest.py", "Python", 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 11, 50
+"/home/ash/wasm/wasm-serverless/python/test/singleFuncTest.py", "Python", 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 9, 51
+"/home/ash/wasm/wasm-serverless/python/test/spectral_norm_test.py", "Python", 0, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 35
+"/home/ash/wasm/wasm-serverless/python/test/stringFetchTime.py", "Python", 0, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 9, 50
+"/home/ash/wasm/wasm-serverless/python/test/stringTest.py", "Python", 0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7, 39
+"/home/ash/wasm/wasm-serverless/python/test/wasmCountTest.py", "Python", 0, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 9, 55
+"/home/ash/wasm/wasm-serverless/python/test/wasmProxytest.py", "Python", 0, 73, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 16, 108
+"/home/ash/wasm/wasm-serverless/python/test/workflowContainerTest.py", "Python", 0, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 55
+"/home/ash/wasm/wasm-serverless/python/test/workflowTest.py", "Python", 0, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 7, 57
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/binarytree.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 444, 0, 0, 16, 460
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/binarytree.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 14, 55
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/build.sh", "Shell Script", 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 18
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/cal.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 7, 15
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/count.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 5, 5, 31
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/cut.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/divide2.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 1, 7
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/prime.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 3, 5, 27
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/resize.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 1, 7
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/reverse.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 1, 7
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/simple_func.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 4, 17
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/spectral_norm.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 1, 9, 38
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/string_fetch.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 4, 18
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/stringupperandcount.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 2, 3, 24
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/sum.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 1, 7
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/times2.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 1, 7
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/wasm_sleep.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 3, 19
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cVersion/wordcount.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 5, 27
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/cal.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 340, 0, 0, 5, 345
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/count.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 347, 0, 0, 5, 352
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/divide2.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 341, 0, 0, 5, 346
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/prime.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 344, 0, 0, 5, 349
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/resize.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 250, 0, 0, 2, 252
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/reverse.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 339, 0, 0, 5, 344
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/simple_func.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 302, 0, 0, 5, 307
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/spectral_norm.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 371, 0, 0, 11, 382
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/string_fetch.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 345, 0, 0, 5, 350
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/stringupperandcount.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 301, 0, 0, 2, 303
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/sum.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 342, 0, 0, 4, 346
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/times2.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 339, 0, 0, 5, 344
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/utils/cJSON.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2466, 0, 0, 0, 210, 454, 3130
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/utils/cJSON.h", "C++", 0, 0, 156, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 102, 43, 301
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/utils/spectral_norm_util.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 7, 40
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/utils/spectral_norm_util.h", "C++", 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 13
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/utils/wasmUtils.c", "C", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 122, 0, 0, 0, 0, 25, 147
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/utils/wasmUtils.h", "C++", 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 51
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/wasm_sleep.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 475, 0, 0, 10, 485
+"/home/ash/wasm/wasm-serverless/python/wasmFunctions/wordcount.wasm", "WebAssembly Text Format", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1610, 0, 0, 61, 1671
+"/home/ash/wasm/wasm-serverless/python/workflow/gateway.py", "Python", 0, 119, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 15, 139
+"/home/ash/wasm/wasm-serverless/python/workflow/mastersp.py", "Python", 0, 234, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 36, 276
+"/home/ash/wasm/wasm-serverless/python/workflow/proxy.py", "Python", 0, 117, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 23, 144
+"/home/ash/wasm/wasm-serverless/python/workflow/repository.py", "Python", 0, 70, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15, 86
+"/home/ash/wasm/wasm-serverless/python/workflow/workersp.py", "Python", 0, 217, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 35, 259
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/binarytree.yaml", "YAML", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 16
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/cal.yaml", "YAML", 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/count.yaml", "YAML", 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 14
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/cut.yaml", "YAML", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/divide2.yaml", "YAML", 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/merge.yaml", "YAML", 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/prime.yaml", "YAML", 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/reverse.yaml", "YAML", 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/simple_func.yaml", "YAML", 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 18
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/spectral_norm.yaml", "YAML", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 16
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/string_fetch.yaml", "YAML", 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/stringupperandcount.yaml", "YAML", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/sum.yaml", "YAML", 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/times2.yaml", "YAML", 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/wasm_sleep.yaml", "YAML", 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10
+"/home/ash/wasm/wasm-serverless/python/yaml/singleFunction/wordcount.yaml", "YAML", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15
+"/home/ash/wasm/wasm-serverless/python/yaml/workflow/wordcount.yaml", "YAML", 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 41
+"/home/ash/wasm/wasm-serverless/python/yaml/workflow/workflow.yaml", "YAML", 90, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 91
+"/home/ash/wasm/wasm-serverless/python/yaml/yamlTest.py", "Python", 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 14
+"Total", "-", 899, 2521, 26052, 68, 66, 4, 316, 87, 342, 4, 3684, 8, 6490, 1, 5359, 6413, 52314

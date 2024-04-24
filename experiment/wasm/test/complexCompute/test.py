@@ -123,7 +123,7 @@ def testCompute(testTime):
             'WASM jit': platforms['wasm jit'],
             'Docker': platforms['docker']
         })
-        df.to_csv('/'.join([resdir,"complexCompute",f'{func}_performance.csv']), index=False)
+        df.to_csv('/'.join([resdir,"complexCompute_SIMD",f'{func}_performance.csv']), index=False)
 # 画图
     # df = pd.DataFrame({'wasm': wasmStartLatencies, 'docker': dockerStartLatencies})
     # df.to_csv('/'.join([resdir,'coldstart(ms).csv']),  index=False)

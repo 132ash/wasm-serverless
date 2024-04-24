@@ -19,6 +19,10 @@ parameters = {
     "wordcount":{"workflowName":"wordcount", "parameters":{"cut":{"text_DB":FILE_NAME, "sliceNum":10}}},
     "workflow": {"workflowName":"workflow", "parameters":{"cal":{"arg1":2, "arg2":4},  "divide2":{"div":2.5}}}                       
             }
+wasmModes = ["INTERP","INTERP" ,"JIT"]
+containers = [ 'docker', 'wasm', 'wasm']
+testUnit = [ 'docker', 'wasm interpreter', 'wasm jit']
+
 
 
     
@@ -87,24 +91,26 @@ def warme2eTime(workflowName, testTime):
 
 def testContainerType(testTime):
     e2eTime = {workflow:{} for workflow in FORKFLOW_LIST}
-    containers = [ 'docker', 'wasm']
     timeFunc = {"cold":colde2eTime, "warm":warme2eTime}
     print("---------------------CONTAINER TYPE COST-----------------------------")
-    for container in containers:
+    for i, testunit in enumerate(testUnit):
+        wasmMode = wasmModes[i]
+        container = containers[i]
         for workflow in FORKFLOW_LIST:
+            changeWasmMode(workflow, wasmMode)
             if workflow == "wordcount":
                 changeWorkerType(workflow, 'count', container)
             else:
                 changeWorkerType(workflow, '', container)
-            e2eTime[workflow][container] = {}
+            e2eTime[workflow][testunit] = {}
             for startType in timeFunc.keys():
-                print(f"Testing {container} {startType}.")
-                e2eTime[workflow][container][startType] = timeFunc[startType](workflow, testTime)
+                print(f"Testing {testunit} {startType}.")
+                e2eTime[workflow][testunit][startType] = timeFunc[startType](workflow, testTime)
     for workflow in FORKFLOW_LIST:
         workflow_df = []
-        for container, startmode in e2eTime[workflow].items():
+        for testunit, startmode in e2eTime[workflow].items():
             tmp_df = {startType:times for startType, times in startmode.items()}
-            tmp_df["container"] = container
+            tmp_df["container"] = testunit
             workflow_df.append(pd.DataFrame(tmp_df))
         workflow_df_combined = pd.concat(workflow_df, ignore_index=True)
         workflow_df_combined.to_csv('/'.join([resdir,"containerType",f'{workflow}_result.csv']), index=False)
